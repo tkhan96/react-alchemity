@@ -1,0 +1,38 @@
+.footer {
+  padding: 2.5rem var(--base-padding); /* More padding */
+  background-color: var(--text-dark); /* Dark background */
+  color: var(--background-light); /* Light text */
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.companyName {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.copyright {
+  margin: 1rem 0;
+  color: var(--text-light); /* Slightly dimmer */
+  font-size: 0.85rem;
+}
+
+.trademarks {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.links a {
+  color: var(--background-light); /* Light links on dark background */
+  text-decoration: none;
+  margin: 0 0.75rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.links a:hover {
+  color: var(--secondary-color); /* Use accent color for hover */
+  text-decoration: underline;
+} 

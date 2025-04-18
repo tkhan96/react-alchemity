@@ -1,0 +1,76 @@
+.careersPage {
+  padding: var(--section-padding);
+  max-width: var(--container-width);
+  background-color:'#e8f5e9';
+  margin: 0 auto;
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.introText {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  color: var(--text-light);
+}
+
+.jobList {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden; /* Contain borders */
+}
+
+.jobPosting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--text-white);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.jobPosting:last-child {
+  border-bottom: none;
+}
+
+.jobPosting:hover {
+    background-color: var(--background-light);
+}
+
+.jobInfo {
+  flex-grow: 1;
+  padding-right: 1rem; /* Space between info and button */
+}
+
+.jobTitle {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.jobLocation {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.jobApply {
+  flex-shrink: 0;
+}
+
+.applyButton {
+  /* Uses global .button style */
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.noJobsText {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--text-light);
+  font-style: italic;
+} 

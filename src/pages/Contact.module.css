@@ -1,0 +1,67 @@
+.contactPage {
+  background-color: #e8f5e9; /* Light green background */
+  padding: var(--section-padding); /* Add padding */
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align content to the top */
+  gap: 2rem; /* Add space between child elements */
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 3rem;
+}
+
+.contactInfo {
+  flex: 1; /* Take up available space */
+  min-width: 300px; /* Minimum width before wrapping */
+}
+
+.contactInfo h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.infoBlock {
+  margin-bottom: 1.5rem;
+}
+
+.infoBlock h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.infoBlock p {
+  margin: 0 0 0.25rem 0; /* Adjust paragraph spacing */
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.infoBlock a {
+    /* Inherits global link styles */
+    word-break: break-all; /* Prevent long emails/links from overflowing */
+}
+
+.socialLink {
+    font-weight: 500;
+}
+
+.formWrapper {
+  flex: 1.5; /* Give form slightly more space if possible */
+  min-width: 300px;
+}
+
+/* Ensure ContactForm styles are scoped correctly if needed */
+.formWrapper > section { /* Target the section inside ContactForm */
+    margin-top: 0; /* Remove top margin if ContactForm section has it */
+    padding-top: 10px; /* Remove top padding if needed */
+    max-width: 100%; /* Allow it to fill wrapper */
+} 

@@ -1,0 +1,52 @@
+.heroSection {
+  position: relative; /* Needed for overlay positioning */
+  padding: 4rem var(--base-padding); /* Adjust padding as needed */
+  min-height: 250px; /* Example height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--primary-color); /* Default background if no image */
+  background-size: cover;
+  background-position: center;
+  color: var(--text-white); /* Default text color for hero */
+}
+
+/* Remove or disable the overlay */
+.overlay {
+  display: none; /* Disable the overlay */
+}
+
+.title {
+  position: relative; /* Ensure title is above overlay */
+  z-index: 2;
+  margin: 0;
+  font-size: 3rem; /* Adjust title size */
+  color: var(--text-white);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Optional text shadow */
+}
+
+.pageHero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px; /* Adjust height as needed */
+  background-size: cover; /* Ensure the image covers the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  color: var(--text-light); /* Ensure text is readable */
+  text-align: center;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+/* Media query example for smaller screens */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 200px;
+    padding: 3rem var(--base-padding);
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+}

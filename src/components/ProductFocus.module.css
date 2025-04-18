@@ -1,0 +1,105 @@
+.section {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f7e9d0; /* Light brown/tan background */
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.subTitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.sliderContainer {
+  width: 100%;
+  overflow: hidden; /* Hides overflowing content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Increased height to fit larger text and container */
+}
+
+.featureItem {
+  font-size: 3rem; /* Increased font size for larger text */
+  font-weight: 150;
+  color: #006400; /* Darker text for better contrast */
+  padding: 4rem; /* Increased padding for better spacing */
+  background-color: #f9f9f9;
+  border-radius: 12px; /* Slightly larger border radius */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for emphasis */
+  text-align: center;
+  min-width: 400px; /* Increased minimum width */
+  max-width: 800px; /* Increased maximum width */
+  position: relative;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slideNext {
+  animation: slideNextAnimation 0.5s ease-in-out;
+}
+
+.slidePrev {
+  animation: slidePrevAnimation 0.5s ease-in-out;
+}
+
+@keyframes slideNextAnimation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slidePrevAnimation {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.navButton {
+  background-color: #2E8B57;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px; /* Slightly larger button size */
+  height: 60px; /* Matches width for a perfect circle */
+  font-size: 2rem; /* Increased font size for the arrow */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navButton:hover {
+  background-color: #e65500;
+  transform: scale(1.1);
+}

@@ -1,0 +1,28 @@
+.sponsorsSection {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #f4f4f4; /* Light background for contrast */
+  }
+  
+  .sponsorsTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sponsorsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .sponsorLogo {
+    max-width: 150px;
+    max-height: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  
+  .sponsorLogo:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }

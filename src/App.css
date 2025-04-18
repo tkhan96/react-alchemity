@@ -1,38 +1,158 @@
+:root {
+  /* Updated Colors - More Green */
+  --primary-color: #006400; /* Dark Green */
+  --secondary-color: #2E8B57; /* Sea Green */
+  --accent-color: #90EE90; /* Light Green for accents/hovers */
+
+  /* Existing Colors */
+  --background-light: #f4fbf4; /* Very light green tint */
+  --background-medium: #e0f0e0; /* Light green tint */
+  --text-dark: #212529;
+  --text-light: #495057;
+  --text-white: #ffffff;
+  --border-color: #c8e6c9; /* Lighter green border */
+
+
+  /* Rest of variables */
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --base-padding: 1rem;
+  --section-padding: 3rem var(--base-padding);
+  --container-width: 1140px;
+  
+}
+
+/* Basic Reset & Body Styles */
+body {
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--text-white); /* Keep main background white for contrast */
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* App container */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  flex-grow: 1; /* Ensure main content takes available space */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Utility: Container */
+.container {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--base-padding);
+  padding-right: var(--base-padding);
+}
+
+/* Basic link styling */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0; /* Remove default top margin */
+  margin-bottom: 1rem;
+  font-weight: 100; /* Slightly bolder */
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; color: var(--primary-color); }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+
+/* Remove default list styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Remove default margins */
+}
+
+/* Basic Button Style */
+button,
+.button {
+  display: inline-block; /* Allows padding/margin */
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  text-decoration: none; /* For link styled as button */
+}
+
+button:hover,
+.button:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-white);
+  text-decoration: none;
+}
+
+/* Basic Form Styling */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+  background-color: var(--text-white);
+  background-clip: padding-box;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--secondary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(46, 139, 87, 0.25);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Style for the select dropdown arrow */
+select {
+  /* Update arrow color if needed - requires complex SVG or different approach */
+  /* background-image: url(...); /* Update SVG fill color if possible */
 }

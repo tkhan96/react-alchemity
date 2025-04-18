@@ -1,0 +1,68 @@
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--text-white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.founderCard {
+  /* Specific styles for founder cards if needed */
+}
+
+.advisorCard {
+    padding: 1rem; /* Slightly smaller padding for advisors */
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--border-color);
+}
+
+.name {
+  margin-bottom: 0.25rem;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.title {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.detailsButton {
+  /* Inherits from global .button, but can customize */
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+}
+
+.detailsButton:hover {
+    background-color: var(--primary-color);
+}
+
+.advisorCard .name {
+    font-size: 1.1rem;
+}
+
+.advisorCard .title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.advisorCard .image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.75rem;
+} 
