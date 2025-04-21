@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import Hero from '../components/Hero';
 import ProductFocus from '../components/ProductFocus';
 import Manufacturing from '../components/Manufacturing';
@@ -56,6 +57,25 @@ function Home() {
     border: '1px solid var(--border-color)',
   };
 
+  const ctaSectionStyle = {
+    backgroundColor: 'var(--primary-color)', // Use your primary color
+    color: 'white',
+    textAlign: 'center',
+    padding: '2rem',
+  };
+
+  const ctaButtonStyle = {
+    backgroundColor: 'white',
+    color: 'var(--primary-color)',
+    padding: '0.75rem 1.5rem',
+    fontSize: '150px',
+    fontWeight: 'bold',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    textDecoration: 'none',
+  };
+
   return (
     <>
       <Hero />
@@ -102,15 +122,24 @@ function Home() {
         </div>
       </section>
 
-
       {/* 3D Design and Reactor Image Section */}
       <section style={{ padding: '0' }}>
         <img src={plantImage} alt="3D Design of the Plant" style={{ width: '100%', height: 'auto', display: 'block' }} />
       </section>
+
       <ProductFocus />
 
       <MarketApplications />
+
+
       <Sponsors />
+      {/* Call to Action Section */}
+      <section style={ctaSectionStyle}>
+        <h1 style={{color : 'white'}}>Ready to Transform Your Energy Sector?</h1>
+        <Link to="/contact" style={ctaButtonStyle}>
+          CONTACT US
+        </Link>
+      </section>
     </>
   );
 }

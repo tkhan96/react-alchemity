@@ -8,7 +8,7 @@ import technologyBg from '../components/images/technology-hero.png'; // Adjust t
 const sectionStyle = {
   padding: 'var(--section-padding)',
   margin: '0 auto',
-  backgroundColor: '#e8f5e9',
+  backgroundColor: '#e8f5e9', // Light green background
   textAlign: 'center',
 };
 
@@ -50,28 +50,49 @@ function Technology() {
       <PageHero backgroundImageUrl={technologyBg} /> {/* Add PageHero */}
       <div style={sectionStyle}>
         {/* Heather Technology Section */}
-        <section>
-          <h2>Heather Technology</h2>
-          <p style={{ maxWidth: '800px', margin: '0 auto', marginBottom: '2rem' }}>
-            Our modular, scalable reactor system reduces installation cost by 60% and enables carbon-negative chemical production at scale. Minimal on-site integration means faster deployment and lower project risk.
-          </p>
-        </section>
+        <section
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '2rem',
+            padding: '2rem 1rem',
+          }}
+        >
+          {/* Text Content on the Left */}
+          <div
+            style={{
+              flex: '1',
+              minWidth: '500px',
+              maxWidth: '600px',
+              textAlign: 'left',
+              paddingLeft: '10rem', // Add padding to move text further from the edge
+            }}
+          >
+            <h1 style={{ fontSize: '100px', color: 'var(--primary-color)', marginBottom: '1rem' }}>
+              Heather™
+            </h1>
+          </div>
 
-        {/* Technology Image Section */}
-        <section style={imageSectionStyle}>
-          <img
-            src={technologyImage}
-            alt="Technology Overview"
-            style={fullWidthImageStyle}
-          />
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', marginTop: '1rem' }}>
-            Note: The image above showcases the core technology powering Alchemity's solutions.
-          </p>
+          {/* Image on the Right */}
+          <div>
+            <img
+              src={technologyImage}
+              alt="Technology Overview"
+              style={{
+                width: '1000px', // Adjust the width (e.g., 80% of the container)
+                height: 'auto', // Maintain aspect ratio
+                display: 'block', // Ensure the image is treated as a block element
+                backgroundColor: "#d0edd3"
+              }
+              } // Use the full-width image style
+            />
+          </div>
         </section>
 
         {/* Bullet Points as Cards */}
         <section style={{ marginTop: '4rem' }}>
-          <h2>Key Features</h2>
           <div style={gridStyle}>
             <div style={cardStyle}>
               <h3>Fast On-Site Assembly</h3>

@@ -24,31 +24,38 @@ const jobPostings = [
 function Careers() {
   return (
     <>
-      <PageHero backgroundImageUrl= {careersBg}/>
-      <div className={styles.careersPage}>
-        <p className={styles.introText}>
-          We're looking for passionate innovators to help us shape the future. 
-          Explore our open positions below.
-        </p>
+      <PageHero backgroundImageUrl={careersBg} />
 
-        {jobPostings.length > 0 ? (
-          <div className={styles.jobList}>
-            {jobPostings.map(job => (
-              <div key={job.id} className={styles.jobPosting}>
-                <div className={styles.jobInfo}>
-                   <h3 className={styles.jobTitle}>{job.title}</h3>
-                   <p className={styles.jobLocation}>{job.location}</p>
-                   {/* <p className={styles.jobDescription}>{job.description}</p> */}
+      {/* Full-width wrapper with light green background */}
+      <div style={{ backgroundColor: '#e8f5e9', minHeight: '100vh' }}>
+        <div className={styles.careersPage}>
+          <p className={styles.introText}>
+            We're looking for passionate innovators to help us shape the future. 
+            Explore our open positions below.
+          </p>
+
+          {jobPostings.length > 0 ? (
+            <div className={styles.jobList}>
+              {jobPostings.map((job) => (
+                <div key={job.id} className={styles.jobPosting}>
+                  <div className={styles.jobInfo}>
+                    <h3 className={styles.jobTitle}>{job.title}</h3>
+                    <p className={styles.jobLocation}>{job.location}</p>
+                  </div>
+                  <div className={styles.jobApply}>
+                    <a href={job.applyLink} className={`${styles.applyButton} button`}>
+                      Apply Now
+                    </a>
+                  </div>
                 </div>
-                <div className={styles.jobApply}>
-                   <a href={job.applyLink} className={`${styles.applyButton} button`}>Apply Now</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className={styles.noJobsText}>Currently, there are no open positions. Please check back later!</p>
-        )}
+              ))}
+            </div>
+          ) : (
+            <p className={styles.noJobsText}>
+              Currently, there are no open positions. Please check back later!
+            </p>
+          )}
+        </div>
       </div>
     </>
   );

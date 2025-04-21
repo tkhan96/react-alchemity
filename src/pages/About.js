@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import ProfileCard from '../components/ProfileCard';
 import PageHero from '../components/PageHero';
-import aboutBg from '../components/images/about-hero.png'; // Adjust the path as needed
+import aboutBg from '../components/images/careers-bg.png'; // Adjust the path as needed
 // Import founder images
 import founder1 from '../components/images/founder1.jpg';
 import founder2 from '../components/images/founder2.jpg';
@@ -97,7 +97,7 @@ function About() {
 
   return (
     <>
-      <PageHero backgroundImageUrl={aboutBg}/>
+      <PageHero title={'Placeholder'} backgroundImageUrl={aboutBg}/>
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#e8f5e9'}}>
         <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Founders</h2>
         <div style={founderGridStyle}>

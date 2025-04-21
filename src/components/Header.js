@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import styles from './Header.module.css'; // Import CSS module
 import logo from './images/logo.png'; // Updated path to the logo
+
 function Header() {
   return (
     <header className={styles.header}>
@@ -19,11 +20,15 @@ function Header() {
           <li className={styles.navItem}><Link to="/technology" className={styles.navLink}>Technology</Link></li>
           <li className={styles.navItem}><Link to="/about" className={styles.navLink}>About</Link></li>
           <li className={styles.navItem}><Link to="/careers" className={styles.navLink}>Careers</Link></li>
-          <li className={styles.navItem}><Link to="/contact" className={styles.navLink}>Contact Us</Link></li> {/* Renamed Get in touch -> Contact Us */}
+          <li className={styles.navItem}>
+            <Link to="/contact" className={`${styles.navLink} ${styles.contactButton}`}>
+              Contact Us
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
   );
 }
 
-export default Header; 
+export default Header;

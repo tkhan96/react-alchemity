@@ -31,7 +31,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   color: var(--text-dark);
-  background-color: var(--text-white); /* Keep main background white for contrast */
+  background-color: '#e8f5e9'
 }
 
 
@@ -53,11 +53,12 @@ main {
 
 /* Utility: Container */
 .container {
-  max-width: var(--container-width);
+  max-width: "var(--container-width)";
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--base-padding);
   padding-right: var(--base-padding);
+  background-color: '#e8f5e9'
 }
 
 /* Basic link styling */
@@ -91,7 +92,7 @@ ul {
   padding: 0;
   margin: 0; /* Remove default margins */
 }
-
+/* c7eaca */
 /* Basic Button Style */
 button,
 .button {

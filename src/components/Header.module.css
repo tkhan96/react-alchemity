@@ -16,7 +16,7 @@
   align-items: center;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--base-padding);
+  padding: 0; /* Remove padding to align logo closer to the edges */
 }
 
 .logo {
@@ -24,6 +24,7 @@
   font-size: 1.75rem; /* Larger logo */
   color: var(--text-white); /* Ensure logo text is readable */
   text-decoration: none;
+  margin-left: 1rem; /* Add a small margin to avoid touching the edge */
 }
 
 .navList {
@@ -48,4 +49,17 @@
 .navLink:hover {
   color: #a9a9a9; /* Gray for hover effect */
   text-decoration: none; /* Override global underline */
+}
+
+.contactButton {
+  background-color: var(--primary-color); /* Green background */
+  color: white; /* White text */
+  padding: 0.5rem 1rem; /* Add padding for the button */
+  border-radius: 20px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.contactButton:hover {
+  background-color: #006400; /* Darker green on hover */
 }

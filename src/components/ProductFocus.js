@@ -61,6 +61,17 @@ function ProductFocus() {
           &#8594; {/* Right Arrow */}
         </button>
       </div>
+
+      {/* Dots for Navigation */}
+      <div className={styles.dotsContainer}>
+        {features.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.dot} ${currentIndex === index ? styles.activeDot : ''}`}
+            onClick={() => setCurrentIndex(index)} // Allow clicking on dots to navigate
+          ></span>
+        ))}
+      </div>
     </section>
   );
 }

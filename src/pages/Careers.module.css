@@ -1,7 +1,7 @@
 .careersPage {
   padding: var(--section-padding);
   max-width: var(--container-width);
-  background-color:'#e8f5e9';
+  background-color: #e8f5e9; /* Corrected syntax */
   margin: 0 auto;
 }
 

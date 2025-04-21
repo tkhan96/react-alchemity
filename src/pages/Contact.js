@@ -18,22 +18,23 @@ function Contact() {
             <p>Have questions or want to discuss a project? Reach out to us.</p>
             
             <div className={styles.infoBlock}>
-              <h3>Address</h3>
+              <h2>Address</h2>
               <p>
-              9469 Lovat Road <br />
-              Fulton, Maryland, 20759, <br />
-              United States <br />
+              4467 TECHNOLOGY DRIVE <br/>
+              ALCHEMITY LLC, SUITE 2116 <br/>
+              COLLEGE PARK, MD 20742 <br/>
+              United States <br/>
               <a href="https://goo.gl/maps/4tq8g4J6v2s" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
               </p>
             </div>
 
             <div className={styles.infoBlock}>
-              <h3>Email</h3>
+              <h2>Email</h2>
               <a href="mailto:resources@alchemity.tech">resources@alchemity.tech</a>
             </div>
 
             <div className={styles.infoBlock}>
-               <h3>Connect</h3>
+               <h2>Connect</h2>
                <p>Follow us on LinkedIn (our primary social channel):</p>
                <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Alchemity on LinkedIn</a> {/* Use valid URL */} 
              </div>
