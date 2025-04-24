@@ -1,22 +1,27 @@
 .header {
   padding: 1rem 0;
-  margin: 0; /* Remove any default margin */
+  margin: 0;
   background-color: #000000; /* Black background */
   color: var(--text-white); /* Ensure text is readable */
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Stick to the top of the page */
+  z-index: 1000; /* Ensure it stays above other elements */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
 }
 
 .logoImage {
   height: 50px; /* Adjust height as needed */
-  width: auto;  /* Maintain aspect ratio */
+  width: auto; /* Maintain aspect ratio */
+  margin-left: 0; /* Remove any default margin */
 }
 
 .nav {
   display: flex;
   justify-content: space-between; /* Pushes logo and links apart */
   align-items: center;
-  max-width: var(--container-width);
+  max-width: none;
   margin: 0 auto;
-  padding: 0; /* Remove padding to align logo closer to the edges */
+  padding: 0 1rem; /* Remove padding to align logo closer to the edges */
 }
 
 .logo {
@@ -24,13 +29,13 @@
   font-size: 1.75rem; /* Larger logo */
   color: var(--text-white); /* Ensure logo text is readable */
   text-decoration: none;
-  margin-left: 1rem; /* Add a small margin to avoid touching the edge */
+  margin-left: 0; /* Remove left margin to align closer to the edge */
 }
 
 .navList {
   list-style: none;
   display: flex;
-  gap: 1.5rem; /* Increased gap */
+  gap: 2rem; /* Increased gap between nav items */
   padding: 0;
   margin: 0;
 }
@@ -54,12 +59,13 @@
 .contactButton {
   background-color: var(--primary-color); /* Green background */
   color: white; /* White text */
-  padding: 0.5rem 1rem; /* Add padding for the button */
+  padding: 0.5rem 1.5rem; /* Add padding for the button */
   border-radius: 20px; /* Rounded corners */
   text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
 }
 
 .contactButton:hover {
   background-color: #006400; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }

@@ -2,14 +2,14 @@ import React from 'react';
 import ContactForm from '../components/ContactForm';
 import styles from './Contact.module.css'; // Create this CSS module
 import PageHero from '../components/PageHero'; // Import PageHero
-import contactBg from '../components/images/contact-hero.png'; // Placeholder for background image
+import contactBg from '../components/images/contact-us-bg-2.jpg'; // Placeholder for background image
 function Contact() {
   // Placeholder URL for LinkedIn to satisfy linting
   const linkedInUrl = 'https://www.linkedin.com/company/alchemity/'; 
 
   return (
     <>
-      <PageHero backgroundImageUrl={contactBg}  // Placeholder for background image
+      <PageHero title={'Placeholder'} backgroundImageUrl={contactBg}  // Placeholder for background image
 />
       <div className={styles.contactPage}>
         <div className={styles.contentWrapper}>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import ProfileCard from '../components/ProfileCard';
 import PageHero from '../components/PageHero';
-import aboutBg from '../components/images/careers-bg.png'; // Adjust the path as needed
+import aboutBg from '../components/images/about.bg.png'; // Adjust the path as needed
 // Import founder images
 import founder1 from '../components/images/founder1.jpg';
 import founder2 from '../components/images/founder2.jpg';
@@ -22,6 +22,7 @@ const founders = [
       'Past President, The Electrochemical Society',
     ],
     imageUrl: founder1,
+    linkedInUrl: 'https://www.linkedin.com/in/ericwashman', // Add LinkedIn URL
   },
   {
     id: 2,
@@ -30,9 +31,10 @@ const founders = [
     bio: [
       'Former Interim CEO, LG Fuel Cell Systems, Inc.',
       'President SOFCO-EFS Holdings, LLC.',
-      'Vice President Government Programs Rolls-Royce Fuel Cell Systems.'
+      'Vice President Government Programs Rolls-Royce Fuel Cell Systems.',
     ],
     imageUrl: founder2,
+    linkedInUrl: 'https://www.linkedin.com/in/rogermckain', // Add LinkedIn URL
   },
   {
     id: 3,
@@ -40,9 +42,10 @@ const founders = [
     title: 'CTO',
     bio: [
       '15+ years Development and Scaleup of Clean Energy Technologies',
-      'Lawrence Berkeley National Laboratory Affiliate'
+      'Lawrence Berkeley National Laboratory Affiliate',
     ],
     imageUrl: founder3,
+    linkedInUrl: 'https://www.linkedin.com/in/emirdogdibegovic', // Add LinkedIn URL
   },
 ];
 
@@ -107,6 +110,7 @@ function About() {
               name={founder.name}
               title={founder.title}
               imageUrl={founder.imageUrl} // Pass the image URL
+              linkedInUrl={founder.linkedInUrl} // Pass the LinkedIn URL if available
               onClick={() => handleOpenModal(founder)}
             />
           ))}

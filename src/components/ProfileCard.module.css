@@ -1,68 +1,64 @@
-.card {
-  border: 1px solid var(--border-color);
+.profileCard {
+  background-color: var(--background-light);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
-  background-color: var(--text-white);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.founderCard {
-  /* Specific styles for founder cards if needed */
-}
-
-.advisorCard {
-    padding: 1rem; /* Slightly smaller padding for advisors */
-}
-
-.image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%; /* Circular image */
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 3px solid var(--border-color);
 }
 
-.name {
-  margin-bottom: 0.25rem;
+.profileName {
   font-size: 1.25rem;
-  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.title {
-  color: var(--text-light);
-  font-size: 0.95rem;
+.profileTitle {
+  font-size: 1rem;
+  color: var(--text-dark);
   margin-bottom: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .detailsButton {
-  /* Inherits from global .button, but can customize */
-  font-size: 0.9rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
   padding: 0.5rem 1rem;
-  background-color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
 .detailsButton:hover {
-    background-color: var(--primary-color);
+  background-color: #006400; /* Darker green */
 }
 
-.advisorCard .name {
-    font-size: 1.1rem;
+.linkedInButton {
+  background-color: #0077b5; /* LinkedIn blue */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.advisorCard .title {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+.linkedInButton:hover {
+  background-color: #005582; /* Darker LinkedIn blue */
 }
-.advisorCard .image {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 0.75rem;
-} 

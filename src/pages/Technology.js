@@ -3,7 +3,7 @@ import PageHero from '../components/PageHero'; // Import PageHero
 
 // Import the technology image
 import technologyImage from '../components/images/technology.png'; // Adjust the path as needed
-import technologyBg from '../components/images/technology-hero.png'; // Adjust the path as needed
+import technologyBg from '../components/images/technology-bg-2.jpg'; // Adjust the path as needed
 // Inline styles consistent with the Home page
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -47,7 +47,7 @@ const imageSectionStyle = {
 function Technology() {
   return (
     <>
-      <PageHero backgroundImageUrl={technologyBg} /> {/* Add PageHero */}
+      <PageHero title={'Placeholder'} backgroundImageUrl={technologyBg} /> {/* Add PageHero */}
       <div style={sectionStyle}>
         {/* Heather Technology Section */}
         <section

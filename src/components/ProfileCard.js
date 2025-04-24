@@ -1,24 +1,29 @@
 import React from 'react';
-import styles from './ProfileCard.module.css';
+import styles from './ProfileCard.module.css'; // Import CSS module
 
-function ProfileCard({ name, title, imageUrl, onClick, isAdvisor = false }) {
+function ProfileCard({ name, title, imageUrl, onClick, linkedInUrl }) {
   return (
-    <div className={`${styles.card} ${isAdvisor ? styles.advisorCard : styles.founderCard}`}>
-      <img 
-        src={imageUrl || 'https://via.placeholder.com/150/2E8B57/FFFFFF?text=Profile'} // Placeholder image 
-        alt={`${name} profile`}
-        className={styles.image}
-      />
-      <h3 className={styles.name}>{name}</h3>
-      <p className={styles.title}>{title}</p>
-      {!isAdvisor && (
-          <button onClick={onClick} className={styles.detailsButton}>
-            View Details
-          </button>
-      )}
-      {/* Add LinkedIn icon/link if available */}
+    <div className={styles.profileCard}>
+      <img src={imageUrl} alt={name} className={styles.profileImage} />
+      <h3 className={styles.profileName}>{name}</h3>
+      <p className={styles.profileTitle}>{title}</p>
+      <div className={styles.buttonContainer}>
+        <button onClick={onClick} className={styles.detailsButton}>
+          View Details
+        </button>
+        {linkedInUrl && (
+          <a
+            href={linkedInUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.linkedInButton}
+          >
+            LinkedIn
+          </a>
+        )}
+      </div>
     </div>
   );
 }
 
-export default ProfileCard; 
+export default ProfileCard;
