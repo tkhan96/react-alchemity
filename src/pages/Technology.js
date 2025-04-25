@@ -1,11 +1,11 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
-import technologyBg from '../components/images/technology-hero.png';
+import reactor from '../components/images/Reactor.png';
 import rd from '../components/images/rd.png';
 import validated from '../components/images/ExtEval.png';
 import scalable from '../components/images/scalable.png';
-import reactor from '../components/images/Reactor.png';
+import placeholder from '../components/images/placeholder.webp';
 import facility from '../components/images/facility.png';
 
 const sectionStyle = {
@@ -85,7 +85,23 @@ const facilityImageStyle = {
 function Technology() {
   return (
     <>
-      <PageHero backgroundImageUrl={technologyBg} />
+      <PageHero 
+        backgroundImageUrl={reactor}
+        title="Technology"
+        titleStyle={{
+          color: '#ffffff',
+          fontSize: '64px',
+          fontWeight: '400',
+          textAlign: 'center',
+          marginBottom: '1rem',
+        }}
+        imageStyle={{
+          width: '80%',
+          height: 'auto',
+          margin: '0 auto',
+          display: 'block',
+        }}
+      />
       <div style={sectionStyle}>
         <h1 style={titleStyle}>Underlying Magic</h1>
         
@@ -118,11 +134,10 @@ function Technology() {
           </div>
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '4rem'}}>MULTIFUNCTIONAL <span style={{ fontStyle: 'italic' }}>GTChem</span> PLATFORM</h1>
-        <img src={reactor} alt="Reactor" style={reactorImageStyle} />
-
         <h1 style={{...titleStyle, marginTop: '4rem'}}>FROM NATURAL GAS TO CHEMICALS</h1>
         <img src={facility} alt="Facility" style={facilityImageStyle} />
+        <h1 style={{...titleStyle, marginTop: '4rem'}}>MULTIFUNCTIONAL <span style={{ fontStyle: 'italic' }}>GTChem</span> PLATFORM</h1>
+        <img src={placeholder} alt="Placeholder" style={reactorImageStyle} />
       </div>
     </>
   );

@@ -4,6 +4,11 @@
   color: var(--background-light); /* Light text */
   text-align: center;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.footer:hover {
+  background-color: #121212;
 }
 
 .companyName {
