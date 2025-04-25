@@ -12,7 +12,7 @@
 }
 
 .modalContent {
-  background-color: white;
+  background-color: #121212;
   padding: 2rem;
   border-radius: 8px;
   width: 90%;
@@ -25,15 +25,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #45a10f;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
 
 .modalTitle {
   margin: 0;
-  color: var(--primary-color);
+  color: #ffffff;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .closeButton {
@@ -42,12 +43,13 @@
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
-  color: var(--text-light);
+  color: #ffffff;
 }
 
 .modalBody {
   margin-bottom: 1.5rem;
   line-height: 1.7;
+  color: #ffffff;
 }
 
 .modalFooter {

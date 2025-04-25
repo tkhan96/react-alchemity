@@ -1,8 +1,14 @@
 :root {
   /* Updated Colors - More Green */
-  --primary-color: #006400; /* Dark Green */
-  --secondary-color: #2E8B57; /* Sea Green */
-  --accent-color: #90EE90; /* Light Green for accents/hovers */
+  --primary-color: #45a10f;
+  --secondary-color: #006400;
+  --accent-color: #ffd700;
+  --text-color: #333;
+  --background-color: #fff;
+  --container-width: 1200px;
+  --section-padding: 4rem;
+  --header-height: 80px;
+  --footer-height: 60px;
 
   /* Existing Colors */
   --background-light: #f4fbf4; /* Very light green tint */

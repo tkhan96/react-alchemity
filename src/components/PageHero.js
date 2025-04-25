@@ -7,8 +7,11 @@ function PageHero({ title, backgroundImageUrl }) {
     backgroundImage: backgroundImageUrl ? `url(${backgroundImageUrl})` : 'none',
   };
 
+  // Use aboutHeroSection class for About page
+  const sectionClass = title === 'About Us' ? styles.aboutHeroSection : styles.heroSection;
+
   return (
-    <section className={styles.heroSection} style={heroStyles}>
+    <section className={sectionClass} style={heroStyles}>
       <div className={styles.overlay}></div> {/* Optional overlay for text readability */}
       <h1 className={styles.title}>{title}</h1>
     </section>

@@ -17,10 +17,9 @@ const sectionStyle = {
 
 const titleStyle = {
   fontSize: '40px',
-  color: '#52c215',
+  color: '#45a10f',
   marginBottom: '3rem',
-  textAlign: 'left',
-  paddingLeft: '4rem',
+  textAlign: 'center',
   fontWeight: '200',
 };
 
@@ -51,10 +50,10 @@ const imageStyle = {
 const cardTitleStyle = {
   fontSize: '18px',
   fontWeight: '600',
-  color: '#52c215',
+  color: '#45a10f',
   marginBottom: '1rem',
   textTransform: 'uppercase',
-  textAlign: 'left',
+  textAlign: 'center',
 };
 
 const cardTextStyle = {

@@ -1,26 +1,31 @@
 import React from 'react';
 import styles from './ProfileCard.module.css'; // Import CSS module
 
-function ProfileCard({ name, title, imageUrl, onClick, linkedInUrl }) {
+function ProfileCard({ name, title, imageUrl, onClick, linkedInUrl, blurb, isAdvisor, isEric }) {
   return (
-    <div className={styles.profileCard}>
-      <img src={imageUrl} alt={name} className={styles.profileImage} />
-      <h3 className={styles.profileName}>{name}</h3>
-      <p className={styles.profileTitle}>{title}</p>
-      <div className={styles.buttonContainer}>
-        <button onClick={onClick} className={styles.detailsButton}>
-          View Details
-        </button>
-        {linkedInUrl && (
-          <a
-            href={linkedInUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.linkedInButton}
-          >
-            LinkedIn
-          </a>
-        )}
+    <div className={`${styles.founderContainer} ${isAdvisor ? styles.advisorContainer : ''} ${isEric ? styles.ericContainer : ''}`}>
+      <div className={styles.imageWrapper}>
+        <img src={imageUrl} alt={name} className={styles.founderImage} />
+      </div>
+      <div className={styles.founderInfo}>
+        <h3 className={styles.founderName}>{name}</h3>
+        <p className={`${styles.founderTitle} ${isAdvisor ? styles.advisorTitle : ''}`}>{title}</p>
+        <p className={`${styles.founderBlurb} ${isEric ? styles.ericBlurb : ''}`}>{blurb}</p>
+        <div className={styles.buttonContainer}>
+          <button onClick={onClick} className={styles.detailsButton}>
+            View Details
+          </button>
+          {linkedInUrl && (
+            <a
+              href={linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.linkedInButton}
+            >
+              LinkedIn
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

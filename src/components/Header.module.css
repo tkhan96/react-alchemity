@@ -1,9 +1,12 @@
 .header {
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   margin: 0;
   background-color: #000000; /* Black background */
   color: var(--text-white); /* Ensure text is readable */
   transition: background-color 0.3s ease;
+  height: 68px; /* Added fixed height */
+  display: flex;
+  align-items: center;
 }
 
 .header:hover {
@@ -11,9 +14,10 @@
 }
 
 .logoImage {
-  height: 50px; /* Adjust height as needed */
+  height: 40px; /* Reduced from 50px */
   width: auto; /* Maintain aspect ratio */
   margin-left: 0; /* Remove any default margin */
+  object-fit: contain;
 }
 
 .nav {
@@ -23,14 +27,19 @@
   max-width: none;
   margin: 0 auto;
   padding: 0 1rem; /* Remove padding to align logo closer to the edges */
+  width: 100%;
+  height: 100%;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 1.75rem; /* Larger logo */
+  font-size: 1.5rem; /* Reduced from 1.75rem */
   color: var(--text-white); /* Ensure logo text is readable */
   text-decoration: none;
-  margin-left: 0; /* Remove left margin to align closer to the edge */
+  margin-left: 1rem; /* Match the right margin of navList */
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navList {
@@ -39,10 +48,15 @@
   gap: 2rem; /* Increased gap between nav items */
   padding: 0;
   margin: 0;
+  margin-right: 1.3rem; /* Add space on the right side */
+  height: 100%;
+  align-items: center;
 }
 
 .navItem {
-  /* No specific styles needed here currently */
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navLink {
@@ -50,6 +64,9 @@
   color: var(--text-white); /* Ensure links are readable */
   font-weight: 500;
   transition: color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navLink:hover {
@@ -58,15 +75,19 @@
 }
 
 .contactButton {
-  background-color: var(--primary-color); /* Green background */
-  color: white; /* White text */
-  padding: 0.5rem 1.5rem; /* Add padding for the button */
-  border-radius: 20px; /* Rounded corners */
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  height: auto; /* Remove the 100% height */
+  min-height: 36px; /* Set a minimum height for the button */
 }
 
 .contactButton:hover {
-  background-color: #006400; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #006400;
+  color: white;
 }
