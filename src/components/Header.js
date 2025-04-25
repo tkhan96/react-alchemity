@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
 import styles from './Header.module.css'; // Import CSS module
-import logo from './images/logo.png'; // Updated path to the logo
+import logo from './images/alchemity_logo_w_text.png'; // Updated path to the logo
 
 function Header() {
   return (

@@ -1,63 +1,39 @@
 .marketApplicationsSection {
-  padding: var(--section-padding);
-  background-color: var(--background-light);
+  padding: 2rem 1rem;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center items vertically */
+  align-items: flex-start;
   gap: 2rem;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  min-height: 400px; /* Ensure enough height for vertical centering */
 }
 
 .textContainer {
   flex: 1;
-  text-align: left;
-}
-
-.textContainer h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.textContainer p {
-  font-size: 1.2rem;
-  color: var(--text-dark);
+  max-width: 400px;
 }
 
 .industriesGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
-  gap: 1.5rem;
-  flex: 1;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 1.5rem; /* Space between boxes */
+  flex: 2;
 }
 
 .industryBox {
-  border: 1px solid #d3e2d8; /* Light green border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 1.5rem;
-  background-color: #ffffff; /* White background */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: var(--background-light);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.industryBox:hover {
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Slightly larger shadow on hover */
-}
-
-.industryTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #006400; /* Dark green text */
-  margin-bottom: 0.5rem;
-}
-
-.industryDescription {
-  font-size: 1rem;
-  color: #555555; /* Dark gray text for description */
-  line-height: 1.5;
+.industryImage {
+  width: 100px; /* Fixed width */
+  height: 100px; /* Fixed height to make it square */
+  object-fit: cover; /* Ensure the image scales properly */
+  border-radius: 8px; /* Optional: Add rounded corners */
 }

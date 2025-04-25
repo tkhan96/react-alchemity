@@ -133,13 +133,7 @@ function Home() {
 
 
       <Sponsors />
-      {/* Call to Action Section */}
-      <section style={ctaSectionStyle}>
-        <h1 style={{color : 'white'}}>Ready to Transform Your Energy Sector?</h1>
-        <Link to="/contact" style={ctaButtonStyle}>
-          CONTACT US
-        </Link>
-      </section>
+      
     </>
   );
 }

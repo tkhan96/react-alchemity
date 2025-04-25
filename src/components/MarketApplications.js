@@ -1,6 +1,12 @@
 import React from 'react';
 import styles from './MarketApplications.module.css'; // Import the CSS module
 
+// Import images for each industry
+import financeImage from './images/finance-icon.png'; // Replace with the actual path to your image
+import healthcareImage from './images/health-icon.png'; // Replace with the actual path to your image
+import manufacturingImage from './images/manufacturing-icon.png'; // Replace with the actual path to your image
+import retailImage from './images/shopping-icon.png'; // Replace with the actual path to your image
+
 function MarketApplications() {
   return (
     <section className={styles.marketApplicationsSection}>
@@ -16,28 +22,32 @@ function MarketApplications() {
         {/* Right Side: Industry Boxes */}
         <div className={styles.industriesGrid}>
           <div className={styles.industryBox}>
-            <h3 className={styles.industryTitle}>Finance</h3>
-            <p className={styles.industryDescription}>
-              Modernizing financial systems for security and efficiency...
-            </p>
+            <img
+              src={financeImage}
+              alt="Finance"
+              className={styles.industryImage}
+            />
           </div>
           <div className={styles.industryBox}>
-            <h3 className={styles.industryTitle}>Healthcare</h3>
-            <p className={styles.industryDescription}>
-              Enhancing patient care with innovative technology solutions...
-            </p>
+            <img
+              src={healthcareImage}
+              alt="Healthcare"
+              className={styles.industryImage}
+            />
           </div>
           <div className={styles.industryBox}>
-            <h3 className={styles.industryTitle}>Manufacturing</h3>
-            <p className={styles.industryDescription}>
-              Streamlining production processes for greater efficiency...
-            </p>
+            <img
+              src={manufacturingImage}
+              alt="Manufacturing"
+              className={styles.industryImage}
+            />
           </div>
           <div className={styles.industryBox}>
-            <h3 className={styles.industryTitle}>Retail</h3>
-            <p className={styles.industryDescription}>
-              Transforming the retail experience with cutting-edge tools...
-            </p>
+            <img
+              src={retailImage}
+              alt="Retail"
+              className={styles.industryImage}
+            />
           </div>
         </div>
       </div>

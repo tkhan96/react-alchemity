@@ -17,12 +17,26 @@ function Hero() {
       {/* Overlay and Content */}
       <div className={styles.heroOverlay}></div>
       <div className={styles.heroContent}>
-        <h1 className={styles.headline}>Alchemity: Revolutionizing Clean Chemicals</h1>
+        <h1 className={styles.headline}>Revolutionizing Clean Chemicals</h1>
         <p className={styles.subHeadline}>
           Scaling carbon-negative, cost-competitive chemical production with modular reactor systems.
         </p>
-        {/* Use Link to navigate to the Technology page */}
-        <Link to="/technology" className={styles.ctaButton}>Explore Our Technology</Link>
+
+        {/* Mission and Vision Section */}
+        <div className={styles.missionVisionContainer}>
+          <div className={styles.mission}>
+            <h2>Our Mission</h2>
+            <p>
+              To empower industries with innovative, sustainable solutions that drive growth while protecting the planet.
+            </p>
+          </div>
+          <div className={styles.vision}>
+            <h2>Our Vision</h2>
+            <p>
+              To lead the global transition to clean chemical production, creating a future where sustainability and profitability coexist.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

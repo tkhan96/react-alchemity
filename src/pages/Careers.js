@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Careers.module.css';
 import PageHero from '../components/PageHero'; // Import PageHero
-import careersBg from '../components/images/careers-hero.png'; // Placeholder background image  
+import careersBg from '../components/images/careers-bg.png'; // Placeholder background image  
 // Placeholder job data
 const jobPostings = [
   {
@@ -24,7 +24,7 @@ const jobPostings = [
 function Careers() {
   return (
     <>
-      <PageHero backgroundImageUrl={careersBg} />
+      <PageHero title={'Placeholder'} backgroundImageUrl={careersBg} />
 
       {/* Full-width wrapper with light green background */}
       <div style={{ backgroundColor: '#e8f5e9', minHeight: '100vh' }}>
