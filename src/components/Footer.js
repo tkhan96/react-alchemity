@@ -18,7 +18,7 @@ function Footer() {
       <div className={styles.links}>
         <a href="#terms">Terms & Conditions</a>
         <a href="#privacy">Privacy Policy</a>
-        <a href="#linkedin">Follow us on Linkedin</a>
+        <a href="https://www.linkedin.com/company/alchemity/" target="_blank" rel="noopener noreferrer">Follow us on Linkedin</a>
       </div>
       {/* Optional: Repeat main nav links here */}
     </footer>

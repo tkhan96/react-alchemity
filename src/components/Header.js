@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom'; // Import Link
 import styles from './Header.module.css'; // Import CSS module
 import logo from './images/alchemity_logo_w_text.png'; // Updated path to the logo
 
+const contactButtonStyle = {
+  backgroundColor: '#0077b5',
+  color: 'white',
+  padding: '0.5rem 1rem',
+  borderRadius: '4px',
+  textDecoration: 'none',
+  transition: 'background-color 0.3s ease',
+};
+
+contactButtonStyle[':hover'] = {
+  backgroundColor: '#005a8c',  // Darker shade of blue
+};
+
 function Header() {
   return (
     <header className={styles.header}>

@@ -34,7 +34,7 @@
 }
 
 .detailsButton {
-  background-color: var(--primary-color);
+  background-color: #0077b5;  /* Blue color */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -45,11 +45,11 @@
 }
 
 .detailsButton:hover {
-  background-color: #006400; /* Darker green */
+  background-color: #005a8c;  /* Darker blue on hover */
 }
 
 .linkedInButton {
-  background-color: #0077b5;
+  background-color: #45a10f;  /* Green color */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -61,7 +61,7 @@
 }
 
 .linkedInButton:hover {
-  background-color: #005a8c;
+  background-color: #3a8c0d;  /* Darker green on hover */
   text-decoration: none;
   color: white;
 }
@@ -161,7 +161,7 @@
 }
 
 .detailsButton {
-  background-color: var(--primary-color);
+  background-color: #0077b5;  /* Blue color */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -172,11 +172,11 @@
 }
 
 .detailsButton:hover {
-  background-color: #006400;
+  background-color: #005a8c;  /* Darker blue on hover */
 }
 
 .linkedInButton {
-  background-color: #0077b5;
+  background-color: #45a10f;  /* Green color */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -188,7 +188,7 @@
 }
 
 .linkedInButton:hover {
-  background-color: #005a8c;
+  background-color: #3a8c0d;  /* Darker green on hover */
   text-decoration: none;
   color: white;
 }

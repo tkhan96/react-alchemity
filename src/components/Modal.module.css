@@ -15,8 +15,8 @@
   background-color: #121212;
   padding: 2rem;
   border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
+  width: 95%;
+  max-width: 650px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   animation: slide-down 0.3s ease-out forwards;
 }
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #45a10f;
+  border-bottom: 1px solid #0077b5;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
@@ -37,23 +37,36 @@
   font-weight: bold;
 }
 
-.closeButton {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-  color: #ffffff;
-}
-
 .modalBody {
-  margin-bottom: 1.5rem;
+  margin-bottom: -0.3rem;
   line-height: 1.7;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.modalFooter {
-  text-align: right;
+.linkedInButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.linkedInButton {
+  display: inline-block;
+  background-color: #0077b5;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.linkedInButton:hover {
+  background-color: #005a8c;
+  color: white;
+  text-decoration: none;
 }
 
 @keyframes slide-down {

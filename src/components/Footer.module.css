@@ -38,6 +38,6 @@
 }
 
 .links a:hover {
-  color: var(--secondary-color); /* Use accent color for hover */
+  color: #005a8c; /* Changed to match header hover color */
   text-decoration: underline;
 } 

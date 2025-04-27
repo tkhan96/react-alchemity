@@ -2,17 +2,19 @@ import React from 'react';
 import styles from './PageHero.module.css';
 
 function PageHero({ title, backgroundImageUrl }) {
-  // Apply background image style conditionally
-  const heroStyles = {
-    backgroundImage: backgroundImageUrl ? `url(${backgroundImageUrl})` : 'none',
-  };
-
-  // Use aboutHeroSection class for About page
-  const sectionClass = title === 'About Us' ? styles.aboutHeroSection : styles.heroSection;
+  // Use aboutHeroSection class for About, Markets, and Technology pages
+  const sectionClass = (title === 'About Us' || title === 'Markets' || title === 'Technology') ? styles.aboutHeroSection : styles.heroSection;
+  const pageType = title === 'Markets' ? 'markets' : title === 'Technology' ? 'technology' : '';
 
   return (
-    <section className={sectionClass} style={heroStyles}>
-      <div className={styles.overlay}></div> {/* Optional overlay for text readability */}
+    <section className={sectionClass} data-page={pageType}>
+      <div 
+        className={styles.backgroundImage}
+        style={backgroundImageUrl ? {
+          backgroundImage: `url(${backgroundImageUrl})`
+        } : {}}
+      />
+      <div className={styles.overlay}></div>
       <h1 className={styles.title}>{title}</h1>
     </section>
   );

@@ -17,10 +17,10 @@ const sectionStyle = {
 
 const titleStyle = {
   fontSize: '40px',
-  color: '#45a10f',
+  color: '#0077b5',
   marginBottom: '3rem',
   textAlign: 'center',
-  fontWeight: '200',
+  fontWeight: '400',
 };
 
 const cardsContainerStyle = {
@@ -50,7 +50,7 @@ const imageStyle = {
 const cardTitleStyle = {
   fontSize: '18px',
   fontWeight: '600',
-  color: '#45a10f',
+  color: '#0077b5',
   marginBottom: '1rem',
   textTransform: 'uppercase',
   textAlign: 'center',
@@ -87,19 +87,6 @@ function Technology() {
       <PageHero 
         backgroundImageUrl={reactor}
         title="Technology"
-        titleStyle={{
-          color: '#ffffff',
-          fontSize: '64px',
-          fontWeight: '400',
-          textAlign: 'center',
-          marginBottom: '1rem',
-        }}
-        imageStyle={{
-          width: '80%',
-          height: 'auto',
-          margin: '0 auto',
-          display: 'block',
-        }}
       />
       <div style={sectionStyle}>
         <h1 style={titleStyle}>Underlying Magic</h1>

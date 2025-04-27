@@ -121,7 +121,7 @@ const advisorGridStyle = {
 };
 
 const buttonStyle = {
-  backgroundColor: '#45a10f',
+  backgroundColor: '#0077b5',
   color: '#fff',
   border: 'none',
   padding: '0.5rem 1rem',
@@ -131,12 +131,25 @@ const buttonStyle = {
   fontWeight: '500',
 };
 
-const sectionTitleStyle = {
+const titleStyle = {
   fontSize: '40px',
-  color: '#45a10f',
+  color: '#0077b5',
   marginBottom: '3rem',
   textAlign: 'center',
-  fontWeight: '200',
+  fontWeight: '400',
+};
+
+const linkedinButtonStyle = {
+  backgroundColor: '#45a10f',
+  color: 'white',
+  padding: '0.5rem 1rem',
+  borderRadius: '4px',
+  textDecoration: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  marginTop: '1rem',
+  transition: 'background-color 0.3s ease',
 };
 
 function About() {
@@ -157,7 +170,7 @@ function About() {
     <>
       <PageHero title={'About Us'} backgroundImageUrl={aboutBg}/>
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000'}}>
-        <h2 style={sectionTitleStyle}>Founders</h2>
+        <h2 style={titleStyle}>Founders</h2>
         <div style={founderGridStyle}>
           {founders.map((founder) => (
             <ProfileCard
@@ -173,7 +186,7 @@ function About() {
           ))}
         </div>
 
-        <h2 style={sectionTitleStyle}>Advisors</h2>
+        <h2 style={titleStyle}>Advisors</h2>
         <div style={advisorGridStyle}>
           {advisors.map((advisor) => (
             <ProfileCard
@@ -194,6 +207,7 @@ function About() {
             show={showModal}
             onClose={handleCloseModal}
             title={`${selectedPerson.name} - ${selectedPerson.title}`}
+            linkedInUrl={selectedPerson.linkedInUrl}
           >
             <ul>
               {selectedPerson.bio && selectedPerson.bio.map((point, index) => (

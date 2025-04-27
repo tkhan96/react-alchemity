@@ -15,16 +15,6 @@ function ProfileCard({ name, title, imageUrl, onClick, linkedInUrl, blurb, isAdv
           <button onClick={onClick} className={styles.detailsButton}>
             View Details
           </button>
-          {linkedInUrl && (
-            <a
-              href={linkedInUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.linkedInButton}
-            >
-              LinkedIn
-            </a>
-          )}
         </div>
       </div>
     </div>

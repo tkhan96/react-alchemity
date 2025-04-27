@@ -70,12 +70,12 @@
 }
 
 .navLink:hover {
-  color: #a9a9a9; /* Gray for hover effect */
+  color: #005a8c; /* Changed to match Contact Us button hover color */
   text-decoration: none; /* Override global underline */
 }
 
 .contactButton {
-  background-color: var(--primary-color);
+  background-color: #0077b5;
   color: white;
   padding: 0.2rem 0.8rem;
   border-radius: 20px;
@@ -83,11 +83,11 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
-  height: auto; /* Remove the 100% height */
-  min-height: 36px; /* Set a minimum height for the button */
+  height: auto;
+  min-height: 36px;
 }
 
 .contactButton:hover {
-  background-color: #006400;
+  background-color: #005a8c;
   color: white;
 }
