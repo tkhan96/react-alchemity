@@ -30,12 +30,11 @@ const titleStyle = {
 };
 
 const highlightTextStyle = {
-  fontSize: '32px',
-  color: '#0077b5',
+  fontSize: '36px',
+  color: '#25abe0',
   textAlign: 'center',
   marginBottom: '3rem',
-  textTransform: 'uppercase',
-  fontWeight: '300',
+  fontWeight: '600',
 };
 
 const cardsContainerStyle = {
@@ -65,7 +64,7 @@ const imageStyle = {
 const cardTitleStyle = {
   fontSize: '48px',
   fontWeight: '600',
-  color: '#0077b5',
+  color: '#25abe0',
   marginBottom: '1rem',
   textTransform: 'uppercase',
   textAlign: 'center',
@@ -156,11 +155,11 @@ const keyTextStyle = {
 };
 
 const firstMarketBoxStyle = (index) => ({
-  border: '2px solid #45a10f',
-  borderLeft: index === 0 ? '2px solid #45a10f' : 'none',
-  borderRight: index === 2 ? '2px solid #45a10f' : 'none',
-  borderTop: '2px solid #45a10f',
-  borderBottom: '2px solid #45a10f',
+  border: '2px solid #25abe0',
+  borderLeft: index === 0 ? '2px solid #25abe0' : 'none',
+  borderRight: index === 2 ? '2px solid #25abe0' : 'none',
+  borderTop: '2px solid #25abe0',
+  borderBottom: '2px solid #25abe0',
   borderTopLeftRadius: index === 0 ? '16px' : '0',
   borderBottomLeftRadius: index === 0 ? '16px' : '0',
   borderTopRightRadius: index === 2 ? '16px' : '0',
@@ -191,14 +190,14 @@ const keyframes = `
 
 function Markets() {
   const images = [
-    { src: waste, title: 'Waste Gas', size: '$7.5B', futureSize: '$9.5B', isFirstMarket: true },
-    { src: saf, title: 'SAF', size: '$1.1B', futureSize: '$62B', isFirstMarket: true },
-    { src: hydrogen, title: 'Hydrogen', size: '$243B', futureSize: '$411B', isFirstMarket: true },
-    { src: biogas, title: 'RNG, Biogas', size: '$24B, $65B', futureSize: '$127B, $88B', isFirstMarket: false },
-    { src: ethylene, title: 'Ethylene', size: '$195B', futureSize: '$300B', isFirstMarket: false },
-    { src: ethane, title: 'Ethane', size: '$14B', futureSize: '$19B', isFirstMarket: false },
-    { src: syngas, title: 'Syngas', size: '$59B', futureSize: '$105B', isFirstMarket: false },
-    { src: benzene, title: 'Benzene', size: '$40B', futureSize: '$71B', isFirstMarket: false }
+    { src: waste, title: 'Waste Gas', isFirstMarket: true },
+    { src: saf, title: 'SAF', isFirstMarket: true },
+    { src: hydrogen, title: 'Hydrogen', isFirstMarket: true },
+    { src: biogas, title: 'RNG, Biogas', isFirstMarket: false },
+    { src: ethylene, title: 'Ethylene', isFirstMarket: false },
+    { src: ethane, title: 'Ethane', isFirstMarket: false },
+    { src: syngas, title: 'Syngas', isFirstMarket: false },
+    { src: benzene, title: 'Benzene', isFirstMarket: false }
   ];
 
   return (
@@ -219,20 +218,20 @@ function Markets() {
         }}
         imageStyle={{
           position: 'absolute',
+          left: '-10%',
           right: 0,
           top: 0,
-          width: '50%',
+          width: '70%',
           height: '100%',
           backgroundSize: 'cover',
-          backgroundPosition: 'right',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundColor: '#000000',
         }}
       />
       <div style={sectionStyle}>
-        <h1 style={titleStyle}>Market Overview</h1>
         <p style={highlightTextStyle}>
-          Alchemity SERVES Major chemical markets with a single Reactor DESIGN
+          Alchemity Serves Major Chemical Markets With A Single Reactor Design
         </p>
         
         <div style={cardsContainerStyle}>
@@ -248,7 +247,6 @@ function Markets() {
             <h3 style={cardTitleStyle}>$120B</h3>
             <p style={cardTextStyle}>Serviceable available market</p>
             <p style={cardTextStyle}>Can be served with TRL 6/7</p>
-            <p style={cardTextStyle}>10% share of TAM</p>
           </div>
 
           {/* Market 3 Card */}
@@ -256,7 +254,6 @@ function Markets() {
             <h3 style={cardTitleStyle}>$18B</h3>
             <p style={cardTextStyle}>Serviceable obtainable market</p>
             <p style={cardTextStyle}>Modular skids, 1-5 tons/day</p>
-            <p style={cardTextStyle}>15% share of SAM</p>
           </div>
         </div>
 
@@ -270,8 +267,6 @@ function Markets() {
                   style={carouselImageStyle}
                 />
                 <p style={imageTitleStyle}>{item.title}</p>
-                <p style={marketSizeStyle}>{item.size}</p>
-                <p style={futureMarketSizeStyle}>{item.futureSize}</p>
               </div>
             ))}
             {/* Duplicate images for seamless loop */}
@@ -283,8 +278,6 @@ function Markets() {
                   style={carouselImageStyle}
                 />
                 <p style={imageTitleStyle}>{item.title}</p>
-                <p style={marketSizeStyle}>{item.size}</p>
-                <p style={futureMarketSizeStyle}>{item.futureSize}</p>
               </div>
             ))}
           </div>
@@ -292,13 +285,7 @@ function Markets() {
 
         <div style={keySectionStyle}>
           <div style={keyTextStyle}>
-            <span style={{ color: '#ffffff' }}>2025</span>
-          </div>
-          <div style={keyTextStyle}>
-            <span style={{ color: '#0077b5' }}>2030</span>
-          </div>
-          <div style={keyTextStyle}>
-            <span style={{ color: '#45a10f' }}>First Markets</span>
+            <span style={{ color: '#25abe0', fontWeight: '600', fontSize: '24px' }}>First Markets</span>
           </div>
         </div>
       </div>

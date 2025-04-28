@@ -39,7 +39,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 60%;
+  width: 65%; /* Increased from 60% */
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -51,6 +51,7 @@
 /* Specific style for Markets page */
 .aboutHeroSection[data-page="markets"] .backgroundImage {
   background-position: center 70%;
+  width: 65%; /* Increased from 60% */
 }
 
 /* Specific style for Technology page */
@@ -69,6 +70,11 @@
   z-index: 1;
 }
 
+/* Remove overlay for Technology page */
+.aboutHeroSection[data-page="technology"] .overlay {
+  background-color: transparent;
+}
+
 .title {
   position: relative;
   z-index: 2;
@@ -78,15 +84,19 @@
   padding: 0;
   text-align: left;
   font-weight: 200;
-  max-width: 15%;
-  margin-right: 5%;
+  max-width: 35%;
+  margin-left: 2rem;
 }
 
 .aboutHeroSection .title {
   max-width: 35%;
   margin-right: 0;
   padding-right: 2rem;
-  margin-left: 1rem; /* Reduced from 2rem */
+  margin-left: 2rem;
+  position: absolute;
+  left: 15%; /* Adjusted to be exactly centered */
+  transform: translateX(-50%);
+  text-align: center; /* Ensure text is centered within its container */
 }
 
 .pageHero {

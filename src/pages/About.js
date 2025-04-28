@@ -133,10 +133,10 @@ const buttonStyle = {
 
 const titleStyle = {
   fontSize: '40px',
-  color: '#0077b5',
+  color: '#25abe0',
   marginBottom: '3rem',
   textAlign: 'center',
-  fontWeight: '400',
+  fontWeight: '500',
 };
 
 const linkedinButtonStyle = {

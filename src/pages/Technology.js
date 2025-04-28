@@ -17,24 +17,24 @@ const sectionStyle = {
 
 const titleStyle = {
   fontSize: '40px',
-  color: '#0077b5',
+  color: '#25abe0',
   marginBottom: '3rem',
   textAlign: 'center',
-  fontWeight: '400',
+  fontWeight: '500',
 };
 
 const cardsContainerStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   gap: '2rem',
-  marginTop: '2rem',
+  marginTop: '0',
   padding: '0 2rem',
 };
 
 const cardStyle = {
   flex: 1,
   padding: '2rem 2rem 1rem',
-  backgroundColor: '#141414',
+  backgroundColor: 'transparent',
   borderRadius: '8px',
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   textAlign: 'center',
@@ -45,14 +45,14 @@ const imageStyle = {
   height: '300px',
   objectFit: 'cover',
   marginBottom: '1rem',
+  borderRadius: '8px',
 };
 
 const cardTitleStyle = {
-  fontSize: '18px',
+  fontSize: '28px',
   fontWeight: '600',
-  color: '#0077b5',
+  color: '#25abe0',
   marginBottom: '1rem',
-  textTransform: 'uppercase',
   textAlign: 'center',
 };
 
@@ -60,7 +60,7 @@ const cardTextStyle = {
   color: '#ffffff',
   fontSize: '18px',
   lineHeight: '1.5',
-  textAlign: 'left',
+  textAlign: 'center',
   marginTop: '0',
   fontWeight: '500',
 };
@@ -88,12 +88,10 @@ function Technology() {
         title="Technology"
       />
       <div style={sectionStyle}>
-        <h1 style={titleStyle}>Underlying Magic</h1>
-        
         <div style={cardsContainerStyle}>
           {/* R&D Card */}
           <div style={cardStyle}>
-            <h3 style={cardTitleStyle}>35 YEARS OF R&D AND $20M IN FUNDING</h3>
+            <h3 style={cardTitleStyle}>35 Years of R&D<br />$20M in Funding</h3>
             <img src={rd} alt="R&D" style={imageStyle} />
             <p style={cardTextStyle}>
               Alchemity holds exclusive license to 32 patents (additional 7 pending) on ion conducting ceramics and non-oxidative catalyst.
@@ -102,8 +100,8 @@ function Technology() {
 
           {/* Validated Card */}
           <div style={cardStyle}>
-            <h3 style={cardTitleStyle}>EXTENSIVELY VALIDATED</h3>
-            <img src={validated} alt="Extensively Validated" style={imageStyle} />
+            <h3 style={cardTitleStyle}>Extensively Validated</h3>
+            <img src={validated} alt="Extensively Validated" style={{...imageStyle, marginTop: '2.2rem'}} />
             <p style={cardTextStyle}>
               Technology validated in labs, via industrial, federal/state and investment committes, and publications.
             </p>
@@ -111,15 +109,15 @@ function Technology() {
 
           {/* Scalable Card */}
           <div style={cardStyle}>
-            <h3 style={cardTitleStyle}>SCALABLE</h3>
-            <img src={scalable} alt="Scalable" style={imageStyle} />
+            <h3 style={cardTitleStyle}>Scalable</h3>
+            <img src={scalable} alt="Scalable" style={{...imageStyle, marginTop: '2.2rem'}} />
             <p style={cardTextStyle}>
               Technology successfully transferred to Alchemity, TRL 4 system demonstrated. TRL 5 system design completed and TRL6/7 design ongoing.
             </p>
           </div>
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '4rem'}}>FROM NATURAL GAS TO CHEMICALS</h1>
+        <h1 style={{...titleStyle, marginTop: '4rem'}}>From Natural Gas To Chemicals</h1>
         <video 
           src={animationTech} 
           style={videoStyle} 
@@ -128,11 +126,32 @@ function Technology() {
           muted 
           playsInline
         />
-        <h1 style={{...titleStyle, marginTop: '4rem'}}>MULTIFUNCTIONAL <span style={{ fontStyle: 'italic' }}>GTChem</span> PLATFORM</h1>
-        <img src={placeholder} alt="Placeholder" style={reactorImageStyle} />
+        <h1 style={{...titleStyle, marginTop: '4rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>GTChem</span> Platform</h1>
+        <div style={{ position: 'relative' }}>
+          <img src={placeholder} alt="Placeholder" style={reactorImageStyle} />
+          <p style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: '#25abe0',
+            fontSize: '32px',
+            fontWeight: '600',
+            textAlign: 'center',
+            width: '100%',
+            padding: '0 20px'
+          }}>
+            Placeholder for a close up 3d image of the reactor
+          </p>
+        </div>
       </div>
     </>
   );
 }
 
 export default Technology;
+
+//Markets page
+// - Be able to pause slide show
+// - Create popup when you click on the market images
+

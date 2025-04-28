@@ -34,18 +34,19 @@
 }
 
 .detailsButton {
-  background-color: #0077b5;  /* Blue color */
+  background-color: #25abe0;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  min-width: 120px;
   transition: background-color 0.3s ease;
 }
 
 .detailsButton:hover {
-  background-color: #005a8c;  /* Darker blue on hover */
+  background-color: #1a8bc0;
 }
 
 .linkedInButton {
@@ -161,18 +162,19 @@
 }
 
 .detailsButton {
-  background-color: #0077b5;  /* Blue color */
+  background-color: #25abe0;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  min-width: 120px;
   transition: background-color 0.3s ease;
 }
 
 .detailsButton:hover {
-  background-color: #005a8c;  /* Darker blue on hover */
+  background-color: #1a8bc0;
 }
 
 .linkedInButton {

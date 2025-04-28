@@ -70,12 +70,12 @@
 }
 
 .navLink:hover {
-  color: #005a8c; /* Changed to match Contact Us button hover color */
+  color: #25abe0;
   text-decoration: none; /* Override global underline */
 }
 
 .contactButton {
-  background-color: #0077b5;
+  background-color: #25abe0;
   color: white;
   padding: 0.2rem 0.8rem;
   border-radius: 20px;
@@ -88,6 +88,6 @@
 }
 
 .contactButton:hover {
-  background-color: #005a8c;
+  background-color: #1e8cc0;
   color: white;
 }
