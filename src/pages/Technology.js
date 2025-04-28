@@ -6,7 +6,7 @@ import rd from '../components/images/rd.png';
 import validated from '../components/images/ExtEval.png';
 import scalable from '../components/images/scalable.png';
 import placeholder from '../components/images/placeholder.webp';
-import facility from '../components/images/facility.png';
+import animationTech from '../components/images/animation tech.MOV';
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -73,9 +73,8 @@ const reactorImageStyle = {
   display: 'block',
 };
 
-const facilityImageStyle = {
+const videoStyle = {
   width: '100%',
-  height: 'auto',
   maxWidth: '1200px',
   margin: '0 auto',
   display: 'block',
@@ -121,7 +120,14 @@ function Technology() {
         </div>
 
         <h1 style={{...titleStyle, marginTop: '4rem'}}>FROM NATURAL GAS TO CHEMICALS</h1>
-        <img src={facility} alt="Facility" style={facilityImageStyle} />
+        <video 
+          src={animationTech} 
+          style={videoStyle} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        />
         <h1 style={{...titleStyle, marginTop: '4rem'}}>MULTIFUNCTIONAL <span style={{ fontStyle: 'italic' }}>GTChem</span> PLATFORM</h1>
         <img src={placeholder} alt="Placeholder" style={reactorImageStyle} />
       </div>
