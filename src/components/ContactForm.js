@@ -123,8 +123,6 @@ function ContactForm() {
           <textarea id="message" name="message" value={formData.message} onChange={handleChange} required />
         </div>
 
-        <p className={styles.privacyNote}>Any personal information you provide... will not be shared...</p>
-
         <button type="submit" className={styles.submitButton}>Submit</button>
       </form>
     </section>

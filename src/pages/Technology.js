@@ -151,7 +151,3 @@ function Technology() {
 
 export default Technology;
 
-//Markets page
-// - Be able to pause slide show
-// - Create popup when you click on the market images
-

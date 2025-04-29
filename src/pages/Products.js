@@ -5,9 +5,9 @@ import productsBg from '../components/images/products-bg-2.jpg'; // Adjust the p
 function Products() {
   return (
     <>
-      <PageHero title={'Placeholder'} backgroundImageUrl={productsBg}/>
-      <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#e8f5e9' }}>
-        <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+      <PageHero title={'Products'} backgroundImageUrl={productsBg}/>
+      <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
+        <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto', color: '#ffffff' }}>
           Explore Alchemity's suite of products designed to empower your business. Learn about features, benefits, and integration capabilities.
         </p>
         {/* Placeholder for product details/cards */}
