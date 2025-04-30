@@ -1,5 +1,5 @@
 .contactPage {
-  background-color: #e8f5e9; /* Light green background */
+  background-color: #000000; /* Black background */
   padding: var(--section-padding); /* Add padding */
   min-height: 100vh; /* Ensure it covers the full viewport height */
   display: flex; /* Use flexbox for layout */
@@ -11,6 +11,7 @@
 .pageTitle {
   text-align: center;
   margin-bottom: 3rem;
+  color: #ffffff;
 }
 
 .contentWrapper {
@@ -25,7 +26,7 @@
 }
 
 .contactInfo h2 {
-    color: var(--primary-color);
+    color: #25abe0;
     margin-bottom: 1rem;
 }
 
@@ -36,22 +37,24 @@
 .infoBlock h3 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+  color: #ffffff;
 }
 
 .infoBlock p {
   margin: 0 0 0.25rem 0; /* Adjust paragraph spacing */
   line-height: 1.6;
-  color: var(--text-dark);
+  color: #ffffff;
 }
 
 .infoBlock a {
-    /* Inherits global link styles */
+    color: #25abe0;
     word-break: break-all; /* Prevent long emails/links from overflowing */
+    font-weight: 500;
 }
 
 .socialLink {
     font-weight: 500;
+    color: #25abe0;
 }
 
 .formWrapper {
