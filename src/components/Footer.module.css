@@ -15,6 +15,7 @@
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 1rem;
+  color: var(--earth-1);
 }
 
 .copyright {
@@ -31,7 +32,7 @@
 }
 
 .links a {
-  color: var(--background-light); /* Light links on dark background */
+  color: var(--earth-1);
   text-decoration: none;
   margin: 0 0.75rem;
   transition: color 0.2s ease-in-out;

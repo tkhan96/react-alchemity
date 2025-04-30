@@ -1,28 +1,139 @@
 .sponsorsSection {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: #f4f4f4; /* Light background for contrast */
+  padding: 6rem 0;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 2px 2px, #333333 1px, transparent 0);
+  background-size: 30px 30px;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sponsorsTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.sponsorsSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin: 0 auto 4rem;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Carousel Styles */
+.sponsorsCarousel {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0 3rem;
+  margin-bottom: 2rem;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.sponsorCard {
+  flex: 0 0 25%; /* 4 sponsors visible at once */
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333333;
+  transition: all 0.3s ease;
+  height: 160px;
+  margin: 0 12px;
+}
+
+.sponsorCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary-color);
+}
+
+.sponsorLogo {
+  max-width: 80%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.5);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.sponsorCard:hover .sponsorLogo {
+  filter: grayscale(0%) brightness(1.5);
+  opacity: 1;
+}
+
+/* Carousel Indicators */
+.carouselIndicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #333333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeIndicator {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .sponsorCard {
+    flex: 0 0 33.33%; /* 3 sponsors visible at once */
+  }
+}
+
+@media (max-width: 768px) {
+  .sponsorCard {
+    flex: 0 0 50%; /* 2 sponsors visible at once */
+    margin: 0 8px;
   }
   
   .sponsorsTitle {
     font-size: 2rem;
-    margin-bottom: 2rem;
   }
-  
-  .sponsorsGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+}
+
+@media (max-width: 576px) {
+  .sponsorCard {
+    flex: 0 0 100%; /* 1 sponsor visible at once */
   }
-  
-  .sponsorLogo {
-    max-width: 150px;
-    max-height: 100px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-  }
-  
-  .sponsorLogo:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
+}

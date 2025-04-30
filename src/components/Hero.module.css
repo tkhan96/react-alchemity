@@ -25,68 +25,205 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+  /* Green gradient overlay with more transparency when video is loaded */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(30, 70, 20, 0.7) 100%
+  );
   z-index: 0;
+  transition: background 0.5s ease;
+}
+
+/* Style when video is loaded - reduced opacity */
+.videoLoaded {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(30, 70, 20, 0.4) 100%
+  );
 }
 
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .headline {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.5px;
+  color: #ffffff;
 }
 
 .subHeadline {
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  max-width: 700px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
 }
 
+/* Key Messages Styling - Sleek Single Line Version */
+.keyMessagesContainer {
+  margin: 2.5rem 0 3.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.keyMessagesLine {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.keyMessagePhrase {
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0 0.2rem;
+  display: inline-block;
+}
+
+.activeBold {
+  font-weight: 700;
+  color: var(--earth-1); /* Using the green theme color */
+}
+
+.messageDot {
+  margin: 0 0.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .keyMessagesLine {
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .messageDot {
+    display: none;
+  }
+  
+  .keyMessagePhrase {
+    margin-bottom: 0.5rem;
+    padding: 0.3rem 0;
+  }
+}
+
+/* CTA Button Styles */
+.ctaContainer {
+  margin: 1.5rem 0 3rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ctaButton:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: white;
+}
+
+/* Mission Vision Container & Cards */
 .missionVisionContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .missionVisionContainer {
+    flex-direction: column;
+  }
+  
+  .headline {
+    font-size: 2.5rem;
+  }
 }
 
 .mission,
 .vision {
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  padding: 1.5rem;
-  border-radius: 8px;
+  flex: 1;
+  max-width: 350px;
+  background-color: rgba(25, 22, 20, 0.7); /* Slightly warmer dark background */
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission:hover,
+.vision:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(106, 191, 75, 0.3); /* Using green with transparency */
 }
 
 .mission h2,
 .vision h2 {
   font-size: 1.5rem;
-  font-weight: bolder;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin: 0.8rem 0;
+  color: #ffffff;
 }
 
 .mission p,
 .vision p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.ctaButton {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.75rem 1.5rem;
+/* Icon Container */
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
   background-color: var(--primary-color);
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.ctaButton:hover {
-  background-color: #006400; /* Darker green on hover */
+.icon {
+  font-size: 24px;
+  color: white;
 }

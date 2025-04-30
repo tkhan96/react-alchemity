@@ -1,0 +1,209 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
+import styles from './PlantInfoSection.module.css';
+import plantImage from './images/plant4.png'; // Import the plant image
+import { FaRecycle, FaLeaf, FaIndustry, FaFlask, FaArrowRight } from 'react-icons/fa';
+
+const PlantInfoSection = () => {
+  // Create refs for intersection observer
+  const [imageRef, imageInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [statsRef, statsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Function to scroll to top when link is clicked
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  // Animation variants
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        delay: 0.8, 
+        ease: "easeOut" 
+      }
+    },
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.3 }
+    }
+  };
+
+  // Stats data
+  const stats = [
+    {
+      icon: <FaRecycle />,
+      value: "95%",
+      label: "Carbon Reduction",
+      description: "Compared to traditional methods"
+    },
+    {
+      icon: <FaLeaf />,
+      value: "100%",
+      label: "Renewable Energy",
+      description: "Used in our production process"
+    },
+    {
+      icon: <FaIndustry />,
+      value: "30%",
+      label: "Cost Reduction",
+      description: "For our industrial partners"
+    },
+    {
+      icon: <FaFlask />,
+      value: "24/7",
+      label: "Continuous Operation",
+      description: "For maximum efficiency"
+    }
+  ];
+
+  return (
+    <section className={styles.plantSection}>
+      <div className={styles.container}>
+        <div className={styles.contentWrapper}>
+          {/* Left Side: Plant Image with Animation */}
+          <motion.div 
+            className={styles.imageContainer}
+            ref={imageRef}
+            variants={imageVariants}
+            initial="hidden"
+            animate={imageInView ? "visible" : "hidden"}
+          >
+            <img 
+              src={plantImage} 
+              alt="3D Design of our Chemical Plant" 
+              className={styles.plantImage}
+            />
+            <div className={styles.imageOverlay}>
+              <motion.div 
+                className={styles.hotspot}
+                style={{ bottom: '30%', left: '25%' }}
+                whileHover={{ scale: 1.2 }}
+              >
+                <div className={styles.hotspotDot}></div>
+                <div className={styles.hotspotTooltip}>
+                  <h4>Reactor Core</h4>
+                  <p>Our proprietary design enhances catalytic efficiency by 45%</p>
+                </div>
+              </motion.div>
+              <motion.div 
+                className={styles.hotspot}
+                style={{ top: '45%', left: '60%' }}
+                whileHover={{ scale: 1.2 }}
+              >
+                <div className={styles.hotspotDot}></div>
+                <div className={styles.hotspotTooltip}>
+                  <h4>Control Systems</h4>
+                  <p>AI-powered monitoring ensures optimal performance 24/7</p>
+                </div>
+              </motion.div>
+              <motion.div 
+                className={styles.hotspot}
+                style={{ top: '70%', left: '40%' }}
+                whileHover={{ scale: 1.2 }}
+              >
+                <div className={styles.hotspotDot}></div>
+                <div className={styles.hotspotTooltip}>
+                  <h4>Output Processing</h4>
+                  <p>Advanced filtration delivers 99.8% pure chemical outputs</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Side: Stats with Animation */}
+          <motion.div 
+            className={styles.statsContainer}
+            ref={statsRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={statsInView ? "visible" : "hidden"}
+          >
+            <h2 className={styles.statsTitle}>Revolutionary Technology</h2>
+            <p className={styles.statsSubtitle}>
+              Our modular reactors deliver industry-leading performance metrics while maintaining the highest environmental standards.
+            </p>
+            
+            <div className={styles.statsGrid}>
+              {stats.map((stat, index) => (
+                <motion.div 
+                  key={index} 
+                  className={styles.statCard}
+                  variants={itemVariants}
+                >
+                  <div className={styles.statIconContainer}>
+                    {stat.icon}
+                  </div>
+                  <h3 className={styles.statValue}>{stat.value}</h3>
+                  <h4 className={styles.statLabel}>{stat.label}</h4>
+                  <p className={styles.statDescription}>{stat.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Learn More Button */}
+            <motion.div
+              className={styles.learnMoreContainer}
+              variants={buttonVariants}
+              initial="hidden"
+              animate={statsInView ? "visible" : "hidden"}
+              whileHover="hover"
+            >
+              <Link 
+                to="/technology" 
+                className={styles.learnMoreButton}
+                onClick={scrollToTop}
+              >
+                <span>Learn More About Our Technology</span>
+                <FaArrowRight className={styles.arrowIcon} />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PlantInfoSection; 

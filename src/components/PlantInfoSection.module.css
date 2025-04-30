@@ -1,0 +1,292 @@
+.plantSection {
+  padding: 6rem 0;
+  background-color: #080808;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle earthy texture - very light grain */
+.plantSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV/TilQqHewgopChOlkQFXHUKhShQqgVWnUwufQLmjQkKS6OgmvBwY/FqoOLs64OroIg+AHi5uak6CIl/i8ptIjx4Lgf7+497t4BQqPCVDMwDqiaZaTiMTGbWxW7XxHAMPoQQVBipj6XTCbhOb7u4ePrXZRneZ/7c/QpeZMBPpE4znTDIt4gnt20dM77xGFWklTic+Jxgy5I/Mh12eU3zkWHBZ4ZNjKpeeIwsVjsYLmDWclQiaeJI4qqUb6QdVnhvMVZrdRY6578heG8vrLMdZrDiGMRS5AgQkEVJZRhIUqrRoqJFO3HPPxDjj9JLplcJTByLKACFZLjB/+D392apckJNykYA7pfbPtjFOjeBZp12/4+tu3mCeB/Bq60tr/aAGY/Sa+3tcgRENoGLq5bmrwHXO4Ag0+6ZEiO5KcpFArA+xl9Uw4YuAUCa25vnX2cPgBZ6mr5Bjg4BMaKlL3u8e5gZ2//nmn19wPYaHJ69PBLdQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+QIFQodGns5uvMAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA/ElEQVRo3u3ZQQqDMBBAUe3J3d5/0Z5JceMmMiYgKON7q0DCZyLEVK0BAAAAAMA0Y+XNkvRfnGj1/L2fW6W5xV7QQRB1EEQdBFEHQdRBEHUQRB0EUQdB1EEQdRBEHQRRB0HUQRB1EEQdBFEHQdRBEHUQRB0EUQdBFEHQdRBEHUQRB0EUQdB1EEQdRBEHURd55Dnxv8wrnV/bvJl/VxN6hORG/xA5BYLVLcWbAc5qnFxsPXgXzwnxg65tnrXa1nV5tP2Ue35wryzvZ8+/zUPO896bm/vZ77t72bK9tP9Ocn207fbtyKlQWYuaX8V8nQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAaM4btxoSEp5gF10AAAAASUVORK5CYII=');
+  background-repeat: repeat;
+  background-size: 50px 50px;
+  opacity: 0.03;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (max-width: 992px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+}
+
+/* Left side - Plant Image */
+.imageContainer {
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.plantImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1s ease;
+}
+
+.imageContainer:hover .plantImage {
+  transform: scale(1.03);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Hotspots */
+.hotspot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.hotspotDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  position: relative;
+  box-shadow: 0 0 0 4px rgba(69, 161, 15, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(69, 161, 15, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(69, 161, 15, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(69, 161, 15, 0);
+  }
+}
+
+.hotspotTooltip {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+  border: 1px solid #333333;
+}
+
+.hotspot:hover .hotspotTooltip {
+  opacity: 1;
+}
+
+.hotspotTooltip:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #1a1a1a transparent transparent;
+}
+
+.hotspotTooltip h4 {
+  margin: 0 0 0.5rem;
+  color: var(--earth-1);
+  font-size: 1rem;
+}
+
+.hotspotTooltip p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #bbbbbb;
+}
+
+/* Right side - Stats */
+.statsContainer {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.statsTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.statsSubtitle {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333333;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary-color);
+}
+
+.statIconContainer {
+  background-color: rgba(69, 161, 15, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+.statDescription {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin: 0;
+}
+
+/* Learn More Button Styling */
+.learnMoreContainer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.learnMoreButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.learnMoreButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.learnMoreButton:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.learnMoreButton:hover::before {
+  left: 100%;
+}
+
+.arrowIcon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.learnMoreButton:hover .arrowIcon {
+  transform: translateX(4px);
+} 

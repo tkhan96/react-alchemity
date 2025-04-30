@@ -1,23 +1,28 @@
 :root {
-  /* Updated Colors - More Green */
-  --primary-color: #45a10f;
-  --secondary-color: #006400;
-  --accent-color: #ffd700;
-  --text-color: #333;
-  --background-color: #fff;
+  /* Updated Colors - Green Theme */
+  --primary-color: #45a10f; /* Vibrant green */
+  --secondary-color: #337f09; /* Darker green */
+  --accent-color: #8cc63f; /* Light green accent */
+  --text-color: #f8f8f8;
+  --background-color: #000000;
   --container-width: 1200px;
   --section-padding: 4rem;
   --header-height: 80px;
   --footer-height: 60px;
 
-  /* Existing Colors */
-  --background-light: #f4fbf4; /* Very light green tint */
-  --background-medium: #e0f0e0; /* Light green tint */
-  --text-dark: #212529;
-  --text-light: #495057;
+  /* Green Theme Accents */
+  --earth-1: #6abf4b; /* Light green */
+  --earth-2: #45a10f; /* Medium green */
+  --earth-3: #2b6a09; /* Dark green */
+  --earth-4: #a4d65e; /* Lime green */
+  
+  /* Updated Colors for Dark Theme */
+  --background-light: #121212; /* Dark background for sections */
+  --background-medium: #1a1a1a; /* Slightly lighter dark background */
+  --text-dark: #f0f0f0;
+  --text-light: #dddddd;
   --text-white: #ffffff;
-  --border-color: #c8e6c9; /* Lighter green border */
-
+  --border-color: #333333; /* Dark border color */
 
   /* Rest of variables */
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -36,8 +41,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  color: var(--text-dark);
-  background-color: '#e8f5e9'
+  color: var(--text-white);
+  background-color: var(--background-color);
 }
 
 
@@ -51,6 +56,7 @@ code {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
 }
 
 main {
@@ -64,7 +70,7 @@ main {
   margin-right: auto;
   padding-left: var(--base-padding);
   padding-right: var(--base-padding);
-  background-color: '#e8f5e9'
+  background-color: var(--background-color);
 }
 
 /* Basic link styling */
@@ -85,6 +91,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   font-weight: 100; /* Slightly bolder */
   line-height: 1.3;
+  color: var(--text-white);
 }
 
 h1 { font-size: 2.5rem; }
