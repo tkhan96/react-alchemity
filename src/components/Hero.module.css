@@ -25,11 +25,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* Green gradient overlay with more transparency when video is loaded */
+  /* Blue gradient overlay with more transparency when video is loaded */
   background: linear-gradient(
     135deg,
     rgba(0, 0, 0, 0.9) 0%,
-    rgba(30, 70, 20, 0.7) 100%
+    rgba(20, 60, 90, 0.7) 100%
   );
   z-index: 0;
   transition: background 0.5s ease;
@@ -40,7 +40,7 @@
   background: linear-gradient(
     135deg,
     rgba(0, 0, 0, 0.6) 0%,
-    rgba(30, 70, 20, 0.4) 100%
+    rgba(20, 60, 90, 0.4) 100%
   );
 }
 
@@ -192,7 +192,7 @@
 .vision:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-  border-color: rgba(106, 191, 75, 0.3); /* Using green with transparency */
+  border-color: rgba(37, 171, 224, 0.3); /* Using blue with transparency */
 }
 
 .mission h2,

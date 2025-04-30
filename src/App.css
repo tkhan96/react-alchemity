@@ -1,8 +1,8 @@
 :root {
-  /* Updated Colors - Green Theme */
-  --primary-color: #45a10f; /* Vibrant green */
-  --secondary-color: #337f09; /* Darker green */
-  --accent-color: #8cc63f; /* Light green accent */
+  /* Updated Colors - Blue Theme */
+  --primary-color: #25abe0; /* Vibrant blue */
+  --secondary-color: #1e8cb4; /* Darker blue */
+  --accent-color: #5cc7f2; /* Light blue accent */
   --text-color: #f8f8f8;
   --background-color: #000000;
   --container-width: 1200px;
@@ -10,11 +10,11 @@
   --header-height: 80px;
   --footer-height: 60px;
 
-  /* Green Theme Accents */
-  --earth-1: #6abf4b; /* Light green */
-  --earth-2: #45a10f; /* Medium green */
-  --earth-3: #2b6a09; /* Dark green */
-  --earth-4: #a4d65e; /* Lime green */
+  /* Blue Theme Accents */
+  --earth-1: #52c1e8; /* Light blue */
+  --earth-2: #25abe0; /* Medium blue */
+  --earth-3: #1779a3; /* Dark blue */
+  --earth-4: #7fd5f5; /* Sky blue */
   
   /* Updated Colors for Dark Theme */
   --background-light: #121212; /* Dark background for sections */

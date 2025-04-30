@@ -50,7 +50,7 @@
 }
 
 .linkedInButton {
-  background-color: #45a10f;  /* Green color */
+  background-color: #25abe0;  /* Blue color */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -62,7 +62,7 @@
 }
 
 .linkedInButton:hover {
-  background-color: #3a8c0d;  /* Darker green on hover */
+  background-color: #1a8bc0;  /* Darker blue on hover */
   text-decoration: none;
   color: white;
 }
@@ -178,7 +178,7 @@
 }
 
 .linkedInButton {
-  background-color: #45a10f;  /* Green color */
+  background-color: #25abe0;  /* Blue color */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -190,7 +190,35 @@
 }
 
 .linkedInButton:hover {
-  background-color: #3a8c0d;  /* Darker green on hover */
+  background-color: #1a8bc0;  /* Darker blue on hover */
   text-decoration: none;
   color: white;
+}
+
+.socialButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: #25abe0;  /* Blue color */
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hoverInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #25abe0;  /* Blue color */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
 }

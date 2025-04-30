@@ -140,7 +140,7 @@ const titleStyle = {
 };
 
 const linkedinButtonStyle = {
-  backgroundColor: '#45a10f',
+  backgroundColor: '#25abe0',
   color: 'white',
   padding: '0.5rem 1rem',
   borderRadius: '4px',
@@ -169,7 +169,7 @@ function About() {
   return (
     <>
       <PageHero title={'About Us'} backgroundImageUrl={aboutBg}/>
-      <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000'}}>
+      <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000'}}>
         <h2 style={titleStyle}>Founders</h2>
         <div style={founderGridStyle}>
           {founders.map((founder) => (
