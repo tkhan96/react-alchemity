@@ -1,0 +1,372 @@
+.videoSection {
+  position: relative;
+  padding: 8rem 0;
+  background-color: #0d1117;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.styledVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.contentOverlay {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeading {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  color: white;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  animation: fadeInDown 1.2s ease-out forwards;
+}
+
+.sectionHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-color, #25abe0);
+  animation: glowPulse 3s infinite alternate, lineExpand 1.5s ease-out forwards;
+}
+
+@keyframes lineExpand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100px;
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(37, 171, 224, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(37, 171, 224, 0.8);
+  }
+}
+
+.videoDescription {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 2.5rem auto;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  animation: fadeInUp 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-color, #25abe0);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  animation: fadeInUp 1.2s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.ctaButton:hover {
+  background-color: #1e8eb9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated keyphrases section */
+.keyPhrasesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem auto 3rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1100px;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+/* Add a container specifically for the line */
+.keyPhrasesLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.keyPhrase {
+  display: inline-block;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: white;
+  position: relative;
+  padding: 0 0.25rem;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.keyPhrase:hover, .keyPhrase.active {
+  color: var(--primary-color, #25abe0);
+  opacity: 1;
+  transform: translateY(-2px);
+  text-shadow: 0 2px 15px rgba(37, 171, 224, 0.7);
+}
+
+.phraseDot {
+  display: inline-block;
+  margin: 0 1rem;
+  color: var(--primary-color, #25abe0);
+  font-size: 1.8rem;
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* Adds a subtle overlay to darken the video and improve text readability */
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(13, 17, 23, 0.8) 100%);
+  z-index: 0;
+}
+
+/* Animation keyframes */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .videoSection {
+    padding: 5rem 0;
+    min-height: 400px;
+  }
+  
+  .sectionHeading {
+    font-size: 2.5rem;
+  }
+  
+  .videoDescription {
+    font-size: 1.3rem;
+    margin: 1.5rem auto;
+  }
+  
+  .keyPhrasesContainer,
+  .keyPhrasesLine {
+    overflow-x: auto;
+    justify-content: center;
+    padding: 0.5rem 0;
+    max-width: 100%;
+  }
+  
+  .keyPhrase {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+
+  .phraseDot {
+    margin: 0 0.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .cardTitle {
+    font-size: 2rem;
+  }
+  
+  .cardText {
+    font-size: 1.1rem;
+  }
+  
+  .mission, .vision {
+    padding: 2rem;
+    max-width: 100%;
+  }
+}
+
+/* Mission Vision Container & Cards */
+.missionVisionContainer {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  width: 100%;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+@media (max-width: 992px) {
+  .missionVisionContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.mission,
+.vision {
+  flex: 1;
+  max-width: 380px;
+  background-color: rgba(25, 22, 20, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid rgba(37, 171, 224, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 15px rgba(37, 171, 224, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mission::before,
+.vision::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, rgba(37, 171, 224, 0.5), transparent);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.mission:hover::before,
+.vision:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, transparent, rgba(37, 171, 224, 0.8), transparent);
+}
+
+.mission:hover,
+.vision:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(37, 171, 224, 0.3);
+  border-color: rgba(37, 171, 224, 0.5);
+}
+
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.cardTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 70px;
+  height: 3px;
+  background-color: #25abe0;
+  transform: translateX(-50%);
+}
+
+.cardText {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-weight: 300;
+  text-align: center;
+  padding: 0 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.emphasisWord {
+  color: #25abe0;
+  font-weight: 700;
+  position: relative;
+}
+
+.emphasisWord::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(37, 171, 224, 0.3);
+  bottom: -2px;
+  left: 0;
+} 

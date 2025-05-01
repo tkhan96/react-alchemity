@@ -9,7 +9,7 @@
 .sideBySideContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   max-width: 1400px;
   margin: 0 auto;
@@ -36,6 +36,8 @@
   max-width: 600px;
   z-index: 1;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Problem section styling */
@@ -96,6 +98,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  height: 100%;
 }
 
 /* Responsive adjustments */
@@ -111,7 +114,7 @@
 
 /* Box styling */
 .box {
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 16px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

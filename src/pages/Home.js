@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import React from 'react';
 import Hero from '../components/Hero';
+import VideoSection from '../components/VideoSection'; // Import the new VideoSection component
 import ProblemOpportunity from '../components/ProblemOpportunity'; // Import new component
 import ProductFocus from '../components/ProductFocus';
 import Manufacturing from '../components/Manufacturing';
@@ -19,10 +19,12 @@ function Home() {
     <>
       {/* You can toggle between using a background image or video by uncommenting one of these lines */}
       {/* With background image: */}
-      <Hero backgroundImageUrl={heroBackground} />
+      {/* <Hero backgroundImageUrl={heroBackground} /> */}
       
       {/* With video background (default): */}
-      {/* <Hero /> */}
+      
+      {/* Video Section with controllable video */}
+      <VideoSection />
       
       {/* New Problem/Opportunity Section */}
       <ProblemOpportunity />

@@ -82,19 +82,19 @@ const PlantInfoSection = () => {
       icon: <FaDollarSign />,
       value: "300%",
       label: "Lower Lifetime Cost",
-      description: "Scales Down Cost Effectively Even to Remote Sites"
+      description: "Scales down cost effectively even to remote sites"
     },
     {
       icon: <FaShieldAlt />,
-      value: "100%",
-      label: "Energy Security",
-      description: "Provides Domestic Job and Energy Security"
+      value: "Country",
+      label: "Building",
+      description: "Provides domestic job and energy security"
     },
     {
       icon: <FaSeedling />,
       value: "All",
       label: "Site Types",
-      description: "Clean Energy Production in Brown and Green Fields"
+      description: "Clean energy production in brown and green fields"
     }
   ];
 

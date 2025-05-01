@@ -191,6 +191,18 @@ const keyTextStyle = {
   gap: '0.5rem',
 };
 
+const firstMarketsContainerStyle = {
+  position: 'relative',
+  display: 'flex',
+  gap: '1.5rem',
+  border: '2px solid #25abe0',
+  borderRadius: '16px',
+  padding: '0',
+  margin: '0',
+  backgroundColor: 'transparent',
+  zIndex: 1,
+};
+
 const firstMarketBoxStyle = (index) => ({
   border: '2px solid #25abe0',
   borderLeft: index === 0 ? '2px solid #25abe0' : 'none',
@@ -205,14 +217,25 @@ const firstMarketBoxStyle = (index) => ({
   margin: '0',
   marginLeft: index === 0 ? '0' : '-2px',
   marginRight: index === 2 ? '0' : '-2px',
+  backgroundColor: '#000000',
   position: 'relative',
   zIndex: 1,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '100%'
+  height: '100%',
+  width: '350px'
 });
+
+const borderOverlayStyle = {
+  position: 'absolute',
+  top: '-2px',
+  bottom: '-2px',
+  width: '2px',
+  backgroundColor: '#25abe0',
+  zIndex: 2
+};
 
 const keyframes = `
   @keyframes slide {
@@ -445,24 +468,40 @@ function Markets() {
         </div>
 
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
-        <p style={instructionTextStyle}>Scroll horizontally to explore different markets and click on images to learn more</p>
-
         <div 
           ref={carouselRef}
           className="carousel-container"
           style={carouselContainerStyle}
           onWheel={handleWheel}
         >
-          <div 
-            style={carouselTrackStyle}
-          >
-            {images.map((item, index) => (
+          <div style={carouselTrackStyle}>
+            <div style={firstMarketsContainerStyle}>
+              {images.slice(0, 3).map((item, index) => (
+                <div 
+                  key={index} 
+                  data-market={index}
+                  style={{
+                    ...imageContainerStyle,
+                    userSelect: 'none',
+                  }}
+                  onClick={() => handleMarketClick(item)}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="market-image"
+                    style={carouselImageStyle}
+                  />
+                  <p style={imageTitleStyle}>{item.title}</p>
+                </div>
+              ))}
+            </div>
+            {images.slice(3).map((item, index) => (
               <div 
-                key={index} 
-                data-market={index}
+                key={index + 3} 
+                data-market={index + 3}
                 style={{
                   ...imageContainerStyle,
-                  ...(item.isFirstMarket ? firstMarketBoxStyle(index) : {}),
                   userSelect: 'none',
                 }}
                 onClick={() => handleMarketClick(item)}
