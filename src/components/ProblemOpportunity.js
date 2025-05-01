@@ -40,17 +40,17 @@ const ProblemOpportunity = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   };
 
@@ -59,19 +59,19 @@ const ProblemOpportunity = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
   const arrowVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: -10 },
     visible: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: "easeOut",
-        delay: 0.2
+        delay: 0.1
       }
     },
     bounce: {
@@ -161,7 +161,7 @@ const ProblemOpportunity = () => {
           ref={transitionRef}
           initial={{ opacity: 0 }}
           animate={problemInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.div 
             className={styles.transitionElement}
@@ -186,7 +186,7 @@ const ProblemOpportunity = () => {
           ref={opportunityRef}
           initial={{ opacity: 0 }}
           animate={problemInView && transitionInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.h2 
             className={`${styles.sectionTitle} ${styles.opportunityTitle}`}

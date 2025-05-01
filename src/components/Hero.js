@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from './Hero.module.css'; // Import CSS module
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import heroVideo from './images/homepage-hero.mp4'; // Import local video file
 
 function Hero({ backgroundImageUrl }) {
   const [ref, inView] = useInView({
@@ -20,22 +21,35 @@ function Hero({ backgroundImageUrl }) {
     if (!backgroundImageUrl) { // Only load video if no background image is provided
       const video = videoRef.current;
       if (video) {
+        console.log("🔄 Setting up video element");
+        
         const handleLoadedData = () => {
+          console.log("✅ Video data loaded successfully");
           setVideoLoaded(true);
         };
         
+        const handleError = (error) => {
+          console.error("❌ Video error:", error);
+        };
+        
         video.addEventListener('loadeddata', handleLoadedData);
+        video.addEventListener('error', handleError);
         
         // Check if video is already loaded
         if (video.readyState >= 3) {
+          console.log("✅ Video is ready to play (readyState:", video.readyState, ")");
           setVideoLoaded(true);
+        } else {
+          console.log("🔄 Video readyState:", video.readyState);
         }
         
         return () => {
           video.removeEventListener('loadeddata', handleLoadedData);
+          video.removeEventListener('error', handleError);
         };
       }
     } else {
+      console.log("📷 Using background image instead of video");
       setVideoLoaded(true); // If using background image, consider content as "loaded"
     }
   }, [backgroundImageUrl]);
@@ -155,29 +169,34 @@ function Hero({ backgroundImageUrl }) {
     <section className={styles.heroSection} ref={ref}>
       {/* Background Image or Video */}
       {backgroundImageUrl ? (
-        <div 
-          className={styles.backgroundImage} 
-          style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-        ></div>
+        <>
+          <div 
+            className={styles.backgroundImage} 
+            style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+          ></div>
+          <img 
+            src={backgroundImageUrl} 
+            alt="Background test" 
+            style={{ display: 'none' }} 
+            onLoad={() => console.log("✅ Background image loaded")}
+            onError={() => console.log("❌ Background image failed to load")}
+          />
+        </>
       ) : (
         <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          ref={videoRef}
-          className={styles.backgroundVideo}
-          onCanPlay={() => setVideoLoaded(true)}
-        >
-          <source
-            src="https://videos.pexels.com/video-files/2924583/2924583-uhd_2560_1440_30fps.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className={styles.backgroundVideo}
+            ref={videoRef}
+          >
+            <source src={heroVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
       )}
-
-      {/* Enhanced Gradient Overlay - Only shown at full opacity when video is not loaded */}
+  
+      {/* Enhanced Gradient Overlay */}
       <div className={`${styles.heroOverlay} ${videoLoaded ? styles.videoLoaded : ''}`}></div>
       
       <div className={styles.heroContent}>

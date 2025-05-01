@@ -17,6 +17,8 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  display: block;
+  opacity: 1;
 }
 
 .backgroundImage {
@@ -63,8 +65,8 @@
 .videoLoaded {
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(20, 60, 90, 0.4) 100%
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(20, 60, 90, 0.2) 100%
   );
 }
 
