@@ -19,6 +19,30 @@
   z-index: -1;
 }
 
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transition: transform 8s ease;
+  transform-origin: center;
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 .heroOverlay {
   position: absolute;
   top: 0;
@@ -47,7 +71,7 @@
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
+  max-width: 1200px; /* Increased from 1000px to accommodate larger cards */
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -55,8 +79,8 @@
 }
 
 .headline {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 4.5rem; /* Increased from 4rem */
+  margin-bottom: 1.5rem; /* Increased from 1rem */
   font-weight: 300;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: -0.5px;
@@ -64,9 +88,9 @@
 }
 
 .subHeadline {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  max-width: 700px;
+  font-size: 1.7rem; /* Increased from 1.5rem */
+  margin-bottom: 2.5rem; /* Increased from 2rem */
+  max-width: 800px; /* Increased from 700px */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   color: #e0e0e0;
 }
@@ -83,7 +107,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1.8rem; /* Increased from 1.6rem */
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.5px;
@@ -110,7 +134,7 @@
 
 @media (max-width: 768px) {
   .keyMessagesLine {
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* Increased from 1.2rem */
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -123,6 +147,18 @@
   .keyMessagePhrase {
     margin-bottom: 0.5rem;
     padding: 0.3rem 0;
+  }
+  
+  .heroContent {
+    padding: 1.5rem; /* Added for better mobile spacing */
+  }
+  
+  .headline {
+    font-size: 3rem; /* Adjusted for mobile */
+  }
+  
+  .subHeadline {
+    font-size: 1.4rem; /* Adjusted for mobile */
   }
 }
 
@@ -159,55 +195,112 @@
 .missionVisionContainer {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 3rem; /* Increased from 2rem */
+  margin-top: 3rem; /* Increased from 2rem */
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .missionVisionContainer {
     flex-direction: column;
-  }
-  
-  .headline {
-    font-size: 2.5rem;
+    align-items: center;
+    gap: 2rem;
   }
 }
 
 .mission,
 .vision {
   flex: 1;
-  max-width: 350px;
-  background-color: rgba(25, 22, 20, 0.7); /* Slightly warmer dark background */
+  max-width: 450px;
+  background-color: rgba(25, 22, 20, 0.8);
   backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 16px;
+  padding: 3rem;
+  border-radius: 20px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(37, 171, 224, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 15px rgba(37, 171, 224, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mission::before,
+.vision::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, rgba(37, 171, 224, 0.5), transparent);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.mission:hover::before,
+.vision:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, transparent, rgba(37, 171, 224, 0.8), transparent);
 }
 
 .mission:hover,
 .vision:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-  border-color: rgba(37, 171, 224, 0.3); /* Using blue with transparency */
+  transform: translateY(-8px);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(37, 171, 224, 0.3);
+  border-color: rgba(37, 171, 224, 0.5);
 }
 
-.mission h2,
-.vision h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0.8rem 0;
+.cardTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
   color: #ffffff;
+  position: relative;
+  display: inline-block;
 }
 
-.mission p,
-.vision p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+.cardTitle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 70px;
+  height: 3px;
+  background-color: #25abe0;
+  transform: translateX(-50%);
+}
+
+.cardText {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.emphasisWord {
+  color: #25abe0;
+  font-weight: 700;
+  position: relative;
+}
+
+.emphasisWord::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(37, 171, 224, 0.3);
+  bottom: -2px;
+  left: 0;
 }
 
 /* Icon Container */

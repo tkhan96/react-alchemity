@@ -110,7 +110,7 @@ function Sponsors() {
                 onClick={() => setPosition(index)}
               />
             ))}
-          </div>
+      </div>
         </motion.div>
       </motion.div>
     </section>
