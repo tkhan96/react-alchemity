@@ -130,16 +130,18 @@ function Hero({ backgroundImageUrl }) {
   const emphasizeText = (text) => {
     if (!text) return null;
     
-    const missionKeywords = ["innovative", "sustainable", "growth", "protecting the planet"];
-    const visionKeywords = ["lead", "global transition", "clean", "sustainability", "profitability"];
+    // Determine which set of keywords to use based on content
+    const isMission = text.toLowerCase().includes("empower") || text.toLowerCase().includes("planet");
     
-    let keywords = text.includes("Mission") ? missionKeywords : visionKeywords;
+    const missionKeywords = ["empower", "innovative", "sustainable", "growth"];
+    const visionKeywords = ["lead", "clean", "sustainability", "profitability"];
+    
+    let keywords = isMission ? missionKeywords : visionKeywords;
     
     // Split the paragraph and highlight keywords
     return text.split(' ').map((word, index) => {
       const lowerWord = word.toLowerCase().replace(/[.,!]/g, '');
       const isKeyword = keywords.some(keyword => 
-        keyword.toLowerCase().includes(lowerWord) || 
         lowerWord.includes(keyword.toLowerCase())
       );
       
