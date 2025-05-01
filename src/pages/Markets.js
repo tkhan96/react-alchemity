@@ -82,42 +82,50 @@ const cardTextStyle = {
 
 const carouselContainerStyle = {
   width: '100%',
-  overflow: 'hidden',
+  overflowX: 'auto',
   marginTop: '4rem',
   position: 'relative',
+  paddingBottom: '1rem',
 };
 
 const scrollbarStyles = `
   .carousel-container {
-    overflow: hidden;
-  }
-  .carousel-container:hover {
-    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #25abe0 #141414;
   }
   .carousel-container::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
+    width: 10px;
   }
   .carousel-container::-webkit-scrollbar-track {
     background: #141414;
-    border-radius: 4px;
+    border-radius: 5px;
   }
   .carousel-container::-webkit-scrollbar-thumb {
     background: #25abe0;
-    border-radius: 4px;
+    border-radius: 5px;
+    border: 2px solid #141414;
   }
   .carousel-container::-webkit-scrollbar-thumb:hover {
     background: #0077b5;
+  }
+
+  .market-image {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+  .market-image:hover {
+    filter: drop-shadow(0 0 10px rgba(37, 171, 224, 0.6)) drop-shadow(0 0 16px rgba(37, 171, 224, 0.3));
+    transform: scale(1.015);
   }
 `;
 
 const carouselTrackStyle = {
   display: 'flex',
-  transition: 'transform 0.5s ease-in-out',
-  gap: '0',
-  animation: 'slide 20s linear infinite',
+  gap: '1.5rem',
   alignItems: 'center',
   margin: '0',
-  padding: '0',
+  padding: '0 1rem',
   width: 'max-content',
 };
 
@@ -127,6 +135,8 @@ const carouselImageStyle = {
   objectFit: 'contain',
   flexShrink: 0,
   marginBottom: '0',
+  cursor: 'pointer',
+  borderRadius: '12px'
 };
 
 const imageTitleStyle = {
@@ -162,6 +172,8 @@ const imageContainerStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   height: '100%',
+  padding: '0',
+  cursor: 'pointer'
 };
 
 const keySectionStyle = {
@@ -199,7 +211,7 @@ const firstMarketBoxStyle = (index) => ({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '100%',
+  height: '100%'
 });
 
 const keyframes = `
@@ -230,6 +242,18 @@ const instructionTextStyle = {
   marginTop: '-1rem',
   fontStyle: 'italic',
 };
+
+const additionalStyles = `
+  .market-image-container {
+    transition: all 0.3s ease;
+  }
+  .market-image-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(37, 171, 224, 0.4);
+    background: rgba(37, 171, 224, 0.05);
+    border-radius: 8px;
+  }
+`;
 
 function Markets() {
   const [isHovered, setIsHovered] = useState(false);
@@ -355,8 +379,8 @@ function Markets() {
   };
 
   const handleWheel = (e) => {
-    e.preventDefault();
     if (carouselRef.current) {
+      e.preventDefault();
       carouselRef.current.scrollLeft += e.deltaY;
     }
   };
@@ -365,6 +389,7 @@ function Markets() {
     <>
       <style>{keyframes}</style>
       <style>{scrollbarStyles}</style>
+      <style>{additionalStyles}</style>
       <PageHero 
         backgroundImageUrl={marketsBg}
         title="Markets"
@@ -420,32 +445,16 @@ function Markets() {
         </div>
 
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
-        <p style={instructionTextStyle}>Click and swipe to view the type of markets and click on the images to learn more</p>
+        <p style={instructionTextStyle}>Scroll horizontally to explore different markets and click on images to learn more</p>
 
         <div 
+          ref={carouselRef}
           className="carousel-container"
-          style={{
-            ...carouselContainerStyle,
-            position: 'relative',
-          }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={() => setIsHovered(false)}
+          style={carouselContainerStyle}
           onWheel={handleWheel}
         >
           <div 
-            ref={carouselRef}
-            style={{
-              ...carouselTrackStyle,
-              animation: isHovered ? 'none' : 'slide 40s linear infinite',
-              transform: isHovered ? `translateX(${currentPosition}px)` : undefined,
-              display: 'flex',
-              flexDirection: 'row',
-              width: 'max-content',
-            }}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
+            style={carouselTrackStyle}
           >
             {images.map((item, index) => (
               <div 
@@ -456,29 +465,12 @@ function Markets() {
                   ...(item.isFirstMarket ? firstMarketBoxStyle(index) : {}),
                   userSelect: 'none',
                 }}
+                onClick={() => handleMarketClick(item)}
               >
                 <img
                   src={item.src}
                   alt={item.title}
-                  style={carouselImageStyle}
-                />
-                <p style={imageTitleStyle}>{item.title}</p>
-              </div>
-            ))}
-            {/* Duplicate images for seamless loop */}
-            {images.map((item, index) => (
-              <div 
-                key={`duplicate-${index}`} 
-                data-market={index}
-                style={{
-                  ...imageContainerStyle,
-                  ...(item.isFirstMarket ? firstMarketBoxStyle(index) : {}),
-                  userSelect: 'none',
-                }}
-              >
-                <img
-                  src={item.src}
-                  alt={item.title}
+                  className="market-image"
                   style={carouselImageStyle}
                 />
                 <p style={imageTitleStyle}>{item.title}</p>

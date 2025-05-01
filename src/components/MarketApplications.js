@@ -95,7 +95,7 @@ function MarketApplications() {
                   className={styles.carouselImage}
                 />
                 <p className={styles.imageTitle}>{item.title}</p>
-              </div>
+                </div>
             ))}
             {/* Duplicate images for seamless loop */}
             {images.map((item, index) => (
@@ -107,7 +107,7 @@ function MarketApplications() {
                 />
                 <p className={styles.imageTitle}>{item.title}</p>
               </div>
-            ))}
+          ))}
           </div>
         </div>
 

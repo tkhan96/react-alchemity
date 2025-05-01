@@ -8,6 +8,8 @@ function ContactForm() {
     email: '',
     capacity: '',
     companyName: '',
+    industryType: '',
+    projectLocation: '',
     message: '',
   });
 
@@ -30,6 +32,8 @@ function ContactForm() {
       email: '',
       capacity: '',
       companyName: '',
+      industryType: '',
+      projectLocation: '',
       message: '',
     });
   };
@@ -86,19 +90,6 @@ function ContactForm() {
             <option value="shipping">Shipping</option>
             <option value="utilities">Utilities</option>
             <option value="other">Other</option>
-          </select>
-        </div>
-
-        {/* Project Size Field Group */}
-        <div className={styles.fieldGroup}>
-          <label className={styles.label} htmlFor="projectSize">Project Size (MW)*</label>
-          <select id="projectSize" name="projectSize" value={formData.projectSize} onChange={handleChange} required>
-             <option value="" disabled>Select Size...</option>
-             <option value="1-5">1-5</option>
-             <option value="5-25">5-25</option>
-             <option value="25-100">25-100</option>
-             <option value="100-500">100-500</option>
-             <option value=">500">{'>'}500</option>
           </select>
         </div>
 

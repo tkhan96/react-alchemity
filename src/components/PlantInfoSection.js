@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import styles from './PlantInfoSection.module.css';
 import plantImage from './images/plant4.png'; // Import the plant image
-import { FaRecycle, FaLeaf, FaIndustry, FaFlask, FaArrowRight } from 'react-icons/fa';
+import { FaRecycle, FaLeaf, FaIndustry, FaFlask, FaArrowRight, FaCloud, FaDollarSign, FaShieldAlt, FaSeedling } from 'react-icons/fa';
 
 const PlantInfoSection = () => {
   // Create refs for intersection observer
@@ -73,28 +73,28 @@ const PlantInfoSection = () => {
   // Stats data
   const stats = [
     {
-      icon: <FaRecycle />,
-      value: "95%",
-      label: "Carbon Reduction",
-      description: "Compared to traditional methods"
+      icon: <FaCloud />,
+      value: "400%",
+      label: "Lower CO₂ Emission",
+      description: ""
     },
     {
-      icon: <FaLeaf />,
+      icon: <FaDollarSign />,
+      value: "300%",
+      label: "Lower Lifetime Cost",
+      description: "Scales Down Cost Effectively Even to Remote Sites"
+    },
+    {
+      icon: <FaShieldAlt />,
       value: "100%",
-      label: "Renewable Energy",
-      description: "Used in our production process"
+      label: "Energy Security",
+      description: "Provides Domestic Job and Energy Security"
     },
     {
-      icon: <FaIndustry />,
-      value: "30%",
-      label: "Cost Reduction",
-      description: "For our industrial partners"
-    },
-    {
-      icon: <FaFlask />,
-      value: "24/7",
-      label: "Continuous Operation",
-      description: "For maximum efficiency"
+      icon: <FaSeedling />,
+      value: "All",
+      label: "Site Types",
+      description: "Clean Energy Production in Brown and Green Fields"
     }
   ];
 
@@ -160,7 +160,7 @@ const PlantInfoSection = () => {
             initial="hidden"
             animate={statsInView ? "visible" : "hidden"}
           >
-            <h2 className={styles.statsTitle}>Revolutionary Technology</h2>
+            <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
             <p className={styles.statsSubtitle}>
               Our modular reactors deliver industry-leading performance metrics while maintaining the highest environmental standards.
             </p>

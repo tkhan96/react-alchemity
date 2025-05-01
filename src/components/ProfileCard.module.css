@@ -83,6 +83,7 @@
   height: 300px;
   flex-shrink: 0;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .founderImage {
@@ -90,6 +91,7 @@
   height: 300px;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 
 .founderInfo {

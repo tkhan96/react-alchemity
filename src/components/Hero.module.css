@@ -1,6 +1,7 @@
 .heroSection {
   position: relative;
   height: 100vh;
+  min-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,33 +72,35 @@
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 1200px; /* Increased from 1000px to accommodate larger cards */
-  padding: 2rem;
+  max-width: 1000px;
+  padding: 1.5rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .headline {
-  font-size: 4.5rem; /* Increased from 4rem */
-  margin-bottom: 1.5rem; /* Increased from 1rem */
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
   font-weight: 300;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: -0.5px;
-  color: #ffffff;
+  color: #25abe0;
 }
 
 .subHeadline {
-  font-size: 1.7rem; /* Increased from 1.5rem */
-  margin-bottom: 2.5rem; /* Increased from 2rem */
-  max-width: 800px; /* Increased from 700px */
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   color: #e0e0e0;
 }
 
 /* Key Messages Styling - Sleek Single Line Version */
 .keyMessagesContainer {
-  margin: 2.5rem 0 3.5rem;
+  margin: 2rem 0 3rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -107,7 +110,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 1.8rem; /* Increased from 1.6rem */
+  font-size: 1.5rem;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.5px;
@@ -134,7 +137,7 @@
 
 @media (max-width: 768px) {
   .keyMessagesLine {
-    font-size: 1.4rem; /* Increased from 1.2rem */
+    font-size: 1.2rem;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -150,15 +153,15 @@
   }
   
   .heroContent {
-    padding: 1.5rem; /* Added for better mobile spacing */
+    padding: 1.5rem;
   }
   
   .headline {
-    font-size: 3rem; /* Adjusted for mobile */
+    font-size: 2.5rem;
   }
   
   .subHeadline {
-    font-size: 1.4rem; /* Adjusted for mobile */
+    font-size: 1.2rem;
   }
 }
 
@@ -195,8 +198,9 @@
 .missionVisionContainer {
   display: flex;
   justify-content: center;
-  gap: 3rem; /* Increased from 2rem */
-  margin-top: 3rem; /* Increased from 2rem */
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
   width: 100%;
 }
 
@@ -211,10 +215,10 @@
 .mission,
 .vision {
   flex: 1;
-  max-width: 450px;
+  max-width: 420px;
   background-color: rgba(25, 22, 20, 0.8);
   backdrop-filter: blur(10px);
-  padding: 3rem;
+  padding: 2.5rem;
   border-radius: 20px;
   text-align: center;
   border: 2px solid rgba(37, 171, 224, 0.3);
@@ -260,12 +264,10 @@
 }
 
 .cardTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  position: relative;
-  display: inline-block;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .cardTitle::after {
@@ -280,11 +282,10 @@
 }
 
 .cardText {
-  font-size: 1.3rem;
-  font-weight: 500;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+  padding: 0 0.5rem;
 }
 
 .emphasisWord {

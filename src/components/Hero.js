@@ -99,7 +99,7 @@ function Hero({ backgroundImageUrl }) {
   const keyMessages = [
     "One Platform",
     "Clean Chemicals", 
-    "Zero CO2", 
+    "Zero CO₂", 
     "Lower Capital Risk", 
     "Higher Efficiency"
   ];
@@ -129,26 +129,7 @@ function Hero({ backgroundImageUrl }) {
   // Helper function to add emphasis to key phrases
   const emphasizeText = (text) => {
     if (!text) return null;
-    
-    // Determine which set of keywords to use based on content
-    const isMission = text.toLowerCase().includes("empower") || text.toLowerCase().includes("planet");
-    
-    const missionKeywords = ["empower", "innovative", "sustainable", "growth"];
-    const visionKeywords = ["lead", "clean", "sustainability", "profitability"];
-    
-    let keywords = isMission ? missionKeywords : visionKeywords;
-    
-    // Split the paragraph and highlight keywords
-    return text.split(' ').map((word, index) => {
-      const lowerWord = word.toLowerCase().replace(/[.,!]/g, '');
-      const isKeyword = keywords.some(keyword => 
-        lowerWord.includes(keyword.toLowerCase())
-      );
-      
-      return isKeyword ? 
-        <span key={index} className={styles.emphasisWord}>{word} </span> : 
-        <span key={index}>{word} </span>;
-    });
+    return text;
   };
 
   return (
@@ -187,7 +168,7 @@ function Hero({ backgroundImageUrl }) {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          Revolutionizing Clean Chemicals
+          Revolutionizing Production of Clean Chemicals
         </motion.h1>
         
         <motion.p 
@@ -237,7 +218,7 @@ function Hero({ backgroundImageUrl }) {
           >
             <h2 className={styles.cardTitle}>Our Mission</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To empower industries with innovative, sustainable solutions that drive growth while protecting the planet.")}
+              {emphasizeText("To offer lower cost and zero CO₂ emissions chemicals via modular reactors.")}
             </p>
           </motion.div>
           
@@ -255,7 +236,7 @@ function Hero({ backgroundImageUrl }) {
           >
             <h2 className={styles.cardTitle}>Our Vision</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To lead the global transition to clean chemical production, creating a future where sustainability and profitability coexist.")}
+              {emphasizeText("To transform current chemicals production with less capital-intensive process.")}
             </p>
           </motion.div>
         </div>
