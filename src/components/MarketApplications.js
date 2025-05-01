@@ -1,13 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import styles from './MarketApplications.module.css'; // Import the CSS module
+import { Link } from 'react-router-dom';
+import styles from './MarketApplications.module.css';
 
-// Import images for each industry
-import financeImage from './images/finance-icon.png'; // Replace with the actual path to your image
-import healthcareImage from './images/health-icon.png'; // Replace with the actual path to your image
-import manufacturingImage from './images/manufacturing-icon.png'; // Replace with the actual path to your image
-import retailImage from './images/shopping-icon.png'; // Replace with the actual path to your image
+// Import chemical images
+import waste from './images/waste.png';
+import saf from './images/saf.png';
+import hydrogen from './images/hydrogen.png';
+import biogas from './images/biogas.png';
+import ethylene from './images/ethylene.png';
+import ethane from './images/ethane.png';
+import syngas from './images/syngas.png';
+import benzene from './images/benzene.png';
+import { FaArrowRight } from 'react-icons/fa';
 
 function MarketApplications() {
   const [ref, inView] = useInView({
@@ -15,28 +21,15 @@ function MarketApplications() {
     threshold: 0.1,
   });
 
-  // Industry data with descriptions
-  const industries = [
-    {
-      name: "Finance",
-      image: financeImage,
-      description: "Enabling financial institutions to meet sustainability targets while maintaining competitive operations."
-    },
-    {
-      name: "Healthcare",
-      image: healthcareImage,
-      description: "Providing pharmaceutical companies with green chemical processes for medication production."
-    },
-    {
-      name: "Manufacturing",
-      image: manufacturingImage,
-      description: "Transforming industrial manufacturing with carbon-negative chemical production solutions."
-    },
-    {
-      name: "Retail",
-      image: retailImage,
-      description: "Supporting consumer product companies with sustainable ingredients for everyday products."
-    }
+  const images = [
+    { src: waste, title: 'Waste Gas' },
+    { src: saf, title: 'SAF' },
+    { src: hydrogen, title: 'Hydrogen' },
+    { src: biogas, title: 'RNG, Biogas' },
+    { src: ethylene, title: 'Ethylene' },
+    { src: ethane, title: 'Ethane' },
+    { src: syngas, title: 'Syngas' },
+    { src: benzene, title: 'Benzene' }
   ];
 
   // Animation variants
@@ -52,11 +45,28 @@ function MarketApplications() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        delay: 0.8, 
+        ease: "easeOut" 
+      }
+    },
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.3 }
     }
   };
 
@@ -68,42 +78,55 @@ function MarketApplications() {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        {/* Left Side: Text */}
         <motion.div className={styles.textContainer} variants={itemVariants}>
-          <h2>Industries We Serve</h2>
+          <h2>Markets We Serve</h2>
           <p>
-            Our solutions are tailored to meet the unique needs of various industries, driving innovation and efficiency across the board.
+            Our solutions are tailored to meet the unique needs of various markets, driving innovation and efficiency across the board.
           </p>
         </motion.div>
 
-        {/* Right Side: Industry Boxes */}
-        <div className={styles.industriesGrid}>
-          {industries.map((industry, index) => (
-            <motion.div 
-              key={index}
-              className={styles.industryBox}
-              variants={itemVariants}
-              whileHover={{ 
-                y: -10,
-                boxShadow: "0 20px 30px rgba(0, 0, 0, 0.5)"
-              }}
-            >
-              <div className={styles.industryContent}>
+        <div className={styles.carouselContainer}>
+          <div className={styles.carouselTrack}>
+            {images.map((item, index) => (
+              <div key={index} className={styles.imageContainer}>
                 <img
-                  src={industry.image}
-                  alt={industry.name}
-                  className={styles.industryImage}
+                  src={item.src}
+                  alt={item.title}
+                  className={styles.carouselImage}
                 />
-                <h3>{industry.name}</h3>
-                <div className={styles.industryDescriptionContainer}>
-                  <p className={styles.industryDescription}>
-                    {industry.description}
-                  </p>
-                </div>
+                <p className={styles.imageTitle}>{item.title}</p>
               </div>
-            </motion.div>
-          ))}
+            ))}
+            {/* Duplicate images for seamless loop */}
+            {images.map((item, index) => (
+              <div key={`duplicate-${index}`} className={styles.imageContainer}>
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className={styles.carouselImage}
+                />
+                <p className={styles.imageTitle}>{item.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Learn More Button */}
+        <motion.div
+          className={styles.learnMoreContainer}
+          variants={buttonVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          whileHover="hover"
+        >
+          <Link 
+            to="/markets" 
+            className={styles.learnMoreButton}
+          >
+            <span>Learn More About Markets</span>
+            <FaArrowRight className={styles.arrowIcon} />
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
   );

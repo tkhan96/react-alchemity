@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './ProductFocus.module.css';
-import { FaCode, FaNetworkWired, FaProjectDiagram, FaTasks } from 'react-icons/fa';
+import { FaIndustry, FaLeaf, FaShieldAlt } from 'react-icons/fa';
 
 function ProductFocus() {
   const [activeTab, setActiveTab] = useState(0);
@@ -14,43 +14,33 @@ function ProductFocus() {
   // Product features data with icons
   const features = [
     {
-      icon: <FaCode />,
-      title: "Cutting-Edge Technology",
-      description: "Leverage cutting-edge technology stacks for optimal performance with our fully integrated modular design.",
+      icon: <FaIndustry />,
+      title: "Sustainable Plant Design",
+      description: "Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower.",
       benefits: [
-        "Advanced catalytic processes",
-        "Real-time monitoring systems",
-        "Modular, scalable architecture"
+        "Reduced capital investment",
+        "Extended plant lifespan",
+        "Lower operational risk"
       ]
     },
     {
-      icon: <FaNetworkWired />,
-      title: "Integrated Solutions",
-      description: "Fully integrated solutions tailored to your specific business needs, ensuring seamless operations.",
+      icon: <FaLeaf />,
+      title: "Eco-Friendly Solutions",
+      description: "Modular skid systems deliver 400% lower CO2 emissions and 300% lower lifetime cost through optimized design and efficient operation.",
       benefits: [
-        "End-to-end process optimization",
-        "Customizable configurations",
-        "Seamless industrial integration"
+        "Modular construction",
+        "Significant CO2 reduction",
+        "Lower total cost of ownership"
       ]
     },
     {
-      icon: <FaProjectDiagram />,
-      title: "Rapid Deployment",
-      description: "Standardized modules and rapid deployment methodologies ensure quick time-to-value for your operations.",
+      icon: <FaShieldAlt />,
+      title: "Domestic Energy Security",
+      description: "Alchemity's provides domestic jobs and energy security leveraging existing downstream processes.",
       benefits: [
-        "Pre-fabricated components",
-        "Quick installation protocols",
-        "Minimal production disruption"
-      ]
-    },
-    {
-      icon: <FaTasks />,
-      title: "End-to-End Management",
-      description: "Comprehensive project management minimizes risk and ensures successful outcomes at every stage.",
-      benefits: [
-        "Dedicated support teams",
-        "Continuous performance monitoring",
-        "Regular maintenance and upgrades"
+        "Local job creation",
+        "Enhanced energy independence",
+        "Optimized existing infrastructure"
       ]
     }
   ];
@@ -98,10 +88,10 @@ function ProductFocus() {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.h2 className={styles.title} variants={itemVariants}>
-          Our Approach to Solutions
+          Value Proposition
         </motion.h2>
         <motion.p className={styles.subTitle} variants={itemVariants}>
-          Alchemity's integrated platform delivers measurable results and accelerates your business transformation.
+          Transforming industrial operations with sustainable solutions that reduce costs, lower emissions, and strengthen domestic energy security.
         </motion.p>
 
         {/* Tabs Navigation */}
