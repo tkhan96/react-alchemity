@@ -8,7 +8,7 @@ function Modal({ show, onClose, title, children, linkedInUrl }) {
 
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
-      <div className={styles.modalContent} onClick={e => e.stopPropagation()}> {/* Prevent closing when clicking content */}
+      <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h4 className={styles.modalTitle}>{title}</h4>
         </div>

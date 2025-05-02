@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 
-// Import the background image
 import marketsBg from '../components/images/market.avif';
 
-// Import chemical images
 import waste from '../components/images/waste.png';
 import saf from '../components/images/saf.png';
 import hydrogen from '../components/images/hydrogen.png';

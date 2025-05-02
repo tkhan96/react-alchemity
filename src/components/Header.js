@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link
-import styles from './Header.module.css'; // Import CSS module
-import logo from './images/alchemity_logo_w_text.png'; // Updated path to the logo
+import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
+import logo from './images/alchemity_logo_w_text.png';
 
 const contactButtonStyle = {
   backgroundColor: '#0077b5',
@@ -13,7 +13,7 @@ const contactButtonStyle = {
 };
 
 contactButtonStyle[':hover'] = {
-  backgroundColor: '#005a8c',  // Darker shade of blue
+  backgroundColor: '#005a8c',
 };
 
 function Header() {
@@ -21,13 +21,11 @@ function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div>
-          {/* Placeholder for Logo */}
           <Link to="/" className={styles.logo}>
             <img src={logo} alt="Alchemity Logo" className={styles.logoImage} />
           </Link>
         </div>
         <ul className={styles.navList}>
-          {/* Updated Nav Links */}
           <li className={styles.navItem}><Link to="/markets" className={styles.navLink}>Markets</Link></li>
           <li className={styles.navItem}><Link to="/products" className={styles.navLink}>Products</Link></li>
           <li className={styles.navItem}><Link to="/technology" className={styles.navLink}>Technology</Link></li>

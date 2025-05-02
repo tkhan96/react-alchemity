@@ -46,8 +46,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Optional: Add a 404 Not Found route here */}
-            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </main>
         <Footer />

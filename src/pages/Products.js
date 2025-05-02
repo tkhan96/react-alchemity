@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
-import productsBg from '../components/images/products-bg-2.jpg'; // Adjust the path as needed
+import productsBg from '../components/images/products-bg-2.jpg';
 
 function Products() {
   return (
@@ -10,7 +10,6 @@ function Products() {
         <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto', color: '#ffffff' }}>
           Explore Alchemity's suite of products designed to empower your business. Learn about features, benefits, and integration capabilities.
         </p>
-        {/* Placeholder for product details/cards */}
       </div>
     </>
   );

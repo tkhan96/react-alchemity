@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
 import styles from './ProductFocus.module.css';
-import { FaIndustry, FaLeaf, FaShieldAlt } from 'react-icons/fa';
+import { FaIndustry, FaLeaf, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
 
 function ProductFocus() {
   const [activeTab, setActiveTab] = useState(0);
@@ -15,7 +16,7 @@ function ProductFocus() {
   const features = [
     {
       icon: <FaIndustry />,
-      title: "Sustainable Plant Design",
+      title: "Placeholder text",
       description: "Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower.",
       benefits: [
         "Reduced capital investment",
@@ -79,6 +80,18 @@ function ProductFocus() {
     }
   };
 
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    },
+    hover: {
+      scale: 1.05
+    }
+  };
+
   return (
     <section className={styles.section} ref={ref}>
       <motion.div
@@ -91,7 +104,7 @@ function ProductFocus() {
           Value Proposition
         </motion.h2>
         <motion.p className={styles.subTitle} variants={itemVariants}>
-          Transforming industrial operations with sustainable solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+          Transforming industrial operations with solutions that reduce costs, lower emissions, and strengthen domestic energy security.
         </motion.p>
 
         {/* Tabs Navigation */}
@@ -139,6 +152,24 @@ function ProductFocus() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {/* Learn More About Product Button */}
+        <motion.div
+          className={styles.learnMoreContainer}
+          variants={buttonVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          whileHover="hover"
+        >
+          <Link 
+            to="/products" 
+            className={styles.learnMoreButton}
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            <span>Learn More About Our Product</span>
+            <FaArrowRight className={styles.arrowIcon} />
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
   );

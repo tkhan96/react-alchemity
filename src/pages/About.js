@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import ProfileCard from '../components/ProfileCard';
 import PageHero from '../components/PageHero';
-import aboutBg from '../components/images/about.png'; // Adjust the path as needed
-// Import founder images
+import aboutBg from '../components/images/about.png'; 
 import founder1 from '../components/images/founder1.png';
 import founder2 from '../components/images/founder2.png';
 import founder3 from '../components/images/founder3.png';
@@ -11,7 +10,6 @@ import advisor1 from '../components/images/advisor1.png';
 import advisor2 from '../components/images/advisor2.png';
 import advisor3 from '../components/images/advisor3.png';
 
-// Placeholder data
 const founders = [
   {
     id: 2,
@@ -102,7 +100,6 @@ const advisors = [
   },
 ];
 
-// Basic grid styles - can move to CSS Module if needed
 const gridStyle = {
   display: 'grid',
   gap: '1.5rem',

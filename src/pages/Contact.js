@@ -1,11 +1,11 @@
 import React from 'react';
 import ContactForm from '../components/ContactForm';
-import styles from './Contact.module.css'; // Create this CSS module
-import PageHero from '../components/PageHero'; // Import PageHero
-import contactBg from '../components/images/contact-us-bg-2.jpg'; // Placeholder for background image
+import styles from './Contact.module.css';
+import PageHero from '../components/PageHero';
+import contactBg from '../components/images/contact-us-bg-2.jpg';
+
 function Contact() {
-  // Placeholder URL for LinkedIn to satisfy linting
-  const linkedInUrl = 'https://www.linkedin.com/company/alchemity/'; 
+  const linkedInUrl = 'https://www.linkedin.com/company/alchemity/';
 
   return (
     <>
@@ -35,7 +35,7 @@ function Contact() {
             <div className={styles.infoBlock}>
                <h2>Connect</h2>
                <p>Follow us on LinkedIn (our primary social channel):</p>
-               <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Alchemity on LinkedIn</a> {/* Use valid URL */} 
+               <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Alchemity on LinkedIn</a>
              </div>
 
           </div>

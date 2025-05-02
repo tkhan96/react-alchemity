@@ -107,16 +107,17 @@
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 220px;
+  min-width: 120px;
   background-color: #1a1a1a;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.6rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 5;
   border: 1px solid #333333;
+  text-align: center;
 }
 
 .hotspot:hover .hotspotTooltip {
@@ -135,9 +136,10 @@
 }
 
 .hotspotTooltip h4 {
-  margin: 0 0 0.5rem;
+  margin: 0;
   color: var(--earth-1);
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .hotspotTooltip p {

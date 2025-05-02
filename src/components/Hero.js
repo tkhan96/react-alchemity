@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styles from './Hero.module.css'; // Import CSS module
+import styles from './Hero.module.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import heroVideo from './images/homepage-hero.mp4'; // Import local video file
+import heroVideo from './images/homepage-hero.mp4'; 
 
 function Hero({ backgroundImageUrl }) {
   const [ref, inView] = useInView({
@@ -13,12 +13,10 @@ function Hero({ backgroundImageUrl }) {
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
-  // State for controlling the animation sequence
   const [activePhrase, setActivePhrase] = useState(null);
 
-  // Handle video loaded event
   useEffect(() => {
-    if (!backgroundImageUrl) { // Only load video if no background image is provided
+    if (!backgroundImageUrl) { 
       const video = videoRef.current;
       if (video) {
         console.log("🔄 Setting up video element");
@@ -29,7 +27,7 @@ function Hero({ backgroundImageUrl }) {
         };
         
         const handleError = (error) => {
-          console.error("❌ Video error:", error);
+          console.error("Video error:", error);
         };
         
         video.addEventListener('loadeddata', handleLoadedData);
@@ -37,10 +35,10 @@ function Hero({ backgroundImageUrl }) {
         
         // Check if video is already loaded
         if (video.readyState >= 3) {
-          console.log("✅ Video is ready to play (readyState:", video.readyState, ")");
+          console.log("Video is ready to play (readyState:", video.readyState, ")");
           setVideoLoaded(true);
         } else {
-          console.log("🔄 Video readyState:", video.readyState);
+          console.log("Video readyState:", video.readyState);
         }
         
         return () => {
@@ -50,11 +48,10 @@ function Hero({ backgroundImageUrl }) {
       }
     } else {
       console.log("📷 Using background image instead of video");
-      setVideoLoaded(true); // If using background image, consider content as "loaded"
+      setVideoLoaded(true);
     }
   }, [backgroundImageUrl]);
 
-  // Text animation variants
   const headlineVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -93,7 +90,6 @@ function Hero({ backgroundImageUrl }) {
     })
   };
 
-  // Added pulse animation variant for the cards
   const pulseVariants = {
     pulse: {
       boxShadow: [
@@ -109,38 +105,34 @@ function Hero({ backgroundImageUrl }) {
     }
   };
 
-  // Key messages with periods between them
   const keyMessages = [
     "One Platform",
     "Clean Chemicals", 
-    "Zero CO₂", 
+    "Zero CO<sub>2</sub>", 
     "Lower Capital Risk", 
     "Higher Efficiency"
   ];
 
-  // Effect for sequentially bolding each phrase once on load
   useEffect(() => {
     if (inView) {
       let currentIndex = 0;
       const interval = setInterval(() => {
         setActivePhrase(currentIndex);
         
-        // Reset after a short time
         setTimeout(() => {
           setActivePhrase(null);
-        }, 1000);  // Each phrase stays bold for 1 second
+        }, 1000);  
         
         currentIndex++;
         if (currentIndex >= keyMessages.length) {
           clearInterval(interval);
         }
-      }, 1500);  // Move to next phrase every 1.5 seconds
+      }, 1500); 
       
       return () => clearInterval(interval);
     }
   }, [inView, keyMessages.length]);
 
-  // Helper function to add emphasis to key phrases
   const emphasizeText = (text) => {
     if (!text) return null;
     return text;
@@ -148,7 +140,6 @@ function Hero({ backgroundImageUrl }) {
 
   return (
     <section className={styles.heroSection} ref={ref}>
-      {/* Background Image or Video */}
       {backgroundImageUrl ? (
         <>
           <div 
@@ -177,7 +168,6 @@ function Hero({ backgroundImageUrl }) {
           </video>
       )}
   
-      {/* Enhanced Gradient Overlay */}
       <div className={`${styles.heroOverlay} ${videoLoaded ? styles.videoLoaded : ''}`}></div>
       
       <div className={styles.heroContent}>
@@ -199,7 +189,6 @@ function Hero({ backgroundImageUrl }) {
           Scaling carbon-negative, cost-competitive chemical production with modular reactor systems.
         </motion.p>
 
-        {/* Sleek Key Messaging Bar */}
         <motion.div
           className={styles.keyMessagesContainer}
           initial={{ opacity: 0 }}
@@ -221,7 +210,6 @@ function Hero({ backgroundImageUrl }) {
           </div>
         </motion.div>
 
-        {/* Enhanced Mission and Vision Section with Glowing Borders */}
         <div className={styles.missionVisionContainer}>
           <motion.div 
             className={styles.mission}
@@ -237,7 +225,7 @@ function Hero({ backgroundImageUrl }) {
           >
             <h2 className={styles.cardTitle}>Our Mission</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To offer lower cost and zero CO₂ emissions chemicals via modular reactors.")}
+              {emphasizeText("To offer lower cost and zero CO<sub>2</sub> emissions chemicals via modular reactors.")}
             </p>
           </motion.div>
           

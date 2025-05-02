@@ -1,9 +1,7 @@
 import React from 'react';
-import styles from './Footer.module.css'; // Import CSS module
+import styles from './Footer.module.css'; 
 
 function Footer() {
-  // Removed unused inline style definitions
-
   return (
     <footer className={styles.footer}>
       <div className={styles.companyName}>
@@ -20,7 +18,6 @@ function Footer() {
         <a href="#privacy">Privacy Policy</a>
         <a href="https://www.linkedin.com/company/alchemity/" target="_blank" rel="noopener noreferrer">Follow us on Linkedin</a>
       </div>
-      {/* Optional: Repeat main nav links here */}
     </footer>
   );
 }

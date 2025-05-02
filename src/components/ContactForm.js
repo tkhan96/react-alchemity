@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './ContactForm.module.css'; // Import CSS module
+import styles from './ContactForm.module.css'; 
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -25,7 +25,6 @@ function ContactForm() {
     e.preventDefault();
     console.log('Form Data Submitted:', formData);
     alert('Thank you for your message! We will be in touch shortly.');
-    // Reset form - properly clear fields
     setFormData({
       firstName: '',
       lastName: '',

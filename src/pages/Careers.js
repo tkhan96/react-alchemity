@@ -3,7 +3,6 @@ import styles from './Careers.module.css';
 import PageHero from '../components/PageHero';
 import careersBg from '../components/images/careers-bg.png';
 
-// Placeholder job data
 const jobPostings = [
   {
     id: 1,
@@ -19,7 +18,6 @@ const jobPostings = [
     description: 'Drive the go-to-market strategy for our innovative products...',
     applyLink: '#'
   },
-  // Add more postings here
 ];
 
 function Careers() {
@@ -30,7 +28,6 @@ function Careers() {
         backgroundImageUrl={careersBg}
       />
 
-      {/* Full-width wrapper with black background */}
       <div style={{ backgroundColor: '#000000', minHeight: '100vh' }}>
         <div className={styles.careersPage} style={{ backgroundColor: '#000000' }}>
           <div style={{ 

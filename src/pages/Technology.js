@@ -89,7 +89,6 @@ function Technology() {
       />
       <div style={sectionStyle}>
         <div style={cardsContainerStyle}>
-          {/* R&D Card */}
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>35 Years of R&D<br />$20M in Funding</h3>
             <img src={rd} alt="R&D" style={imageStyle} />
@@ -98,7 +97,6 @@ function Technology() {
             </p>
           </div>
 
-          {/* Validated Card */}
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>Extensively Validated</h3>
             <img src={validated} alt="Extensively Validated" style={{...imageStyle, marginTop: '2.2rem'}} />
@@ -107,7 +105,6 @@ function Technology() {
             </p>
           </div>
 
-          {/* Scalable Card */}
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>Scalable</h3>
             <img src={scalable} alt="Scalable" style={{...imageStyle, marginTop: '2.2rem'}} />

@@ -3,11 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import styles from './PlantInfoSection.module.css';
-import plantImage from './images/plant4.png'; // Import the plant image
+import plantImage from './images/30tpd.jpg';  
 import { FaRecycle, FaLeaf, FaIndustry, FaFlask, FaArrowRight, FaCloud, FaDollarSign, FaShieldAlt, FaSeedling } from 'react-icons/fa';
 
 const PlantInfoSection = () => {
-  // Create refs for intersection observer
   const [imageRef, imageInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -18,12 +17,10 @@ const PlantInfoSection = () => {
     threshold: 0.1,
   });
 
-  // Function to scroll to top when link is clicked
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
-  // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
@@ -70,13 +67,12 @@ const PlantInfoSection = () => {
     }
   };
 
-  // Stats data
   const stats = [
     {
       icon: <FaCloud />,
       value: "400%",
       label: "Lower CO₂ Emission",
-      description: ""
+      description: "Placeholder text"
     },
     {
       icon: <FaDollarSign />,
@@ -102,7 +98,6 @@ const PlantInfoSection = () => {
     <section className={styles.plantSection}>
       <div className={styles.container}>
         <div className={styles.contentWrapper}>
-          {/* Left Side: Plant Image with Animation */}
           <motion.div 
             className={styles.imageContainer}
             ref={imageRef}
@@ -118,24 +113,22 @@ const PlantInfoSection = () => {
             <div className={styles.imageOverlay}>
               <motion.div 
                 className={styles.hotspot}
-                style={{ bottom: '30%', left: '25%' }}
+                style={{ bottom: '45%', left: '32%' }}
                 whileHover={{ scale: 1.2 }}
               >
                 <div className={styles.hotspotDot}></div>
                 <div className={styles.hotspotTooltip}>
-                  <h4>Reactor Core</h4>
-                  <p>Our proprietary design enhances catalytic efficiency by 45%</p>
+                  <h4>Feedstock</h4>
                 </div>
               </motion.div>
               <motion.div 
                 className={styles.hotspot}
-                style={{ top: '45%', left: '60%' }}
+                style={{ top: '40%', left: '75%' }}
                 whileHover={{ scale: 1.2 }}
               >
                 <div className={styles.hotspotDot}></div>
                 <div className={styles.hotspotTooltip}>
-                  <h4>Control Systems</h4>
-                  <p>AI-powered monitoring ensures optimal performance 24/7</p>
+                  <h4>GTChem Skid</h4>
                 </div>
               </motion.div>
               <motion.div 
@@ -145,14 +138,12 @@ const PlantInfoSection = () => {
               >
                 <div className={styles.hotspotDot}></div>
                 <div className={styles.hotspotTooltip}>
-                  <h4>Output Processing</h4>
-                  <p>Advanced filtration delivers 99.8% pure chemical outputs</p>
+                  <h4>Liquid Fuel Tank</h4>
                 </div>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Right Side: Stats with Animation */}
           <motion.div 
             className={styles.statsContainer}
             ref={statsRef}
@@ -162,7 +153,7 @@ const PlantInfoSection = () => {
           >
             <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
             <p className={styles.statsSubtitle}>
-              Our modular reactors deliver industry-leading performance metrics while maintaining the highest environmental standards.
+              Placeholder text
             </p>
             
             <div className={styles.statsGrid}>
@@ -182,7 +173,6 @@ const PlantInfoSection = () => {
               ))}
             </div>
             
-            {/* Learn More Button */}
             <motion.div
               className={styles.learnMoreContainer}
               variants={buttonVariants}

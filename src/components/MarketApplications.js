@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import styles from './MarketApplications.module.css';
-
-// Import chemical images
 import waste from './images/waste.png';
 import saf from './images/saf.png';
 import hydrogen from './images/hydrogen.png';
@@ -32,7 +30,6 @@ function MarketApplications() {
     { src: benzene, title: 'Benzene' }
   ];
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -81,7 +78,7 @@ function MarketApplications() {
         <motion.div className={styles.textContainer} variants={itemVariants}>
           <h2>Markets We Serve</h2>
           <p>
-            Our solutions are tailored to meet the unique needs of various markets, driving innovation and efficiency across the board.
+            Placeholder text
           </p>
         </motion.div>
 
@@ -97,7 +94,6 @@ function MarketApplications() {
                 <p className={styles.imageTitle}>{item.title}</p>
                 </div>
             ))}
-            {/* Duplicate images for seamless loop */}
             {images.map((item, index) => (
               <div key={`duplicate-${index}`} className={styles.imageContainer}>
                 <img
@@ -111,7 +107,6 @@ function MarketApplications() {
           </div>
         </div>
 
-        {/* Learn More Button */}
         <motion.div
           className={styles.learnMoreContainer}
           variants={buttonVariants}

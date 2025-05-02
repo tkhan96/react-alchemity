@@ -12,7 +12,6 @@ function Sponsors() {
     threshold: 0.1,
   });
 
-  // Duplicated logos to create a continuous loop effect
   const sponsors = [
     { name: "Shell", logo: shellLogo },
     { name: "University of Maryland", logo: umdLogo },
@@ -22,25 +21,22 @@ function Sponsors() {
     { name: "University of Maryland", logo: umdLogo },
   ];
 
-  // For automatic sliding
   const [position, setPosition] = useState(0);
-  const visibleSponsors = 4; // Number of visible sponsors at once
+  const visibleSponsors = 4;
   const totalSponsors = sponsors.length;
 
   useEffect(() => {
-    // Only start the animation when in view
     if (inView) {
       const interval = setInterval(() => {
         setPosition((prevPosition) => 
           prevPosition === totalSponsors - visibleSponsors ? 0 : prevPosition + 1
         );
-      }, 3000); // Change slide every 3 seconds
+      }, 3000);
       
       return () => clearInterval(interval);
     }
   }, [inView, totalSponsors, visibleSponsors]);
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -85,7 +81,6 @@ function Sponsors() {
           Partnering with industry leaders to accelerate the transition to sustainable chemical production
         </motion.p>
         
-        {/* Sponsors Carousel */}
         <motion.div 
           className={styles.sponsorsCarousel}
           variants={itemVariants}
@@ -101,7 +96,6 @@ function Sponsors() {
             ))}
           </div>
           
-          {/* Carousel Indicators */}
           <div className={styles.carouselIndicators}>
             {Array.from({ length: totalSponsors - visibleSponsors + 1 }).map((_, index) => (
               <div 

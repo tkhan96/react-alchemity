@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ProfileCard.module.css'; // Import CSS module
+import styles from './ProfileCard.module.css';
 
 function ProfileCard({ name, title, imageUrl, onClick, linkedInUrl, blurb, isAdvisor, isEric }) {
   return (
