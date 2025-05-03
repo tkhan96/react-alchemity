@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './Sponsors.module.css';
 
@@ -20,22 +20,6 @@ function Sponsors() {
     { name: "Shell", logo: shellLogo },
     { name: "University of Maryland", logo: umdLogo },
   ];
-
-  const [position, setPosition] = useState(0);
-  const visibleSponsors = 4;
-  const totalSponsors = sponsors.length;
-
-  useEffect(() => {
-    if (inView) {
-      const interval = setInterval(() => {
-        setPosition((prevPosition) => 
-          prevPosition === totalSponsors - visibleSponsors ? 0 : prevPosition + 1
-        );
-      }, 3000);
-      
-      return () => clearInterval(interval);
-    }
-  }, [inView, totalSponsors, visibleSponsors]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -85,7 +69,7 @@ function Sponsors() {
           className={styles.sponsorsCarousel}
           variants={itemVariants}
         >
-          <div className={styles.carouselTrack} style={{ transform: `translateX(-${position * 25}%)` }}>
+          <div className={styles.carouselTrack}>
             {sponsors.map((sponsor, index) => (
               <div 
                 key={index}
@@ -94,17 +78,16 @@ function Sponsors() {
                 <img src={sponsor.logo} alt={sponsor.name} className={styles.sponsorLogo} />
               </div>
             ))}
-          </div>
-          
-          <div className={styles.carouselIndicators}>
-            {Array.from({ length: totalSponsors - visibleSponsors + 1 }).map((_, index) => (
+            {/* Duplicate sponsors for continuous loop effect */}
+            {sponsors.map((sponsor, index) => (
               <div 
-                key={index} 
-                className={`${styles.indicator} ${position === index ? styles.activeIndicator : ''}`}
-                onClick={() => setPosition(index)}
-              />
+                key={`duplicate-${index}`}
+                className={styles.sponsorCard}
+              >
+                <img src={sponsor.logo} alt={sponsor.name} className={styles.sponsorLogo} />
+              </div>
             ))}
-      </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>

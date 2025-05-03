@@ -23,9 +23,9 @@
   padding: 0 1.5rem;
   position: relative;
   z-index: 1;
-  }
+}
   
-  .sponsorsTitle {
+.sponsorsTitle {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -47,93 +47,93 @@
   position: relative;
   overflow: hidden;
   padding: 2rem 0 3rem;
-    margin-bottom: 2rem;
-  }
+  margin-bottom: 2rem;
+  pointer-events: none;
+}
   
 .carouselTrack {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
+  width: max-content;
+  animation: slide 30s linear infinite;
+  align-items: center;
+  gap: 24px;
 }
 
 .sponsorCard {
-  flex: 0 0 25%; /* 4 sponsors visible at once */
+  flex: 0 0 auto;
   background-color: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
   padding: 2rem;
-    display: flex;
+  display: flex;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border: 1px solid #333333;
   transition: all 0.3s ease;
   height: 160px;
-  margin: 0 12px;
+  width: 250px;
+  margin: 0;
 }
 
 .sponsorCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   border-color: var(--primary-color);
-  }
+}
   
-  .sponsorLogo {
+.sponsorLogo {
   max-width: 80%;
   max-height: 80px;
-    object-fit: contain;
+  object-fit: contain;
   filter: grayscale(100%) brightness(1.5);
   opacity: 0.8;
   transition: all 0.3s ease;
-  }
+}
   
 .sponsorCard:hover .sponsorLogo {
   filter: grayscale(0%) brightness(1.5);
   opacity: 1;
 }
 
-/* Carousel Indicators */
-.carouselIndicators {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 2.5rem;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #333333;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.activeIndicator {
-  background-color: var(--primary-color);
-  transform: scale(1.2);
+/* Keyframes for sliding animation */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .sponsorCard {
-    flex: 0 0 33.33%; /* 3 sponsors visible at once */
+    width: 200px;
+    height: 140px;
   }
 }
 
 @media (max-width: 768px) {
   .sponsorCard {
-    flex: 0 0 50%; /* 2 sponsors visible at once */
-    margin: 0 8px;
+    width: 180px;
+    height: 120px;
+    padding: 1.5rem;
   }
   
   .sponsorsTitle {
     font-size: 2rem;
   }
+  
+  .sponsorLogo {
+    max-height: 60px;
+  }
 }
 
 @media (max-width: 576px) {
   .sponsorCard {
-    flex: 0 0 100%; /* 1 sponsor visible at once */
+    width: 160px;
+    height: 100px;
+    padding: 1rem;
   }
-  }
+}
