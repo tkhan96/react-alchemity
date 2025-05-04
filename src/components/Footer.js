@@ -11,7 +11,7 @@ function Footer() {
         Copyright © {new Date().getFullYear()} · Alchemity
       </div>
       <div className={styles.trademarks}>
-        Alchemity and the Alchemity logo are trademarks of Alchemity Inc.
+        Alchemity and the Alchemity logo are trademarks of Alchemity LLC.
       </div>
       <div className={styles.links}>
         <a href="#terms">Terms & Conditions</a>

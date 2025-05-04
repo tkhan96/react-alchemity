@@ -62,7 +62,7 @@ function Sponsors() {
           className={styles.sponsorsSubtitle}
           variants={itemVariants}
         >
-          Partnering with industry leaders to accelerate the transition to sustainable chemical production
+          Partnering with industry leaders to accelerate the production of clean chemicals
         </motion.p>
         
         <motion.div 
