@@ -12,6 +12,7 @@ import skid1 from '../components/images/skid1.png';
 import skid2 from '../components/images/skid2.png';
 import plant1 from '../components/images/plant1.png';
 import plant22 from '../components/images/plant22.jpg';
+import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 
 const CardContainer = styled.div`
   display: grid;
@@ -205,8 +206,125 @@ const TimelineSections = styled.div`
   z-index: 2;
 `;
 
+const CompetitiveSection = styled.section`
+  max-width: 1000px;
+  margin: 0 auto 3rem auto;
+  padding: 1.2rem;
+  background: #000;
+`;
+
+const CompetitiveTitle = styled(RoadmapTitle)`
+  margin-bottom: 7rem;
+`;
+
+const QuadrantContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background: #000;
+  border-radius: 16px;
+  margin-top: 2.2rem;
+  overflow: visible;
+`;
+
+const Axis = styled.div`
+  position: absolute;
+  background: ${({ color }) => color};
+  z-index: 1;
+  ${({ orientation }) => {
+    if (orientation === 'horizontal') {
+      return 'top: 50%; left: 0; right: 0; height: 2px;';
+    } else if (orientation === 'vertical') {
+      return 'left: 50%; top: 0; bottom: 0; width: 2px;';
+    } else if (orientation === 'vertical-negative') {
+      return 'left: 50%; top: 50%; bottom: 0; width: 2px;';
+    } else if (orientation === 'horizontal-positive') {
+      return 'top: 50%; left: 50%; right: 0; height: 2px;';
+    }
+    return '';
+  }}
+`;
+
+const AxisLabel = styled.div`
+  position: absolute;
+  color: ${({ color }) => color};
+  font-size: 1.1rem;
+  font-weight: 600;
+  z-index: 2;
+  text-align: center;
+  ${({ position, offsetX = 0, offsetY = 0 }) => {
+    switch (position) {
+      case 'left-center':
+        return `top: 50%; left: 0; transform: translate(-110%, -50%) translate(${offsetX}px, ${offsetY}px);`;
+      case 'bottom-center':
+        return `left: 50%; bottom: 0; transform: translate(-50%, 120%) translate(${offsetX}px, ${offsetY}px);`;
+      case 'right-center':
+        return `top: 50%; right: 0; transform: translate(110%, -50%) translate(${offsetX}px, ${offsetY}px);`;
+      case 'top-center':
+        return `left: 50%; top: 0; transform: translate(-50%, -120%) translate(${offsetX}px, ${offsetY}px);`;
+      default:
+        return '';
+    }
+  }}
+`;
+
+const Box = styled.div`
+  position: absolute;
+  min-width: 120px;
+  max-width: 180px;
+  padding: 0.6rem 0.7rem;
+  background: #000;
+  color: #fff;
+  border: 2px solid #a16ffb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  z-index: 3;
+  cursor: pointer;
+  transition: none;
+  box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
+`;
+
+const AlchemityBox = styled(Box)`
+  min-width: 220px;
+  max-width: 320px;
+  padding: 1rem 1.2rem;
+  border: 2px solid #25abe0;
+  background: rgba(20,20,20,0.95);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  box-shadow: 0 0 24px 2px rgba(37,171,224,0.25);
+`;
+
+const CompetitivePopup = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translateX(-50%);
+  background: #181818;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  font-size: 1.08rem;
+  min-width: 260px;
+  max-width: 380px;
+  box-shadow: 0 12px 48px rgba(37,171,224,0.25);
+  border: none;
+  z-index: 100;
+  pointer-events: none;
+  text-align: center;
+`;
+
 function Products() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [hoveredBox, setHoveredBox] = useState(null);
+  const [popupPos, setPopupPos] = useState({ x: null, y: null, label: null });
 
   const handleImageClick = (item) => {
     setSelectedItem(item);
@@ -215,6 +333,26 @@ function Products() {
   const handleClosePopup = () => {
     setSelectedItem(null);
   };
+
+  // Quadrant box data
+  const boxes = [
+    // Top left (lower cost, high CO2)
+    { label: 'Alchemity', x: 86, y: 2, type: 'logo' },
+    { label: 'Smaller GTL Facilities', x: 25, y: 32 },
+    // Top right (lower cost, low CO2)
+    { label: 'Biomass Gasification', x: 52, y: 54 },
+    { label: 'Photo-catalytic Reactors', x: 85, y: 54 },
+    { label: 'Pyrolysis', x: 95, y: 68 },
+    { label: 'Electrolyzers with renewables', x: 73, y: 80 },
+    { label: 'Plasma assisted reactions', x: 60, y: 67 },
+    // Bottom left (higher cost, high CO2)
+    { label: 'Electrolyzers on grid', x: -5, y: 61 },
+    { label: 'Ethylene Steam Crackers', x: 10, y: 74 },
+    { label: 'Steam Methane Reforming (SMRs)', x: 25, y: 86 },
+  ];
+
+  // Helper to get box by index
+  const getBoxByIdx = idx => boxes[idx];
 
   return (
     <>
@@ -328,6 +466,109 @@ function Products() {
             <TimelineArrow />
           </TimelineContainer>
         </RoadmapContainer>
+
+        {/* Competitive Analysis Section */}
+        <CompetitiveSection>
+          <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
+          <QuadrantContainer>
+            {/* Axes */}
+            <Axis orientation="horizontal" color="#e53935" />
+            <Axis orientation="vertical" color="#25abe0" />
+            <Axis orientation="vertical-negative" color="#e53935" />
+            <Axis orientation="horizontal-positive" color="#25abe0" />
+
+            {/* Axis Labels */}
+            <AxisLabel position="left-center" color="#e53935" offsetX={-2}>HIGH CO₂<br/>EMISSIONS</AxisLabel>
+            <AxisLabel position="bottom-center" color="#e53935" offsetY={2}>HIGHER LIFETIME COST<br/>AND MASSIVE</AxisLabel>
+            <AxisLabel position="right-center" color="#25abe0" offsetX={2}>LOW CO₂<br/>EMISSIONS</AxisLabel>
+            <AxisLabel position="top-center" color="#25abe0" offsetY={-2}>LOWER LIFETIME COST<br/>AND MODULAR</AxisLabel>
+
+            {/* Alchemity Box (no logo) */}
+            <AlchemityBox style={{ left: '58%', top: '20%' }}>
+              <span>
+                Absence of direct competitors due to chemical flexibility and low-cost modular nature of <b>Alchemity's GTChem.</b>
+              </span>
+            </AlchemityBox>
+
+            {/* Competitor Boxes */}
+            {boxes.map((box, idx) => (
+              box.type === 'logo' ? (
+                <img
+                  key={box.label}
+                  src={alchemityLogo}
+                  alt="Alchemity Logo"
+                  style={{
+                    position: 'absolute',
+                    left: `${box.x}%`,
+                    top: `${box.y}%`,
+                    width: 200,
+                    height: 100,
+                    objectFit: 'contain',
+                    background: 'none',
+                    border: 'none',
+                    boxShadow: 'none',
+                    pointerEvents: 'auto',
+                  }}
+                />
+              ) : (
+                <Box
+                  key={box.label}
+                  style={{
+                    left: `${box.x}%`,
+                    top: `${box.y}%`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: box.type === 'logo' ? 60 : undefined,
+                    borderColor: [
+                      'Electrolyzers on grid',
+                      'Ethylene Steam Crackers',
+                      'Steam Methane Reforming (SMRs)'
+                    ].includes(box.label)
+                      ? '#e53935'
+                      : box.label === 'Smaller GTL Facilities'
+                        ? '#a16ffb'
+                        : undefined,
+                  }}
+                  onMouseEnter={() => {
+                    setHoveredBox(idx);
+                    setPopupPos({ x: box.x, y: box.y, label: box.label });
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredBox(null);
+                    setPopupPos({ x: null, y: null, label: null });
+                  }}
+                >
+                  {box.label}
+                </Box>
+              )
+            ))}
+            {/* Render popup absolutely at the end, above all boxes */}
+            {hoveredBox !== null && popupPos.x !== null && popupPos.y !== null && (
+              <CompetitivePopup style={{
+                left: [
+                  'Photo-catalytic Reactors',
+                  'Pyrolysis'
+                ].includes(popupPos.label)
+                  ? `calc(${popupPos.x}% + 70px)`
+                  : `calc(${popupPos.x}% + 100px)`,
+                top: `calc(${popupPos.y}% - 20px)`,
+                transform: 'translate(-50%, -100%)',
+                position: 'absolute',
+                zIndex: 1000,
+                pointerEvents: 'none',
+              }}>
+                {popupPos.label === 'Electrolyzers on grid' ? (
+                  <span>
+                    Electrolyzers on grid produce 22 kg CO<sub>2</sub>/kg H<sub>2</sub> due to their energy intensive process (~60 kWh/kg at a system level).
+                  </span>
+                ) : (
+                  'Placeholder Text'
+                )}
+              </CompetitivePopup>
+            )}
+          </QuadrantContainer>
+        </CompetitiveSection>
 
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
         <Popup show={selectedItem !== null}>
