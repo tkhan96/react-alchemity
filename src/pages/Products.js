@@ -13,6 +13,7 @@ import skid2 from '../components/images/skid2.png';
 import plant1 from '../components/images/plant1.png';
 import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
+import extEval from '../components/images/ExtEval.png';
 
 const CardContainer = styled.div`
   display: grid;
@@ -52,6 +53,7 @@ const RoadmapContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  margin-top: 5rem;
 `;
 
 const RoadmapTitle = styled.h2`
@@ -108,22 +110,33 @@ const TimelineSection = styled.div`
   width: 20%;
   padding: 0 1rem;
   z-index: 2;
+  min-width: 200px;
+  margin-top: 4.5rem;
 `;
 
 const TimelineImage = styled.div`
-  width: 100%;
-  height: 300px;
-  background-image: url(${props => props.image});
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
-  filter: drop-shadow(0 0 0 rgba(37, 171, 224, 0));
+  box-shadow: 0 0 0 rgba(37, 171, 224, 0);
+  margin: 0 auto;
 
   &:hover {
-    filter: drop-shadow(0 0 10px rgba(37, 171, 224, 0.6)) drop-shadow(0 0 16px rgba(37, 171, 224, 0.3));
+    box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
+    transform: translateY(-5px);
+  }
+
+  span {
+    color: #25abe0;
+    font-size: 2rem;
+    font-weight: 600;
   }
 `;
 
@@ -142,12 +155,20 @@ const Popup = styled.div`
   color: #ffffff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 
-  img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: contain;
+  .image-container {
+    display: flex;
+    flex-direction: ${props => props.show && props.selectedItem?.title === 'Plant' ? 'column' : 'row'};
+    gap: 1rem;
+    justify-content: center;
     margin-bottom: 1rem;
+    align-items: center;
+  }
+
+  img {
+    width: ${props => props.show && props.selectedItem?.images && props.selectedItem?.title !== 'Plant' ? '45%' : '60%'};
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
   }
 
   p {
@@ -171,32 +192,16 @@ const Overlay = styled.div`
 const TimelineTitle = styled.h3`
   color: #25abe0;
   font-size: 1.2rem;
-  margin: 0.5rem 0;
+  margin: 2rem 0 0.2rem 0;
   text-align: center;
-  margin-top: 2.5rem;
   font-weight: 600;
 `;
 
 const TimelineYear = styled.p`
   color: #ffffff;
   font-size: 1rem;
-  margin: 0;
+  margin: 0.2rem 0 0 0;
   text-align: center;
-`;
-
-const TimelineTRL = styled.p`
-  color: #25abe0;
-  font-size: 1rem;
-  margin: 0 0 0.5rem 0;
-  text-align: center;
-  font-weight: 600;
-  position: absolute;
-  top: 310px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #000000;
-  padding: 0 0.5rem;
-  z-index: 2;
 `;
 
 const TimelineSections = styled.div`
@@ -380,93 +385,6 @@ function Products() {
           </Card>
         </CardContainer>
 
-        <RoadmapContainer>
-          <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
-          <RoadmapDescription>
-            Alchemity will scale to modular turnkey demo units for customer buy-in prior to large plant deployment.
-          </RoadmapDescription>
-          
-          <TimelineContainer>
-            <TimelineSections>
-              <TimelineSection>
-                <TimelineTRL>TRL 3</TimelineTRL>
-                <TimelineImage 
-                  image={single1}
-                  onClick={() => handleImageClick({
-                    image: single2,
-                    title: 'Single Tube',
-                    year: '2024',
-                    description: 'Single 20 cm tube tests'
-                  })}
-                />
-                <TimelineTitle>Single Tube</TimelineTitle>
-                <TimelineYear>2024</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineTRL>TRL 4</TimelineTRL>
-                <TimelineImage 
-                  image={bundle1}
-                  onClick={() => handleImageClick({
-                    image: bundle2,
-                    title: 'Tube Bundle',
-                    year: '2025',
-                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions'
-                  })}
-                />
-                <TimelineTitle>Tube Bundle</TimelineTitle>
-                <TimelineYear>2025</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineTRL>TRL 5</TimelineTRL>
-                <TimelineImage 
-                  image={benchtop1}
-                  onClick={() => handleImageClick({
-                    image: benchtop2,
-                    title: 'Benchtop System',
-                    year: '2025-2026',
-                    description: 'Second working prototype to optimize bundle integration with SS vessel and balance of plant (HEX, blower, pump, heaters, controls)'
-                  })}
-                />
-                <TimelineTitle>Benchtop System</TimelineTitle>
-                <TimelineYear>2025-2026</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineTRL>TRL 6/7</TimelineTRL>
-                <TimelineImage 
-                  image={skid1}
-                  onClick={() => handleImageClick({
-                    image: skid2,
-                    title: 'Modular Skid System',
-                    year: '2027+',
-                    description: "20' Modular turnkey skid system capable of 1-5 TPD feed throughput leveraging core + SS reactor assembly with BOP; 1 m reactor tubes"
-                  })}
-                />
-                <TimelineTitle>Modular Skid System</TimelineTitle>
-                <TimelineYear>2027+</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineTRL>TRL 8/9</TimelineTRL>
-                <TimelineImage 
-                  image={plant1}
-                  onClick={() => handleImageClick({
-                    image: plant22,
-                    title: 'Plant',
-                    year: '2030+',
-                    description: '30+ TPD natural gas throughput plant building block leveraging scaled core + SS reactor assembly validated in modular skids; 10 m reactor tubes'
-                  })}
-                />
-                <TimelineTitle>Plant</TimelineTitle>
-                <TimelineYear>2030+</TimelineYear>
-              </TimelineSection>
-            </TimelineSections>
-            <TimelineArrow />
-          </TimelineContainer>
-        </RoadmapContainer>
-
         {/* Competitive Analysis Section */}
         <CompetitiveSection>
           <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
@@ -570,11 +488,106 @@ function Products() {
           </QuadrantContainer>
         </CompetitiveSection>
 
+        <RoadmapContainer>
+          <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
+          <RoadmapDescription>
+            Alchemity will scale to modular turnkey demo units for customer buy-in prior to large plant deployment.
+          </RoadmapDescription>
+          
+          <TimelineContainer>
+            <TimelineSections>
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    image: single2,
+                    title: 'Single Tube',
+                    year: '2024',
+                    description: 'Single 20 cm tube tests'
+                  })}
+                >
+                  <span>TRL 3</span>
+                </TimelineImage>
+                <TimelineTitle>Single Tube</TimelineTitle>
+                <TimelineYear>2024</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    image: extEval,
+                    title: 'Tube Bundle',
+                    year: '2025',
+                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions'
+                  })}
+                >
+                  <span>TRL 4</span>
+                </TimelineImage>
+                <TimelineTitle>Tube Bundle</TimelineTitle>
+                <TimelineYear>2025</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    image: benchtop1,
+                    title: 'Benchtop System',
+                    year: '2025-2026',
+                    description: 'Second working prototype to optimize bundle integration with SS vessel and balance of plant (HEX, blower, pump, heaters, controls)'
+                  })}
+                >
+                  <span>TRL 5</span>
+                </TimelineImage>
+                <TimelineTitle>Benchtop System</TimelineTitle>
+                <TimelineYear>2025-2026</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    images: [skid1, skid2],
+                    title: 'Modular Skid System',
+                    year: '2027+',
+                    description: "20' Modular turnkey skid system capable of 1-5 TPD feed throughput leveraging core + SS reactor assembly with BOP; 1 m reactor tubes"
+                  })}
+                >
+                  <span>TRL 6/7</span>
+                </TimelineImage>
+                <TimelineTitle>Modular Skid System</TimelineTitle>
+                <TimelineYear>2027+</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    images: [plant1, plant22],
+                    title: 'Plant',
+                    year: '2030+',
+                    description: '30+ TPD natural gas throughput plant building block leveraging scaled core + SS reactor assembly validated in modular skids; 10 m reactor tubes'
+                  })}
+                >
+                  <span>TRL 8/9</span>
+                </TimelineImage>
+                <TimelineTitle>Plant</TimelineTitle>
+                <TimelineYear>2030+</TimelineYear>
+              </TimelineSection>
+            </TimelineSections>
+            <TimelineArrow />
+          </TimelineContainer>
+        </RoadmapContainer>
+
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
-        <Popup show={selectedItem !== null}>
+        <Popup show={selectedItem !== null} selectedItem={selectedItem}>
           {selectedItem && (
             <>
-              <img src={selectedItem.image} alt={selectedItem.title} />
+              <div className="image-container">
+                {selectedItem.images ? (
+                  selectedItem.images.map((image, index) => (
+                    <img key={index} src={image} alt={`${selectedItem.title} ${index + 1}`} />
+                  ))
+                ) : (
+                  <img src={selectedItem.image} alt={selectedItem.title} />
+                )}
+              </div>
               <h3 style={{ color: '#25abe0', textAlign: 'center', marginBottom: '0.5rem' }}>
                 {selectedItem.title} ({selectedItem.year})
               </h3>

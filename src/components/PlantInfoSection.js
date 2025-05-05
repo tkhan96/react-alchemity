@@ -82,8 +82,8 @@ const PlantInfoSection = () => {
     },
     {
       icon: <FaShieldAlt />,
-      value: "Country",
-      label: "Building",
+      value: "Energy",
+      label: "Security",
       description: "Provides domestic job and energy security"
     },
     {
@@ -153,7 +153,7 @@ const PlantInfoSection = () => {
           >
             <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
             <p className={styles.statsSubtitle}>
-              Placeholder text
+            Transforming industrial operations with solutions that reduce costs, lower emissions, and strengthen domestic energy security.
             </p>
             
             <div className={styles.statsGrid}>
