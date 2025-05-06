@@ -142,10 +142,10 @@ function VideoSection() {
       <div className={styles.videoOverlay}></div>
       
       <div className={styles.contentOverlay}>
-        <h2 className={styles.sectionHeading}>Revolutionizing Production of Clean Chemicals</h2>
+        <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
         
         <p className={styles.videoDescription}>
-        Scaling Carbon-Negative and Lowering Cost of Chemical Production with Modular Reactor Systems.
+        Scaling Down Clean Chemical Production at Lower Cost with a Modular Reactor System.
         </p>
 
         <div className={styles.keyPhrasesContainer}>
