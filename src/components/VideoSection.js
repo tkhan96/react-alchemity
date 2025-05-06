@@ -10,8 +10,8 @@ function VideoSection() {
   
   const keyPhrases = [
     "One Platform", 
+    "Zero CO₂",
     "Clean Chemicals", 
-    "Zero CO₂", 
     "Lower Capital Risk", 
     "Higher Efficiency"
   ];
