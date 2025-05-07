@@ -3,13 +3,17 @@ import ContactForm from '../components/ContactForm';
 import styles from './Contact.module.css';
 import PageHero from '../components/PageHero';
 import contactBg from '../components/images/contact-us-bg-2.jpg';
+import contactVideo from '../components/images/contact.mp4';
 
 function Contact() {
   const linkedInUrl = 'https://www.linkedin.com/company/alchemity/';
 
   return (
     <>
-      <PageHero title={'Contact Us'} backgroundImageUrl={contactBg} />
+      <PageHero 
+        backgroundVideoUrl={contactVideo}
+        title="Contact Us"
+      />
       <div className={styles.contactPage}>
         <div className={styles.contentWrapper}>
           <div className={styles.contactInfo}>
@@ -19,17 +23,12 @@ function Contact() {
             <div className={styles.infoBlock}>
               <h2>Address</h2>
               <p>
-              4467 TECHNOLOGY DRIVE <br/>
-              ALCHEMITY LLC, SUITE 2116 <br/>
-              COLLEGE PARK, MD 20742 <br/>
+              4467 Technology Drive <br/>
+              Alchemity LLC, Suite 2116 <br/>
+              College Park, MD 20742 <br/>
               United States <br/>
               <a href="https://maps.app.goo.gl/sFJmy4VV6qE5qpDN9" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
               </p>
-            </div>
-
-            <div className={styles.infoBlock}>
-              <h2>Email</h2>
-              <a href="mailto:resources@alchemity.tech">resources@alchemity.tech</a>
             </div>
 
             <div className={styles.infoBlock}>

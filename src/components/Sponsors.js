@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './Sponsors.module.css';
 
-import shellLogo from './images/shell-logo.png';
 import umdLogo from './images/umd-logo.png';
+import milLogo from './images/mil.png';
+import shellJpg from './images/shell.jpg';
+import tedcoLogo from './images/tedco.png';
 
 function Sponsors() {
   const [ref, inView] = useInView({
@@ -13,12 +15,14 @@ function Sponsors() {
   });
 
   const sponsors = [
-    { name: "Shell", logo: shellLogo },
+    { name: "Shell", logo: shellJpg },
     { name: "University of Maryland", logo: umdLogo },
-    { name: "Shell", logo: shellLogo },
+    { name: "MIL", logo: milLogo },
+    { name: "TEDCO", logo: tedcoLogo },
+    { name: "Shell", logo: shellJpg },
     { name: "University of Maryland", logo: umdLogo },
-    { name: "Shell", logo: shellLogo },
-    { name: "University of Maryland", logo: umdLogo },
+    { name: "MIL", logo: milLogo },
+    { name: "TEDCO", logo: tedcoLogo },
   ];
 
   const containerVariants = {

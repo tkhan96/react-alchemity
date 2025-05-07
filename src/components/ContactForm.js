@@ -13,16 +13,37 @@ function ContactForm() {
     message: '',
   });
 
+  const [wordCount, setWordCount] = useState(0);
+  const MAX_WORDS = 250;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    
+    if (name === 'message') {
+      const words = value.trim().split(/\s+/).filter(word => word.length > 0);
+      const currentWordCount = words.length;
+      
+      if (currentWordCount <= MAX_WORDS) {
+        setWordCount(currentWordCount);
+        setFormData(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      }
+    } else {
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (wordCount > MAX_WORDS) {
+      alert('Message exceeds the 250-word limit. Please shorten your message.');
+      return;
+    }
     console.log('Form Data Submitted:', formData);
     alert('Thank you for your message! We will be in touch shortly.');
     setFormData({
@@ -35,6 +56,7 @@ function ContactForm() {
       projectLocation: '',
       message: '',
     });
+    setWordCount(0);
   };
 
   return (
@@ -110,7 +132,16 @@ function ContactForm() {
         {/* Message Field Group */}
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="message">Message*</label>
-          <textarea id="message" name="message" value={formData.message} onChange={handleChange} required />
+          <textarea 
+            id="message" 
+            name="message" 
+            value={formData.message} 
+            onChange={handleChange} 
+            required 
+          />
+          <div className={styles.wordCount}>
+            {wordCount}/{MAX_WORDS} words
+          </div>
         </div>
 
         <button type="submit" className={styles.submitButton}>Submit</button>

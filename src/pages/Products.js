@@ -14,6 +14,7 @@ import plant1 from '../components/images/plant1.png';
 import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 import extEval from '../components/images/ExtEval.png';
+import productVideo from '../components/images/product.mp4';
 
 const CardContainer = styled.div`
   display: grid;
@@ -361,7 +362,10 @@ function Products() {
 
   return (
     <>
-      <PageHero title={'Products'} backgroundImageUrl={productsBg}/>
+      <PageHero 
+        backgroundVideoUrl={productVideo}
+        title="Products"
+      />
       <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
         <h2 style={{
           fontSize: '40px',

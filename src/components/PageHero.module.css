@@ -60,6 +60,30 @@
   width: 65%; /* Slightly increased width */
 }
 
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%);
+}
+
+/* Specific style for Products page video */
+.aboutHeroSection[data-page="products"] .backgroundVideo {
+  width: 65%;
+  clip-path: none;
+  top: -6%; /* Move the video up to show more of the top part */
+  height: 120%; /* Increase height to compensate for the negative top position */
+}
+
+.aboutHeroSection .backgroundVideo {
+  width: 65%;
+  clip-path: none;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -68,6 +92,11 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
+}
+
+/* Remove overlay when video is present */
+.backgroundVideo + .overlay {
+  background-color: transparent;
 }
 
 /* Remove overlay for Technology page */
