@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './ProblemOpportunitySection.module.css';
-import problemImage from './images/problem.png';
+import problemVideo from './images/prob_and_opp.mp4';
 
 const ProblemOpportunitySection = () => {
   const [ref, inView] = useInView({
@@ -64,10 +64,13 @@ const ProblemOpportunitySection = () => {
             className={styles.imageContainer}
             variants={itemVariants}
           >
-            <img 
-              src={problemImage} 
-              alt="Problem Illustration" 
-              className={styles.image}
+            <video 
+              src={problemVideo} 
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={styles.video}
             />
           </motion.div>
         </motion.div>

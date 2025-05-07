@@ -1,6 +1,6 @@
 .section {
   padding: 6rem 0 3rem 0;
-  background-color: #080808;
+  background-color: #000000;
   overflow: hidden;
   position: relative;
 }
@@ -75,6 +75,16 @@
   display: block;
   transition: transform 1s ease;
   object-fit: contain;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1s ease;
+  object-fit: cover;
+  object-position: center top;
+  max-height: 550px;
 }
 
 .imageContainer:hover .image {

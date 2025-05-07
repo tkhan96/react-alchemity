@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 
+import marketVideo from '../components/images/market.mp4';
+
 import marketsBg from '../components/images/market.avif';
 
 import waste from '../components/images/waste.png';
@@ -128,8 +130,8 @@ const carouselTrackStyle = {
 };
 
 const carouselImageStyle = {
-  width: '350px',
-  height: '350px',
+  width: '300px',
+  height: '300px',
   objectFit: 'contain',
   flexShrink: 0,
   marginBottom: '0',
@@ -142,7 +144,7 @@ const imageTitleStyle = {
   fontSize: '26px',
   fontWeight: 'bold',
   textAlign: 'center',
-  marginTop: '-1.8rem',
+  marginTop: '0.5rem',
 };
 
 const marketSizeStyle = {
@@ -223,7 +225,7 @@ const firstMarketBoxStyle = (index) => ({
   alignItems: 'center',
   justifyContent: 'center',
   height: '100%',
-  width: '350px'
+  width: '300px'
 });
 
 const borderOverlayStyle = {
@@ -412,7 +414,7 @@ function Markets() {
       <style>{scrollbarStyles}</style>
       <style>{additionalStyles}</style>
       <PageHero 
-        backgroundImageUrl={marketsBg}
+        backgroundVideoUrl={marketVideo}
         title="Markets"
         titleStyle={{
           color: '#ffffff',
@@ -423,18 +425,6 @@ function Markets() {
           paddingLeft: '4rem',
           position: 'relative',
           zIndex: 2,
-        }}
-        imageStyle={{
-          position: 'absolute',
-          left: '-10%',
-          right: 0,
-          top: 0,
-          width: '70%',
-          height: '100%',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: '#000000',
         }}
       />
       <div style={sectionStyle}>

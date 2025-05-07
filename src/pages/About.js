@@ -9,6 +9,7 @@ import founder3 from '../components/images/founder3.png';
 import advisor1 from '../components/images/advisor1.png';
 import advisor2 from '../components/images/advisor2.png';
 import advisor3 from '../components/images/advisor3.png';
+import aboutVideo from '../components/images/about.mp4';
 
 const founders = [
   {
@@ -165,7 +166,10 @@ function About() {
 
   return (
     <>
-      <PageHero title={'About Us'} backgroundImageUrl={aboutBg}/>
+      <PageHero 
+        backgroundVideoUrl={aboutVideo}
+        title="About Us"
+      />
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000'}}>
         <h2 style={titleStyle}>Founders</h2>
         <div style={founderGridStyle}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Careers.module.css';
 import PageHero from '../components/PageHero';
-import careersBg from '../components/images/careers-bg.png';
+import careersVideo from '../components/images/careers.mp4';
 
 const jobPostings = [
   {
@@ -24,8 +24,8 @@ function Careers() {
   return (
     <>
       <PageHero 
-        title={'Careers'} 
-        backgroundImageUrl={careersBg}
+        backgroundVideoUrl={careersVideo}
+        title="Careers"
       />
 
       <div style={{ backgroundColor: '#000000', minHeight: '100vh' }}>
