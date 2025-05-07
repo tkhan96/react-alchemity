@@ -72,25 +72,25 @@ const PlantInfoSection = () => {
       icon: <FaCloud />,
       value: "400%",
       label: "Lower CO₂ Emission",
-      description: "Placeholder text"
+      description: "Reduced emissions by at least 400% on today's grid. The process is carbon-negative with renewables."
     },
     {
       icon: <FaDollarSign />,
       value: "300%",
       label: "Lower Lifetime Cost",
-      description: "Scales down cost effectively even to remote sites"
+      description: "Scales down cost effectively even to remote sites and consumes less energy neccessary to run balance of plant."
     },
     {
       icon: <FaShieldAlt />,
       value: "Energy",
       label: "Security",
-      description: "Provides domestic job and energy security"
+      description: "Provides energy security and protects domestic workforce by extending the lifetime for plants undergoing repower or decomissioning."
     },
     {
       icon: <FaSeedling />,
       value: "All",
       label: "Site Types",
-      description: "Clean energy production in brown and green fields"
+      description: "Clean chemical (including drop-in fuels) production for brownfield and greenfield sites; leveraging existing downstream processes."
     }
   ];
 

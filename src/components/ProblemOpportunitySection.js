@@ -49,7 +49,7 @@ const ProblemOpportunitySection = () => {
             </p>
             <p className={styles.text}>
               Global chemical and oil & gas industry
-              account for 6 billion metric tons (6 GtCO<sub>2</sub>)
+              account for six giga tons
               of CO<sub>2</sub> emissions annually.
             </p>
             <p className={styles.highlightText}>

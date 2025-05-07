@@ -55,14 +55,14 @@ function Sponsors() {
           className={styles.sponsorsTitle}
           variants={itemVariants}
         >
-          Our Sponsors and Investors
+          Our Sponsors
         </motion.h2>
         
         <motion.p 
           className={styles.sponsorsSubtitle}
           variants={itemVariants}
         >
-          Partnering with industry leaders to accelerate the production of clean chemicals
+          Partnering with industry leaders to accelerate clean chemical production.
         </motion.p>
         
         <motion.div 
