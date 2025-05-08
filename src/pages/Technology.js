@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
-import reactor from '../components/images/Reactor.png';
+import reactor from '../components/images/reactor10.png';
 import rd from '../components/images/rd.png';
 import validated from '../components/images/ExtEval.png';
 import scalable from '../components/images/scalable.png';
-import placeholder from '../components/images/placeholder.webp';
+import graph1 from '../components/images/graph1.png';
+import graph2 from '../components/images/graph2.png';
 import animationTech from '../components/images/animation tech.MOV';
+import herotech from '../components/images/herotech.mov';
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -66,11 +68,9 @@ const cardTextStyle = {
 };
 
 const reactorImageStyle = {
-  width: '100%',
+  width: '50%',
   height: 'auto',
-  maxWidth: '1200px',
-  margin: '0 auto',
-  display: 'block',
+  objectFit: 'contain',
 };
 
 const videoStyle = {
@@ -80,11 +80,99 @@ const videoStyle = {
   display: 'block',
 };
 
+const bulletPointsStyle = {
+  color: '#ffffff',
+  fontSize: '18px',
+  lineHeight: '1.8',
+  marginBottom: '2rem',
+  paddingLeft: '0',
+  listStyle: 'none',
+};
+
+const bulletPointStyle = {
+  marginBottom: '1rem',
+};
+
+const learnMoreButtonStyle = {
+  backgroundColor: '#25abe0',
+  color: 'white',
+  border: 'none',
+  padding: '0.75rem 1.5rem',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  fontSize: '1rem',
+  fontWeight: '500',
+  transition: 'background-color 0.3s ease',
+};
+
+const platformContainerStyle = {
+  display: 'flex',
+  gap: '3rem',
+  alignItems: 'flex-start',
+  marginBottom: '2rem',
+};
+
+const contentStyle = {
+  flex: 1,
+  marginTop: '5rem',
+};
+
+const graphStyle = {
+  width: '100%',
+  height: 'auto',
+  objectFit: 'contain',
+  marginBottom: '1.5rem',
+  minHeight: '400px',
+  maxHeight: '500px',
+};
+
+const modalContentStyle = {
+  display: 'flex',
+  gap: '3rem',
+  alignItems: 'flex-start',
+  width: '100%',
+  maxWidth: '1400px',
+  margin: '0 auto',
+};
+
+const modalColumnStyle = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: '600px',
+};
+
+const modalTextStyle = {
+  color: '#ffffff',
+  fontSize: '18px',
+  lineHeight: '1.8',
+  marginTop: '1.5rem',
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+};
+
+const modalTextStyle2 = {
+  ...modalTextStyle,
+  marginTop: '-0.5rem',
+};
+
 function Technology() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <PageHero 
-        backgroundImageUrl={reactor}
+        backgroundVideoUrl={herotech}
         title="Technology"
       />
       <div style={sectionStyle}>
@@ -124,23 +212,47 @@ function Technology() {
           playsInline
         />
         <h1 style={{...titleStyle, marginTop: '4rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>GTChem</span> Platform</h1>
-        <div style={{ position: 'relative' }}>
-          <img src={placeholder} alt="Placeholder" style={reactorImageStyle} />
-          <p style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: '#25abe0',
-            fontSize: '32px',
-            fontWeight: '600',
-            textAlign: 'center',
-            width: '100%',
-            padding: '0 20px'
-          }}>
-            Placeholder for a close up 3d image of the reactor
-          </p>
+        
+        <div style={platformContainerStyle}>
+          <img src={reactor} alt="Reactor" style={reactorImageStyle} />
+          <div style={contentStyle}>
+            <div style={bulletPointsStyle}>
+              <div style={bulletPointStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+              <div style={bulletPointStyle}>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+              <div style={bulletPointStyle}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+              <div style={bulletPointStyle}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            </div>
+            <button 
+              style={learnMoreButtonStyle}
+              onClick={handleOpenModal}
+            >
+              Learn More
+            </button>
+          </div>
         </div>
+
+        <Modal
+          show={showModal}
+          onClose={handleCloseModal}
+          title="GTChem Platform Details"
+        >
+          <div style={modalContentStyle}>
+            <div style={modalColumnStyle}>
+              <img src={graph1} alt="Graph 1" style={graphStyle} />
+              <div style={modalTextStyle}>
+                <div style={bulletPointStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                <div style={bulletPointStyle}>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+              </div>
+            </div>
+            <div style={modalColumnStyle}>
+              <img src={graph2} alt="Graph 2" style={graphStyle} />
+              <div style={modalTextStyle2}>
+                <div style={bulletPointStyle}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                <div style={bulletPointStyle}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              </div>
+            </div>
+          </div>
+        </Modal>
       </div>
     </>
   );

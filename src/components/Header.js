@@ -31,6 +31,7 @@ function Header() {
           <li className={styles.navItem}><Link to="/technology" className={styles.navLink}>Technology</Link></li>
           <li className={styles.navItem}><Link to="/about" className={styles.navLink}>About</Link></li>
           <li className={styles.navItem}><Link to="/careers" className={styles.navLink}>Careers</Link></li>
+          <li className={styles.navItem}><Link to="/news" className={styles.navLink}>News</Link></li>
           <li className={styles.navItem}>
             <Link to="/contact" className={`${styles.navLink} ${styles.contactButton}`}>
               Contact Us

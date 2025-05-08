@@ -11,6 +11,7 @@ function Modal({ show, onClose, title, children, linkedInUrl }) {
       <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h4 className={styles.modalTitle}>{title}</h4>
+          <button className={styles.closeButton} onClick={onClose}>×</button>
         </div>
         <div className={styles.modalBody}>
           {children}

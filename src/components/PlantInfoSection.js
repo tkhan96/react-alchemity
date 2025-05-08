@@ -107,6 +107,14 @@ const PlantInfoSection = () => {
     2: {
       title: "Liquid Fuel Tank",
       description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    },
+    3: {
+      title: "Station",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    4: {
+      title: "Pipe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   };
 
@@ -176,6 +184,28 @@ const PlantInfoSection = () => {
               <div className={styles.hotspotDot}></div>
               <div className={styles.hotspotTooltip}>
                 <h4>{hotspotDetails[0].title}</h4>
+              </div>
+            </motion.div>
+            <motion.div 
+              className={styles.hotspot}
+              style={{ bottom: '38%', left: '18%' }}
+              whileHover={{ scale: 1.2 }}
+              onClick={() => handleHotspotClick(3)}
+            >
+              <div className={styles.hotspotDot}></div>
+              <div className={styles.hotspotTooltip}>
+                <h4>{hotspotDetails[3].title}</h4>
+              </div>
+            </motion.div>
+            <motion.div 
+              className={styles.hotspot}
+              style={{ bottom: '52%', left: '20%' }}
+              whileHover={{ scale: 1.2 }}
+              onClick={() => handleHotspotClick(4)}
+            >
+              <div className={styles.hotspotDot}></div>
+              <div className={styles.hotspotTooltip}>
+                <h4>{hotspotDetails[4].title}</h4>
               </div>
             </motion.div>
             <motion.div 

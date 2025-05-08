@@ -95,6 +95,19 @@
   border-radius: 50%;
 }
 
+/* Add specific styles for Emir, Eric, and Nitin's images */
+.founderContainer:nth-child(2) .founderImage {  /* Emir */
+  object-position: center 0%;
+}
+
+.founderContainer:nth-child(3) .founderImage {  /* Eric */
+  object-position: center 5%;
+}
+
+.advisorContainer:nth-child(1) .founderImage {  /* Nitin */
+  object-position: center -10%;
+}
+
 .founderInfo {
   width: 100%;
   text-align: left;

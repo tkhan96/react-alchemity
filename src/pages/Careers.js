@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Careers.module.css';
 import PageHero from '../components/PageHero';
-import careersVideo from '../components/images/careers.mp4';
+import careersVideo from '../components/images/careers.mov';
 
 const jobPostings = [
   {

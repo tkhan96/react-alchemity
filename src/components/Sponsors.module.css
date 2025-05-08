@@ -54,7 +54,7 @@
 .carouselTrack {
   display: flex;
   width: max-content;
-  animation: slide 30s linear infinite;
+  animation: slide 20s linear infinite;
   align-items: center;
   gap: 48px;
 }

@@ -19,6 +19,7 @@ import Technology from './pages/Technology';
 import About from './pages/About';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import News from './pages/News';
 
 // ScrollToTop component - scrolls to top on route change
 function ScrollToTop() {
@@ -46,6 +47,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/news" element={<News />} />
           </Routes>
         </main>
         <Footer />
