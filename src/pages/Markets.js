@@ -31,7 +31,7 @@ const titleStyle = {
 };
 
 const highlightTextStyle = {
-  fontSize: '36px',
+  fontSize: '34px',
   color: '#25abe0',
   textAlign: 'center',
   marginBottom: '3rem',
@@ -63,7 +63,7 @@ const imageStyle = {
 };
 
 const cardTitleStyle = {
-  fontSize: '40px',
+  fontSize: '34px',
   fontWeight: '600',
   color: '#25abe0',
   marginBottom: '1rem',
@@ -73,7 +73,7 @@ const cardTitleStyle = {
 
 const cardTextStyle = {
   color: '#ffffff',
-  fontSize: '24px',
+  fontSize: '16px',
   lineHeight: '1.5',
   textAlign: 'center',
   marginTop: '0',
