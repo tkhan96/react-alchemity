@@ -125,7 +125,7 @@ const PlantInfoSection = () => {
         >
           <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
           <p className={styles.statsSubtitle}>
-            Transforming industrial operations with solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+            Transforming industrial operations with scaled-down modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
           </p>
         </motion.div>
 
