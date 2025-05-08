@@ -16,16 +16,17 @@ function Sponsors() {
   });
 
   const sponsors = [
+    { name: "University of Maryland", logo: umd },
     { name: "Shell", logo: shell },
+    { name: "ARPA-E", logo: arpa },
     { name: "MIL", logo: mil },
     { name: "TEDCO", logo: tedco },
+    // Duplicate the first set to create seamless loop
     { name: "University of Maryland", logo: umd },
-    { name: "ARPA-E", logo: arpa },
     { name: "Shell", logo: shell },
-    { name: "MIL", logo: mil },
-    { name: "TEDCO", logo: tedco },
-    { name: "University of Maryland", logo: umd },
     { name: "ARPA-E", logo: arpa },
+    { name: "MIL", logo: mil },
+    { name: "TEDCO", logo: tedco }
   ];
 
   const containerVariants = {
@@ -62,14 +63,14 @@ function Sponsors() {
           className={styles.sponsorsTitle}
           variants={itemVariants}
         >
-          Our Sponsors and Investors
+          Our Sponsors
         </motion.h2>
         
         <motion.p 
           className={styles.sponsorsSubtitle}
           variants={itemVariants}
         >
-          Partnering with industry leaders to accelerate the production of clean chemicals
+          Partnering with industry leaders to accelerate clean chemical production.
         </motion.p>
         
         <motion.div 
@@ -80,15 +81,6 @@ function Sponsors() {
             {sponsors.map((sponsor, index) => (
               <div 
                 key={index}
-                className={styles.sponsorCard}
-              >
-                <img src={sponsor.logo} alt={sponsor.name} className={styles.sponsorLogo} />
-              </div>
-            ))}
-            {/* Duplicate sponsors for continuous loop effect */}
-            {sponsors.map((sponsor, index) => (
-              <div 
-                key={`duplicate-${index}`}
                 className={styles.sponsorCard}
               >
                 <img src={sponsor.logo} alt={sponsor.name} className={styles.sponsorLogo} />

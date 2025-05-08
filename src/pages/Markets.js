@@ -471,7 +471,7 @@ function Markets() {
       />
       <div style={sectionStyle}>
         <p style={highlightTextStyle}>
-          Alchemity Serves Major Chemical Markets With A Single Reactor Design
+          Alchemity Serves Major Chemical Markets With A Single Platform Reactor Design
         </p>
         
         <div style={cardsContainerStyle}>

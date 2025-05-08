@@ -71,14 +71,27 @@
 }
 
 .sponsorLogo {
-  height: 85px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   opacity: 0.85;
   transition: all 0.3s ease;
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
 }
 
-/* Add white background for specific logos */
+/* Specific styling for UMD logo */
+.sponsorCard:nth-child(4) .sponsorLogo,
+.sponsorCard:nth-child(8) .sponsorLogo,
+.sponsorCard:nth-child(12) .sponsorLogo,
+.sponsorCard:nth-child(16) .sponsorLogo {
+  height: 120px;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+/* Remove redundant background styles since we've added it to all logos */
 .sponsorCard:nth-child(1) .sponsorLogo,
 .sponsorCard:nth-child(2) .sponsorLogo,
 .sponsorCard:nth-child(3) .sponsorLogo,
@@ -91,32 +104,7 @@
 .sponsorCard:nth-child(13) .sponsorLogo,
 .sponsorCard:nth-child(14) .sponsorLogo,
 .sponsorCard:nth-child(15) .sponsorLogo {
-  background-color: white !important;
   padding: 20px;
-  border-radius: 4px;
-}
-
-/* Specific styling for UMD logo */
-.sponsorCard:nth-child(4) .sponsorLogo,
-.sponsorCard:nth-child(8) .sponsorLogo,
-.sponsorCard:nth-child(12) .sponsorLogo,
-.sponsorCard:nth-child(16) .sponsorLogo {
-  height: 120px;
-  border-radius: 4px;
-}
-
-.sponsorCard:nth-child(5) .sponsorLogo,
-.sponsorCard:nth-child(6) .sponsorLogo {
-  background-color: white;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.sponsorCard:nth-child(13) .sponsorLogo,
-.sponsorCard:nth-child(14) .sponsorLogo {
-  background-color: white;
-  padding: 10px;
-  border-radius: 4px;
 }
   
 .sponsorCard:hover .sponsorLogo {
@@ -136,7 +124,7 @@
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .sponsorLogo {
-    height: 75px;
+    height: 80px;
   }
   .sponsorCard:nth-child(4) .sponsorLogo,
   .sponsorCard:nth-child(8) .sponsorLogo,

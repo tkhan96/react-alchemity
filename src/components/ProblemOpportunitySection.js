@@ -49,14 +49,14 @@ const ProblemOpportunitySection = () => {
             </p>
             <p className={styles.text}>
               Global chemical and oil & gas industry
-              account for 6 billion metric tons (6 GtCO<sub>2</sub>)
+              account for six giga tons
               of CO<sub>2</sub> emissions annually.
             </p>
             <p className={styles.highlightText}>
-              Clean and Lower Cost Gamechanger is needed…
+              Lower Cost and CO<sub>2</sub> Emissions Gamechanger is Needed…
             </p>
             <p className={styles.highlightText}>
-              Swiss Army Knife for Production of Clean Chemicals!
+              Our Platform Technology provides Clean Chemicals with Lower Capital Risk and Higher Efficiency!
             </p>
           </motion.div>
 
