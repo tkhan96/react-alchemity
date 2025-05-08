@@ -71,7 +71,7 @@ const PlantInfoSection = () => {
   const stats = [
     {
       icon: <FaCloud />,
-      value: "400%",
+      value: "> 400%",
       label: "Lower CO₂ Emission",
       description: "Reduced emissions by at least 400% on today's grid. The process is carbon-negative with renewables."
     },
@@ -79,7 +79,7 @@ const PlantInfoSection = () => {
       icon: <FaDollarSign />,
       value: "300%",
       label: "Lower Lifetime Cost",
-      description: "Scales down cost effectively even to remote sites and consumes less energy neccessary to run balance of plant."
+      description: "Scales down cost effectively even to remote sites and consumes less energy to operate entire system."
     },
     {
       icon: <FaShieldAlt />,
@@ -133,7 +133,7 @@ const PlantInfoSection = () => {
         >
           <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
           <p className={styles.statsSubtitle}>
-            Transforming industrial operations with solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+            Transforming industrial operations with scaled-down modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
           </p>
         </motion.div>
 

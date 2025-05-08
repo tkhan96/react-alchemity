@@ -402,7 +402,7 @@ function Products() {
           </Card>
           <Card>
             <h3>Domestic Impact</h3>
-            <p>Alchemity provides domestic jobs and energy security leveraging existing downstream processes.</p>
+            <p>Enables growth of domestic workforce and provides energy security leveraging existing downstream processes.</p>
           </Card>
         </CardContainer>
 
@@ -425,7 +425,7 @@ function Products() {
             {/* Alchemity Box (no logo) */}
             <AlchemityBox style={{ left: '58%', top: '20%' }}>
               <span>
-                Absence of direct competitors due to chemical flexibility and low-cost modular nature of <b>Alchemity's GTChem.</b>
+                Absence of direct competitors due to chemical flexibility and low-cost modular nature of <b>Alchemity's Platform System.</b>
               </span>
             </AlchemityBox>
 
@@ -499,7 +499,7 @@ function Products() {
               }}>
                 {popupPos.label === 'Electrolyzers on grid' ? (
                   <span>
-                    Electrolyzers on grid produce 22 kg CO<sub>2</sub>/kg H<sub>2</sub> due to their energy intensive process (~60 kWh/kg at a system level).
+                    Electrolyzers on grid produce 22 kg CO<sub>2</sub>/kg H<sub>2</sub> due to the energy intensive process tho split water and operate balance of plant (60-65 kWh/kg at a system level).
                   </span>
                 ) : (
                   'Placeholder Text'
@@ -512,7 +512,7 @@ function Products() {
         <RoadmapContainer>
           <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
           <RoadmapDescription>
-            Alchemity will scale to modular turnkey demo units for customer buy-in prior to large plant deployment. <br></br> <span>Click to learn more.</span>
+            Deploying modular turnkey systems prior to large integrated facilities.
           </RoadmapDescription>
           
           <TimelineContainer>
@@ -521,9 +521,9 @@ function Products() {
                 <TimelineImage 
                   onClick={() => handleImageClick({
                     image: single2,
-                    title: 'Single Tube',
+                    title: 'Produced Reactor Tubes',
                     year: '2024',
-                    description: 'Single 20 cm tube tests'
+                    description: 'Batches of 20 cm long reactor membranes.'
                   })}
                 >
                   <span>TRL 3</span>
@@ -538,7 +538,7 @@ function Products() {
                     image: extEval,
                     title: 'Tube Bundle',
                     year: '2025',
-                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions'
+                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions.'
                   })}
                 >
                   <span>TRL 4</span>
@@ -553,7 +553,7 @@ function Products() {
                     image: benchtop1,
                     title: 'Benchtop System',
                     year: '2025-2026',
-                    description: 'Second working prototype to optimize bundle integration with SS vessel and balance of plant (HEX, blower, pump, heaters, controls)'
+                    description: 'Second working prototype to optimize reactor bundle integration with steel vessel and BOP.'
                   })}
                 >
                   <span>TRL 5</span>
@@ -568,12 +568,12 @@ function Products() {
                     images: [skid1, skid2],
                     title: 'Modular Skid System',
                     year: '2027+',
-                    description: "20' Modular turnkey skid system capable of 1-5 TPD feed throughput leveraging core + SS reactor assembly with BOP; 1 m reactor tubes"
+                    description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities."
                   })}
                 >
                   <span>TRL 6/7</span>
                 </TimelineImage>
-                <TimelineTitle>Modular Skid System</TimelineTitle>
+                <TimelineTitle>Modular Skids</TimelineTitle>
                 <TimelineYear>2027+</TimelineYear>
               </TimelineSection>
               
@@ -583,7 +583,7 @@ function Products() {
                     images: [plant1, plant22],
                     title: 'Plant',
                     year: '2030+',
-                    description: '30+ TPD natural gas throughput plant building block leveraging scaled core + SS reactor assembly validated in modular skids; 10 m reactor tubes'
+                    description: 'Large-scale plant building block to enable 100+ ton per day facilities.'
                   })}
                 >
                   <span>TRL 8/9</span>

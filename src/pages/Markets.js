@@ -31,7 +31,7 @@ const titleStyle = {
 };
 
 const highlightTextStyle = {
-  fontSize: '36px',
+  fontSize: '34px',
   color: '#25abe0',
   textAlign: 'center',
   marginBottom: '3rem',
@@ -63,7 +63,7 @@ const imageStyle = {
 };
 
 const cardTitleStyle = {
-  fontSize: '48px',
+  fontSize: '34px',
   fontWeight: '600',
   color: '#25abe0',
   marginBottom: '1rem',
@@ -73,7 +73,7 @@ const cardTitleStyle = {
 
 const cardTextStyle = {
   color: '#ffffff',
-  fontSize: '18px',
+  fontSize: '16px',
   lineHeight: '1.5',
   textAlign: 'center',
   marginTop: '0',
@@ -141,7 +141,7 @@ const carouselImageStyle = {
 
 const imageTitleStyle = {
   color: '#ffffff',
-  fontSize: '26px',
+  fontSize: '30px',
   fontWeight: 'bold',
   textAlign: 'center',
   marginTop: '0.5rem',
@@ -149,7 +149,7 @@ const imageTitleStyle = {
 
 const marketSizeStyle = {
   color: '#ffffff',
-  fontSize: '23px',
+  fontSize: '30px',
   fontWeight: 'normal',
   textAlign: 'center',
   marginTop: '0',
@@ -265,7 +265,7 @@ const keyframes = `
 `;
 
 const marketBreakdownTitleStyle = {
-  fontSize: '40px',
+  fontSize: '60px',
   color: '#25abe0',
   marginBottom: '3rem',
   marginTop: '3rem',
@@ -284,14 +284,14 @@ const instructionTextStyle = {
 
 const marketHoverInfoStyle = {
   position: 'absolute',
-  top: '40%',
+  top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   backgroundColor: 'rgba(0, 0, 0, 0.9)',
-  padding: '1.25rem',
-  borderRadius: '8px',
-  width: '75%',
-  maxWidth: '280px',
+  padding: '1rem',
+  borderRadius: '10px',
+  width: '100%',
+  maxWidth: '350px',
   opacity: 0,
   transition: 'opacity 0.3s ease',
   pointerEvents: 'none',
@@ -307,21 +307,21 @@ const marketHoverInfoVisibleStyle = {
 const marketHoverTitleStyle = {
   color: '#25abe0',
   fontSize: '19px',
-  fontWeight: '600',
+  fontWeight: '1000',
   marginBottom: '0.5rem',
 };
 
 const marketHoverTextStyle = {
   color: '#ffffff',
-  fontSize: '13px',
-  lineHeight: '1.4',
-  marginBottom: '0.5rem',
+  fontSize: '17px',
+  lineHeight: '1.2',
+  marginBottom: '0.35rem',
 };
 
 const marketHoverSizeStyle = {
   color: '#25abe0',
   fontSize: '15px',
-  fontWeight: '500',
+  fontWeight: '1000',
   marginTop: '0.35rem',
 };
 
@@ -358,65 +358,65 @@ function Markets() {
       src: waste, 
       title: 'Waste Gas', 
       isFirstMarket: true,
-      marketSize: '$120B',
-      futureMarketSize: '$180B by 2030',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      marketSize: '$7.5B',
+      futureMarketSize: '$9.5B by 2030',
+      description: 'Methane, the main component of natural gas, has 85 times the global warming potential of CO₂ over first 20 years. Flaring and venting waste valuable resources and now incur penalties under new EPA rules. Scaling down conventional, capital-intensive plants remains cost-prohibitive. The proposed Modular Platform Reactor System provides a cleaner alternative, converting methane into valuable liquid products suitable for blending with crude oil and transporting by truck—ideal for sites without pipeline access. Our Reactor operates autothermally, generating all required heat internally, enabling efficient, remote operation with zero CO2 emissions. Reactor modularity allows to integrate with existing infrastructure at smaller scales, offering cost-effective and environmentally sustainable solutions for brownfield applications.'
     },
     { 
       src: saf, 
       title: 'SAF', 
       isFirstMarket: true,
-      marketSize: '$150B',
-      futureMarketSize: '$250B by 2030',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      marketSize: '$1.1B',
+      futureMarketSize: '$62B by 2030',
+      description: 'Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, used by major players, can produce fuels such as SAF and syngas at industrial scales. GTL processes require significant capital investment and are only suited for large-scale facilities. While proven at scale, GTL technologies generate significant CO₂ emissions without costly carbon capture systems. Our Platform Reactor System provides a zero-emission alternative that can integrate with existing infrastructure at smaller scales, offering cost-effective and environmentally sustainable solutions for brownfield applications.'
     },
     { 
       src: hydrogen, 
       title: 'Hydrogen', 
       isFirstMarket: true,
-      marketSize: '$200B',
-      futureMarketSize: '$300B by 2030',
-      description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      marketSize: '$243B',
+      futureMarketSize: '$411B by 2030',
+      description: 'Current hydrogen production methods, such as steam methane reforming (SMR), emit an average of 9.4 kg of CO₂ per kg of hydrogen, while electrolyzers powered by today’s carbon-intensive grid generate even higher emissions—up to 22 kg CO₂ per kg of hydrogen. Energy consumption over plant lifetime accouts for over 70% of the hydrogen cost. Scaling hydrogen production without increasing emissions remains a significant challenge until the U.S. grid is decarbonized. Our Reactor System offers a cleaner solution to produce clean hydrogen from methane (through non-oxidative approach) while sequestering carbon as commodity chemicals, thus enhancing U.S. economic and energy security. '
     },
     { 
       src: biogas, 
       title: 'RNG, Biogas', 
       isFirstMarket: false,
-      marketSize: '$80B',
-      futureMarketSize: '$120B by 2030',
-      description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.'
+      marketSize: '$24B,$65B',
+      futureMarketSize: '$127B,$88B by 2030',
+      description: 'placeholder......'
     },
     { 
       src: ethylene, 
       title: 'Ethylene', 
       isFirstMarket: false,
-      marketSize: '$100B',
+      marketSize: '$195B',
       futureMarketSize: '$150B by 2030',
-      description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.'
+      description: 'placeholder......'
     },
     { 
       src: ethane, 
       title: 'Ethane', 
       isFirstMarket: false,
-      marketSize: '$90B',
-      futureMarketSize: '$130B by 2030',
-      description: 'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.'
+      marketSize: '$14B',
+      futureMarketSize: '$19B by 2030',
+      description: 'Placeholder......'
     },
     { 
       src: syngas, 
       title: 'Syngas', 
-      isFirstMarket: false,
-      marketSize: '$70B',
-      futureMarketSize: '$100B by 2030',
-      description: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.'
+      isFirstMarket: true,
+      marketSize: '$59B',
+      futureMarketSize: '$105B by 2030',
+      description: 'Placeholder.....'
     },
     { 
       src: benzene, 
       title: 'Benzene', 
       isFirstMarket: false,
-      marketSize: '$60B',
-      futureMarketSize: '$90B by 2030',
-      description: 'Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.'
+      marketSize: '$40B',
+      futureMarketSize: '$71B by 2030',
+      description: 'Placeholder.....'
     }
   ];
 
@@ -471,7 +471,7 @@ function Markets() {
       />
       <div style={sectionStyle}>
         <p style={highlightTextStyle}>
-          Alchemity Serves Major Chemical Markets With A Single Platform Reactor Design
+          Alchemity Serves Major Chemical Markets With A Single Reactor Platform Design
         </p>
         
         <div style={cardsContainerStyle}>
@@ -479,19 +479,19 @@ function Markets() {
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>$1,200B</h3>
             <p style={cardTextStyle}>Total addressable market</p>
-            <p style={cardTextStyle}>Can be served with TRL 8/9</p>
+            <p style={cardTextStyle}>Can be served with TRL 8/9 System</p>
           </div>
 
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>$120B</h3>
             <p style={cardTextStyle}>Serviceable available market</p>
-            <p style={cardTextStyle}>Can be served with TRL 6/7</p>
+            <p style={cardTextStyle}>Can be served with TRL 6/7 System</p>
           </div>
 
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>$18B</h3>
             <p style={cardTextStyle}>Serviceable obtainable market</p>
-            <p style={cardTextStyle}>Modular skids, 1-5 tons/day</p>
+            <p style={cardTextStyle}>Served with First Modular Skids, 1-5 tons/day</p>
           </div>
         </div>
 
@@ -508,7 +508,7 @@ function Markets() {
         >
           <h3 style={{
             color: '#25abe0',
-            fontSize: '24px',
+            fontSize: '36px',
             fontWeight: '600',
             margin: '0 0 1rem -24rem',
             textAlign: 'center'
@@ -534,7 +534,7 @@ function Markets() {
                     <p style={imageTitleStyle}>{item.title}</p>
                     <div className="market-hover-info" style={marketHoverInfoStyle}>
                       <p style={marketHoverTextStyle}>{item.description}</p>
-                      <p style={marketHoverSizeStyle}>Current: {item.marketSize}</p>
+                      <p style={marketHoverSizeStyle}>Current Market Size: {item.marketSize}</p>
                       <p style={marketHoverSizeStyle}>Projected: {item.futureMarketSize}</p>
                     </div>
                   </div>
@@ -559,7 +559,7 @@ function Markets() {
                 <p style={imageTitleStyle}>{item.title}</p>
                 <div className="market-hover-info" style={marketHoverInfoStyle}>
                   <p style={marketHoverTextStyle}>{item.description}</p>
-                  <p style={marketHoverSizeStyle}>Current: {item.marketSize}</p>
+                  <p style={marketHoverSizeStyle}>Current Market Size: {item.marketSize}</p>
                   <p style={marketHoverSizeStyle}>Projected: {item.futureMarketSize}</p>
                 </div>
               </div>
