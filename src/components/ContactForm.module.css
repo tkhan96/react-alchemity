@@ -144,7 +144,7 @@ input:focus, select:focus, textarea:focus {
     outline: none !important;
     border-color: #25abe0 !important;
     box-shadow: none !important;
-}
+} 
 
 .wordCount {
   font-size: 0.9rem;

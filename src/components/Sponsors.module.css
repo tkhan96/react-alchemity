@@ -56,38 +56,67 @@
   width: max-content;
   animation: slide 30s linear infinite;
   align-items: center;
-  gap: 24px;
+  gap: 48px;
 }
 
 .sponsorCard {
   flex: 0 0 auto;
-  background-color: #1a1a1a;
-  border-radius: 16px;
-  overflow: hidden;
-  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid #333333;
-  transition: all 0.3s ease;
-  height: 160px;
-  width: 250px;
+  height: 150px;
+  width: auto;
   margin: 0;
+  padding: 0 20px;
 }
 
-.sponsorCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  border-color: var(--primary-color);
-}
-  
 .sponsorLogo {
-  max-width: 80%;
-  max-height: 80px;
+  height: 85px;
+  width: auto;
   object-fit: contain;
-  opacity: 0.9;
+  opacity: 0.85;
   transition: all 0.3s ease;
+}
+
+/* Add white background for specific logos */
+.sponsorCard:nth-child(1) .sponsorLogo,
+.sponsorCard:nth-child(2) .sponsorLogo,
+.sponsorCard:nth-child(3) .sponsorLogo,
+.sponsorCard:nth-child(5) .sponsorLogo,
+.sponsorCard:nth-child(6) .sponsorLogo,
+.sponsorCard:nth-child(7) .sponsorLogo,
+.sponsorCard:nth-child(9) .sponsorLogo,
+.sponsorCard:nth-child(10) .sponsorLogo,
+.sponsorCard:nth-child(11) .sponsorLogo,
+.sponsorCard:nth-child(13) .sponsorLogo,
+.sponsorCard:nth-child(14) .sponsorLogo,
+.sponsorCard:nth-child(15) .sponsorLogo {
+  background-color: white !important;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+/* Specific styling for UMD logo */
+.sponsorCard:nth-child(4) .sponsorLogo,
+.sponsorCard:nth-child(8) .sponsorLogo,
+.sponsorCard:nth-child(12) .sponsorLogo,
+.sponsorCard:nth-child(16) .sponsorLogo {
+  height: 120px;
+  border-radius: 4px;
+}
+
+.sponsorCard:nth-child(5) .sponsorLogo,
+.sponsorCard:nth-child(6) .sponsorLogo {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.sponsorCard:nth-child(13) .sponsorLogo,
+.sponsorCard:nth-child(14) .sponsorLogo {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
 }
   
 .sponsorCard:hover .sponsorLogo {
@@ -106,32 +135,37 @@
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
-  .sponsorCard {
-    width: 200px;
-    height: 140px;
+  .sponsorLogo {
+    height: 75px;
+  }
+  .sponsorCard:nth-child(4) .sponsorLogo,
+  .sponsorCard:nth-child(8) .sponsorLogo,
+  .sponsorCard:nth-child(12) .sponsorLogo,
+  .sponsorCard:nth-child(16) .sponsorLogo {
+    height: 95px;
   }
 }
 
 @media (max-width: 768px) {
-  .sponsorCard {
-    width: 180px;
-    height: 120px;
-    padding: 1.5rem;
-  }
-  
-  .sponsorsTitle {
-    font-size: 2rem;
-  }
-  
   .sponsorLogo {
-    max-height: 60px;
+    height: 60px;
+  }
+  .sponsorCard:nth-child(4) .sponsorLogo,
+  .sponsorCard:nth-child(8) .sponsorLogo,
+  .sponsorCard:nth-child(12) .sponsorLogo,
+  .sponsorCard:nth-child(16) .sponsorLogo {
+    height: 80px;
   }
 }
 
 @media (max-width: 576px) {
-  .sponsorCard {
-    width: 160px;
-    height: 100px;
-    padding: 1rem;
+  .sponsorLogo {
+    height: 45px;
+  }
+  .sponsorCard:nth-child(4) .sponsorLogo,
+  .sponsorCard:nth-child(8) .sponsorLogo,
+  .sponsorCard:nth-child(12) .sponsorLogo,
+  .sponsorCard:nth-child(16) .sponsorLogo {
+    height: 60px;
   }
 }

@@ -172,8 +172,9 @@ const imageContainerStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   height: '100%',
-  padding: '0',
-  cursor: 'pointer'
+  padding: '10px',
+  cursor: 'pointer',
+  position: 'relative'
 };
 
 const keySectionStyle = {
@@ -194,6 +195,7 @@ const keyTextStyle = {
 const firstMarketsContainerStyle = {
   position: 'relative',
   display: 'flex',
+  flexDirection: 'column',
   gap: '1.5rem',
   border: '2px solid #25abe0',
   borderRadius: '16px',
@@ -201,6 +203,20 @@ const firstMarketsContainerStyle = {
   margin: '0',
   backgroundColor: 'transparent',
   zIndex: 1,
+};
+
+const firstMarketsTitleStyle = {
+  color: '#25abe0',
+  fontSize: '24px',
+  fontWeight: '600',
+  textAlign: 'center',
+  margin: '0.5rem 0 0.25rem 0',
+};
+
+const firstMarketsContentStyle = {
+  display: 'flex',
+  gap: '1.5rem',
+  marginTop: '0.25rem',
 };
 
 const firstMarketBoxStyle = (index) => ({
@@ -266,24 +282,74 @@ const instructionTextStyle = {
   fontStyle: 'italic',
 };
 
+const marketHoverInfoStyle = {
+  position: 'absolute',
+  top: '40%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  backgroundColor: 'rgba(0, 0, 0, 0.9)',
+  padding: '1.25rem',
+  borderRadius: '8px',
+  width: '75%',
+  maxWidth: '280px',
+  opacity: 0,
+  transition: 'opacity 0.3s ease',
+  pointerEvents: 'none',
+  zIndex: 10,
+  border: '1px solid #25abe0',
+};
+
+const marketHoverInfoVisibleStyle = {
+  ...marketHoverInfoStyle,
+  opacity: 1,
+};
+
+const marketHoverTitleStyle = {
+  color: '#25abe0',
+  fontSize: '19px',
+  fontWeight: '600',
+  marginBottom: '0.5rem',
+};
+
+const marketHoverTextStyle = {
+  color: '#ffffff',
+  fontSize: '13px',
+  lineHeight: '1.4',
+  marginBottom: '0.5rem',
+};
+
+const marketHoverSizeStyle = {
+  color: '#25abe0',
+  fontSize: '15px',
+  fontWeight: '500',
+  marginTop: '0.35rem',
+};
+
 const additionalStyles = `
   .market-image-container {
     transition: all 0.3s ease;
+    position: relative;
+    padding: 10px;
   }
+  
   .market-image-container:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 10px rgba(37, 171, 224, 0.4);
     background: rgba(37, 171, 224, 0.05);
     border-radius: 8px;
+  }
+
+  .market-image-container:hover .market-hover-info {
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+
+  .market-hover-info {
+    transition: opacity 0.3s ease;
   }
 `;
 
 function Markets() {
-  const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [showModal, setShowModal] = useState(false);
-  const [selectedMarket, setSelectedMarket] = useState(null);
   const [currentPosition, setCurrentPosition] = useState(0);
   const carouselRef = useRef(null);
 
@@ -354,15 +420,6 @@ function Markets() {
     }
   ];
 
-  const handleMouseEnter = () => {
-    if (carouselRef.current) {
-      const style = window.getComputedStyle(carouselRef.current);
-      const matrix = new DOMMatrix(style.transform);
-      setCurrentPosition(matrix.m41);
-    }
-    setIsHovered(true);
-  };
-
   const handleMouseDown = (e) => {
     e.preventDefault();
     setIsDragging(true);
@@ -382,23 +439,8 @@ function Markets() {
     }
   };
 
-  const handleMouseUp = (e) => {
-    if (!isDragging) return;
+  const handleMouseUp = () => {
     setIsDragging(false);
-    
-    const deltaX = Math.abs(e.clientX - startX);
-    if (deltaX < 5) {
-      const clickedElement = e.target.closest('[data-market]');
-      if (clickedElement) {
-        const marketIndex = parseInt(clickedElement.dataset.market);
-        handleMarketClick(images[marketIndex % images.length]);
-      }
-    }
-  };
-
-  const handleMarketClick = (market) => {
-    setSelectedMarket(market);
-    setShowModal(true);
   };
 
   const handleWheel = (e) => {
@@ -433,21 +475,19 @@ function Markets() {
         </p>
         
         <div style={cardsContainerStyle}>
-          {/* Market 1 Card */}
+          {/* Market Cards */}
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>$1,200B</h3>
             <p style={cardTextStyle}>Total addressable market</p>
             <p style={cardTextStyle}>Can be served with TRL 8/9</p>
           </div>
 
-          {/* Market 2 Card */}
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>$120B</h3>
             <p style={cardTextStyle}>Serviceable available market</p>
             <p style={cardTextStyle}>Can be served with TRL 6/7</p>
           </div>
 
-          {/* Market 3 Card */}
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>$18B</h3>
             <p style={cardTextStyle}>Serviceable obtainable market</p>
@@ -461,38 +501,54 @@ function Markets() {
           className="carousel-container"
           style={carouselContainerStyle}
           onWheel={handleWheel}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
         >
+          <h3 style={{
+            color: '#25abe0',
+            fontSize: '24px',
+            fontWeight: '600',
+            margin: '0 0 1rem -24rem',
+            textAlign: 'center'
+          }}>First Markets</h3>
           <div style={carouselTrackStyle}>
             <div style={firstMarketsContainerStyle}>
-              {images.slice(0, 3).map((item, index) => (
-                <div 
-                  key={index} 
-                  data-market={index}
-                  style={{
-                    ...imageContainerStyle,
-                    userSelect: 'none',
-                  }}
-                  onClick={() => handleMarketClick(item)}
-                >
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="market-image"
-                    style={carouselImageStyle}
-                  />
-                  <p style={imageTitleStyle}>{item.title}</p>
-                </div>
-              ))}
+              <div style={firstMarketsContentStyle}>
+                {images.slice(0, 3).map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="market-image-container"
+                    style={{
+                      ...imageContainerStyle,
+                      userSelect: 'none',
+                    }}
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="market-image"
+                      style={carouselImageStyle}
+                    />
+                    <p style={imageTitleStyle}>{item.title}</p>
+                    <div className="market-hover-info" style={marketHoverInfoStyle}>
+                      <p style={marketHoverTextStyle}>{item.description}</p>
+                      <p style={marketHoverSizeStyle}>Current: {item.marketSize}</p>
+                      <p style={marketHoverSizeStyle}>Projected: {item.futureMarketSize}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
             {images.slice(3).map((item, index) => (
               <div 
                 key={index + 3} 
-                data-market={index + 3}
+                className="market-image-container"
                 style={{
                   ...imageContainerStyle,
                   userSelect: 'none',
                 }}
-                onClick={() => handleMarketClick(item)}
               >
                 <img
                   src={item.src}
@@ -501,28 +557,15 @@ function Markets() {
                   style={carouselImageStyle}
                 />
                 <p style={imageTitleStyle}>{item.title}</p>
+                <div className="market-hover-info" style={marketHoverInfoStyle}>
+                  <p style={marketHoverTextStyle}>{item.description}</p>
+                  <p style={marketHoverSizeStyle}>Current: {item.marketSize}</p>
+                  <p style={marketHoverSizeStyle}>Projected: {item.futureMarketSize}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
-
-        <div style={keySectionStyle}>
-          <div style={keyTextStyle}>
-            <span style={{ color: '#25abe0', fontWeight: '600', fontSize: '24px' }}>First Markets</span>
-          </div>
-        </div>
-
-        {selectedMarket && (
-          <Modal
-            show={showModal}
-            onClose={() => setShowModal(false)}
-            title={`${selectedMarket.title} Market`}
-          >
-            <p>{selectedMarket.description}</p>
-            <p style={{ marginTop: '1rem' }}>Current Market Size: {selectedMarket.marketSize}</p>
-            <p>Projected Market Size by 2030: {selectedMarket.futureMarketSize}</p>
-          </Modal>
-        )}
       </div>
     </>
   );

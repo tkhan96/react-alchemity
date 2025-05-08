@@ -31,10 +31,10 @@ function ContactForm() {
         }));
       }
     } else {
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: value
-      }));
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
     }
   };
 

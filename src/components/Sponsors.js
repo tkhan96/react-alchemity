@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './Sponsors.module.css';
 
-import umdLogo from './images/umd-logo.png';
-import milLogo from './images/mil.png';
-import shellJpg from './images/shell.jpg';
-import tedcoLogo from './images/tedco.png';
+import shell from './images/shell.png';
+import mil from './images/mil.png';
+import tedco from './images/tedco.png';
+import umd from './images/umd.jpg';
+import arpa from './images/arpa.png';
 
 function Sponsors() {
   const [ref, inView] = useInView({
@@ -15,14 +16,16 @@ function Sponsors() {
   });
 
   const sponsors = [
-    { name: "Shell", logo: shellJpg },
-    { name: "University of Maryland", logo: umdLogo },
-    { name: "MIL", logo: milLogo },
-    { name: "TEDCO", logo: tedcoLogo },
-    { name: "Shell", logo: shellJpg },
-    { name: "University of Maryland", logo: umdLogo },
-    { name: "MIL", logo: milLogo },
-    { name: "TEDCO", logo: tedcoLogo },
+    { name: "Shell", logo: shell },
+    { name: "MIL", logo: mil },
+    { name: "TEDCO", logo: tedco },
+    { name: "University of Maryland", logo: umd },
+    { name: "ARPA-E", logo: arpa },
+    { name: "Shell", logo: shell },
+    { name: "MIL", logo: mil },
+    { name: "TEDCO", logo: tedco },
+    { name: "University of Maryland", logo: umd },
+    { name: "ARPA-E", logo: arpa },
   ];
 
   const containerVariants = {

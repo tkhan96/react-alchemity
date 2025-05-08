@@ -1,8 +1,8 @@
 .plantSection {
-  padding: 6rem 0 1.5rem 0;
+  padding: 6rem 0;
   background-color: #000000;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 /* Subtle earthy texture - very light grain */
@@ -29,37 +29,109 @@
   z-index: 1;
 }
 
-.contentWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 3rem;
+.headerContainer {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-@media (max-width: 992px) {
-  .contentWrapper {
-    flex-direction: column;
-  }
+.statsTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-/* Left side - Plant Image */
+.statsSubtitle {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.statsContainer {
+  margin-bottom: 4rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+}
+
+.statIconContainer {
+  font-size: 2rem;
+  color: #25abe0;
+  margin-bottom: 1rem;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+/* Make specific values blue */
+.statCard:nth-child(1) .statValue,
+.statCard:nth-child(2) .statValue,
+.statCard:nth-child(3) .statValue,
+.statCard:nth-child(4) .statValue {
+  color: #25abe0;
+}
+
+.statLabel {
+  font-size: 1.2rem;
+  color: #25abe0;
+  margin-bottom: 0.5rem;
+}
+
+/* Make specific labels white and bolder */
+.statCard:nth-child(1) .statLabel,
+.statCard:nth-child(2) .statLabel,
+.statCard:nth-child(3) .statLabel,
+.statCard:nth-child(4) .statLabel {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.statDescription {
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+/* Make specific descriptions white */
+.statCard:nth-child(1) .statDescription,
+.statCard:nth-child(2) .statDescription,
+.statCard:nth-child(3) .statDescription,
+.statCard:nth-child(4) .statDescription {
+  color: #ffffff;
+}
+
 .imageContainer {
-  flex: 1;
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
 }
 
 .plantImage {
   width: 100%;
   height: auto;
-  display: block;
-  transition: transform 1s ease;
-}
-
-.imageContainer:hover .plantImage {
-  transform: scale(1.03);
+  border-radius: 8px;
 }
 
 .imageOverlay {
@@ -68,10 +140,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
 }
 
-/* Hotspots */
 .hotspot {
   position: absolute;
   width: 24px;
@@ -104,134 +174,34 @@
 
 .hotspotTooltip {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #25abe0;
   min-width: 120px;
-  background-color: #1a1a1a;
-  border-radius: 8px;
-  padding: 0.6rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
   pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 5;
-  border: 1px solid #333333;
   text-align: center;
+}
+
+.hotspotTooltip h4 {
+  color: #25abe0;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .hotspot:hover .hotspotTooltip {
   opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.hotspotTooltip:after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 10px 10px 0;
-  border-style: solid;
-  border-color: #1a1a1a transparent transparent;
-}
-
-.hotspotTooltip h4 {
-  margin: 0;
-  color: var(--earth-1);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.hotspotTooltip p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: #bbbbbb;
-}
-
-/* Right side - Stats */
-.statsContainer {
-  flex: 1;
-  padding: 1.5rem;
-}
-
-.statsTitle {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.statsSubtitle {
-  font-size: 1.1rem;
-  color: #cccccc;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-@media (max-width: 768px) {
-  .statsGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.statCard {
-  background-color: #1a1a1a;
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #333333;
-}
-
-.statCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  border-color: var(--primary-color);
-}
-
-.statIconContainer {
-  background-color: rgba(37, 171, 224, 0.1);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-.statValue {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin: 0;
-  line-height: 1;
-}
-
-.statLabel {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0.5rem 0;
-  color: #ffffff;
-}
-
-.statDescription {
-  font-size: 0.9rem;
-  color: #cccccc;
-  margin: 0;
-}
-
-/* Learn More Button Styling */
 .learnMoreContainer {
   text-align: center;
   margin-top: 3rem;
@@ -291,4 +261,123 @@
 
 .learnMoreButton:hover .arrowIcon {
   transform: translateX(4px);
+}
+
+@media (max-width: 992px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .statsTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .statsTitle {
+    font-size: 1.8rem;
+  }
+  
+  .statCard {
+    padding: 1.5rem;
+  }
+}
+
+.detailedPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.detailedPopupContent {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #25abe0;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.detailedPopupContent h3 {
+  color: #25abe0;
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.description {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.featuresList {
+  margin-top: 1.5rem;
+}
+
+.featureItem {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.featureBullet {
+  color: #25abe0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .detailedPopupContent {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .detailedPopupContent h3 {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
 } 

@@ -26,9 +26,17 @@ function Contact() {
               4467 Technology Drive <br/>
               Alchemity LLC, Suite 2116 <br/>
               College Park, MD 20742 <br/>
-              United States <br/>
-              <a href="https://maps.app.goo.gl/sFJmy4VV6qE5qpDN9" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+              United States
               </p>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6201.998091617533!2d-76.94109592408!3d38.99251814108605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6a3aab7487b%3A0x2058439c34831633!2sMaryland%20Technology%20Enterprise%20Institute%20(Mtech)!5e0!3m2!1sen!2sus!4v1746684090265!5m2!1sen!2sus" 
+                width="100%" 
+                height="300" 
+                style={{ border: 0, marginTop: '1rem', borderRadius: '8px' }} 
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
 
             <div className={styles.infoBlock}>

@@ -31,13 +31,12 @@
 }
 
 .sectionHeading {
-  font-size: 3.5rem;
+  font-size: 3.6rem;
   margin-bottom: 2rem;
-  font-weight: 300;
+  font-weight: 700;
   color: white;
   position: relative;
   display: inline-block;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
   animation: fadeInDown 1.2s ease-out forwards;
 }
 
@@ -74,15 +73,16 @@
 }
 
 .videoDescription {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 1.7;
   max-width: 800px;
-  margin: 2.5rem auto;
+  margin: 0.8rem auto 2.5rem;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
   animation: fadeInUp 1.2s ease-out forwards;
   animation-delay: 0.3s;
   opacity: 0;
+  font-weight: 700;
 }
 
 .ctaButton {
@@ -124,7 +124,6 @@
   opacity: 0;
 }
 
-/* Add a container specifically for the line */
 .keyPhrasesLine {
   display: flex;
   align-items: center;
@@ -138,7 +137,7 @@
   display: inline-block;
   margin: 0;
   font-size: 1.8rem;
-  font-weight: 300;
+  font-weight: 500;
   color: white;
   position: relative;
   padding: 0 0.25rem;
@@ -151,6 +150,7 @@
   opacity: 1;
   transform: translateY(-2px);
   text-shadow: 0 2px 15px rgba(37, 171, 224, 0.7);
+  font-weight: 600;
 }
 
 .phraseDot {
@@ -159,7 +159,34 @@
   color: var(--primary-color, #25abe0);
   font-size: 1.8rem;
   font-weight: 700;
-  opacity: 1;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(37, 171, 224, 0.5),
+                 0 0 20px rgba(37, 171, 224, 0.3),
+                 0 0 30px rgba(37, 171, 224, 0.2);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(37, 171, 224, 0.6),
+                 0 0 30px rgba(37, 171, 224, 0.4),
+                 0 0 40px rgba(37, 171, 224, 0.3);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
 }
 
 /* Adds a subtle overlay to darken the video and improve text readability */

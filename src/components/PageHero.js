@@ -21,12 +21,12 @@ function PageHero({ title, backgroundImageUrl, backgroundVideoUrl }) {
           Your browser does not support the video tag.
         </video>
       ) : (
-        <div 
-          className={styles.backgroundImage}
-          style={backgroundImageUrl ? {
-            backgroundImage: `url(${backgroundImageUrl})`
-          } : {}}
-        />
+      <div 
+        className={styles.backgroundImage}
+        style={backgroundImageUrl ? {
+          backgroundImage: `url(${backgroundImageUrl})`
+        } : {}}
+      />
       )}
       <div className={styles.overlay}></div>
       <h1 className={styles.title}>{title}</h1>
