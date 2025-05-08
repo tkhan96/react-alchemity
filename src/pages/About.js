@@ -3,13 +3,13 @@ import Modal from '../components/Modal';
 import ProfileCard from '../components/ProfileCard';
 import PageHero from '../components/PageHero';
 import aboutBg from '../components/images/about.png'; 
-import founder1 from '../components/images/founder1.png';
+import founder1 from '../components/images/founder1.jpg';
 import founder2 from '../components/images/founder2.png';
-import founder3 from '../components/images/founder3.png';
+import founder3 from '../components/images/founder3.jpg';
 import advisor1 from '../components/images/advisor1.png';
-import advisor2 from '../components/images/advisor2.png';
-import advisor3 from '../components/images/advisor3.png';
-import aboutVideo from '../components/images/about.mp4';
+import advisor2 from '../components/images/advisor2.jpg';
+import advisor3 from '../components/images/advisor3.jpg';
+import aboutVideo from '../components/images/about.mov';
 
 const founders = [
   {

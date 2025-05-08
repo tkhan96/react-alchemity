@@ -14,7 +14,7 @@ import plant1 from '../components/images/plant1.png';
 import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 import extEval from '../components/images/ExtEval.png';
-import productVideo from '../components/images/product.mp4';
+import productVideo from '../components/images/product.mov';
 
 const CardContainer = styled.div`
   display: grid;
@@ -69,10 +69,15 @@ const RoadmapDescription = styled.p`
   color: #ffffff;
   font-size: 1.2rem;
   text-align: center;
-  margin-bottom: -1rem;
+  margin-bottom: -4rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+
+  span {
+    color: #25abe0;
+    font-weight: bold;
+  }
 `;
 
 const TimelineContainer = styled.div`
@@ -100,6 +105,18 @@ const TimelineArrow = styled.div`
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
     border-left: 12px solid #25abe0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #25abe0;
+    border-radius: 50%;
   }
 `;
 
@@ -495,7 +512,7 @@ function Products() {
         <RoadmapContainer>
           <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
           <RoadmapDescription>
-            Alchemity will scale to modular turnkey demo units for customer buy-in prior to large plant deployment.
+            Alchemity will scale to modular turnkey demo units for customer buy-in prior to large plant deployment. <br></br> <span>Click to learn more.</span>
           </RoadmapDescription>
           
           <TimelineContainer>

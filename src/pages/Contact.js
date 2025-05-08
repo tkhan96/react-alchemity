@@ -3,7 +3,7 @@ import ContactForm from '../components/ContactForm';
 import styles from './Contact.module.css';
 import PageHero from '../components/PageHero';
 import contactBg from '../components/images/contact-us-bg-2.jpg';
-import contactVideo from '../components/images/contact.mp4';
+import contactVideo from '../components/images/contact.mov';
 
 function Contact() {
   const linkedInUrl = 'https://www.linkedin.com/company/alchemity/';

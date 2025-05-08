@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 
-import marketVideo from '../components/images/market.mp4';
+import marketVideo from '../components/images/market.mov';
 
 import marketsBg from '../components/images/market.avif';
 
