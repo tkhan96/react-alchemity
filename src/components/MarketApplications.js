@@ -78,7 +78,7 @@ function MarketApplications() {
         <motion.div className={styles.textContainer} variants={itemVariants}>
           <h2>Markets We Serve</h2>
           <p>
-            Placeholder text
+            The Platform System serves multiple markets through clean gaseous and liquid products. 
           </p>
         </motion.div>
 
