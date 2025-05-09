@@ -235,6 +235,7 @@ function Technology() {
           show={showModal}
           onClose={handleCloseModal}
           title="GTChem Platform Details"
+          size="large"
         >
           <div style={modalContentStyle}>
             <div style={modalColumnStyle}>

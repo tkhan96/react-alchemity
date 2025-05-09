@@ -72,7 +72,7 @@ const advisors = [
     blurb: 'Proven entrepreneur, fundraiser, corporate venture investor',
     bio: [
       'Director Stanford High Impact Fund',
-      'Board member, creating joint ventures and leading the acquisition of companies',
+      'Board member of multiple ventures, creating joint ventures and leading the acquisition of companies',
       'Education: University of Wisconsin-Madison, Stanford University, UCLA',
     ],
     imageUrl: advisor1,
@@ -108,9 +108,9 @@ const advisors = [
 
 const gridStyle = {
   display: 'grid',
-  gap: '1.5rem',
+  gap: '0.5rem',
   maxWidth: 'var(--container-width)',
-  margin: '2rem auto',
+  margin: '1rem auto',
 };
 
 const founderGridStyle = {
@@ -120,7 +120,7 @@ const founderGridStyle = {
 
 const advisorGridStyle = {
   ...gridStyle,
-  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
 };
 
 const buttonStyle = {
@@ -130,7 +130,7 @@ const buttonStyle = {
   padding: '0.5rem 1rem',
   borderRadius: '4px',
   cursor: 'pointer',
-  marginTop: '1rem',
+  marginTop: '1rem auto',
   fontWeight: '500',
 };
 

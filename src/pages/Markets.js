@@ -77,7 +77,7 @@ const cardTextStyle = {
   lineHeight: '1.5',
   textAlign: 'center',
   marginTop: '0',
-  fontWeight: '500',
+  fontWeight: '00',
 };
 
 const carouselContainerStyle = {
@@ -265,16 +265,16 @@ const keyframes = `
 `;
 
 const marketBreakdownTitleStyle = {
-  fontSize: '60px',
+  fontSize: '36px',
   color: '#25abe0',
   marginBottom: '3rem',
   marginTop: '3rem',
   textAlign: 'center',
-  fontWeight: '400',
+  fontWeight: '600',
 };
 
 const instructionTextStyle = {
-  fontSize: '22px',
+  fontSize: '20px',
   color: '#ffffff',
   textAlign: 'center',
   marginBottom: '2rem',
@@ -313,14 +313,14 @@ const marketHoverTitleStyle = {
 
 const marketHoverTextStyle = {
   color: '#ffffff',
-  fontSize: '17px',
+  fontSize: '14px',
   lineHeight: '1.2',
   marginBottom: '0.35rem',
 };
 
 const marketHoverSizeStyle = {
   color: '#25abe0',
-  fontSize: '15px',
+  fontSize: '14px',
   fontWeight: '1000',
   marginTop: '0.35rem',
 };
@@ -358,9 +358,9 @@ function Markets() {
       src: waste, 
       title: 'Waste Gas', 
       isFirstMarket: true,
-      marketSize: '$7.5B',
+      marketSize: '$7.5B (untapped)',
       futureMarketSize: '$9.5B by 2030',
-      description: 'Methane, the main component of natural gas, has 85 times the global warming potential of CO₂ over first 20 years. Flaring and venting waste valuable resources and now incur penalties under new EPA rules. Scaling down conventional, capital-intensive plants remains cost-prohibitive. The proposed Modular Platform Reactor System provides a cleaner alternative, converting methane into valuable liquid products suitable for blending with crude oil and transporting by truck—ideal for sites without pipeline access. Our Reactor operates autothermally, generating all required heat internally, enabling efficient, remote operation with zero CO2 emissions. Reactor modularity allows to integrate with existing infrastructure at smaller scales, offering cost-effective and environmentally sustainable solutions for brownfield applications.'
+      description: 'Methane, the main component of natural gas, has 85 times the global warming potential of CO₂ over first 20 years. Flaring and venting waste valuable resources and now incur penalties under new EPA rules. Scaling down conventional, capital-intensive plants remains cost-prohibitive. Our Modular Platform Reactor System provides a cleaner alternative, converting methane into valuable liquid products suitable for blending with crude oil and transport by truck—ideal for sites without pipeline access. Autothermal reactor operation, generating all required heat internally, enables efficient, remote operation with zero CO2 emissions. Modular design allows integration with existing infrastructure, offering cost-effective and environmentally sustainable solutions for brownfield applications.'
     },
     { 
       src: saf, 
