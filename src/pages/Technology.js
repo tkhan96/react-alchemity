@@ -195,7 +195,19 @@ function Technology() {
 
           <div style={cardStyle}>
             <h3 style={cardTitleStyle}>Scalable</h3>
-            <img src={scalable} alt="Scalable" style={{...imageStyle, marginTop: '2.2rem'}} />
+            <img 
+              src={scalable} 
+              alt="Scalable" 
+              style={{
+                width: '100%',
+                maxWidth: '400px',
+                height: 'auto',
+                objectFit: 'contain',
+                marginBottom: '1rem',
+                borderRadius: '8px',
+                marginTop: '2.2rem'
+              }} 
+            />
             <p style={cardTextStyle}>
               Technology successfully transferred to Alchemity, TRL 4 system demonstrated. TRL 5 system design completed and TRL6/7 design ongoing.
             </p>
@@ -236,6 +248,7 @@ function Technology() {
           onClose={handleCloseModal}
           title="GTChem Platform Details"
           size="large"
+          showCloseButton={true}
         >
           <div style={modalContentStyle}>
             <div style={modalColumnStyle}>

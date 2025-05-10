@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './PageHero.module.css';
 
 function PageHero({ title, backgroundImageUrl, backgroundVideoUrl }) {
-  const sectionClass = (title === 'About Us' || title === 'Markets' || title === 'Technology' || title === 'Careers' || title === 'Contact Us' || title === 'Products') ? styles.aboutHeroSection : styles.heroSection;
+  const sectionClass = (title === 'About Us' || title === 'Markets' || title === 'Technology' || title === 'Careers' || title === 'Contact Us' || title === 'Products' || title === 'News') ? styles.aboutHeroSection : styles.heroSection;
   const pageType = title === 'Markets' ? 'markets' : 
                   title === 'Technology' ? 'technology' : 
-                  title === 'Products' ? 'products' : '';
+                  title === 'Products' ? 'products' :
+                  title === 'News' ? 'products' : '';
 
   return (
     <section className={sectionClass} data-page={pageType}>

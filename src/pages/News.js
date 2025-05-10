@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
-import placeholderImage from '../components/images/placeholder.webp';
+import productVideo from '../components/images/product.mov';
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -21,7 +21,7 @@ function News() {
   return (
     <>
       <PageHero 
-        backgroundImageUrl={placeholderImage}
+        backgroundVideoUrl={productVideo}
         title="News"
         titleStyle={{
           color: '#ffffff',

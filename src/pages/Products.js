@@ -30,11 +30,12 @@ const Card = styled.div`
   padding: 2rem;
   border-radius: 8px;
   color: #ffffff;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   text-align: center;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
   }
 
   h3 {
@@ -87,6 +88,16 @@ const ClickToLearnMore = styled.p`
   font-weight: 800;
   margin-top: 0;
   margin-bottom: -3.5rem;
+`;
+
+const HoverDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const TimelineContainer = styled.div`
@@ -239,14 +250,37 @@ const TimelineSections = styled.div`
 `;
 
 const CompetitiveSection = styled.section`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto 3rem auto;
-  padding: 1.2rem;
+  padding: 2rem;
   background: #000;
 `;
 
-const CompetitiveTitle = styled(RoadmapTitle)`
-  margin-bottom: 7rem;
+const CompetitiveTitle = styled.h2`
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+`;
+
+const CompetitiveDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const CompetitiveHoverText = styled.p`
+  color: #25abe0;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: -3.5rem;
 `;
 
 const QuadrantContainer = styled.div`
@@ -255,7 +289,7 @@ const QuadrantContainer = styled.div`
   height: 650px;
   background: #000;
   border-radius: 16px;
-  margin-top: 2.2rem;
+  margin-top: 10rem;
   overflow: visible;
 `;
 
@@ -418,6 +452,12 @@ function Products() {
         {/* Competitive Analysis Section */}
         <CompetitiveSection>
           <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
+          <CompetitiveDescription>
+            Placeholder
+          </CompetitiveDescription>
+          <CompetitiveHoverText>
+            Hover to learn more
+          </CompetitiveHoverText>
           <QuadrantContainer>
             {/* Axes */}
             <Axis orientation="horizontal" color="#e53935" />

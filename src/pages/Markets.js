@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
+import styled from 'styled-components';
 
 import marketVideo from '../components/images/market.mov';
 
@@ -46,14 +47,20 @@ const cardsContainerStyle = {
   padding: '0 2rem',
 };
 
-const cardStyle = {
-  flex: 1,
-  padding: '2rem 2rem 1rem',
-  backgroundColor: '#141414',
-  borderRadius: '8px',
-  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  textAlign: 'center',
-};
+const MarketCard = styled.div`
+  flex: 1;
+  padding: 2rem 2rem 1rem;
+  background-color: #141414;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
+  }
+`;
 
 const imageStyle = {
   width: '100%',
@@ -376,7 +383,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$243B',
       futureMarketSize: '$411B by 2030',
-      description: 'Current hydrogen production methods, such as steam methane reforming (SMR), emit an average of 9.4 kg of CO₂ per kg of hydrogen, while electrolyzers powered by today’s carbon-intensive grid generate even higher emissions—up to 22 kg CO₂ per kg of hydrogen. Energy consumption over plant lifetime accouts for over 70% of the hydrogen cost. Scaling hydrogen production without increasing emissions remains a significant challenge until the U.S. grid is decarbonized. Our Reactor System offers a cleaner solution to produce clean hydrogen from methane (through non-oxidative approach) while sequestering carbon as commodity chemicals, thus enhancing U.S. economic and energy security. '
+      description: 'Current hydrogen production methods, such as steam methane reforming (SMR), emit an average of 9.4 kg of CO2 per kg of hydrogen, while electrolyzers powered by today\'s carbon-intensive grid generate even higher emissions - up to 22 kg CO2 per kg of hydrogen. Energy consumption over plant lifetime accounts for over 70% of the hydrogen cost. Scaling hydrogen production without increasing emissions remains a significant challenge until the U.S. grid is decarbonized. Our Reactor System offers a cleaner solution to produce clean hydrogen from methane (through non-oxidative approach) while sequestering carbon as commodity chemicals, thus enhancing U.S. economic and energy security.'
     },
     { 
       src: biogas, 
@@ -476,23 +483,23 @@ function Markets() {
         
         <div style={cardsContainerStyle}>
           {/* Market Cards */}
-          <div style={cardStyle}>
+          <MarketCard>
             <h3 style={cardTitleStyle}>$1,200B</h3>
             <p style={cardTextStyle}>Total addressable market</p>
             <p style={cardTextStyle}>Can be served with TRL 8/9 System</p>
-          </div>
+          </MarketCard>
 
-          <div style={cardStyle}>
+          <MarketCard>
             <h3 style={cardTitleStyle}>$120B</h3>
             <p style={cardTextStyle}>Serviceable available market</p>
             <p style={cardTextStyle}>Can be served with TRL 6/7 System</p>
-          </div>
+          </MarketCard>
 
-          <div style={cardStyle}>
+          <MarketCard>
             <h3 style={cardTitleStyle}>$18B</h3>
             <p style={cardTextStyle}>Serviceable obtainable market</p>
             <p style={cardTextStyle}>Served with First Modular Skids, 1-5 tons/day</p>
-          </div>
+          </MarketCard>
         </div>
 
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
