@@ -32,6 +32,11 @@
   margin-bottom: 1.5rem; /* More space between fields */
 }
 
+.resumeGroup {
+  margin-top: -3.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .label {
   display: block;
   margin-bottom: 0.5rem;
@@ -152,4 +157,32 @@ input:focus, select:focus, textarea:focus {
   text-align: right;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+} 
+
+input[type="file"] {
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #25abe0;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #1a8bc0;
+}
+
+.attachmentCount {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 } 

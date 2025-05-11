@@ -6,20 +6,24 @@ function ContactForm() {
     firstName: '',
     lastName: '',
     email: '',
-    capacity: '',
-    companyName: '',
-    industryType: '',
-    projectLocation: '',
     message: '',
+    resume: null,
   });
 
   const [wordCount, setWordCount] = useState(0);
+  const [attachments, setAttachments] = useState(0);
   const MAX_WORDS = 250;
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
     
-    if (name === 'message') {
+    if (name === 'resume') {
+      setFormData(prevState => ({
+        ...prevState,
+        resume: files[0]
+      }));
+      setAttachments(files.length);
+    } else if (name === 'message') {
       const words = value.trim().split(/\s+/).filter(word => word.length > 0);
       const currentWordCount = words.length;
       
@@ -31,10 +35,10 @@ function ContactForm() {
         }));
       }
     } else {
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
     }
   };
 
@@ -50,13 +54,11 @@ function ContactForm() {
       firstName: '',
       lastName: '',
       email: '',
-      capacity: '',
-      companyName: '',
-      industryType: '',
-      projectLocation: '',
       message: '',
+      resume: null,
     });
     setWordCount(0);
+    setAttachments(0);
   };
 
   return (
@@ -77,58 +79,6 @@ function ContactForm() {
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
 
-        {/* Capacity/Interest Field Group - Keeping name 'capacity' for consistency for now */}
-        <div className={styles.fieldGroup}>
-          <label className={styles.label} htmlFor="capacity">How can we help you?*</label>
-          <select id="capacity" name="capacity" value={formData.capacity} onChange={handleChange} required>
-            <option value="" disabled>Select an option...</option>
-            <option value="sales">Sales Inquiry</option>
-            <option value="support">Technical Support</option>
-            <option value="partnership">Partnership Opportunities</option>
-            <option value="careers">Careers</option>
-            <option value="general">General Information</option>
-          </select>
-        </div>
-
-        {/* Company Name Field Group */}
-        <div className={styles.fieldGroup}>
-           <label className={styles.label} htmlFor="companyName">Company Name</label>
-           <input type="text" id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} />
-        </div>
-
-        {/* Industry Type Field Group */}
-        <div className={styles.fieldGroup}>
-          <label className={styles.label} htmlFor="industryType">Industry Type*</label>
-          <select id="industryType" name="industryType" value={formData.industryType} onChange={handleChange} required>
-            <option value="" disabled>Select Industry...</option>
-            <option value="developer">Renewable and E-Fuel Developer/IPPO</option>
-            <option value="oilgas">Oil & Gas</option>
-            <option value="steel">Steel</option>
-            <option value="mining">Mining and Non-Steel Metals</option>
-            <option value="ammonia">Ammonia</option>
-            <option value="chemical">Chemical (Non-Ammonia)</option>
-            <option value="industrialgas">Industrial Gas</option>
-            <option value="shipping">Shipping</option>
-            <option value="utilities">Utilities</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        {/* Project Location Field Group */}
-        <div className={styles.fieldGroup}>
-           <label className={styles.label} htmlFor="projectLocation">Project Location*</label>
-           <select id="projectLocation" name="projectLocation" value={formData.projectLocation} onChange={handleChange} required>
-              <option value="" disabled>Select Location...</option>
-              <option value="africa">Africa</option>
-              <option value="asia">Asia</option>
-              <option value="australia">Australia</option>
-              <option value="europe">Europe</option>
-              <option value="middleeast">Middle East</option>
-              <option value="northamerica">North America</option>
-              <option value="southamerica">South America</option>
-           </select>
-        </div>
-
         {/* Message Field Group */}
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="message">Message*</label>
@@ -141,6 +91,21 @@ function ContactForm() {
           />
           <div className={styles.wordCount}>
             {wordCount}/{MAX_WORDS} words
+          </div>
+        </div>
+
+        {/* Resume Upload Field Group */}
+        <div className={`${styles.fieldGroup} ${styles.resumeGroup}`}>
+          <label className={styles.label} htmlFor="resume">Attach Resume</label>
+          <input 
+            type="file" 
+            id="resume" 
+            name="resume" 
+            accept=".pdf,.doc,.docx" 
+            onChange={handleChange}
+          />
+          <div className={styles.attachmentCount}>
+            Attachments ({attachments})
           </div>
         </div>
 
