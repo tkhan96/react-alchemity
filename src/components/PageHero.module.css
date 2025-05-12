@@ -73,10 +73,22 @@
 
 /* Specific style for Products page video */
 .aboutHeroSection[data-page="products"] .backgroundVideo {
+  width: 55%;
+  clip-path: none;
+  top: 0;
+  height: 100%;
+  object-fit: contain;
+  right: 5%;
+}
+
+/* Specific style for News page video */
+.aboutHeroSection[data-page="news"] .backgroundVideo {
   width: 65%;
   clip-path: none;
-  top: -14%; /* Move the video up by adjusting from -6% to -10% */
-  height: 120%; /* Keep the height the same to maintain coverage */
+  top: -20%;
+  height: 140%;
+  object-fit: cover;
+  right: 0;
 }
 
 .aboutHeroSection .backgroundVideo {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PageHero from '../components/PageHero';
 import productsBg from '../components/images/plant3.png';
 import styled from 'styled-components';
@@ -19,6 +19,7 @@ import placeholder from '../components/images/placeholder.webp';
 import plantImage from '../components/images/30tpd.jpg';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import companim from '../components/images/companim.mov';
 
 const CardContainer = styled.div`
   display: grid;
@@ -577,6 +578,30 @@ function Products() {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const heroVideoRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.currentTime = 0;
+          video.play();
+          video.addEventListener('timeupdate', () => {
+            if (video.currentTime >= video.duration - 0.1) {
+              video.pause();
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (heroVideoRef.current) observer.observe(heroVideoRef.current);
+
+    return () => {
+      if (heroVideoRef.current) observer.unobserve(heroVideoRef.current);
+    };
+  }, []);
 
   const handleImageClick = (item) => {
     setSelectedItem(item);
@@ -636,8 +661,9 @@ function Products() {
   return (
     <>
       <PageHero 
-        backgroundVideoUrl={productVideo}
+        backgroundVideoUrl={companim}
         title="Products"
+        videoRef={heroVideoRef}
       />
       <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
         <h2 style={{
