@@ -16,9 +16,13 @@
   padding: 2rem;
   border-radius: 8px;
   width: 95%;
-  max-width: 1600px;
+  max-width: 800px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   animation: slide-down 0.3s ease-out forwards;
+}
+
+.modalContentLarge {
+  max-width: 1600px;
 }
 
 .modalHeader {
@@ -69,6 +73,8 @@
 
 .linkedInButton:hover {
   background-color: #1a8bc0;
+  color: white;
+  text-decoration: none;
 }
 
 .closeButton {

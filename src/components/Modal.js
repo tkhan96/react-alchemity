@@ -1,17 +1,19 @@
 import React from 'react';
 import styles from './Modal.module.css';
 
-function Modal({ show, onClose, title, children, linkedInUrl }) {
+function Modal({ show, onClose, title, children, linkedInUrl, size = 'default' }) {
   if (!show) {
     return null;
   }
 
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
-      <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+      <div 
+        className={`${styles.modalContent} ${size === 'large' ? styles.modalContentLarge : ''}`} 
+        onClick={e => e.stopPropagation()}
+      >
         <div className={styles.modalHeader}>
           <h4 className={styles.modalTitle}>{title}</h4>
-          <button className={styles.closeButton} onClick={onClose}>×</button>
         </div>
         <div className={styles.modalBody}>
           {children}

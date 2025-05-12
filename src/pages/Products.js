@@ -69,7 +69,7 @@ const RoadmapDescription = styled.p`
   color: #ffffff;
   font-size: 1.2rem;
   text-align: center;
-  margin-bottom: -4rem;
+  margin-bottom: 1.5rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -78,6 +78,15 @@ const RoadmapDescription = styled.p`
     color: #25abe0;
     font-weight: bold;
   }
+`;
+
+const ClickToLearnMore = styled.p`
+  color: #25abe0;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: -3.5rem;
 `;
 
 const TimelineContainer = styled.div`
@@ -514,6 +523,7 @@ function Products() {
           <RoadmapDescription>
             Deploying modular turnkey systems prior to large integrated facilities.
           </RoadmapDescription>
+          <ClickToLearnMore>Click a TRL card to learn more</ClickToLearnMore>
           
           <TimelineContainer>
             <TimelineSections>
