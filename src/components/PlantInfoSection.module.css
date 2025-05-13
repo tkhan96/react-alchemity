@@ -64,11 +64,13 @@
   border-radius: 8px;
   padding: 2rem;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(37, 171, 224, 0);
 }
 
 .statCard:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
 }
 
 .statIconContainer {

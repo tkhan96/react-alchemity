@@ -15,8 +15,8 @@ const ProblemOpportunitySection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.15
       }
     }
   };
@@ -26,7 +26,7 @@ const ProblemOpportunitySection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.4, ease: "easeOut" }
     }
   };
 
@@ -40,24 +40,26 @@ const ProblemOpportunitySection = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <motion.div className={styles.textContent} variants={itemVariants}>
-            <h2 className={styles.title}>Problem/Opportunity</h2>
-            <p className={styles.text}>
+          <motion.div className={styles.textContent}>
+            <motion.h2 className={styles.title} variants={itemVariants}>
+              <span style={{ color: '#fff' }}>Problem</span> Opportunity
+            </motion.h2>
+            <motion.p className={styles.text} variants={itemVariants}>
               Chemical production is capital intensive,
               requires large facilities and massive
               production volumes.
-            </p>
-            <p className={styles.text}>
+            </motion.p>
+            <motion.p className={styles.text} variants={itemVariants}>
               Global chemical and oil & gas industry
               account for six giga tons
               of CO<sub>2</sub> emissions annually.
-            </p>
-            <p className={styles.highlightText}>
+            </motion.p>
+            <motion.p className={styles.highlightText} variants={itemVariants}>
               Lower Cost and CO<sub>2</sub> Emissions Gamechanger is Needed…
-            </p>
-            <p className={styles.highlightText}>
+            </motion.p>
+            <motion.p className={styles.highlightText} variants={itemVariants}>
               Our Platform Technology provides Clean Chemicals with Lower Capital Risk and Higher Efficiency!
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.div 

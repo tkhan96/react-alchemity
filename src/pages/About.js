@@ -4,7 +4,7 @@ import ProfileCard from '../components/ProfileCard';
 import PageHero from '../components/PageHero';
 import aboutBg from '../components/images/about.png'; 
 import founder1 from '../components/images/founder1.jpg';
-import founder2 from '../components/images/founder2.png';
+import founder2 from '../components/images/founder2.jpg';
 import founder3 from '../components/images/founder3.jpg';
 import advisor1 from '../components/images/advisor1.png';
 import advisor2 from '../components/images/advisor2.jpg';
@@ -138,6 +138,7 @@ const titleStyle = {
   fontSize: '40px',
   color: '#25abe0',
   marginBottom: '3rem',
+  marginTop: '5rem',
   textAlign: 'center',
   fontWeight: '500',
 };
@@ -176,7 +177,7 @@ function About() {
         title="About Us"
       />
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000'}}>
-        <h2 style={titleStyle}>Founders</h2>
+        <h2 style={{...titleStyle, marginTop: '0'}}>Founders</h2>
         <div style={founderGridStyle}>
           {founders.map((founder) => (
             <ProfileCard

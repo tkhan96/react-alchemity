@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
-import placeholderImage from '../components/images/placeholder.webp';
+import productVideo from '../components/images/product.mov';
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -17,11 +17,21 @@ const titleStyle = {
   fontWeight: '400',
 };
 
+const videoStyle = {
+  position: 'absolute',
+  top: '-33%',
+  right: 0,
+  width: '65%',
+  height: '160%',
+  objectFit: 'contain',
+  zIndex: 0
+};
+
 function News() {
   return (
     <>
       <PageHero 
-        backgroundImageUrl={placeholderImage}
+        backgroundVideoUrl={productVideo}
         title="News"
         titleStyle={{
           color: '#ffffff',
@@ -33,6 +43,7 @@ function News() {
           position: 'relative',
           zIndex: 2,
         }}
+        videoStyle={videoStyle}
       />
       <div style={sectionStyle}>
         <h2 style={titleStyle}>Latest Updates</h2>

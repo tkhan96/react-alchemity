@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PageHero from '../components/PageHero';
 import productsBg from '../components/images/plant3.png';
 import styled from 'styled-components';
@@ -15,6 +15,11 @@ import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 import extEval from '../components/images/ExtEval.png';
 import productVideo from '../components/images/product.mov';
+import placeholder from '../components/images/placeholder.webp';
+import plantImage from '../components/images/30tpd.jpg';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import companim from '../components/images/companim.mov';
 
 const CardContainer = styled.div`
   display: grid;
@@ -30,11 +35,12 @@ const Card = styled.div`
   padding: 2rem;
   border-radius: 8px;
   color: #ffffff;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   text-align: center;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
   }
 
   h3 {
@@ -52,9 +58,8 @@ const Card = styled.div`
 
 const RoadmapContainer = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  margin: -4rem auto 3rem auto;
   padding: 2rem;
-  margin-top: 5rem;
 `;
 
 const RoadmapTitle = styled.h2`
@@ -87,6 +92,16 @@ const ClickToLearnMore = styled.p`
   font-weight: 800;
   margin-top: 0;
   margin-bottom: -3.5rem;
+`;
+
+const HoverDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const TimelineContainer = styled.div`
@@ -239,14 +254,37 @@ const TimelineSections = styled.div`
 `;
 
 const CompetitiveSection = styled.section`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto 3rem auto;
-  padding: 1.2rem;
+  padding: 2rem;
   background: #000;
 `;
 
-const CompetitiveTitle = styled(RoadmapTitle)`
-  margin-bottom: 7rem;
+const CompetitiveTitle = styled.h2`
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+`;
+
+const CompetitiveDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const CompetitiveHoverText = styled.p`
+  color: #25abe0;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: -3.5rem;
 `;
 
 const QuadrantContainer = styled.div`
@@ -255,7 +293,7 @@ const QuadrantContainer = styled.div`
   height: 650px;
   background: #000;
   border-radius: 16px;
-  margin-top: 2.2rem;
+  margin-top: 10rem;
   overflow: visible;
 `;
 
@@ -353,10 +391,217 @@ const CompetitivePopup = styled.div`
   text-align: center;
 `;
 
+const PlantInfoSection = styled.section`
+  max-width: 1200px;
+  margin: -2rem auto 3rem auto;
+  padding: 2rem;
+  background: #000;
+`;
+
+const PlantInfoTitle = styled.h2`
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+`;
+
+const PlantInfoDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+`;
+
+const PlantImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+`;
+
+const ImageOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+const Hotspot = styled(motion.div)`
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+`;
+
+const HotspotDot = styled.div`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #25abe0;
+  position: relative;
+  box-shadow: 0 0 0 4px rgba(37, 171, 224, 0.3);
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 171, 224, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(37, 171, 224, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 171, 224, 0);
+    }
+  }
+`;
+
+const HotspotTooltip = styled.div`
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #25abe0;
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+
+  h4 {
+    color: #25abe0;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  ${Hotspot}:hover & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+`;
+
+const DetailedPopup = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+`;
+
+const DetailedPopupContent = styled.div`
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+
+  h3 {
+    color: #25abe0;
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+`;
+
+const AISection = styled.section`
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  padding: 2rem;
+  background: #000;
+`;
+
+const AITitle = styled.h2`
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+`;
+
+const AIDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const AIImage = styled.img`
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+`;
+
 function Products() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [hoveredBox, setHoveredBox] = useState(null);
   const [popupPos, setPopupPos] = useState({ x: null, y: null, label: null });
+  const [selectedHotspot, setSelectedHotspot] = useState(null);
+  const [imageRef, imageInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const heroVideoRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.currentTime = 0;
+          video.play();
+          video.addEventListener('timeupdate', () => {
+            if (video.currentTime >= video.duration - 0.1) {
+              video.pause();
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (heroVideoRef.current) observer.observe(heroVideoRef.current);
+
+    return () => {
+      if (heroVideoRef.current) observer.unobserve(heroVideoRef.current);
+    };
+  }, []);
 
   const handleImageClick = (item) => {
     setSelectedItem(item);
@@ -364,6 +609,29 @@ function Products() {
 
   const handleClosePopup = () => {
     setSelectedItem(null);
+  };
+
+  const hotspotDetails = {
+    0: {
+      title: "Feedstock",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    1: {
+      title: "GTChem Skid",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    2: {
+      title: "Liquid Fuel Tank",
+      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    },
+    3: {
+      title: "Station",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    4: {
+      title: "Pipe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
   };
 
   // Quadrant box data
@@ -386,11 +654,16 @@ function Products() {
   // Helper to get box by index
   const getBoxByIdx = idx => boxes[idx];
 
+  const handleHotspotClick = (index) => {
+    setSelectedHotspot(selectedHotspot === index ? null : index);
+  };
+
   return (
     <>
       <PageHero 
-        backgroundVideoUrl={productVideo}
+        backgroundVideoUrl={companim}
         title="Products"
+        videoRef={heroVideoRef}
       />
       <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
         <h2 style={{
@@ -415,9 +688,305 @@ function Products() {
           </Card>
         </CardContainer>
 
+        {/* Placeholder Section */}
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '2rem auto 2rem auto', 
+          padding: '2rem',
+          backgroundColor: '#000000'
+        }}>
+          <h2 style={{
+            fontSize: '40px',
+            color: '#25abe0',
+            marginBottom: '3rem',
+            textAlign: 'center',
+            fontWeight: '500'
+          }}>Placeholder</h2>
+          
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '2rem'
+          }}>
+            {/* Left Side */}
+            <div style={{ flex: 1 }}>
+              <div style={{ 
+                marginBottom: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '2rem',
+                height: '500px'
+              }}>
+                <img 
+                  src={skid1} 
+                  alt="TRL 6/7" 
+                  style={{ 
+                    width: '100%',
+                    height: 'calc(50% - 1rem)',
+                    objectFit: 'contain',
+                    borderRadius: '20px'
+                  }} 
+                />
+                <img 
+                  src={skid2} 
+                  alt="TRL 6/7" 
+                  style={{ 
+                    width: '100%',
+                    height: 'calc(50% - 1rem)',
+                    objectFit: 'contain',
+                    borderRadius: '20px'
+                  }} 
+                />
+              </div>
+              <p style={{ 
+                color: '#ffffff', 
+                fontSize: '1.1rem',
+                marginBottom: '1rem',
+                lineHeight: '1.6'
+              }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p style={{ 
+                color: '#ffffff', 
+                fontSize: '1.1rem',
+                lineHeight: '1.6'
+              }}>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+
+            {/* Right Side */}
+            <div style={{ flex: 1 }}>
+              <div style={{ 
+                marginBottom: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '2rem',
+                height: '500px'
+              }}>
+                <img 
+                  src={plant1} 
+                  alt="TRL 8/9" 
+                  style={{ 
+                    width: '100%',
+                    height: 'calc(50% - 1rem)',
+                    objectFit: 'contain',
+                    borderRadius: '20px'
+                  }} 
+                />
+                <img 
+                  src={plant22} 
+                  alt="TRL 8/9" 
+                  style={{ 
+                    width: '100%',
+                    height: 'calc(50% - 1rem)',
+                    objectFit: 'contain',
+                    borderRadius: '20px'
+                  }} 
+                />
+              </div>
+              <p style={{ 
+                color: '#ffffff', 
+                fontSize: '1.1rem',
+                marginBottom: '1rem',
+                lineHeight: '1.6'
+              }}>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </p>
+              <p style={{ 
+                color: '#ffffff', 
+                fontSize: '1.1rem',
+                lineHeight: '1.6'
+              }}>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* AI Section */}
+        <AISection>
+          <AITitle>AI</AITitle>
+          <AIImage 
+            src={placeholder} 
+            alt="AI Technology" 
+          />
+          <AIDescription>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </AIDescription>
+          <AIDescription>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </AIDescription>
+        </AISection>
+
+        {/* Plant Info Section */}
+        <PlantInfoSection>
+          <PlantInfoTitle>Placeholder</PlantInfoTitle>
+          <PlantInfoDescription>
+            Transforming industrial operations with scaled-down modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+          </PlantInfoDescription>
+          <motion.div
+            ref={imageRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <ImageContainer>
+              <PlantImage src={plantImage} alt="3D Design of our Chemical Plant" />
+              <ImageOverlay>
+                <Hotspot
+                  style={{ bottom: '45%', left: '32%' }}
+                  whileHover={{ scale: 1.2 }}
+                  onClick={() => handleHotspotClick(0)}
+                >
+                  <HotspotDot />
+                  <HotspotTooltip>
+                    <h4>{hotspotDetails[0].title}</h4>
+                  </HotspotTooltip>
+                </Hotspot>
+                <Hotspot
+                  style={{ bottom: '38%', left: '18%' }}
+                  whileHover={{ scale: 1.2 }}
+                  onClick={() => handleHotspotClick(3)}
+                >
+                  <HotspotDot />
+                  <HotspotTooltip>
+                    <h4>{hotspotDetails[3].title}</h4>
+                  </HotspotTooltip>
+                </Hotspot>
+                <Hotspot
+                  style={{ bottom: '52%', left: '20%' }}
+                  whileHover={{ scale: 1.2 }}
+                  onClick={() => handleHotspotClick(4)}
+                >
+                  <HotspotDot />
+                  <HotspotTooltip>
+                    <h4>{hotspotDetails[4].title}</h4>
+                  </HotspotTooltip>
+                </Hotspot>
+                <Hotspot
+                  style={{ top: '40%', left: '75%' }}
+                  whileHover={{ scale: 1.2 }}
+                  onClick={() => handleHotspotClick(1)}
+                >
+                  <HotspotDot />
+                  <HotspotTooltip>
+                    <h4>{hotspotDetails[1].title}</h4>
+                  </HotspotTooltip>
+                </Hotspot>
+                <Hotspot
+                  style={{ top: '70%', left: '40%' }}
+                  whileHover={{ scale: 1.2 }}
+                  onClick={() => handleHotspotClick(2)}
+                >
+                  <HotspotDot />
+                  <HotspotTooltip>
+                    <h4>{hotspotDetails[2].title}</h4>
+                  </HotspotTooltip>
+                </Hotspot>
+              </ImageOverlay>
+            </ImageContainer>
+          </motion.div>
+        </PlantInfoSection>
+
+        {/* Roadmap Section */}
+        <RoadmapContainer>
+          <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
+          <RoadmapDescription>
+            Deploying modular turnkey systems prior to large integrated facilities.
+          </RoadmapDescription>
+          <ClickToLearnMore>Click to learn more</ClickToLearnMore>
+          
+          <TimelineContainer>
+            <TimelineSections>
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    image: single2,
+                    title: 'Produced Reactor Tubes',
+                    year: '2024',
+                    description: 'Batches of 20 cm long reactor membranes.'
+                  })}
+                >
+                  <span>TRL 3</span>
+                </TimelineImage>
+                <TimelineTitle>Single Tube</TimelineTitle>
+                <TimelineYear>2024</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    image: extEval,
+                    title: 'Tube Bundle',
+                    year: '2025',
+                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions.'
+                  })}
+                >
+                  <span>TRL 4</span>
+                </TimelineImage>
+                <TimelineTitle>Tube Bundle</TimelineTitle>
+                <TimelineYear>2025</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    image: benchtop1,
+                    title: 'Benchtop System',
+                    year: '2025-2026',
+                    description: 'Second working prototype to optimize reactor bundle integration with steel vessel and BOP.'
+                  })}
+                >
+                  <span>TRL 5</span>
+                </TimelineImage>
+                <TimelineTitle>Benchtop System</TimelineTitle>
+                <TimelineYear>2025-2026</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    images: [skid1, skid2],
+                    title: 'Modular Skid System',
+                    year: '2027+',
+                    description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities."
+                  })}
+                >
+                  <span>TRL 6/7</span>
+                </TimelineImage>
+                <TimelineTitle>Modular Skids</TimelineTitle>
+                <TimelineYear>2027+</TimelineYear>
+              </TimelineSection>
+              
+              <TimelineSection>
+                <TimelineImage 
+                  onClick={() => handleImageClick({
+                    images: [plant1, plant22],
+                    title: 'Plant',
+                    year: '2030+',
+                    description: 'Large-scale plant building block to enable 100+ ton per day facilities.'
+                  })}
+                >
+                  <span>TRL 8/9</span>
+                </TimelineImage>
+                <TimelineTitle>Plant</TimelineTitle>
+                <TimelineYear>2030+</TimelineYear>
+              </TimelineSection>
+            </TimelineSections>
+            <TimelineArrow />
+          </TimelineContainer>
+        </RoadmapContainer>
+
         {/* Competitive Analysis Section */}
         <CompetitiveSection>
           <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
+          <CompetitiveDescription>
+            Placeholder
+          </CompetitiveDescription>
+          <CompetitiveHoverText>
+            Hover to learn more
+          </CompetitiveHoverText>
           <QuadrantContainer>
             {/* Axes */}
             <Axis orientation="horizontal" color="#e53935" />
