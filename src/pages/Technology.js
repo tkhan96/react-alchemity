@@ -297,18 +297,19 @@ function Technology() {
           <div style={modalContentStyle}>
             <div style={modalColumnStyle}>
               <img src={graph1} alt="Graph 1" style={{...graphStyle, marginTop: '1rem'}} />
-              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '3rem'}}>Placeholder Subtitle 1</h3>
+              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '3rem'}}>Example of a Stable Reactor Operation</h3>
               <div style={{...modalTextStyle, marginTop: '0.25rem'}}>
-                <div style={bulletPointStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                <div style={bulletPointStyle}>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                <div style={bulletPointStyle}>Platform reactor was tasked to demonstrate stable conversion of Shell’s natural gas (97% CH4, 3% C3H8) with air sweep (space velocity 3200 mL/g∙h).
+                </div>
+                <div style={bulletPointStyle}>Single pass operation demonstrated stable natural gas conversion of 21% over 375 hours without any coking (carbon deposition on the catalyst). Stable selectivity for ethylene and benzene was demonstrated.</div>
               </div>
             </div>
             <div style={modalColumnStyle}>
               <img src={graph2} alt="Graph 2" style={{...graphStyle, marginTop: '0.625rem'}} />
               <h3 style={{...modalSubtitleStyle, marginBottom: '0.5rem', marginTop: '0.375rem'}}>Placeholder Subtitle 2</h3>
               <div style={{...modalTextStyle, marginTop: '0.125rem'}}>
-                <div style={bulletPointStyle}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-                <div style={bulletPointStyle}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                <div style={bulletPointStyle}>Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.</div>
+                <div style={bulletPointStyle}>Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.</div>
               </div>
             </div>
           </div>
