@@ -42,7 +42,7 @@ const ProblemOpportunitySection = () => {
         >
           <motion.div className={styles.textContent}>
             <motion.h2 className={styles.title} variants={itemVariants}>
-              <span style={{ color: '#fff' }}>Problem</span> Opportunity
+              <span style={{ color: '#fff' }}>Problem and</span> Opportunity
             </motion.h2>
             <motion.p className={styles.text} variants={itemVariants}>
               Chemical production is capital intensive,

@@ -306,7 +306,7 @@ function Technology() {
             </div>
             <div style={modalColumnStyle}>
               <img src={graph2} alt="Graph 2" style={{...graphStyle, marginTop: '0.625rem'}} />
-              <h3 style={{...modalSubtitleStyle, marginBottom: '0.5rem', marginTop: '0.375rem'}}>Placeholder Subtitle 2</h3>
+              <h3 style={{...modalSubtitleStyle, marginBottom: '0.5rem', marginTop: '0.375rem'}}>Wide Product Selectivity</h3>
               <div style={{...modalTextStyle, marginTop: '0.125rem'}}>
                 <div style={bulletPointStyle}>Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.</div>
                 <div style={bulletPointStyle}>Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.</div>
