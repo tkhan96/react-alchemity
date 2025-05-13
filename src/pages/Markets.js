@@ -3,8 +3,6 @@ import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
 
-import marketVideo from '../components/images/market.mov';
-
 import marketsBg from '../components/images/market.avif';
 
 import waste from '../components/images/waste.png';
@@ -354,6 +352,58 @@ const additionalStyles = `
   }
 `;
 
+const heroCarouselStyle = {
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  width: '80%',
+  height: '100%',
+  overflow: 'hidden',
+  clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 20% 100%)',
+  zIndex: 0,
+  marginTop: '-29px'
+};
+
+const heroCarouselTrackStyle = {
+  display: 'flex',
+  gap: '0',
+  animation: 'slide 40s linear infinite',
+  alignItems: 'center',
+  margin: 0,
+  padding: 0,
+  width: 'max-content',
+  height: '100%',
+};
+
+const heroImageContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
+  padding: '0',
+  marginTop: '100px'
+};
+
+const heroCarouselImageStyle = {
+  width: '400px',
+  height: '400px',
+  objectFit: 'contain',
+  flexShrink: 0,
+  marginBottom: 0,
+};
+
+const heroKeyframes = `
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+`;
+
 function Markets() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -459,23 +509,47 @@ function Markets() {
 
   return (
     <>
+      <style>{heroKeyframes}</style>
       <style>{keyframes}</style>
       <style>{scrollbarStyles}</style>
       <style>{additionalStyles}</style>
-      <PageHero 
-        backgroundVideoUrl={marketVideo}
-        title="Markets"
-        titleStyle={{
-          color: '#ffffff',
-          fontSize: '64px',
-          fontWeight: '400',
-          textAlign: 'left',
-          marginBottom: '1rem',
-          paddingLeft: '4rem',
-          position: 'relative',
-          zIndex: 2,
-        }}
-      />
+      <div style={{ position: 'relative' }}>
+        <PageHero 
+          title="Markets"
+          titleStyle={{
+            color: '#ffffff',
+            fontSize: '64px',
+            fontWeight: '400',
+            textAlign: 'left',
+            marginBottom: '1rem',
+            paddingLeft: '4rem',
+            position: 'relative',
+            zIndex: 2,
+          }}
+        />
+        <div style={heroCarouselStyle}>
+          <div style={heroCarouselTrackStyle}>
+            {images.map((item, index) => (
+              <div key={index} style={heroImageContainerStyle}>
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  style={heroCarouselImageStyle}
+                />
+              </div>
+            ))}
+            {images.map((item, index) => (
+              <div key={`duplicate-${index}`} style={heroImageContainerStyle}>
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  style={heroCarouselImageStyle}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
       <div style={sectionStyle}>
         <p style={highlightTextStyle}>
           Alchemity Serves Major Chemical Markets With A Single Reactor Platform Design
@@ -503,6 +577,24 @@ function Markets() {
         </div>
 
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
+        <p style={{
+          fontSize: '20px',
+          color: '#ffffff',
+          textAlign: 'center',
+          marginBottom: '1rem',
+          marginTop: '-1rem'
+        }}>
+          Placeholder
+        </p>
+        <p style={{
+          fontSize: '20px',
+          color: '#25abe0',
+          textAlign: 'center',
+          marginBottom: '2rem',
+          fontWeight: 'bold'
+        }}>
+          Hover to learn more
+        </p>
         <div 
           ref={carouselRef}
           className="carousel-container"

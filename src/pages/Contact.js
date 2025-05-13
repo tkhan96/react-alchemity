@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm1';
 import styles from './Contact.module.css';
 import PageHero from '../components/PageHero';
 import contactBg from '../components/images/contact-us-bg-2.jpg';

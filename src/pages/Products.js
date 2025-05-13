@@ -15,7 +15,7 @@ import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 import extEval from '../components/images/ExtEval.png';
 import productVideo from '../components/images/product.mov';
-import placeholder from '../components/images/placeholder.webp';
+import placeholder from '../components/images/AI.png';
 import plantImage from '../components/images/30tpd.jpg';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -1087,93 +1087,6 @@ function Products() {
           </QuadrantContainer>
         </CompetitiveSection>
 
-        <RoadmapContainer>
-          <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
-          <RoadmapDescription>
-            Deploying modular turnkey systems prior to large integrated facilities.
-          </RoadmapDescription>
-          <ClickToLearnMore>Click a TRL card to learn more</ClickToLearnMore>
-          
-          <TimelineContainer>
-            <TimelineSections>
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: single2,
-                    title: 'Produced Reactor Tubes',
-                    year: '2024',
-                    description: 'Batches of 20 cm long reactor membranes.'
-                  })}
-                >
-                  <span>TRL 3</span>
-                </TimelineImage>
-                <TimelineTitle>Single Tube</TimelineTitle>
-                <TimelineYear>2024</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: extEval,
-                    title: 'Tube Bundle',
-                    year: '2025',
-                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions.'
-                  })}
-                >
-                  <span>TRL 4</span>
-                </TimelineImage>
-                <TimelineTitle>Tube Bundle</TimelineTitle>
-                <TimelineYear>2025</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: benchtop1,
-                    title: 'Benchtop System',
-                    year: '2025-2026',
-                    description: 'Second working prototype to optimize reactor bundle integration with steel vessel and BOP.'
-                  })}
-                >
-                  <span>TRL 5</span>
-                </TimelineImage>
-                <TimelineTitle>Benchtop System</TimelineTitle>
-                <TimelineYear>2025-2026</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    images: [skid1, skid2],
-                    title: 'Modular Skid System',
-                    year: '2027+',
-                    description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities."
-                  })}
-                >
-                  <span>TRL 6/7</span>
-                </TimelineImage>
-                <TimelineTitle>Modular Skids</TimelineTitle>
-                <TimelineYear>2027+</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    images: [plant1, plant22],
-                    title: 'Plant',
-                    year: '2030+',
-                    description: 'Large-scale plant building block to enable 100+ ton per day facilities.'
-                  })}
-                >
-                  <span>TRL 8/9</span>
-                </TimelineImage>
-                <TimelineTitle>Plant</TimelineTitle>
-                <TimelineYear>2030+</TimelineYear>
-              </TimelineSection>
-            </TimelineSections>
-            <TimelineArrow />
-          </TimelineContainer>
-        </RoadmapContainer>
 
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
         <Popup show={selectedItem !== null} selectedItem={selectedItem}>

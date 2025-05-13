@@ -228,7 +228,7 @@ function Technology() {
             <h3 style={cardTitleStyle}>Extensively Validated</h3>
             <img src={validated} alt="Extensively Validated" style={{...imageStyle, marginTop: '2.2rem'}} />
             <p style={cardTextStyle}>
-              Technology validated in labs, via industrial, federal/state and investment committes, and publications.
+              Technology validated at Alchemity, in research labs, through publications, via industrial, federal, state and investment committes.
             </p>
           </div>
 
@@ -273,10 +273,10 @@ function Technology() {
           />
           <div style={contentStyle}>
             <div style={bulletPointsStyle}>
-              <div style={bulletPointStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-              <div style={bulletPointStyle}>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-              <div style={bulletPointStyle}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-              <div style={bulletPointStyle}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              <div style={bulletPointStyle}>The membrane reactor is filled with a non-oxidative catalyst and housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
+              <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier’s Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
+              <div style={bulletPointStyle}>The membrane’s ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
+              <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
             </div>
             <button 
               style={learnMoreButtonStyle}
@@ -297,18 +297,19 @@ function Technology() {
           <div style={modalContentStyle}>
             <div style={modalColumnStyle}>
               <img src={graph1} alt="Graph 1" style={{...graphStyle, marginTop: '1rem'}} />
-              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '3rem'}}>Placeholder Subtitle 1</h3>
+              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '3rem'}}>Example of a Stable Reactor Operation</h3>
               <div style={{...modalTextStyle, marginTop: '0.25rem'}}>
-                <div style={bulletPointStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                <div style={bulletPointStyle}>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                <div style={bulletPointStyle}>Platform reactor was tasked to demonstrate stable conversion of Shell’s natural gas (97% CH4, 3% C3H8) with air sweep (space velocity 3200 mL/g∙h).
+                </div>
+                <div style={bulletPointStyle}>Single pass operation demonstrated stable natural gas conversion of 21% over 375 hours without any coking (carbon deposition on the catalyst). Stable selectivity for ethylene and benzene was demonstrated.</div>
               </div>
             </div>
             <div style={modalColumnStyle}>
               <img src={graph2} alt="Graph 2" style={{...graphStyle, marginTop: '0.625rem'}} />
               <h3 style={{...modalSubtitleStyle, marginBottom: '0.5rem', marginTop: '0.375rem'}}>Placeholder Subtitle 2</h3>
               <div style={{...modalTextStyle, marginTop: '0.125rem'}}>
-                <div style={bulletPointStyle}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-                <div style={bulletPointStyle}>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                <div style={bulletPointStyle}>Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.</div>
+                <div style={bulletPointStyle}>Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.</div>
               </div>
             </div>
           </div>
