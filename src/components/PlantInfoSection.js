@@ -63,19 +63,19 @@ const PlantInfoSection = () => {
       icon: <FaDollarSign />,
       value: "300%",
       label: "Lower Lifetime Cost",
-      description: "Scales down cost effectively even to remote sites and consumes less energy to operate entire system."
+      description: "Scales down cost effectively even to remote sites and consumes less energy to operate the entire system."
     },
     {
       icon: <FaShieldAlt />,
       value: "Energy",
       label: "Security",
-      description: "Provides energy security and protects domestic workforce by extending the lifetime for plants undergoing repower or decomissioning."
+      description: "Provides energy security and protects domestic workforce by extending the lifetime of plants undergoing repower or decomissioning."
     },
     {
       icon: <FaSeedling />,
-      value: "All",
-      label: "Site Types",
-      description: "Clean chemical (including drop-in fuels) production for brownfield and greenfield sites; leveraging existing downstream processes."
+      value: "All Sites",
+      label: "Brownfield and Greenfield",
+      description: "Clean chemical (and drop-in fuels) production for brownfield and greenfield sites; leveraging existing downstream processes."
     }
   ];
 
@@ -90,7 +90,7 @@ const PlantInfoSection = () => {
         >
           <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
           <p className={styles.statsSubtitle}>
-            Transforming industrial operations with scaled-down modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+            Transforming industrial operations with a single-step non-oxidative modular reactor platform to reduce cost, lower CO2 emissions, and strengthen domestic energy security.
           </p>
         </motion.div>
 

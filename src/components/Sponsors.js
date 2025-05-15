@@ -70,7 +70,7 @@ function Sponsors() {
           className={styles.sponsorsSubtitle}
           variants={itemVariants}
         >
-          Partnering with industry leaders to accelerate clean chemical production.
+          Revolutionizing clean chemical production requires a strong ecosystem—many thanks to our sponsors for making it possible.
         </motion.p>
         
         <motion.div 

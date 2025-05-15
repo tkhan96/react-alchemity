@@ -35,7 +35,7 @@ const founders = [
     title: 'Chief Technology and Commercialization Officer',
     blurb: '15 years Development, Scaleup, and Deployment of Clean Energy Technologies',
     bio: [
-      'Emir brings the associated know-how and strategic expertise for project development, product scaleup, deployment, and revenue generation.',
+      'Emir brings the associated know-how and strategic expertise for customer acquisition, project development, product scaleup, deployment, and revenue generation.',
       'Previous Roles:',
       'Director Strategy and Execution, Origis Energy.',
       'Senior Engineer & Senior Program Manager, Nexceris.',

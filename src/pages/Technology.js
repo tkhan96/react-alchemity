@@ -220,6 +220,7 @@ function Technology() {
             <h3 style={cardTitleStyle}>35 Years of R&D<br />$20M in Funding</h3>
             <img src={rd} alt="R&D" style={imageStyle} />
             <p style={cardTextStyle}>
+              Technology successfully transfered to Alchemity. Reactor membrane (core) production validated. 
               Alchemity holds exclusive license to 32 patents (additional 7 pending) on ion conducting ceramics and non-oxidative catalyst.
             </p>
           </div>
@@ -228,7 +229,8 @@ function Technology() {
             <h3 style={cardTitleStyle}>Extensively Validated</h3>
             <img src={validated} alt="Extensively Validated" style={{...imageStyle, marginTop: '2.2rem'}} />
             <p style={cardTextStyle}>
-              Technology validated at Alchemity, in research labs, through publications, via industrial, federal, state and investment committes.
+              Technology validated at Alchemity and TRL 4 system demonstrated. 
+              Core reactor further validated in research labs, through publications, via industrial, federal, state and investment committes.
             </p>
           </div>
 
@@ -248,7 +250,8 @@ function Technology() {
               }} 
             />
             <p style={cardTextStyle}>
-              Technology successfully transferred to Alchemity, TRL 4 system demonstrated. TRL 5 system design completed and TRL6/7 design ongoing.
+            TRL 5 system design completed and redy for fabrication. 
+            Preliminary TRL 6/7 design conceptualized to build a modular turnkey skid solutions for brownfield and greenfield sites.
             </p>
           </div>
         </div>

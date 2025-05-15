@@ -3,8 +3,6 @@ import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
 
-import marketVideo from '../components/images/market.mov';
-
 import marketsBg from '../components/images/market.avif';
 
 import waste from '../components/images/waste.png';
@@ -354,6 +352,58 @@ const additionalStyles = `
   }
 `;
 
+const heroCarouselStyle = {
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  width: '80%',
+  height: '100%',
+  overflow: 'hidden',
+  clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 20% 100%)',
+  zIndex: 0,
+  marginTop: '-29px'
+};
+
+const heroCarouselTrackStyle = {
+  display: 'flex',
+  gap: '0',
+  animation: 'slide 40s linear infinite',
+  alignItems: 'center',
+  margin: 0,
+  padding: 0,
+  width: 'max-content',
+  height: '100%',
+};
+
+const heroImageContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
+  padding: '0',
+  marginTop: '100px'
+};
+
+const heroCarouselImageStyle = {
+  width: '400px',
+  height: '400px',
+  objectFit: 'contain',
+  flexShrink: 0,
+  marginBottom: 0,
+};
+
+const heroKeyframes = `
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+`;
+
 function Markets() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -367,7 +417,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$7.5B (untapped)',
       futureMarketSize: '$9.5B by 2030',
-      description: 'Methane, the main component of natural gas, has 85 times the global warming potential of CO₂ over first 20 years. Flaring and venting waste valuable resources and now incur penalties under new EPA rules. Scaling down conventional, capital-intensive plants remains cost-prohibitive. Our Modular Platform Reactor System provides a cleaner alternative, converting methane into valuable liquid products suitable for blending with crude oil and transport by truck—ideal for sites without pipeline access. Autothermal reactor operation, generating all required heat internally, enables efficient, remote operation with zero CO2 emissions. Modular design allows integration with existing infrastructure, offering cost-effective and environmentally sustainable solutions for brownfield applications.'
+      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity’s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
     },
     { 
       src: saf, 
@@ -375,7 +425,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$1.1B',
       futureMarketSize: '$62B by 2030',
-      description: 'Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, used by major players, can produce fuels such as SAF and syngas at industrial scales. GTL processes require significant capital investment and are only suited for large-scale facilities. While proven at scale, GTL technologies generate significant CO₂ emissions without costly carbon capture systems. Our Platform Reactor System provides a zero-emission alternative that can integrate with existing infrastructure at smaller scales, offering cost-effective and environmentally sustainable solutions for brownfield applications.'
+      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as SAF at scale but require high capital and produce significant CO₂ without expensive capture systems. Our Platform Reactor System offers a zero-emission, cost-effective alternative that integrates with existing infrastructure at smaller scale - ideal for brownfield applications.'
     },
     { 
       src: hydrogen, 
@@ -383,7 +433,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$243B',
       futureMarketSize: '$411B by 2030',
-      description: 'Current hydrogen production methods, such as steam methane reforming (SMR), emit an average of 9.4 kg of CO2 per kg of hydrogen, while electrolyzers powered by today\'s carbon-intensive grid generate even higher emissions - up to 22 kg CO2 per kg of hydrogen. Energy consumption over plant lifetime accounts for over 70% of the hydrogen cost. Scaling hydrogen production without increasing emissions remains a significant challenge until the U.S. grid is decarbonized. Our Reactor System offers a cleaner solution to produce clean hydrogen from methane (through non-oxidative approach) while sequestering carbon as commodity chemicals, thus enhancing U.S. economic and energy security.'
+      description: 'Current dominant hydrogen production method, steam methane reforming (SMR), emits ~9.4 kg CO₂/kg H₂, while grid-powered electrolysis can reach up to 22 kg CO₂/kg H₂. With energy use driving over 70% of lifetime costs, scaling hydrogen without raising emissions is difficult until the grid is decarbonized. Our Platform Reactor System offers a cleaner alternative—producing hydrogen from methane via a non-oxidative process while converting carbon into valuable chemicals, strengthening U.S. energy and economic security.'
     },
     { 
       src: biogas, 
@@ -459,23 +509,47 @@ function Markets() {
 
   return (
     <>
+      <style>{heroKeyframes}</style>
       <style>{keyframes}</style>
       <style>{scrollbarStyles}</style>
       <style>{additionalStyles}</style>
-      <PageHero 
-        backgroundVideoUrl={marketVideo}
-        title="Markets"
-        titleStyle={{
-          color: '#ffffff',
-          fontSize: '64px',
-          fontWeight: '400',
-          textAlign: 'left',
-          marginBottom: '1rem',
-          paddingLeft: '4rem',
-          position: 'relative',
-          zIndex: 2,
-        }}
-      />
+      <div style={{ position: 'relative' }}>
+        <PageHero 
+          title="Markets"
+          titleStyle={{
+            color: '#ffffff',
+            fontSize: '64px',
+            fontWeight: '400',
+            textAlign: 'left',
+            marginBottom: '1rem',
+            paddingLeft: '4rem',
+            position: 'relative',
+            zIndex: 2,
+          }}
+        />
+        <div style={heroCarouselStyle}>
+          <div style={heroCarouselTrackStyle}>
+            {images.map((item, index) => (
+              <div key={index} style={heroImageContainerStyle}>
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  style={heroCarouselImageStyle}
+                />
+              </div>
+            ))}
+            {images.map((item, index) => (
+              <div key={`duplicate-${index}`} style={heroImageContainerStyle}>
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  style={heroCarouselImageStyle}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
       <div style={sectionStyle}>
         <p style={highlightTextStyle}>
           Alchemity Serves Major Chemical Markets With A Single Reactor Platform Design
@@ -503,6 +577,24 @@ function Markets() {
         </div>
 
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
+        <p style={{
+          fontSize: '20px',
+          color: '#ffffff',
+          textAlign: 'center',
+          marginBottom: '1rem',
+          marginTop: '-1rem'
+        }}>
+          Alchemity strategically targets first markets suitable for a turnkey Modular Platform System prior to large-scale chemical production facilities.
+        </p>
+        <p style={{
+          fontSize: '20px',
+          color: '#25abe0',
+          textAlign: 'center',
+          marginBottom: '2rem',
+          fontWeight: 'bold'
+        }}>
+          Hover/scroll over each market card to learn how Alchemity contributes.
+        </p>
         <div 
           ref={carouselRef}
           className="carousel-container"

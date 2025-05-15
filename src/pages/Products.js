@@ -15,7 +15,7 @@ import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 import extEval from '../components/images/ExtEval.png';
 import productVideo from '../components/images/product.mov';
-import placeholder from '../components/images/placeholder.webp';
+import placeholder from '../components/images/AI.png';
 import plantImage from '../components/images/30tpd.jpg';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -680,7 +680,7 @@ function Products() {
           </Card>
           <Card>
             <h3>Efficient & Cost-Effective</h3>
-            <p>Modular skid systems, 400% lower CO<sub>2</sub> emissions, 300% lower lifetime cost.</p>
+            <p>Modular skid systems, 400% lower CO<sub>2</sub> emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals.</p>
           </Card>
           <Card>
             <h3>Domestic Impact</h3>
@@ -701,7 +701,7 @@ function Products() {
             marginBottom: '3rem',
             textAlign: 'center',
             fontWeight: '500'
-          }}>Placeholder</h2>
+          }}>Gas to Chemicals (GTChem) Modular System Offerings</h2>
           
           <div style={{
             display: 'flex',
@@ -744,14 +744,17 @@ function Products() {
                 marginBottom: '1rem',
                 lineHeight: '1.6'
               }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                GTChem-1 is Alchemity’s first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
               </p>
               <p style={{ 
                 color: '#ffffff', 
                 fontSize: '1.1rem',
                 lineHeight: '1.6'
               }}>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+               The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs.
+               Alchemity is now accepting orders for GTChem-1.
+              
+               Contact us today to learn more or request pricing.
               </p>
             </div>
 
@@ -791,14 +794,18 @@ function Products() {
                 marginBottom: '1rem',
                 lineHeight: '1.6'
               }}>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                GTChem-2: Scaled Platform for Large-Volume, Zero CO₂ Emissions Chemical Production.
+                GTChem-2 is designed for high-throughput operation of 5+ TPD per skid. As a building block for 100+ TPD production facilities, GTChem-2 enables deployment for all target markets. 
               </p>
               <p style={{ 
                 color: '#ffffff', 
                 fontSize: '1.1rem',
                 lineHeight: '1.6'
               }}>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Engineered for industrial-scale deployment, the GTChem-2 platform maintains 95% system availability and incorporates multiple layers of safety and operational redundancy. It is optimized for seamless installation at both brownfield and greenfield sites, supporting flexible and efficient plant development.
+                Alchemity is now accepting capacity reservation orders for GTChem-2.
+                
+                Contact us to reserve capacity or learn more about integration opportunities.
               </p>
             </div>
           </div>
@@ -806,24 +813,24 @@ function Products() {
 
         {/* AI Section */}
         <AISection>
-          <AITitle>AI</AITitle>
+          <AITitle>Alchemity's Generative AI</AITitle>
           <AIImage 
             src={placeholder} 
             alt="AI Technology" 
           />
           <AIDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Tens of Thousands Variables Screened in Minutes to Project the Lowest Cost of Produced chemicals (LCOChem) while Simulating the Lowest Lifetime Cost of Plants (Capex and Opex).
           </AIDescription>
           <AIDescription>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Ability to predict optimal system operation (and downtown/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
           </AIDescription>
         </AISection>
 
         {/* Plant Info Section */}
         <PlantInfoSection>
-          <PlantInfoTitle>Placeholder</PlantInfoTitle>
+          <PlantInfoTitle>GTChem Facility at Scale</PlantInfoTitle>
           <PlantInfoDescription>
-            Transforming industrial operations with scaled-down modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+            Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
           </PlantInfoDescription>
           <motion.div
             ref={imageRef}
@@ -893,9 +900,9 @@ function Products() {
         <RoadmapContainer>
           <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
           <RoadmapDescription>
-            Deploying modular turnkey systems prior to large integrated facilities.
+            Deploying modular turnkey systems followed by large integrated facilities.
           </RoadmapDescription>
-          <ClickToLearnMore>Click to learn more</ClickToLearnMore>
+          <ClickToLearnMore>Click on each TRL card to learn more.</ClickToLearnMore>
           
           <TimelineContainer>
             <TimelineSections>
@@ -982,7 +989,7 @@ function Products() {
         <CompetitiveSection>
           <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
           <CompetitiveDescription>
-            Placeholder
+            Autothermal operation (reactor generates its own heat), low energy consumption, chemical production flexibility, and modular design provide unique value proposition.
           </CompetitiveDescription>
           <CompetitiveHoverText>
             Hover to learn more
@@ -1077,7 +1084,7 @@ function Products() {
               }}>
                 {popupPos.label === 'Electrolyzers on grid' ? (
                   <span>
-                    Electrolyzers on grid produce 22 kg CO<sub>2</sub>/kg H<sub>2</sub> due to the energy intensive process tho split water and operate balance of plant (60-65 kWh/kg at a system level).
+                    Electrolyzers on grid produce ~22 kg CO<sub>2</sub>/kg H<sub>2</sub> due to the energy intensive process tho split water and operate balance of plant (60-65 kWh/kg at a system level).
                   </span>
                 ) : (
                   'Placeholder Text'
@@ -1087,93 +1094,6 @@ function Products() {
           </QuadrantContainer>
         </CompetitiveSection>
 
-        <RoadmapContainer>
-          <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
-          <RoadmapDescription>
-            Deploying modular turnkey systems prior to large integrated facilities.
-          </RoadmapDescription>
-          <ClickToLearnMore>Click a TRL card to learn more</ClickToLearnMore>
-          
-          <TimelineContainer>
-            <TimelineSections>
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: single2,
-                    title: 'Produced Reactor Tubes',
-                    year: '2024',
-                    description: 'Batches of 20 cm long reactor membranes.'
-                  })}
-                >
-                  <span>TRL 3</span>
-                </TimelineImage>
-                <TimelineTitle>Single Tube</TimelineTitle>
-                <TimelineYear>2024</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: extEval,
-                    title: 'Tube Bundle',
-                    year: '2025',
-                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions.'
-                  })}
-                >
-                  <span>TRL 4</span>
-                </TimelineImage>
-                <TimelineTitle>Tube Bundle</TimelineTitle>
-                <TimelineYear>2025</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: benchtop1,
-                    title: 'Benchtop System',
-                    year: '2025-2026',
-                    description: 'Second working prototype to optimize reactor bundle integration with steel vessel and BOP.'
-                  })}
-                >
-                  <span>TRL 5</span>
-                </TimelineImage>
-                <TimelineTitle>Benchtop System</TimelineTitle>
-                <TimelineYear>2025-2026</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    images: [skid1, skid2],
-                    title: 'Modular Skid System',
-                    year: '2027+',
-                    description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities."
-                  })}
-                >
-                  <span>TRL 6/7</span>
-                </TimelineImage>
-                <TimelineTitle>Modular Skids</TimelineTitle>
-                <TimelineYear>2027+</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    images: [plant1, plant22],
-                    title: 'Plant',
-                    year: '2030+',
-                    description: 'Large-scale plant building block to enable 100+ ton per day facilities.'
-                  })}
-                >
-                  <span>TRL 8/9</span>
-                </TimelineImage>
-                <TimelineTitle>Plant</TimelineTitle>
-                <TimelineYear>2030+</TimelineYear>
-              </TimelineSection>
-            </TimelineSections>
-            <TimelineArrow />
-          </TimelineContainer>
-        </RoadmapContainer>
 
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
         <Popup show={selectedItem !== null} selectedItem={selectedItem}>
