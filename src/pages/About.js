@@ -35,7 +35,7 @@ const founders = [
     title: 'Chief Technology and Commercialization Officer',
     blurb: '15 years Development, Scaleup, and Deployment of Clean Energy Technologies',
     bio: [
-      'Emir brings the associated executive management know-how and strategic expertise for customer acquisition, project development, product scaleup, deployment, and revenue generation.',
+      'Emir brings the associated executive management know-how and strategic expertise in customer acquisition, project development, product scaleup, deployment, and revenue generation.',
       'Previous Roles:',
       'Director Strategy and Execution, Origis Energy.',
       'Senior Engineer & Senior Program Manager, Nexceris.',
@@ -52,9 +52,8 @@ const founders = [
     title: 'Executive Chair',
     blurb: '30 years of Energy Research and Product Development/Innovation',
     bio: [
-      'Eric brings the innovation (developed IP licensed to Alchemity) and startup scaleup expertise through multiple ventures.',
+      'Eric, Director of Maryland Energy Innovation Institute, brings the innovation (developed IP licensed to Alchemity) and startup scaleup expertise through multiple ventures.',
       'Previous Roles:',
-      'Director Maryland Energy Innovation Institute.',
       'Founder of VC-backed Battery Company (Ion Storage Systems).',
       'Published >300 papers, >40 patents.',
       'Education: UC Berkeley, Stanford University.',
