@@ -822,7 +822,7 @@ function Products() {
             Tens of Thousands Variables Screened in Minutes to Project the Lowest Cost of Produced chemicals (LCOChem) while Simulating the Lowest Lifetime Cost of Plants (Capex and Opex).
           </AIDescription>
           <AIDescription>
-            Ability to predict optimal system operation (and downtown/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
+            Ability to predict optimal system operation (and downtime/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
           </AIDescription>
         </AISection>
 
