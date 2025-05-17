@@ -145,7 +145,7 @@ function VideoSection() {
         <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
         
         <p className={styles.videoDescription}>
-        Scaling Clean Chemical Production at Lower Cost with Modular Reactor Systems.
+        Scaling Clean Chemical Production at Lower Cost with Plug-and-Play, Modular, Turn-Key Reactor Systems.
         </p>
 
         <div className={styles.keyPhrasesContainer}>
