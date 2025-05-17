@@ -8,8 +8,6 @@ function ContactForm() {
     email: '',
     capacity: '',
     companyName: '',
-    industryType: '',
-    projectLocation: '',
     message: '',
   });
 
@@ -51,8 +49,6 @@ function ContactForm() {
       email: '',
       capacity: '',
       companyName: '',
-      industryType: '',
-      projectLocation: '',
       message: '',
     });
     setWordCount(0);
@@ -95,38 +91,6 @@ function ContactForm() {
            <input type="text" id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} />
         </div>
 
-        {/* Industry Type Field Group */}
-        <div className={styles.fieldGroup}>
-          <label className={styles.label} htmlFor="industryType">Industry Type*</label>
-          <select id="industryType" name="industryType" value={formData.industryType} onChange={handleChange} required>
-            <option value="" disabled>Select Industry...</option>
-            <option value="developer">Renewable and E-Fuel Developer/IPPO</option>
-            <option value="oilgas">Oil & Gas</option>
-            <option value="steel">Steel</option>
-            <option value="mining">Mining and Non-Steel Metals</option>
-            <option value="ammonia">Ammonia</option>
-            <option value="chemical">Chemical (Non-Ammonia)</option>
-            <option value="industrialgas">Industrial Gas</option>
-            <option value="shipping">Shipping</option>
-            <option value="utilities">Utilities</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        {/* Project Location Field Group */}
-        <div className={styles.fieldGroup}>
-           <label className={styles.label} htmlFor="projectLocation">Project Location*</label>
-           <select id="projectLocation" name="projectLocation" value={formData.projectLocation} onChange={handleChange} required>
-              <option value="" disabled>Select Location...</option>
-              <option value="africa">Africa</option>
-              <option value="asia">Asia</option>
-              <option value="australia">Australia</option>
-              <option value="europe">Europe</option>
-              <option value="middleeast">Middle East</option>
-              <option value="northamerica">North America</option>
-              <option value="southamerica">South America</option>
-           </select>
-        </div>
 
         {/* Message Field Group */}
         <div className={styles.fieldGroup}>
