@@ -255,7 +255,7 @@ const TimelineSections = styled.div`
 
 const CompetitiveSection = styled.section`
   max-width: 1200px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 1rem auto;
   padding: 2rem;
   background: #000;
 `;
@@ -393,8 +393,8 @@ const CompetitivePopup = styled.div`
 
 const PlantInfoSection = styled.section`
   max-width: 1200px;
-  margin: -2rem auto 3rem auto;
-  padding: 2rem;
+  margin: 0 auto 0 auto;
+  padding: 1rem;
   background: #000;
 `;
 
@@ -537,8 +537,8 @@ const DetailedPopupContent = styled.div`
 
 const AISection = styled.section`
   max-width: 1200px;
-  margin: 0 auto 3rem auto;
-  padding: 2rem;
+  margin: 0 auto 6rem auto;
+  padding: 1rem;
   background: #000;
 `;
 
@@ -651,6 +651,19 @@ function Products() {
     { label: 'Steam Methane Reforming (SMRs)', x: 25, y: 86 },
   ];
 
+  // Add your hover text here
+  const hoverTextData = {
+    'Electrolyzers on grid': 'Electrolyzers on grid produce ~22 kg CO₂/kg H₂ due to the energy intensive process to split water and operate balance of plant (60-65 kWh/kg at a system level).',
+    'Ethylene Steam Crackers': 'Add text here',
+    'Steam Methane Reforming (SMRs)': 'Add text here',
+    'Smaller GTL Facilities': 'Add text here',
+    'Biomass Gasification': 'Add text here',
+    'Photo-catalytic Reactors': 'Add text here',
+    'Pyrolysis': 'Add text here',
+    'Electrolyzers with renewables': 'Add text here',
+    'Plasma assisted reactions': 'Add text here'
+  };
+
   // Helper to get box by index
   const getBoxByIdx = idx => boxes[idx];
 
@@ -744,7 +757,7 @@ function Products() {
                 marginBottom: '1rem',
                 lineHeight: '1.6'
               }}>
-                GTChem-1 is Alchemity’s first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
+                GTChem-1 is Alchemity's first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
               </p>
               <p style={{ 
                 color: '#ffffff', 
@@ -832,6 +845,9 @@ function Products() {
           <PlantInfoDescription>
             Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
           </PlantInfoDescription>
+          <PlantInfoDescription>
+            Placeholder Text
+          </PlantInfoDescription>
           <motion.div
             ref={imageRef}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -895,6 +911,23 @@ function Products() {
             </ImageContainer>
           </motion.div>
         </PlantInfoSection>
+
+        {/* AI Section */}
+        <AISection>
+          <AITitle>Alchemity's Generative AI</AITitle>
+          <AIImage 
+            src={placeholder} 
+            alt="AI Technology" 
+          />
+          <AIDescription>
+            Tens of Thousands Variables Screened in Minutes to Project the Lowest Cost of Produced chemicals (LCOChem) while Simulating the Lowest Lifetime Cost of Plants (Capex and Opex).
+          </AIDescription>
+          <AIDescription>
+            Ability to predict optimal system operation (and downtown/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
+          </AIDescription>
+        </AISection>
+
+       
 
         {/* Roadmap Section */}
         <RoadmapContainer>
@@ -1082,13 +1115,9 @@ function Products() {
                 zIndex: 1000,
                 pointerEvents: 'none',
               }}>
-                {popupPos.label === 'Electrolyzers on grid' ? (
-                  <span>
-                    Electrolyzers on grid produce ~22 kg CO<sub>2</sub>/kg H<sub>2</sub> due to the energy intensive process tho split water and operate balance of plant (60-65 kWh/kg at a system level).
-                  </span>
-                ) : (
-                  'Placeholder Text'
-                )}
+                <span>
+                  {hoverTextData[popupPos.label] || 'Placeholder Text'}
+                </span>
               </CompetitivePopup>
             )}
           </QuadrantContainer>

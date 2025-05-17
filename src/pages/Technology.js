@@ -264,7 +264,7 @@ function Technology() {
           muted 
           playsInline
         />
-        <h1 style={{...titleStyle, marginTop: '4rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>GTChem</span> Platform</h1>
+        <h1 style={{...titleStyle, marginTop: '4rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
         
         <div style={platformContainerStyle}>
           <video 
@@ -276,7 +276,7 @@ function Technology() {
           />
           <div style={contentStyle}>
             <div style={bulletPointsStyle}>
-              <div style={bulletPointStyle}>The membrane reactor is filled with a non-oxidative catalyst and housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
+              <div style={bulletPointStyle}>The process is non-oxidative single step conversion of methane from various feedstock (conventional natural gas, renewable natural gas, biogas) to clean chemicals and fuels with zero CO2 emissions. The patented ceramic membrane reactor (made from strontimum cerate) is filled with a non-oxidative catalyst (low-cost iron-silica) and the patented assembly is housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
               <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier’s Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
               <div style={bulletPointStyle}>The membrane’s ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
               <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>

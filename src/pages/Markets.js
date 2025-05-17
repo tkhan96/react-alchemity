@@ -357,11 +357,13 @@ const heroCarouselStyle = {
   top: 0,
   right: 0,
   width: '80%',
-  height: '100%',
+  height: '120%',
   overflow: 'hidden',
   clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 20% 100%)',
   zIndex: 0,
-  marginTop: '-29px'
+  marginTop: '-29px',
+  display: 'flex',
+  alignItems: 'center'
 };
 
 const heroCarouselTrackStyle = {
@@ -370,9 +372,9 @@ const heroCarouselTrackStyle = {
   animation: 'slide 40s linear infinite',
   alignItems: 'center',
   margin: 0,
-  padding: 0,
+  padding: '0 2rem',
   width: 'max-content',
-  height: '100%',
+  height: '100%'
 };
 
 const heroImageContainerStyle = {
@@ -382,15 +384,25 @@ const heroImageContainerStyle = {
   justifyContent: 'center',
   height: '100%',
   padding: '0',
-  marginTop: '100px'
+  marginTop: '40px',
+  paddingBottom: '40px'
 };
 
 const heroCarouselImageStyle = {
-  width: '400px',
-  height: '400px',
+  width: '300px',
+  height: '300px',
   objectFit: 'contain',
   flexShrink: 0,
-  marginBottom: 0,
+  marginBottom: '0.5rem'
+};
+
+const heroImageTitleStyle = {
+  color: '#ffffff',
+  fontSize: '24px',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  marginTop: '0',
+  whiteSpace: 'nowrap'
 };
 
 const heroKeyframes = `
@@ -417,7 +429,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$7.5B (untapped)',
       futureMarketSize: '$9.5B by 2030',
-      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity’s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
+      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity\'s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
     },
     { 
       src: saf, 
@@ -536,6 +548,7 @@ function Markets() {
                   alt={item.title}
                   style={heroCarouselImageStyle}
                 />
+                <p style={heroImageTitleStyle}>{item.title}</p>
               </div>
             ))}
             {images.map((item, index) => (
@@ -545,6 +558,7 @@ function Markets() {
                   alt={item.title}
                   style={heroCarouselImageStyle}
                 />
+                <p style={heroImageTitleStyle}>{item.title}</p>
               </div>
             ))}
           </div>
