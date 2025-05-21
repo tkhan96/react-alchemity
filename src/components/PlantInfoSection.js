@@ -131,7 +131,7 @@ const PlantInfoSection = () => {
             className={styles.learnMoreButton}
             onClick={scrollToTop}
           >
-            <span>Learn More About Our Technology</span>
+            <span>Learn More About Our Patented Technology</span>
             <FaArrowRight className={styles.arrowIcon} />
           </Link>
         </motion.div>
