@@ -3,6 +3,55 @@ import ContactForm from '../components/ContactForm';
 import styles from './Contact.module.css';
 import PageHero from '../components/PageHero';
 import careersVideo from '../components/images/careers.mov';
+import styled from 'styled-components';
+
+const ContactButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: #25abe0;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 200px;
+  margin: 0 auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.7s ease;
+  }
+
+  &:hover {
+    background-color: #0077b5;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+`;
 
 function Careers() {
   return (
@@ -14,8 +63,20 @@ function Careers() {
       <div className={styles.contactPage}>
         <div className={styles.contentWrapper}>
           <div className={styles.contactInfo}>
-            <h2>We're Hiring!</h2>
-            <p style={{ color: '#ffffff' }}>
+            <h2 style={{ 
+              fontSize: '40px',
+              color: '#25abe0',
+              fontWeight: '500'
+            }}>
+              We're Hiring!
+            </h2>
+            <p style={{ 
+              color: '#ffffff',
+              fontSize: '1.2rem',
+              lineHeight: '1.6',
+              marginBottom: '1.5rem',
+              maxWidth: '800px'
+            }}>
               If you're interested in one of our open positions, start by applying here and attaching your resume.
             </p>
           </div>
@@ -66,25 +127,11 @@ function Careers() {
               <br />
               (pdf)
             </h3>
-            <button 
+            <ContactButton 
               onClick={() => window.open('/path-to-engineer-pdf', '_blank')}
-              style={{
-                backgroundColor: '#25abe0',
-                color: 'white',
-                border: 'none',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontSize: '1rem',
-                marginTop: 'auto',
-                transition: 'background-color 0.3s ease',
-                alignSelf: 'center'
-              }}
-              onMouseOver={(e) => e.target.style.backgroundColor = '#1a8bc0'}
-              onMouseOut={(e) => e.target.style.backgroundColor = '#25abe0'}
             >
               Download
-            </button>
+            </ContactButton>
           </div>
 
           {/* Technician Position Card */}
@@ -104,25 +151,11 @@ function Careers() {
               <br />
               (pdf)
             </h3>
-            <button 
+            <ContactButton 
               onClick={() => window.open('/path-to-technician-pdf', '_blank')}
-              style={{
-                backgroundColor: '#25abe0',
-                color: 'white',
-                border: 'none',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontSize: '1rem',
-                marginTop: 'auto',
-                transition: 'background-color 0.3s ease',
-                alignSelf: 'center'
-              }}
-              onMouseOver={(e) => e.target.style.backgroundColor = '#1a8bc0'}
-              onMouseOut={(e) => e.target.style.backgroundColor = '#25abe0'}
             >
               Download
-            </button>
+            </ContactButton>
           </div>
         </div>
       </div>

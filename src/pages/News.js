@@ -7,13 +7,16 @@ import newsImage1 from '../components/images/1.jpeg';
 import newsImage2 from '../components/images/2.png';
 import newsImage3 from '../components/images/3.png';
 import newsImage4 from '../components/images/4.png';
+import newsImage5 from '../components/images/5.webp';
+import newsImage6 from '../components/images/6.webp';
+import newsImage7 from '../components/images/7.jpg';
 
 const sectionStyle = {
-  padding: 'var(--section-padding)',
+  padding: '0 0 calc(var(--section-padding) + 4rem) 0',
   margin: '0 auto',
   backgroundColor: '#000000',
   textAlign: 'left',
-  maxWidth: 'var(--container-width)',
+  maxWidth: '100%',
 };
 
 const titleStyle = {
@@ -36,25 +39,32 @@ const videoStyle = {
 
 const articlesGridStyle = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+  gridTemplateColumns: 'repeat(3, 1fr)',
   gap: '2rem',
-  padding: '0 1rem',
+  padding: '0 2rem',
+  maxWidth: '1800px',
+  margin: '-1rem auto 4rem',
+};
+
+const lastArticleStyle = {
+  gridColumn: '2',
+  margin: '0 auto',
 };
 
 const newsArticles = [
   {
-    title: "Reactor converts methane to heavier hydrocarbons without CO₂",
+    title: "Reactor Turns Methane to Hydrocarbons Without CO₂",
     summary: "A scaled up version of the process could help to curb methane venting and flaring at remote oil sites. The new reactor uses a process called direct nonoxidative methane conversion (DNMC) to convert methane into more valuable compounds without generating CO2.",
     image: newsImage1,
     link: "https://cen.acs.org/environment/climate-change/Reactor-converts-methane-heavier-hydrocarbons/99/web/2021/11",
-    source: "Chemical & Engineering News (C&EN)"
+    source: "Chemical & Engineering News"
   },
   {
     title: "Alchemity Receives Shell GameChanger Funding",
     summary: "Alchemity has been selected to receive funding from Shell GameChanger, a program that supports innovative technologies with the potential to transform the energy industry.",
     image: newsImage2,
     link: "https://mage.umd.edu/news/story/alchemity-receives-shell-gamechanger-funding",
-    source: "Maryland Applied Graduate Engineering (MAGE)"
+    source: "Maryland Applied Graduate Engineering"
   },
   {
     title: "MTech Ventures Company Spotlight: Alchemity",
@@ -69,6 +79,27 @@ const newsArticles = [
     image: newsImage4,
     link: "https://energy.umd.edu/news/story/umd-scientists-convert-methane-without-greenhouse-gas-emissions",
     source: "Maryland Energy Innovation Institute"
+  },
+  {
+    title: "Direct Nonoxidative Methane Conversion in an Autothermal Hydrogen-Permeable Membrane Reactor",
+    summary: "Research paper authored by Eric Wachsman, published in Wiley Advanced, detailing the breakthrough technology in methane conversion and its potential impact on clean energy production.",
+    image: newsImage7,
+    link: "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aenm.202102782",
+    source: "Wiley Advanced"
+  },
+  {
+    title: "USM Climbs in List of Nation's Top 10 Patent-Producing Universities",
+    summary: "The University System of Maryland has been recognized for its innovative research, with Alchemity's methane conversion technology being one of the notable patents contributing to this achievement.",
+    image: newsImage6,
+    link: "https://www.mdcleanenergy.org/news/usm-climbs-in-list-of-nations-top-10-patent-producing-universities/",
+    source: "Maryland Clean Energy Center"
+  },
+  {
+    title: "Alchemity Wins $1000 Prize from Maryland Department of Commerce",
+    summary: "Alchemity has been recognized by the Maryland Department of Commerce for its innovative technology in converting methane to valuable chemicals, winning a $1000 prize for their groundbreaking work.",
+    image: newsImage5,
+    link: "https://mdeia.org/blog/f/alchemity-wins-1000-prize-from-maryland-department-of-commerce?blogcategory=News",
+    source: "Maryland Energy Innovation Accelerator"
   }
 ];
 
@@ -97,15 +128,15 @@ function News() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-      
         </motion.h2>
         <div style={articlesGridStyle}>
           {newsArticles.map((article, index) => (
-            <NewsArticle
-              key={index}
-              index={index}
-              {...article}
-            />
+            <div key={index} style={index === newsArticles.length - 1 ? lastArticleStyle : {}}>
+              <NewsArticle
+                index={index}
+                {...article}
+              />
+            </div>
           ))}
         </div>
       </div>

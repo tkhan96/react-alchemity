@@ -67,15 +67,15 @@ const PlantInfoSection = () => {
     },
     {
       icon: <FaShieldAlt />,
-      value: "Energy",
-      label: "Security",
-      description: "Provides energy security and protects domestic workforce by extending the lifetime of plants undergoing repower or decomissioning."
+      value: "Security",
+      label: "Energy and Domestic",
+      description: "Protects domestic workforce by extending the lifetime of plants undergoing repower or decomissioning."
     },
     {
       icon: <FaSeedling />,
       value: "All Sites",
-      label: "Brownfield and Greenfield",
-      description: "Clean chemical (and drop-in fuels) production for brownfield and greenfield sites; leveraging existing downstream processes."
+      label: "Brownfield/Greenfield",
+      description: "Clean chemical and drop-in fuels production, leveraging existing downstream processes."
     }
   ];
 

@@ -116,6 +116,11 @@
   background-color: transparent;
 }
 
+/* Remove overlay for Markets page */
+.aboutHeroSection[data-page="markets"] .overlay {
+  background-color: transparent;
+}
+
 .title {
   position: relative;
   z-index: 2;

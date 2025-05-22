@@ -14,12 +14,16 @@ import plant1 from '../components/images/plant1.png';
 import plant22 from '../components/images/plant22.jpg';
 import alchemityLogo from '../components/images/alchemity_logo_w_text.png';
 import extEval from '../components/images/ExtEval.png';
-import productVideo from '../components/images/product.mov';
+import productVideo from '../components/images/producthero.mov';
 import placeholder from '../components/images/AI.png';
 import plantImage from '../components/images/30tpd.jpg';
+import gtchem1Video from '../components/images/gtchem1.mov';
+import gtchem2Video from '../components/images/gtchem2.mov';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import companim from '../components/images/companim.mov';
+import { FaArrowRight, FaShieldAlt, FaChartLine, FaIndustry } from 'react-icons/fa';
+import Modal from '../components/Modal';
 
 const CardContainer = styled.div`
   display: grid;
@@ -43,11 +47,17 @@ const Card = styled.div`
     box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
   }
 
+  .icon {
+    font-size: 2.5rem;
+    color: #25abe0;
+    margin-bottom: 1rem;
+  }
+
   h3 {
     margin-bottom: 1rem;
     color: #25abe0;
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   p {
@@ -497,44 +507,6 @@ const HotspotTooltip = styled.div`
   }
 `;
 
-const DetailedPopup = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
-`;
-
-const DetailedPopupContent = styled.div`
-  background: #1a1a1a;
-  border-radius: 12px;
-  padding: 2rem;
-  max-width: 500px;
-  width: 90%;
-  position: relative;
-  text-align: center;
-
-  h3 {
-    color: #25abe0;
-    font-size: 1.8rem;
-    margin: 0 0 1rem 0;
-    font-weight: 600;
-  }
-
-  p {
-    color: #ffffff;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-`;
-
 const AISection = styled.section`
   max-width: 1200px;
   margin: 0 auto 6rem auto;
@@ -569,6 +541,85 @@ const AIImage = styled.img`
   border-radius: 8px;
 `;
 
+const ContactButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background-color: #25abe0;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 200px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.7s ease;
+  }
+
+  &:hover {
+    background-color: #0077b5;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+  grid-column: 1 / -1;
+`;
+
+const DescriptionText = styled.p`
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: -2rem auto 3rem auto;
+  max-width: 800px;
+  line-height: 1.6;
+`;
+
+const Subtitle = styled.h3`
+  color: #25abe0;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+`;
+
+const SectionSpacing = styled.div`
+  margin: 6rem auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+`;
+
 function Products() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [hoveredBox, setHoveredBox] = useState(null);
@@ -579,6 +630,8 @@ function Products() {
     threshold: 0.1,
   });
   const heroVideoRef = useRef(null);
+  const gtchem1VideoRef = useRef(null);
+  const gtchem2VideoRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -597,9 +650,13 @@ function Products() {
     }, { threshold: 0.5 });
 
     if (heroVideoRef.current) observer.observe(heroVideoRef.current);
+    if (gtchem1VideoRef.current) observer.observe(gtchem1VideoRef.current);
+    if (gtchem2VideoRef.current) observer.observe(gtchem2VideoRef.current);
 
     return () => {
       if (heroVideoRef.current) observer.unobserve(heroVideoRef.current);
+      if (gtchem1VideoRef.current) observer.unobserve(gtchem1VideoRef.current);
+      if (gtchem2VideoRef.current) observer.unobserve(gtchem2VideoRef.current);
     };
   }, []);
 
@@ -674,40 +731,39 @@ function Products() {
   return (
     <>
       <PageHero 
-        backgroundVideoUrl={companim}
+        backgroundVideoUrl={productVideo}
         title="Products"
         videoRef={heroVideoRef}
       />
       <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
-        <h2 style={{
-          fontSize: '40px',
-          color: '#25abe0',
-          marginBottom: '1.2rem',
-          textAlign: 'center',
-          fontWeight: '500'
-        }}>Value Proposition</h2>
-        <CardContainer>
-          <Card>
-            <h3>Reduced Capital Risk</h3>
-            <p>Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower.</p>
-          </Card>
-          <Card>
-            <h3>Efficient & Cost-Effective</h3>
-            <p>Modular skid systems, 400% lower CO<sub>2</sub> emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals.</p>
-          </Card>
-          <Card>
-            <h3>Domestic Impact</h3>
-            <p>Enables growth of domestic workforce and provides energy security leveraging existing downstream processes.</p>
-          </Card>
-        </CardContainer>
+        <SectionSpacing>
+          <h2 style={{
+            fontSize: '40px',
+            color: '#25abe0',
+            marginBottom: '3rem',
+            textAlign: 'center',
+            fontWeight: '500'
+          }}>Value Proposition</h2>
+          <CardContainer>
+            <Card>
+              <FaShieldAlt className="icon" />
+              <h3>Reduced Capital Risk</h3>
+              <p>Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower.</p>
+            </Card>
+            <Card>
+              <FaChartLine className="icon" />
+              <h3>Efficient & Cost-Effective</h3>
+              <p>Modular skid systems, 400% lower CO<sub>2</sub> emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals.</p>
+            </Card>
+            <Card>
+              <FaIndustry className="icon" />
+              <h3>Domestic Impact</h3>
+              <p>Enables growth of domestic workforce and provides energy security leveraging existing downstream processes.</p>
+            </Card>
+          </CardContainer>
+        </SectionSpacing>
 
-        {/* Placeholder Section */}
-        <div style={{ 
-          maxWidth: '1200px', 
-          margin: '2rem auto 2rem auto', 
-          padding: '2rem',
-          backgroundColor: '#000000'
-        }}>
+        <SectionSpacing>
           <h2 style={{
             fontSize: '40px',
             color: '#25abe0',
@@ -716,6 +772,10 @@ function Products() {
             fontWeight: '500'
           }}>Gas to Chemicals (GTChem) Modular System Offerings</h2>
           
+          <DescriptionText style={{ marginBottom: '0rem' }}>
+            Placeholder Text
+          </DescriptionText>
+
           <div style={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -725,32 +785,26 @@ function Products() {
             <div style={{ flex: 1 }}>
               <div style={{ 
                 marginBottom: '1rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '2rem',
-                height: '500px'
+                marginTop: '50px',
+                height: '400px',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                backgroundColor: '#000000'
               }}>
-                <img 
-                  src={skid1} 
-                  alt="TRL 6/7" 
+                <video 
+                  ref={gtchem1VideoRef}
+                  src={gtchem1Video}
                   style={{ 
                     width: '100%',
-                    height: 'calc(50% - 1rem)',
+                    height: '100%',
                     objectFit: 'contain',
                     borderRadius: '20px'
-                  }} 
-                />
-                <img 
-                  src={skid2} 
-                  alt="TRL 6/7" 
-                  style={{ 
-                    width: '100%',
-                    height: 'calc(50% - 1rem)',
-                    objectFit: 'contain',
-                    borderRadius: '20px'
-                  }} 
+                  }}
+                  muted
+                  playsInline
                 />
               </div>
+              <Subtitle>GTChem-1</Subtitle>
               <p style={{ 
                 color: '#ffffff', 
                 fontSize: '1.1rem',
@@ -774,33 +828,26 @@ function Products() {
             {/* Right Side */}
             <div style={{ flex: 1 }}>
               <div style={{ 
-                marginBottom: '1rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '2rem',
-                height: '500px'
+                marginBottom: '-2.1rem',
+                height: '500px',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                backgroundColor: '#000000'
               }}>
-                <img 
-                  src={plant1} 
-                  alt="TRL 8/9" 
+                <video 
+                  ref={gtchem2VideoRef}
+                  src={gtchem2Video}
                   style={{ 
                     width: '100%',
-                    height: 'calc(50% - 1rem)',
+                    height: '100%',
                     objectFit: 'contain',
                     borderRadius: '20px'
-                  }} 
-                />
-                <img 
-                  src={plant22} 
-                  alt="TRL 8/9" 
-                  style={{ 
-                    width: '100%',
-                    height: 'calc(50% - 1rem)',
-                    objectFit: 'contain',
-                    borderRadius: '20px'
-                  }} 
+                  }}
+                  muted
+                  playsInline
                 />
               </div>
+              <Subtitle>GTChem-2</Subtitle>
               <p style={{ 
                 color: '#ffffff', 
                 fontSize: '1.1rem',
@@ -822,10 +869,15 @@ function Products() {
               </p>
             </div>
           </div>
-        </div>
+          <ButtonContainer>
+            <ContactButton onClick={() => window.location.href = '/contact'}>
+              Contact Us
+              <FaArrowRight style={{ fontSize: '0.9rem', transition: 'transform 0.3s ease' }} />
+            </ContactButton>
+          </ButtonContainer>
+        </SectionSpacing>
 
-        {/* AI Section */}
-        <AISection>
+        <SectionSpacing>
           <AITitle>Alchemity's Generative AI</AITitle>
           <AIImage 
             src={placeholder} 
@@ -837,10 +889,9 @@ function Products() {
           <AIDescription>
             Ability to predict optimal system operation (and downtime/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
           </AIDescription>
-        </AISection>
+        </SectionSpacing>
 
-        {/* Plant Info Section */}
-        <PlantInfoSection>
+        <SectionSpacing>
           <PlantInfoTitle>GTChem Facility at Scale</PlantInfoTitle>
           <PlantInfoDescription>
             Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
@@ -910,27 +961,9 @@ function Products() {
               </ImageOverlay>
             </ImageContainer>
           </motion.div>
-        </PlantInfoSection>
+        </SectionSpacing>
 
-        {/* AI Section */}
-        <AISection>
-          <AITitle>Alchemity's Generative AI</AITitle>
-          <AIImage 
-            src={placeholder} 
-            alt="AI Technology" 
-          />
-          <AIDescription>
-            Tens of Thousands Variables Screened in Minutes to Project the Lowest Cost of Produced chemicals (LCOChem) while Simulating the Lowest Lifetime Cost of Plants (Capex and Opex).
-          </AIDescription>
-          <AIDescription>
-            Ability to predict optimal system operation (and downtown/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
-          </AIDescription>
-        </AISection>
-
-       
-
-        {/* Roadmap Section */}
-        <RoadmapContainer>
+        <SectionSpacing>
           <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
           <RoadmapDescription>
             Deploying modular turnkey systems followed by large integrated facilities.
@@ -1016,10 +1049,9 @@ function Products() {
             </TimelineSections>
             <TimelineArrow />
           </TimelineContainer>
-        </RoadmapContainer>
+        </SectionSpacing>
 
-        {/* Competitive Analysis Section */}
-        <CompetitiveSection>
+        <SectionSpacing>
           <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
           <CompetitiveDescription>
             Autothermal operation (reactor generates its own heat), low energy consumption, chemical production flexibility, and modular design provide unique value proposition.
@@ -1121,8 +1153,7 @@ function Products() {
               </CompetitivePopup>
             )}
           </QuadrantContainer>
-        </CompetitiveSection>
-
+        </SectionSpacing>
 
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
         <Popup show={selectedItem !== null} selectedItem={selectedItem}>
@@ -1144,6 +1175,27 @@ function Products() {
             </>
           )}
         </Popup>
+
+        {selectedHotspot !== null && (
+          <Modal
+            show={selectedHotspot !== null}
+            onClose={() => setSelectedHotspot(null)}
+            title={hotspotDetails[selectedHotspot].title}
+            size="medium"
+            showCloseButton={true}
+          >
+            <div style={{
+              color: '#ffffff',
+              fontSize: '18px',
+              lineHeight: '1.8',
+              marginBottom: '0',
+              paddingLeft: '0',
+              listStyle: 'none',
+            }}>
+              {hotspotDetails[selectedHotspot].description}
+            </div>
+          </Modal>
+        )}
       </div>
     </>
   );

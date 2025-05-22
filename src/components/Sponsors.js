@@ -6,7 +6,7 @@ import styles from './Sponsors.module.css';
 import shell from './images/shell.png';
 import mil from './images/mil.png';
 import tedco from './images/tedco.png';
-import umd from './images/umd.jpg';
+import umd from './images/umd.png';
 import arpa from './images/arpa.png';
 
 function Sponsors() {
@@ -67,7 +67,7 @@ function Sponsors() {
         </motion.h2>
         
         <motion.p 
-          className={styles.sponsorsSubtitle}
+          className={styles.description}
           variants={itemVariants}
         >
           Revolutionizing clean chemical production requires a strong ecosystem—many thanks to our sponsors for making it possible.

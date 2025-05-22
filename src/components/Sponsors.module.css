@@ -1,5 +1,5 @@
 .sponsorsSection {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background-color: #000000;
   position: relative;
   overflow: hidden;
@@ -28,7 +28,7 @@
 .sponsorsTitle {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   color: #25abe0;
   font-weight: 700;
 }
@@ -39,6 +39,14 @@
   color: #cccccc;
   margin: 0 auto 4rem;
   max-width: 800px;
+  line-height: 1.6;
+}
+
+.description {
+  color: #ffffff;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: -2rem auto 3rem auto;
   line-height: 1.6;
 }
 
@@ -76,39 +84,42 @@
   object-fit: contain;
   opacity: 0.85;
   transition: all 0.3s ease;
-  background-color: white;
   padding: 20px;
   border-radius: 4px;
+  filter: grayscale(100%) brightness(1.5) contrast(0.8);
+}
+
+.sponsorCard:hover .sponsorLogo {
+  opacity: 1;
 }
 
 /* Specific styling for UMD logo */
-.sponsorCard:nth-child(4) .sponsorLogo,
-.sponsorCard:nth-child(8) .sponsorLogo,
-.sponsorCard:nth-child(12) .sponsorLogo,
-.sponsorCard:nth-child(16) .sponsorLogo {
-  height: 120px;
+.sponsorCard:nth-child(1) .sponsorLogo,
+.sponsorCard:nth-child(6) .sponsorLogo {
+  height: 140px;
   border-radius: 4px;
   padding: 15px;
+  filter: none;
+}
+
+/* Specific styling for MIL logo */
+.sponsorCard:nth-child(4) .sponsorLogo,
+.sponsorCard:nth-child(9) .sponsorLogo {
+  filter: grayscale(100%) brightness(2.5) contrast(0.7);
+}
+
+/* Specific styling for TEDCO logo */
+.sponsorCard:nth-child(5) .sponsorLogo,
+.sponsorCard:nth-child(10) .sponsorLogo {
+  filter: grayscale(100%) brightness(3.5) contrast(0.6);
 }
 
 /* Remove redundant background styles since we've added it to all logos */
-.sponsorCard:nth-child(1) .sponsorLogo,
 .sponsorCard:nth-child(2) .sponsorLogo,
 .sponsorCard:nth-child(3) .sponsorLogo,
-.sponsorCard:nth-child(5) .sponsorLogo,
-.sponsorCard:nth-child(6) .sponsorLogo,
 .sponsorCard:nth-child(7) .sponsorLogo,
-.sponsorCard:nth-child(9) .sponsorLogo,
-.sponsorCard:nth-child(10) .sponsorLogo,
-.sponsorCard:nth-child(11) .sponsorLogo,
-.sponsorCard:nth-child(13) .sponsorLogo,
-.sponsorCard:nth-child(14) .sponsorLogo,
-.sponsorCard:nth-child(15) .sponsorLogo {
+.sponsorCard:nth-child(8) .sponsorLogo {
   padding: 20px;
-}
-  
-.sponsorCard:hover .sponsorLogo {
-  opacity: 1;
 }
 
 /* Keyframes for sliding animation */
@@ -126,11 +137,9 @@
   .sponsorLogo {
     height: 80px;
   }
-  .sponsorCard:nth-child(4) .sponsorLogo,
-  .sponsorCard:nth-child(8) .sponsorLogo,
-  .sponsorCard:nth-child(12) .sponsorLogo,
-  .sponsorCard:nth-child(16) .sponsorLogo {
-    height: 95px;
+  .sponsorCard:nth-child(1) .sponsorLogo,
+  .sponsorCard:nth-child(6) .sponsorLogo {
+    height: 110px;
   }
 }
 
@@ -138,11 +147,9 @@
   .sponsorLogo {
     height: 60px;
   }
-  .sponsorCard:nth-child(4) .sponsorLogo,
-  .sponsorCard:nth-child(8) .sponsorLogo,
-  .sponsorCard:nth-child(12) .sponsorLogo,
-  .sponsorCard:nth-child(16) .sponsorLogo {
-    height: 80px;
+  .sponsorCard:nth-child(1) .sponsorLogo,
+  .sponsorCard:nth-child(6) .sponsorLogo {
+    height: 90px;
   }
 }
 
@@ -150,10 +157,15 @@
   .sponsorLogo {
     height: 45px;
   }
-  .sponsorCard:nth-child(4) .sponsorLogo,
-  .sponsorCard:nth-child(8) .sponsorLogo,
-  .sponsorCard:nth-child(12) .sponsorLogo,
-  .sponsorCard:nth-child(16) .sponsorLogo {
-    height: 60px;
+  .sponsorCard:nth-child(1) .sponsorLogo,
+  .sponsorCard:nth-child(6) .sponsorLogo {
+    height: 70px;
   }
+}
+
+.sponsorCard:nth-child(4):hover .sponsorLogo,
+.sponsorCard:nth-child(8):hover .sponsorLogo,
+.sponsorCard:nth-child(12):hover .sponsorLogo,
+.sponsorCard:nth-child(16):hover .sponsorLogo {
+  filter: invert(0%);
 }

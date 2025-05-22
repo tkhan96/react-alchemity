@@ -13,7 +13,7 @@
 
 .companyName {
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   color: var(--earth-1);
 }
@@ -21,13 +21,13 @@
 .copyright {
   margin: 1rem 0;
   color: var(--text-light); /* Slightly dimmer */
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .trademarks {
   margin-bottom: 1.5rem;
   color: var(--text-light);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: italic;
 }
 
@@ -36,6 +36,7 @@
   text-decoration: none;
   margin: 0 0.75rem;
   transition: color 0.2s ease-in-out;
+  font-size: 1rem;
 }
 
 .links a:hover {

@@ -9,7 +9,11 @@ function Modal({ show, onClose, title, children, linkedInUrl, size = 'default', 
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div 
-        className={`${styles.modalContent} ${size === 'large' ? styles.modalContentLarge : ''}`} 
+        className={`${styles.modalContent} ${
+          size === 'large' ? styles.modalContentLarge : 
+          size === 'xlarge' ? styles.modalContentXLarge :
+          size === 'xxlarge' ? styles.modalContentXXLarge : ''
+        }`} 
         onClick={e => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>

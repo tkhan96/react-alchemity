@@ -9,6 +9,9 @@ import graph1 from '../components/images/graph1.png';
 import graph2 from '../components/images/graph2.png';
 import animationTech from '../components/images/techanim.mov';
 import herotech from '../components/images/headeranim.mov';
+import membrane1 from '../components/images/membrane.png';
+import membrane2 from '../components/images/membrane2.png';
+import styles from '../components/ProfileCard.module.css';
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -60,17 +63,11 @@ const cardTitleStyle = {
 
 const cardTextStyle = {
   color: '#ffffff',
-  fontSize: '18px',
+  fontSize: '1.2rem',
   lineHeight: '1.5',
-  textAlign: 'center',
+  textAlign: 'justify',
   marginTop: '0',
   fontWeight: '500',
-};
-
-const reactorImageStyle = {
-  width: '50%',
-  height: 'auto',
-  objectFit: 'contain',
 };
 
 const videoStyle = {
@@ -84,7 +81,7 @@ const bulletPointsStyle = {
   color: '#ffffff',
   fontSize: '18px',
   lineHeight: '1.8',
-  marginBottom: '2rem',
+  marginBottom: '0',
   paddingLeft: '0',
   listStyle: 'none',
 };
@@ -107,23 +104,37 @@ const learnMoreButtonStyle = {
 
 const platformContainerStyle = {
   display: 'flex',
-  gap: '3rem',
-  alignItems: 'flex-start',
+  gap: '-5rem',
+  alignItems: 'center',
   marginBottom: '2rem',
+  justifyContent: 'center',
+  maxWidth: '1400px',
+  margin: '0 auto',
+  paddingLeft: '4rem',
+};
+
+const membraneContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '2rem',
+  marginTop: '0',
 };
 
 const contentStyle = {
   flex: 1,
-  marginTop: '5rem',
+  marginTop: '2rem',
+  display: 'flex',
+  justifyContent: 'center',
 };
 
 const graphStyle = {
   width: '100%',
   height: 'auto',
   objectFit: 'contain',
-  marginBottom: '1.5rem',
-  minHeight: '200px',
-  maxHeight: '300px',
+  marginBottom: '1rem',
+  minHeight: '150px',
+  maxHeight: '250px',
 };
 
 const modalContentStyle = {
@@ -131,22 +142,23 @@ const modalContentStyle = {
   gap: '3rem',
   alignItems: 'flex-start',
   width: '100%',
-  maxWidth: '1400px',
+  maxWidth: '3000px',
   margin: '0 auto',
+  padding: '0',
 };
 
 const modalColumnStyle = {
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
-  minWidth: '600px',
+  width: '50%',
 };
 
 const modalTextStyle = {
   color: '#ffffff',
   fontSize: '18px',
-  lineHeight: '1.8',
-  marginTop: '1.5rem',
+  lineHeight: '1.6',
+  marginTop: '1rem',
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
@@ -157,7 +169,7 @@ const modalSubtitleStyle = {
   color: '#25abe0',
   fontSize: '24px',
   fontWeight: '600',
-  marginBottom: '1rem',
+  marginBottom: '0.5rem',
   textAlign: 'center',
 };
 
@@ -166,8 +178,68 @@ const modalTextStyle2 = {
   marginTop: '-0.5rem',
 };
 
+const descriptionTextStyle = {
+  color: '#ffffff',
+  fontSize: '1.2rem',
+  textAlign: 'center',
+  margin: '-2rem auto 1rem auto',
+  maxWidth: '800px',
+  lineHeight: '1.6',
+};
+
+const membraneImageStyle = {
+  width: '100%',
+  maxWidth: '400px',
+  height: 'auto',
+  objectFit: 'contain',
+  marginBottom: '2rem',
+};
+
+const reactorImageStyle = {
+  width: '50%',
+  height: 'auto',
+  objectFit: 'contain',
+  margin: '0 auto',
+  marginRight: '-2rem',
+};
+
+const buttonContainerStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '1rem',
+  marginTop: '2rem',
+};
+
+const buttonStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '0.8rem',
+  padding: '1rem 2rem',
+  backgroundColor: 'var(--primary-color)',
+  color: 'white',
+  fontSize: '1.1rem',
+  fontWeight: '600',
+  textDecoration: 'none',
+  borderRadius: '50px',
+  boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+  transition: 'all 0.3s ease',
+  position: 'relative',
+  overflow: 'hidden',
+  border: '2px solid transparent',
+  cursor: 'pointer',
+  minWidth: '120px',
+};
+
+const buttonHoverStyle = {
+  backgroundColor: 'var(--secondary-color)',
+  boxShadow: '0 15px 25px rgba(0, 0, 0, 0.4)',
+  transform: 'translateY(-2px)',
+};
+
 function Technology() {
   const [showModal, setShowModal] = useState(false);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
   const heroVideoRef = useRef(null);
   const animationVideoRef = useRef(null);
   const reactorVideoRef = useRef(null);
@@ -205,6 +277,14 @@ function Technology() {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleOpenDetailsModal = () => {
+    setShowDetailsModal(true);
+  };
+
+  const handleCloseDetailsModal = () => {
+    setShowDetailsModal(false);
   };
 
   return (
@@ -265,44 +345,72 @@ function Technology() {
           playsInline
         />
         <h1 style={{...titleStyle, marginTop: '4rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
+        <p style={{
+          fontSize: '1.6rem',
+          color: '#ffffff',
+          textAlign: 'center',
+          marginBottom: '1rem',
+          marginTop: '-2rem'
+        }}>
+          Placeholder Text
+        </p>
         
-        <div style={platformContainerStyle}>
-          <video 
-            ref={reactorVideoRef}
-            src={reactorAnim} 
-            style={reactorImageStyle} 
-            muted 
-            playsInline
-          />
-          <div style={contentStyle}>
-            <div style={bulletPointsStyle}>
-              <div style={bulletPointStyle}>The process is non-oxidative single step conversion of methane from various feedstock (conventional natural gas, renewable natural gas, biogas) to clean chemicals and fuels with zero CO2 emissions. The patented ceramic membrane reactor (made from strontimum cerate) is filled with a non-oxidative catalyst (low-cost iron-silica) and the patented assembly is housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
-              <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier’s Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
-              <div style={bulletPointStyle}>The membrane’s ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
-              <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
-            </div>
-            <button 
-              style={learnMoreButtonStyle}
-              onClick={handleOpenModal}
-            >
-              Learn More
-            </button>
-          </div>
+        <video 
+          ref={reactorVideoRef}
+          src={reactorAnim} 
+          style={{
+            width: '100%',
+            maxWidth: '700px',
+            height: 'auto',
+            margin: '0 auto',
+            display: 'block',
+            marginTop: '0.5rem',
+            marginBottom: '2rem'
+          }} 
+          muted 
+          playsInline
+        />
+
+        <img 
+          src={membrane1} 
+          alt="Membrane" 
+          style={{
+            width: '100%',
+            maxWidth: '800px',
+            height: 'auto',
+            margin: '0 auto 2rem',
+            display: 'block'
+          }} 
+        />
+
+        <div style={buttonContainerStyle}>
+          <button 
+            className={styles.detailsButton}
+            onClick={handleOpenModal}
+          >
+            Learn More
+          </button>
+          <button 
+            className={styles.detailsButton}
+            onClick={handleOpenDetailsModal}
+          >
+            View Details
+          </button>
         </div>
 
         <Modal
           show={showModal}
           onClose={handleCloseModal}
           title="GTChem Platform Details"
-          size="large"
+          size="xxlarge"
           showCloseButton={true}
         >
           <div style={modalContentStyle}>
             <div style={modalColumnStyle}>
               <img src={graph1} alt="Graph 1" style={{...graphStyle, marginTop: '1rem'}} />
-              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '3rem'}}>Example of a Stable Reactor Operation</h3>
+              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '1.95rem'}}>Example of a Stable Reactor Operation</h3>
               <div style={{...modalTextStyle, marginTop: '0.25rem'}}>
-                <div style={bulletPointStyle}>Platform reactor was tasked to demonstrate stable conversion of Shell’s natural gas (97% CH4, 3% C3H8) with air sweep (space velocity 3200 mL/g∙h).
+                <div style={bulletPointStyle}>Platform reactor was tasked to demonstrate stable conversion of Shell's natural gas (97% CH4, 3% C3H8) with air sweep (space velocity 3200 mL/g∙h).
                 </div>
                 <div style={bulletPointStyle}>Single pass operation demonstrated stable natural gas conversion of 21% over 375 hours without any coking (carbon deposition on the catalyst). Stable selectivity for ethylene and benzene was demonstrated.</div>
               </div>
@@ -314,6 +422,23 @@ function Technology() {
                 <div style={bulletPointStyle}>Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.</div>
                 <div style={bulletPointStyle}>Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.</div>
               </div>
+            </div>
+          </div>
+        </Modal>
+
+        <Modal
+          show={showDetailsModal}
+          onClose={handleCloseDetailsModal}
+          title="Platform Details"
+          size="xxlarge"
+          showCloseButton={true}
+        >
+          <div style={{...modalContentStyle, flexDirection: 'column'}}>
+            <div style={bulletPointsStyle}>
+              <div style={bulletPointStyle}>The process is non-oxidative single step conversion of methane from various feedstock (conventional natural gas, renewable natural gas, biogas) to clean chemicals and fuels with zero CO2 emissions. The patented ceramic membrane reactor (made from strontimum cerate) is filled with a non-oxidative catalyst (low-cost iron-silica) and the patented assembly is housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
+              <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier's Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
+              <div style={bulletPointStyle}>The membrane's ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
+              <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
             </div>
           </div>
         </Modal>

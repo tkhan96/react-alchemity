@@ -9,7 +9,7 @@ import founder3 from '../components/images/founder3.jpg';
 import advisor1 from '../components/images/advisor1.png';
 import advisor2 from '../components/images/advisor2.jpg';
 import advisor3 from '../components/images/advisor3.jpg';
-import aboutVideo from '../components/images/about.mov';
+import aboutVideo from '../components/images/aboutheader.mp4';
 
 const founders = [
   {
@@ -174,6 +174,7 @@ function About() {
       <PageHero 
         backgroundVideoUrl={aboutVideo}
         title="About Us"
+        style={{ marginTop: '-300px' }}
       />
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000'}}>
         <h2 style={{...titleStyle, marginTop: '0'}}>Founders</h2>
@@ -212,13 +213,60 @@ function About() {
           <Modal
             show={showModal}
             onClose={handleCloseModal}
-            title={`${selectedPerson.name} - ${selectedPerson.title}`}
+            title={`${selectedPerson.name} - ${
+              selectedPerson.name.includes('Rodger') ? 'CEO' :
+              selectedPerson.name.includes('Emir') ? 'CTO & CCO' :
+              selectedPerson.title
+            }`}
             linkedInUrl={selectedPerson.linkedInUrl}
+            size={
+              selectedPerson.name.includes('Emir') ? 'xlarge' :
+              selectedPerson.name.includes('Matt') || selectedPerson.name.includes('Glenn') ? 'default' :
+              'large'
+            }
           >
-            <ul>
-              {selectedPerson.bio && selectedPerson.bio.map((point, index) => (
-                <li key={index}>{point}</li>
-              ))}
+            <ul style={{ 
+              textAlign: 'left', 
+              paddingLeft: '0',
+              listStyle: 'none',
+              margin: '0',
+              fontSize: '1.2rem'
+            }}>
+              {selectedPerson.bio && selectedPerson.bio.map((point, index) => {
+                if (index === 0) {
+                  return <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>;
+                } else if (index === 1 && selectedPerson.title === 'Advisor') {
+                  return (
+                    <>
+                      <h4 key="current-role" style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem' }}>Current Role</h4>
+                      <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>
+                    </>
+                  );
+                } else if (point === 'Previous Roles:') {
+                  return <h4 key={index} style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem' }}>Previous Roles</h4>;
+                } else if (point.startsWith('Education:')) {
+                  return (
+                    <>
+                      <h4 key={`edu-${index}`} style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem' }}>Education</h4>
+                      <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point.replace('Education:', '').trim()}</li>
+                    </>
+                  );
+                } else if (point === 'Previous Roles:' || point === 'Education:') {
+                  return null;
+                } else if ((selectedPerson.bio[index - 1] === 'Previous Roles:' || 
+                          selectedPerson.bio[index - 2] === 'Previous Roles:' ||
+                          selectedPerson.bio[index - 3] === 'Previous Roles:' ||
+                          selectedPerson.bio[index - 4] === 'Previous Roles:') &&
+                          (selectedPerson.name.includes('Emir') || selectedPerson.name.includes('Rodger'))) {
+                  return <li key={index} style={{ marginBottom: '0.5rem', lineHeight: '1', fontSize: '1.2rem' }}>{point}</li>;
+                } else if (selectedPerson.bio[index - 1] === 'Previous Roles:' || 
+                          selectedPerson.bio[index - 2] === 'Previous Roles:' ||
+                          selectedPerson.bio[index - 3] === 'Previous Roles:') {
+                  return <li key={index} style={{ marginBottom: '0.5rem', lineHeight: '1', fontSize: '1.2rem' }}>{point}</li>;
+                } else {
+                  return <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>;
+                }
+              })}
             </ul>
           </Modal>
         )}

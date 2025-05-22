@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
@@ -39,15 +40,15 @@ const highlightTextStyle = {
 
 const cardsContainerStyle = {
   display: 'flex',
-  justifyContent: 'space-between',
-  gap: '2rem',
+  justifyContent: 'center',
+  gap: '3rem',
   marginTop: '2rem',
-  padding: '0 2rem',
+  padding: '0 -2rem',
 };
 
 const MarketCard = styled.div`
-  flex: 1;
-  padding: 2rem 2rem 1rem;
+  flex: 0 1 350px;
+  padding: 1rem 1rem 1rem 1rem;
   background-color: #141414;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -68,21 +69,21 @@ const imageStyle = {
 };
 
 const cardTitleStyle = {
-  fontSize: '34px',
-  fontWeight: '600',
+  fontSize: '2.5rem',
+  fontWeight: '700',
   color: '#25abe0',
-  marginBottom: '1rem',
   textTransform: 'uppercase',
   textAlign: 'center',
+  marginBottom: '0.5rem',
 };
 
 const cardTextStyle = {
   color: '#ffffff',
-  fontSize: '16px',
-  lineHeight: '1.5',
+  fontSize: '1.4rem',
+  lineHeight: '1.4',
   textAlign: 'center',
-  marginTop: '0',
-  fontWeight: '00',
+  fontWeight: '400',
+  marginBottom: '0',
 };
 
 const carouselContainerStyle = {
@@ -393,7 +394,8 @@ const heroCarouselImageStyle = {
   height: '300px',
   objectFit: 'contain',
   flexShrink: 0,
-  marginBottom: '0.5rem'
+  marginBottom: '0.5rem',
+  opacity: 1
 };
 
 const heroImageTitleStyle = {
@@ -421,6 +423,7 @@ function Markets() {
   const [startX, setStartX] = useState(0);
   const [currentPosition, setCurrentPosition] = useState(0);
   const carouselRef = useRef(null);
+  const [selectedMarket, setSelectedMarket] = useState(null);
 
   const images = [
     { 
@@ -566,7 +569,7 @@ function Markets() {
       </div>
       <div style={sectionStyle}>
         <p style={highlightTextStyle}>
-          Alchemity Serves Major Chemical Markets With A Single Reactor Platform Design
+          Alchemity Serving Chemical Markets With A Single Platform Design
         </p>
         
         <div style={cardsContainerStyle}>
@@ -592,22 +595,22 @@ function Markets() {
 
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
         <p style={{
-          fontSize: '20px',
+          fontSize: '1.6rem',
           color: '#ffffff',
           textAlign: 'center',
           marginBottom: '1rem',
-          marginTop: '-1rem'
+          marginTop: '-2rem'
         }}>
           Alchemity strategically targets first markets suitable for a turnkey Modular Platform System prior to large-scale chemical production facilities.
         </p>
         <p style={{
-          fontSize: '20px',
+          fontSize: '1.5rem',
           color: '#25abe0',
           textAlign: 'center',
           marginBottom: '2rem',
           fontWeight: 'bold'
         }}>
-          Hover/scroll over each market card to learn how Alchemity contributes.
+          Click over each market card to learn how Alchemity contributes.
         </p>
         <div 
           ref={carouselRef}
@@ -637,6 +640,7 @@ function Markets() {
                       ...imageContainerStyle,
                       userSelect: 'none',
                     }}
+                    onClick={() => setSelectedMarket(item)}
                   >
                     <img
                       src={item.src}
@@ -645,11 +649,6 @@ function Markets() {
                       style={carouselImageStyle}
                     />
                     <p style={imageTitleStyle}>{item.title}</p>
-                    <div className="market-hover-info" style={marketHoverInfoStyle}>
-                      <p style={marketHoverTextStyle}>{item.description}</p>
-                      <p style={marketHoverSizeStyle}>Current Market Size: {item.marketSize}</p>
-                      <p style={marketHoverSizeStyle}>Projected: {item.futureMarketSize}</p>
-                    </div>
                   </div>
                 ))}
               </div>
@@ -662,6 +661,7 @@ function Markets() {
                   ...imageContainerStyle,
                   userSelect: 'none',
                 }}
+                onClick={() => setSelectedMarket(item)}
               >
                 <img
                   src={item.src}
@@ -670,16 +670,35 @@ function Markets() {
                   style={carouselImageStyle}
                 />
                 <p style={imageTitleStyle}>{item.title}</p>
-                <div className="market-hover-info" style={marketHoverInfoStyle}>
-                  <p style={marketHoverTextStyle}>{item.description}</p>
-                  <p style={marketHoverSizeStyle}>Current Market Size: {item.marketSize}</p>
-                  <p style={marketHoverSizeStyle}>Projected: {item.futureMarketSize}</p>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+      <Modal
+        show={selectedMarket !== null}
+        onClose={() => setSelectedMarket(null)}
+        title={selectedMarket?.title}
+        size="xlarge"
+        showCloseButton={true}
+      >
+        <div style={{
+          color: '#ffffff',
+          fontSize: '18px',
+          lineHeight: '1.8',
+          marginBottom: '0',
+          paddingLeft: '0',
+          listStyle: 'none',
+        }}>
+          <div style={{ marginBottom: '1rem' }}>{selectedMarket?.description}</div>
+          <div style={{ color: '#25abe0', marginTop: '1rem', fontWeight: '600' }}>
+            Current Market Size: {selectedMarket?.marketSize}
+          </div>
+          <div style={{ color: '#25abe0', marginTop: '0.5rem', fontWeight: '600' }}>
+            Projected: {selectedMarket?.futureMarketSize}
+          </div>
+        </div>
+      </Modal>
     </>
   );
 }

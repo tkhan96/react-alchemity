@@ -17,14 +17,17 @@
 
 .imageContainer {
   width: 100%;
-  height: 250px;
-  overflow: hidden;
+  height: 300px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .articleImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
 }
 
@@ -33,7 +36,7 @@
 }
 
 .contentContainer {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -43,13 +46,13 @@
   color: #25abe0;
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1.4;
 }
 
 .articleSummary {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   margin-bottom: 2rem;
   flex-grow: 1;
@@ -117,7 +120,7 @@
 
 .articleSource {
   color: #cccccc;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
   font-style: italic;
 }

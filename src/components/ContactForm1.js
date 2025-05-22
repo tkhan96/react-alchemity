@@ -74,14 +74,15 @@ function ContactForm() {
 
         {/* Capacity/Interest Field Group - Keeping name 'capacity' for consistency for now */}
         <div className={styles.fieldGroup}>
-          <label className={styles.label} htmlFor="capacity">How can we help you?*</label>
+          <label className={styles.label} htmlFor="capacity">Reason for Inquiry*</label>
           <select id="capacity" name="capacity" value={formData.capacity} onChange={handleChange} required>
             <option value="" disabled>Select an option...</option>
-            <option value="sales">Sales Inquiry</option>
-            <option value="support">Technical Support</option>
+            <option value="sales">Sales</option>
             <option value="partnership">Partnership Opportunities</option>
-            <option value="careers">Careers</option>
+            <option value="investment">Investment</option>
+            <option value="support">Technical Support</option>
             <option value="general">General Information</option>
+            <option value="careers">Careers</option>
           </select>
         </div>
 
