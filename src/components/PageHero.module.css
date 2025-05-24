@@ -16,11 +16,11 @@
   right: 0;
   width: 80%;
   height: 100%;
-  background-size: contain; /* Changed to contain to show full image */
+  background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;
   z-index: 0;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%); /* Maintain vertical line position */
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%);
 }
 
 .aboutHeroSection {
@@ -31,33 +31,47 @@
   justify-content: flex-start;
   text-align: left;
   background-color: #000000;
-  padding-left: 5rem; /* Reduced from 6rem */
+  padding-left: 5rem;
   overflow: hidden;
 }
 
-.aboutHeroSection .backgroundImage {
+.aboutHeroSection .imageContainer {
   position: absolute;
   top: 0;
   right: 0;
-  width: 65%; /* Increased from 60% */
+  width: 130%;
   height: 100%;
-  background-size: cover;
+  display: flex;
+  animation: slide 40s linear infinite;
+}
+
+.aboutHeroSection .imageWrapper {
+  flex: 0 0 50%;
+  height: 100%;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 0;
-  clip-path: none;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Specific style for Markets page */
 .aboutHeroSection[data-page="markets"] .backgroundImage {
   background-position: center 70%;
-  width: 65%; /* Increased from 60% */
+  width: 65%;
 }
 
 /* Specific style for Technology page */
 .aboutHeroSection[data-page="technology"] .backgroundImage {
   background-position: left center;
-  width: 65%; /* Slightly increased width */
+  width: 65%;
 }
 
 .backgroundVideo {
@@ -91,9 +105,33 @@
   right: 0;
 }
 
+/* Specific style for Careers page video */
+.aboutHeroSection[data-page="careers"] .backgroundVideo {
+  width: 65%;
+  clip-path: none;
+  top: -20%;
+  height: 140%;
+  object-fit: cover;
+  right: 0;
+}
+
+/* Specific style for Contact Us page video */
+.aboutHeroSection[data-page="contact"] .backgroundVideo {
+  width: 65%;
+  clip-path: none;
+  top: -20%;
+  height: 140%;
+  object-fit: cover;
+  right: 0;
+}
+
 .aboutHeroSection .backgroundVideo {
   width: 65%;
   clip-path: none;
+  object-fit: contain;
+  height: 100%;
+  top: 0;
+  right: 0;
 }
 
 .overlay {
@@ -140,23 +178,23 @@
   padding-right: 2rem;
   margin-left: 2rem;
   position: absolute;
-  left: 15%; /* Adjusted to be exactly centered */
+  left: 15%;
   transform: translateX(-50%);
-  text-align: center; /* Ensure text is centered within its container */
+  text-align: center;
 }
 
 .pageHero {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300px; /* Adjust height as needed */
-  background-size: cover; /* Ensure the image covers the entire area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  color: var(--text-light); /* Ensure text is readable */
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-light);
   text-align: center;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
+  margin: 0;
+  padding: 0;
 }
 
 /* Media query example for smaller screens */
@@ -177,10 +215,10 @@
     width: 70%;
   }
   .aboutHeroSection[data-page="technology"] .backgroundImage {
-    width: 75%; /* Adjusted for mobile */
+    width: 75%;
   }
   .aboutHeroSection .title {
     max-width: 45%;
-    margin-left: 0.5rem; /* Reduced from 1rem */
+    margin-left: 0.5rem;
   }
 }

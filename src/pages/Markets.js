@@ -531,16 +531,7 @@ function Markets() {
       <div style={{ position: 'relative' }}>
         <PageHero 
           title="Markets"
-          titleStyle={{
-            color: '#ffffff',
-            fontSize: '64px',
-            fontWeight: '400',
-            textAlign: 'left',
-            marginBottom: '1rem',
-            paddingLeft: '4rem',
-            position: 'relative',
-            zIndex: 2,
-          }}
+          style={{ marginTop: '-300px' }}
         />
         <div style={heroCarouselStyle}>
           <div style={heroCarouselTrackStyle}>
@@ -572,27 +563,6 @@ function Markets() {
           Alchemity Serving Chemical Markets With A Single Platform Design
         </p>
         
-        <div style={cardsContainerStyle}>
-          {/* Market Cards */}
-          <MarketCard>
-            <h3 style={cardTitleStyle}>$1,200B</h3>
-            <p style={cardTextStyle}>Total addressable market</p>
-            <p style={cardTextStyle}>Can be served with TRL 8/9 System</p>
-          </MarketCard>
-
-          <MarketCard>
-            <h3 style={cardTitleStyle}>$120B</h3>
-            <p style={cardTextStyle}>Serviceable available market</p>
-            <p style={cardTextStyle}>Can be served with TRL 6/7 System</p>
-          </MarketCard>
-
-          <MarketCard>
-            <h3 style={cardTitleStyle}>$18B</h3>
-            <p style={cardTextStyle}>Serviceable obtainable market</p>
-            <p style={cardTextStyle}>Served with First Modular Skids, 1-5 tons/day</p>
-          </MarketCard>
-        </div>
-
         <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
         <p style={{
           fontSize: '1.6rem',
@@ -696,6 +666,9 @@ function Markets() {
           </div>
           <div style={{ color: '#25abe0', marginTop: '0.5rem', fontWeight: '600' }}>
             Projected: {selectedMarket?.futureMarketSize}
+          </div>
+          <div style={{ color: '#cccccc', marginTop: '1rem', fontStyle: 'italic', fontSize: '1.2rem' }}>
+            Source: Market research and industry analysis
           </div>
         </div>
       </Modal>

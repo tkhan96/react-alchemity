@@ -68,15 +68,41 @@ function ContactForm() {
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="firstName">Name*</label>
           <div className={styles.nameGroup}>
-            <input type="text" id="firstName" name="firstName" placeholder="First" value={formData.firstName} onChange={handleChange} required />
-            <input type="text" name="lastName" placeholder="Last" value={formData.lastName} onChange={handleChange} required />
+            <input 
+              type="text" 
+              id="firstName" 
+              name="firstName" 
+              placeholder="First Name" 
+              value={formData.firstName} 
+              onChange={handleChange} 
+              required 
+              style={{ color: '#000000' }}
+            />
+            <input 
+              type="text" 
+              name="lastName" 
+              placeholder="Last Name" 
+              value={formData.lastName} 
+              onChange={handleChange} 
+              required 
+              style={{ color: '#000000' }}
+            />
           </div>
         </div>
 
         {/* Email Field Group */}
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="email">Email*</label>
-          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email address" 
+            value={formData.email} 
+            onChange={handleChange} 
+            required 
+            style={{ color: '#000000' }}
+          />
         </div>
 
         {/* Message Field Group */}
@@ -85,9 +111,15 @@ function ContactForm() {
           <textarea 
             id="message" 
             name="message" 
+            placeholder="Type your message here (max 250 words)"
             value={formData.message} 
             onChange={handleChange} 
             required 
+            style={{ 
+              color: '#000000',
+              fontFamily: 'inherit',
+              fontSize: 'inherit'
+            }}
           />
           <div className={styles.wordCount}>
             {wordCount}/{MAX_WORDS} words
@@ -103,6 +135,7 @@ function ContactForm() {
             name="resume" 
             accept=".pdf,.doc,.docx" 
             onChange={handleChange}
+            style={{ color: '#000000' }}
           />
           <div className={styles.attachmentCount}>
             Attachments ({attachments})

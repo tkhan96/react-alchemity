@@ -17,26 +17,29 @@ import extEval from '../components/images/ExtEval.png';
 import productVideo from '../components/images/producthero.mov';
 import placeholder from '../components/images/AI.png';
 import plantImage from '../components/images/30tpd.jpg';
-import gtchem1Video from '../components/images/gtchem1.mov';
-import gtchem2Video from '../components/images/gtchem2.mov';
+
+import gtchem11Video from '../components/images/gtchem11.mov';
+import gtchem12Video from '../components/images/gtchem12.mov';
+import gtchem21Image from '../components/images/gtchem21.png';
+import gtchem22Image from '../components/images/gtchem22.png';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import companim from '../components/images/companim.mov';
-import { FaArrowRight, FaShieldAlt, FaChartLine, FaIndustry } from 'react-icons/fa';
+import { FaArrowRight, FaShieldAlt, FaChartLine, FaIndustry, FaDollarSign } from 'react-icons/fa';
 import Modal from '../components/Modal';
 
 const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  padding: 2rem;
+  padding: 2rem 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
 `;
 
 const Card = styled.div`
   background: #141414;
-  padding: 2rem;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
   border-radius: 8px;
   color: #ffffff;
   transition: all 0.3s ease;
@@ -57,12 +60,13 @@ const Card = styled.div`
     margin-bottom: 1rem;
     color: #25abe0;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   p {
     line-height: 1.6;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0;
   }
 `;
 
@@ -82,22 +86,16 @@ const RoadmapTitle = styled.h2`
 
 const RoadmapDescription = styled.p`
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-
-  span {
-    color: #25abe0;
-    font-weight: bold;
-  }
 `;
 
 const ClickToLearnMore = styled.p`
   color: #25abe0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: 800;
   margin-top: 0;
@@ -212,21 +210,29 @@ const Popup = styled.div`
     flex-direction: ${props => props.show && props.selectedItem?.title === 'Plant' ? 'column' : 'row'};
     gap: 1rem;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     align-items: center;
   }
 
   img {
     width: ${props => props.show && props.selectedItem?.images && props.selectedItem?.title !== 'Plant' ? '45%' : '60%'};
     height: auto;
-    max-height: 300px;
+    max-height: 350px;
     object-fit: contain;
   }
 
+  h3 {
+    color: #25abe0;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+  }
+
   p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
+    margin-bottom: 0;
   }
 `;
 
@@ -236,7 +242,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.2);
   z-index: 999;
   display: ${props => props.show ? 'block' : 'none'};
 `;
@@ -418,10 +424,9 @@ const PlantInfoTitle = styled.h2`
 
 const PlantInfoDescription = styled.p`
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -524,10 +529,9 @@ const AITitle = styled.h2`
 
 const AIDescription = styled.p`
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.5rem;
-  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -599,10 +603,9 @@ const ButtonContainer = styled.div`
 
 const DescriptionText = styled.p`
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-align: center;
   margin: -2rem auto 3rem auto;
-  max-width: 800px;
   line-height: 1.6;
 `;
 
@@ -615,7 +618,7 @@ const Subtitle = styled.h3`
 `;
 
 const SectionSpacing = styled.div`
-  margin: 6rem auto;
+  margin: 4rem auto;
   max-width: 1200px;
   padding: 0 2rem;
 `;
@@ -625,13 +628,15 @@ function Products() {
   const [hoveredBox, setHoveredBox] = useState(null);
   const [popupPos, setPopupPos] = useState({ x: null, y: null, label: null });
   const [selectedHotspot, setSelectedHotspot] = useState(null);
+  const [gtchem1Popup, setGtchem1Popup] = useState(false);
+  const [gtchem2Popup, setGtchem2Popup] = useState(false);
   const [imageRef, imageInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
   const heroVideoRef = useRef(null);
-  const gtchem1VideoRef = useRef(null);
-  const gtchem2VideoRef = useRef(null);
+  const gtchem11VideoRef = useRef(null);
+  const gtchem12VideoRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -650,13 +655,13 @@ function Products() {
     }, { threshold: 0.5 });
 
     if (heroVideoRef.current) observer.observe(heroVideoRef.current);
-    if (gtchem1VideoRef.current) observer.observe(gtchem1VideoRef.current);
-    if (gtchem2VideoRef.current) observer.observe(gtchem2VideoRef.current);
+    if (gtchem11VideoRef.current) observer.observe(gtchem11VideoRef.current);
+    if (gtchem12VideoRef.current) observer.observe(gtchem12VideoRef.current);
 
     return () => {
       if (heroVideoRef.current) observer.unobserve(heroVideoRef.current);
-      if (gtchem1VideoRef.current) observer.unobserve(gtchem1VideoRef.current);
-      if (gtchem2VideoRef.current) observer.unobserve(gtchem2VideoRef.current);
+      if (gtchem11VideoRef.current) observer.unobserve(gtchem11VideoRef.current);
+      if (gtchem12VideoRef.current) observer.unobserve(gtchem12VideoRef.current);
     };
   }, []);
 
@@ -736,11 +741,11 @@ function Products() {
         videoRef={heroVideoRef}
       />
       <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
-        <SectionSpacing>
+        <SectionSpacing style={{ marginTop: '1rem' }}>
           <h2 style={{
             fontSize: '40px',
             color: '#25abe0',
-            marginBottom: '3rem',
+            marginBottom: '0.5rem',
             textAlign: 'center',
             fontWeight: '500'
           }}>Value Proposition</h2>
@@ -751,12 +756,12 @@ function Products() {
               <p>Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower.</p>
             </Card>
             <Card>
-              <FaChartLine className="icon" />
+              <FaDollarSign className="icon" />
               <h3>Efficient & Cost-Effective</h3>
               <p>Modular skid systems, 400% lower CO<sub>2</sub> emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals.</p>
             </Card>
             <Card>
-              <FaIndustry className="icon" />
+              <FaChartLine className="icon" />
               <h3>Domestic Impact</h3>
               <p>Enables growth of domestic workforce and provides energy security leveraging existing downstream processes.</p>
             </Card>
@@ -767,7 +772,7 @@ function Products() {
           <h2 style={{
             fontSize: '40px',
             color: '#25abe0',
-            marginBottom: '3rem',
+            marginBottom: '2.5rem',
             textAlign: 'center',
             fontWeight: '500'
           }}>Gas to Chemicals (GTChem) Modular System Offerings</h2>
@@ -782,7 +787,7 @@ function Products() {
             gap: '2rem'
           }}>
             {/* Left Side */}
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <div style={{ 
                 marginBottom: '1rem',
                 marginTop: '50px',
@@ -792,8 +797,8 @@ function Products() {
                 backgroundColor: '#000000'
               }}>
                 <video 
-                  ref={gtchem1VideoRef}
-                  src={gtchem1Video}
+                  ref={gtchem11VideoRef}
+                  src={gtchem11Video}
                   style={{ 
                     width: '100%',
                     height: '100%',
@@ -807,74 +812,140 @@ function Products() {
               <Subtitle>GTChem-1</Subtitle>
               <p style={{ 
                 color: '#ffffff', 
-                fontSize: '1.1rem',
+                fontSize: '1.35rem',
                 marginBottom: '1rem',
-                lineHeight: '1.6'
+                lineHeight: '1.6',
+                flex: 1
               }}>
                 GTChem-1 is Alchemity's first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
               </p>
-              <p style={{ 
-                color: '#ffffff', 
-                fontSize: '1.1rem',
-                lineHeight: '1.6'
-              }}>
-               The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs.
-               Alchemity is now accepting orders for GTChem-1.
-              
-               Contact us today to learn more or request pricing.
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
+                <button 
+                  onClick={() => setGtchem1Popup(true)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.8rem',
+                    padding: '1rem 2rem',
+                    backgroundColor: '#25abe0',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                    transition: 'all 0.3s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    border: '2px solid transparent',
+                    cursor: 'pointer',
+                    width: 'fit-content',
+                    minWidth: '200px'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#0077b5';
+                    e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+                    e.target.style.backgroundPosition = '200% center';
+                    e.target.style.backgroundSize = '200% 100%';
+                    e.target.style.animation = 'gradientMove 1.5s ease infinite';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = '#25abe0';
+                    e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.backgroundImage = 'none';
+                    e.target.style.animation = 'none';
+                  }}
+                >
+                  Learn More
+                </button>
+              </div>
             </div>
 
             {/* Right Side */}
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <div style={{ 
                 marginBottom: '-2.1rem',
                 height: '500px',
                 borderRadius: '20px',
                 overflow: 'hidden',
-                backgroundColor: '#000000'
+                backgroundColor: '#000000',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}>
-                <video 
-                  ref={gtchem2VideoRef}
-                  src={gtchem2Video}
+                <img 
+                  src={gtchem21Image}
                   style={{ 
-                    width: '100%',
-                    height: '100%',
+                    width: '90%',
+                    height: '90%',
                     objectFit: 'contain',
-                    borderRadius: '20px'
+                    borderRadius: '20px',
+                    backgroundColor: 'transparent'
                   }}
-                  muted
-                  playsInline
+                  alt="GTChem-2"
                 />
               </div>
               <Subtitle>GTChem-2</Subtitle>
               <p style={{ 
                 color: '#ffffff', 
-                fontSize: '1.1rem',
+                fontSize: '1.35rem',
                 marginBottom: '1rem',
-                lineHeight: '1.6'
+                lineHeight: '1.6',
+                flex: 1
               }}>
                 GTChem-2: Scaled Platform for Large-Volume, Zero CO₂ Emissions Chemical Production.
                 GTChem-2 is designed for high-throughput operation of 5+ TPD per skid. As a building block for 100+ TPD production facilities, GTChem-2 enables deployment for all target markets. 
               </p>
-              <p style={{ 
-                color: '#ffffff', 
-                fontSize: '1.1rem',
-                lineHeight: '1.6'
-              }}>
-                Engineered for industrial-scale deployment, the GTChem-2 platform maintains 95% system availability and incorporates multiple layers of safety and operational redundancy. It is optimized for seamless installation at both brownfield and greenfield sites, supporting flexible and efficient plant development.
-                Alchemity is now accepting capacity reservation orders for GTChem-2.
-                
-                Contact us to reserve capacity or learn more about integration opportunities.
-              </p>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
+                <button 
+                  onClick={() => setGtchem2Popup(true)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.8rem',
+                    padding: '1rem 2rem',
+                    backgroundColor: '#25abe0',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                    transition: 'all 0.3s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    border: '2px solid transparent',
+                    cursor: 'pointer',
+                    width: 'fit-content',
+                    minWidth: '200px'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#0077b5';
+                    e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+                    e.target.style.backgroundPosition = '200% center';
+                    e.target.style.backgroundSize = '200% 100%';
+                    e.target.style.animation = 'gradientMove 1.5s ease infinite';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = '#25abe0';
+                    e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.backgroundImage = 'none';
+                    e.target.style.animation = 'none';
+                  }}
+                >
+                  Learn More
+                </button>
+              </div>
             </div>
           </div>
-          <ButtonContainer>
-            <ContactButton onClick={() => window.location.href = '/contact'}>
-              Contact Us
-              <FaArrowRight style={{ fontSize: '0.9rem', transition: 'transform 0.3s ease' }} />
-            </ContactButton>
-          </ButtonContainer>
         </SectionSpacing>
 
         <SectionSpacing>
@@ -1156,25 +1227,77 @@ function Products() {
         </SectionSpacing>
 
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
-        <Popup show={selectedItem !== null} selectedItem={selectedItem}>
-          {selectedItem && (
-            <>
-              <div className="image-container">
-                {selectedItem.images ? (
-                  selectedItem.images.map((image, index) => (
-                    <img key={index} src={image} alt={`${selectedItem.title} ${index + 1}`} />
-                  ))
-                ) : (
-                  <img src={selectedItem.image} alt={selectedItem.title} />
-                )}
-              </div>
-              <h3 style={{ color: '#25abe0', textAlign: 'center', marginBottom: '0.5rem' }}>
-                {selectedItem.title} ({selectedItem.year})
-              </h3>
-              <p>{selectedItem.description}</p>
-            </>
-          )}
-        </Popup>
+        <Modal
+          show={selectedItem !== null}
+          onClose={handleClosePopup}
+          title={selectedItem ? `${selectedItem.title} (${selectedItem.year})` : ''}
+          size="xlarge"
+          showCloseButton={true}
+        >
+          <div style={{ 
+            marginBottom: '0',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%'
+          }}>
+            <div style={{ 
+              display: 'flex',
+              flexDirection: selectedItem?.title === 'Plant' ? 'column' : (selectedItem?.images ? 'row' : 'column'),
+              gap: '1rem',
+              justifyContent: 'center',
+              marginBottom: '0rem',
+              alignItems: 'center',
+              width: '100%'
+            }}>
+              {selectedItem?.images ? (
+                selectedItem.images.map((image, index) => (
+                  <img 
+                    key={index} 
+                    src={image} 
+                    alt={`${selectedItem.title} ${index + 1}`}
+                    style={{
+                      width: selectedItem?.title === 'Plant' ? '60%' : '45%',
+                      maxHeight: '350px',
+                      objectFit: 'contain',
+                      borderRadius: '8px',
+                      margin: '0 auto'
+                    }}
+                  />
+                ))
+              ) : (
+                <img 
+                  src={selectedItem?.image} 
+                  alt={selectedItem?.title}
+                  style={{
+                    width: '60%',
+                    maxHeight: '350px',
+                    objectFit: 'contain',
+                    borderRadius: '8px',
+                    margin: '0 auto'
+                  }}
+                />
+              )}
+            </div>
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center'
+            }}>
+              <p style={{ 
+                color: '#ffffff', 
+                fontSize: '1.4rem',
+                lineHeight: '1.6',
+                marginBottom: '0',
+                textAlign: 'center',
+                maxWidth: '800px',
+                width: '100%'
+              }}>
+                {selectedItem?.description}
+              </p>
+            </div>
+          </div>
+        </Modal>
 
         {selectedHotspot !== null && (
           <Modal
@@ -1196,6 +1319,95 @@ function Products() {
             </div>
           </Modal>
         )}
+
+        {/* GTChem-1 Popup */}
+        <Modal
+          show={gtchem1Popup}
+          onClose={() => {
+            setGtchem1Popup(false);
+            if (gtchem12VideoRef.current) {
+              gtchem12VideoRef.current.pause();
+              gtchem12VideoRef.current.currentTime = 0;
+            }
+          }}
+          title="GTChem-1 Details"
+          size="xlarge"
+          showCloseButton={true}
+        >
+          <div style={{ marginBottom: '0' }}>
+            <video 
+              ref={gtchem12VideoRef}
+              src={gtchem12Video}
+              style={{ 
+                width: '100%',
+                maxHeight: '350px',
+                objectFit: 'contain',
+                borderRadius: '8px',
+                marginBottom: '-1rem'
+              }}
+              muted
+              playsInline
+              autoPlay
+              onEnded={(e) => {
+                e.target.pause();
+                e.target.currentTime = e.target.duration - 0.1;
+              }}
+            />
+            <p style={{ 
+              color: '#ffffff', 
+              fontSize: '1.2rem',
+              lineHeight: '1.6',
+              marginBottom: '1.5rem'
+            }}>
+              The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs.
+              Alchemity is now accepting orders for GTChem-1.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <ContactButton onClick={() => window.location.href = '/contact'}>
+                Place Order
+                <FaArrowRight style={{ fontSize: '0.9rem', transition: 'transform 0.3s ease' }} />
+              </ContactButton>
+            </div>
+          </div>
+        </Modal>
+
+        {/* GTChem-2 Popup */}
+        <Modal
+          show={gtchem2Popup}
+          onClose={() => setGtchem2Popup(false)}
+          title="GTChem-2 Details"
+          size="xlarge"
+          showCloseButton={true}
+        >
+          <div style={{ marginBottom: '0' }}>
+            <img 
+              src={gtchem22Image}
+              style={{ 
+                width: '100%',
+                maxHeight: '350px',
+                objectFit: 'contain',
+                borderRadius: '8px',
+                marginBottom: '-1rem'
+              }}
+              alt="GTChem-2 Details"
+            />
+            <p style={{ 
+              color: '#ffffff', 
+              fontSize: '1.2rem',
+              lineHeight: '1.6',
+              marginBottom: '1.5rem'
+            }}>
+              Engineered for industrial-scale deployment, the GTChem-2 platform maintains 95% system availability and incorporates multiple layers of safety and operational redundancy. It is optimized for seamless installation at both brownfield and greenfield sites, supporting flexible and efficient plant development.
+              Alchemity is now accepting capacity reservation orders for GTChem-2.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <ContactButton onClick={() => window.location.href = '/contact'}>
+                Capacity Reservation Orders
+                <FaArrowRight style={{ fontSize: '0.9rem', transition: 'transform 0.3s ease' }} />
+              </ContactButton>
+            </div>
+          </div>
+        </Modal>
       </div>
     </>
   );

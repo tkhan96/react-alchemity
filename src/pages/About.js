@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from '../components/Modal';
 import ProfileCard from '../components/ProfileCard';
 import PageHero from '../components/PageHero';
-import aboutBg from '../components/images/about.png'; 
+import about1 from '../components/images/about1.png';
+import about2 from '../components/images/about2.png';
+import about3 from '../components/images/about3.png';
 import founder1 from '../components/images/founder1.jpg';
 import founder2 from '../components/images/founder2.jpg';
 import founder3 from '../components/images/founder3.jpg';
 import advisor1 from '../components/images/advisor1.png';
 import advisor2 from '../components/images/advisor2.jpg';
 import advisor3 from '../components/images/advisor3.jpg';
-import aboutVideo from '../components/images/aboutheader.mp4';
 
 const founders = [
   {
@@ -108,18 +109,18 @@ const advisors = [
 const gridStyle = {
   display: 'grid',
   gap: '0.5rem',
-  maxWidth: 'var(--container-width)',
+  maxWidth: '1400px',
   margin: '1rem auto',
 };
 
 const founderGridStyle = {
   ...gridStyle,
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
 };
 
 const advisorGridStyle = {
   ...gridStyle,
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
 };
 
 const buttonStyle = {
@@ -159,6 +160,8 @@ function About() {
   const [showModal, setShowModal] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
 
+  const images = [about1, about2, about3];
+
   const handleOpenModal = (person) => {
     setSelectedPerson(person);
     setShowModal(true);
@@ -171,11 +174,102 @@ function About() {
 
   return (
     <>
-      <PageHero 
-        backgroundVideoUrl={aboutVideo}
-        title="About Us"
-        style={{ marginTop: '-300px' }}
-      />
+      <style>
+        {`
+          @keyframes slide {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+        `}
+      </style>
+      <div style={{ position: 'relative' }}>
+        <PageHero 
+          title="About Us"
+          style={{ marginTop: '-300px', position: 'relative', zIndex: 2 }}
+        />
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '80%',
+          height: '120%',
+          overflow: 'hidden',
+          clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 20% 100%)',
+          zIndex: 1,
+          marginTop: '-29px',
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+          <div style={{
+            display: 'flex',
+            gap: '0',
+            animation: 'slide 30s linear infinite',
+            alignItems: 'center',
+            margin: 0,
+            padding: '0 2rem',
+            width: 'max-content',
+            height: '100%',
+            transform: 'translateX(0)'
+          }}>
+            {images.map((image, index) => (
+              <div key={index} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+                padding: '0',
+                marginTop: '40px',
+                paddingBottom: '40px',
+                flexShrink: 0
+              }}>
+                <img
+                  src={image}
+                  alt={`About ${index + 1}`}
+                  style={{
+                    width: '650px',
+                    height: '650px',
+                    objectFit: 'contain',
+                    flexShrink: 0,
+                    marginBottom: '0.5rem',
+                    opacity: 1
+                  }}
+                />
+              </div>
+            ))}
+            {images.map((image, index) => (
+              <div key={`duplicate-${index}`} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+                padding: '0',
+                marginTop: '40px',
+                paddingBottom: '40px',
+                flexShrink: 0
+              }}>
+                <img
+                  src={image}
+                  alt={`About ${index + 1}`}
+                  style={{
+                    width: '650px',
+                    height: '650px',
+                    objectFit: 'contain',
+                    flexShrink: 0,
+                    marginBottom: '0.5rem',
+                    opacity: 1
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000'}}>
         <h2 style={{...titleStyle, marginTop: '0'}}>Founders</h2>
         <div style={founderGridStyle}>
@@ -193,7 +287,7 @@ function About() {
           ))}
         </div>
 
-        <h2 style={titleStyle}>Advisors</h2>
+        <h2 style={{...titleStyle, marginTop: '8rem'}}>Advisors</h2>
         <div style={advisorGridStyle}>
           {advisors.map((advisor) => (
             <ProfileCard

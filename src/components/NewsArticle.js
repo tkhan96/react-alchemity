@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import styles from './NewsArticle.module.css';
 
-const NewsArticle = ({ title, summary, image, link, source, index }) => {
+const NewsArticle = ({ title, image, link, source, index }) => {
   const isReactorArticle = title === "Reactor Turns Methane to Hydrocarbons Without CO₂";
   
   return (
@@ -18,12 +18,15 @@ const NewsArticle = ({ title, summary, image, link, source, index }) => {
           src={image} 
           alt={title} 
           className={styles.articleImage}
-          style={isReactorArticle ? { transform: 'rotate(270deg) scale(1.5)' } : {}}
+          style={isReactorArticle ? { 
+            objectFit: 'contain',
+            backgroundColor: '#000000',
+            padding: '1rem'
+          } : {}}
         />
       </div>
       <div className={styles.contentContainer}>
         <h3 className={styles.articleTitle}>{title}</h3>
-        <p className={styles.articleSummary}>{summary}</p>
         <div className={styles.buttonContainer}>
           <a href={link} target="_blank" rel="noopener noreferrer" className={styles.learnMoreButton}>
             Learn More <span className={styles.arrowIcon}>→</span>

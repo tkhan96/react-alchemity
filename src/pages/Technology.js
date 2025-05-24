@@ -187,6 +187,23 @@ const descriptionTextStyle = {
   lineHeight: '1.6',
 };
 
+const gridStyle = {
+  display: 'grid',
+  gap: '0.5rem',
+  maxWidth: '1400px',
+  margin: '1rem auto',
+};
+
+const founderGridStyle = {
+  ...gridStyle,
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+};
+
+const advisorGridStyle = {
+  ...gridStyle,
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+};
+
 const membraneImageStyle = {
   width: '100%',
   maxWidth: '400px',
@@ -350,51 +367,76 @@ function Technology() {
           color: '#ffffff',
           textAlign: 'center',
           marginBottom: '1rem',
-          marginTop: '-2rem'
+          marginTop: '-2.5rem'
         }}>
           Placeholder Text
         </p>
         
-        <video 
-          ref={reactorVideoRef}
-          src={reactorAnim} 
-          style={{
-            width: '100%',
-            maxWidth: '700px',
-            height: 'auto',
-            margin: '0 auto',
-            display: 'block',
-            marginTop: '0.5rem',
-            marginBottom: '2rem'
-          }} 
-          muted 
-          playsInline
-        />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '-1rem',
+          alignItems: 'flex-start',
+          marginBottom: '2rem',
+          marginTop: '-1rem',
+          marginLeft: '-3rem'
+        }}>
+          <video 
+            ref={reactorVideoRef}
+            src={reactorAnim} 
+            style={{
+              width: '55%',
+              height: 'auto',
+              margin: '0',
+              display: 'block',
+              marginLeft: '-4rem',
+              marginTop: '0'
+            }} 
+            muted 
+            playsInline
+          />
 
-        <img 
-          src={membrane1} 
-          alt="Membrane" 
-          style={{
-            width: '100%',
-            maxWidth: '800px',
-            height: 'auto',
-            margin: '0 auto 2rem',
-            display: 'block'
-          }} 
-        />
+          <img 
+            src={membrane1} 
+            alt="Membrane" 
+            style={{
+              width: '22%',
+              height: 'auto',
+              margin: '0',
+              display: 'block',
+              marginTop: '1rem',
+              marginLeft: '-2rem'
+            }} 
+          />
+        </div>
 
-        <div style={buttonContainerStyle}>
-          <button 
-            className={styles.detailsButton}
-            onClick={handleOpenModal}
-          >
-            Learn More
-          </button>
+        <div style={{
+          position: 'relative',
+          height: '100px',
+          marginTop: '-3.5rem'
+        }}>
           <button 
             className={styles.detailsButton}
             onClick={handleOpenDetailsModal}
+            style={{ 
+              position: 'absolute',
+              left: '21.5%',
+              marginRight: '25rem',
+              marginLeft: '1.25rem'
+            }}
           >
             View Details
+          </button>
+          <button 
+            className={styles.detailsButton}
+            onClick={handleOpenModal}
+            style={{ 
+              position: 'absolute',
+              right: '20.5%',
+              marginLeft: '2rem'
+            }}
+          >
+            Learn More
           </button>
         </div>
 

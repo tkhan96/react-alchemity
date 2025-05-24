@@ -114,22 +114,32 @@ textarea {
 }
 
 input, select, textarea {
-    color: #000000;
-    background-color: #ffffff;
+    color: #000000 !important;
+    background-color: #ffffff !important;
     border: 1px solid #ffffff;
     width: 100%;
     padding: 0.5rem;
     border-radius: 4px;
 }
 
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
 input::placeholder, textarea::placeholder {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.7) !important;
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none !important;
     border: 2px solid #25abe0 !important;
     box-shadow: none !important;
+    color: #000000 !important;
+    background-color: #ffffff !important;
 }
 
 .form input:focus,
@@ -138,6 +148,15 @@ input:focus, select:focus, textarea:focus {
     outline: none !important;
     border: 2px solid #25abe0 !important;
     box-shadow: none !important;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
+.form input,
+.form select,
+.form textarea {
+    color: #000000 !important;
+    background-color: #ffffff !important;
 }
 
 *:focus {

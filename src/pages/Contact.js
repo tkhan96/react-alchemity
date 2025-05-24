@@ -8,6 +8,26 @@ import contactVideo from '../components/images/contact.mov';
 function Contact() {
   const linkedInUrl = 'https://www.linkedin.com/company/alchemity/';
 
+  const linkedinButtonStyle = {
+    backgroundColor: '#25abe0',
+    color: 'white',
+    padding: '0.5rem 1rem',
+    borderRadius: '4px',
+    textDecoration: 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    marginTop: '1rem',
+    transition: 'all 0.3s ease',
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+    border: '2px solid transparent',
+    cursor: 'pointer',
+    position: 'relative',
+    overflow: 'hidden'
+  };
+
   return (
     <>
       <PageHero 
@@ -31,8 +51,20 @@ function Contact() {
               marginBottom: '1.5rem',
               maxWidth: '800px'
             }}>
-              Have questions about our technology or interested in learning more? We'd love to hear from you.
+              Have questions about our technology, products or interested in learning more? We would love to hear from you.
             </p>
+
+            <div className={styles.infoBlock}>
+              <a 
+                href={linkedInUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={linkedinButtonStyle}
+                className={styles.linkedinButton}
+              >
+                Follow Us on LinkedIn
+              </a>
+            </div>
             
             <div className={styles.infoBlock}>
               <h2 style={{ 
@@ -64,27 +96,6 @@ function Contact() {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
-            </div>
-
-            <div className={styles.infoBlock}>
-              <h2 style={{ 
-                fontSize: '40px',
-                color: '#25abe0',
-                fontWeight: '500',
-                marginBottom: '1rem'
-              }}>
-                Connect
-              </h2>
-              <p style={{ 
-                color: '#ffffff',
-                fontSize: '1.2rem',
-                lineHeight: '1.6',
-                marginBottom: '0.5rem',
-                maxWidth: '800px'
-              }}>
-                Follow us on LinkedIn (our primary social channel):
-              </p>
-              <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>Alchemity on LinkedIn</a>
             </div>
 
           </div>

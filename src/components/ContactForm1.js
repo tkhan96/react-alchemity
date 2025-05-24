@@ -61,22 +61,48 @@ function ContactForm() {
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="firstName">Name*</label>
           <div className={styles.nameGroup}>
-            <input type="text" id="firstName" name="firstName" placeholder="First" value={formData.firstName} onChange={handleChange} required />
-            <input type="text" name="lastName" placeholder="Last" value={formData.lastName} onChange={handleChange} required />
+            <input 
+              type="text" 
+              id="firstName" 
+              name="firstName" 
+              placeholder="First Name" 
+              value={formData.firstName} 
+              onChange={handleChange} 
+              required 
+              style={{ color: '#000000' }}
+            />
+            <input 
+              type="text" 
+              name="lastName" 
+              placeholder="Last Name" 
+              value={formData.lastName} 
+              onChange={handleChange} 
+              required 
+              style={{ color: '#000000' }}
+            />
           </div>
         </div>
 
         {/* Email Field Group */}
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="email">Email*</label>
-          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email address" 
+            value={formData.email} 
+            onChange={handleChange} 
+            required 
+            style={{ color: '#000000' }}
+          />
         </div>
 
         {/* Capacity/Interest Field Group - Keeping name 'capacity' for consistency for now */}
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="capacity">Reason for Inquiry*</label>
           <select id="capacity" name="capacity" value={formData.capacity} onChange={handleChange} required>
-            <option value="" disabled>Select an option...</option>
+            <option value="" disabled>Select a reason for inquiry...</option>
             <option value="sales">Sales</option>
             <option value="partnership">Partnership Opportunities</option>
             <option value="investment">Investment</option>
@@ -88,10 +114,17 @@ function ContactForm() {
 
         {/* Company Name Field Group */}
         <div className={styles.fieldGroup}>
-           <label className={styles.label} htmlFor="companyName">Company Name</label>
-           <input type="text" id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} />
+           <label className={styles.label} htmlFor="companyName">Affiliation</label>
+           <input 
+             type="text" 
+             id="companyName" 
+             name="companyName" 
+             placeholder="Enter your affiliation" 
+             value={formData.companyName} 
+             onChange={handleChange} 
+             style={{ color: '#000000' }}
+           />
         </div>
-
 
         {/* Message Field Group */}
         <div className={styles.fieldGroup}>
@@ -99,10 +132,16 @@ function ContactForm() {
           <textarea 
             id="message" 
             name="message" 
+            placeholder="Type your message here (max 250 words)"
             value={formData.message} 
             onChange={handleChange} 
             required 
             maxLength={2000}
+            style={{ 
+              color: '#000000',
+              fontFamily: 'inherit',
+              fontSize: 'inherit'
+            }}
           />
           <div className={styles.wordCount}>
             {wordCount}/250 words
