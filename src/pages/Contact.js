@@ -4,6 +4,8 @@ import styles from './Contact.module.css';
 import PageHero from '../components/PageHero';
 import contactBg from '../components/images/contact-us-bg-2.jpg';
 import contactVideo from '../components/images/contact.mov';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 function Contact() {
   const linkedInUrl = 'https://www.linkedin.com/company/alchemity/';

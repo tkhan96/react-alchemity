@@ -1,0 +1,241 @@
+/* Responsive styles for Markets page */
+
+/* General responsive container */
+.responsiveContainer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Touch device support for carousel - modified to remove drag cursor but keep other styles */
+@media (hover: none) and (pointer: coarse) {
+  .carouselContainer {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Market sections container */
+.marketSectionsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* Reduced gap between sections */
+}
+
+/* Market section styles */
+.marketSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Base title style */
+.marketTitle {
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  width: 100%;
+}
+
+/* First Markets styles */
+.firstMarketsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.firstMarketsContentStyle {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Market titles - different colors */
+.marketSection:first-child .marketTitle {
+  color: #25abe0; /* Blue color for First Markets */
+}
+
+.marketSection:nth-child(2) .marketTitle {
+  color: #ffffff; /* White color for Second Markets (appears as white on black background) */
+}
+
+/* Second Markets styles */
+.secondMarketsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0; /* Removed the default left margin */
+}
+
+.secondMarketsGrid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+}
+
+/* Media Query for Tablet (768px) */
+@media (max-width: 768px) {
+  .highlightText {
+    font-size: 28px !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .marketBreakdownTitle {
+    font-size: 30px !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .marketDescription {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.8rem !important;
+    margin-top: -1.5rem !important;
+  }
+
+  .marketInstructions {
+    font-size: 1.2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .carouselImage {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .imageTitle {
+    font-size: 24px !important;
+  }
+
+  .heroCarouselContainer {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%) !important;
+  }
+
+  .heroImage {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .heroImageTitle {
+    font-size: 18px !important;
+  }
+
+  .firstMarketsContainer {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .firstMarketBoxStyle {
+    width: 90% !important;
+    margin-bottom: 1rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 8px !important;
+    border: 2px solid #25abe0 !important;
+  }
+  
+  .marketSectionsContainer {
+    flex-direction: column !important;
+    gap: 0 !important; /* Remove gap in mobile view as it's stacked */
+  }
+  
+  .marketTitle {
+    font-size: 30px !important;
+  }
+  
+  /* Modal responsiveness for mobile */
+  :global(.modal-content) {
+    width: 95% !important;
+    max-width: 400px !important;
+    padding: 1rem !important;
+  }
+  
+  :global(.modal-title) {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Media Query for Laptop (1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .highlightText {
+    font-size: 30px !important;
+  }
+
+  .carouselImage {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .imageTitle {
+    font-size: 26px !important;
+  }
+
+  .heroCarouselContainer {
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%) !important;
+  }
+
+  .heroImage {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+/* Media Query for Laptop L (1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .carouselImage {
+    width: 280px !important;
+    height: 280px !important;
+  }
+}
+
+/* Media Query for 4K (2560px) */
+@media (min-width: 2560px) {
+  .sectionContainer {
+    max-width: 2200px !important;
+    margin: 0 auto !important;
+  }
+
+  .highlightText {
+    font-size: 48px !important;
+    margin-bottom: 4rem !important;
+  }
+
+  .marketBreakdownTitle {
+    font-size: 54px !important;
+    margin-bottom: 4rem !important;
+  }
+
+  .marketDescription {
+    font-size: 2.2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .marketInstructions {
+    font-size: 2rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .carouselImage {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .imageTitle {
+    font-size: 38px !important;
+  }
+
+  .carouselContainer {
+    margin-top: 6rem !important;
+  }
+
+  .heroImage {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .heroImageTitle {
+    font-size: 32px !important;
+  }
+  
+  .marketTitle {
+    font-size: 48px !important;
+  }
+} 

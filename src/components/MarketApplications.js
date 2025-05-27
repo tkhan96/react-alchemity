@@ -12,6 +12,25 @@ import ethane from './images/ethane.png';
 import syngas from './images/syngas.png';
 import benzene from './images/benzene.png';
 import { FaArrowRight } from 'react-icons/fa';
+import styled from 'styled-components';
+
+const MarketTitle = styled.h2`
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+`;
+
+const MarketDescription = styled.p`
+  color: #ffffff;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+`;
 
 function MarketApplications() {
   const [ref, inView] = useInView({
@@ -76,10 +95,10 @@ function MarketApplications() {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div className={styles.textContainer} variants={itemVariants}>
-          <h2>Markets We Serve</h2>
-          <p className={styles.description}>
+          <MarketTitle>Markets We Serve</MarketTitle>
+          <MarketDescription>
             The Platform System serves multiple markets through clean gaseous and liquid products.
-          </p>
+          </MarketDescription>
         </motion.div>
 
         <div className={styles.carouselContainer}>

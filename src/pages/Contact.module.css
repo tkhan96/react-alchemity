@@ -18,6 +18,10 @@
   display: flex;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
   gap: 3rem;
+  max-width: 1200px;
+  width: 90%; /* Reduce width to create side margins */
+  margin: 0 auto; /* Center the content */
+  padding: 0 5%; /* Add additional padding on the sides */
 }
 
 .contactInfo {
@@ -67,6 +71,36 @@
     margin-top: 0; /* Remove top margin if ContactForm section has it */
     padding-top: 10px; /* Remove top padding if needed */
     max-width: 100%; /* Allow it to fill wrapper */
+}
+
+/* Responsive styles for different screen sizes */
+@media (max-width: 768px) {
+  .contentWrapper {
+    width: 90%;
+    padding: 0 3%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentWrapper {
+    width: 85%;
+    padding: 0 7.5%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .contentWrapper {
+    width: 80%;
+    padding: 0 10%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .contentWrapper {
+    width: 70%;
+    padding: 0 15%;
+    max-width: 1800px;
+  }
 }
 
 .form {

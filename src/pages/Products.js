@@ -17,6 +17,7 @@ import extEval from '../components/images/ExtEval.png';
 import productVideo from '../components/images/producthero.mov';
 import placeholder from '../components/images/AI.png';
 import plantImage from '../components/images/30tpd.jpg';
+import styles from './Products.module.css';
 
 import gtchem11Video from '../components/images/gtchem11.mov';
 import gtchem12Video from '../components/images/gtchem12.mov';
@@ -35,6 +36,16 @@ const CardContainer = styled.div`
   padding: 2rem 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 2560px) {
+    max-width: 2000px;
+    gap: 3rem;
+  }
 `;
 
 const Card = styled.div`
@@ -67,13 +78,45 @@ const Card = styled.div`
     line-height: 1.6;
     font-size: 1.4rem;
     margin-bottom: 0;
+    height: calc(1.6em * 5);
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 `;
 
 const RoadmapContainer = styled.div`
   max-width: 1200px;
-  margin: -4rem auto 3rem auto;
+  margin: -1rem auto 0 auto;
   padding: 2rem;
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    max-width: 1200px;
+    padding: 2rem 3rem;
+  }
+  
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    max-width: 1400px;
+    padding: 2rem 2rem;
+  }
+  
+  @media (min-width: 1921px) and (max-width: 2560px) {
+    max-width: 1600px;
+    padding: 2rem 1rem;
+  }
+  
+  @media (min-width: 2561px) {
+    max-width: 1800px;
+    padding: 2rem 0;
+  }
 `;
 
 const RoadmapTitle = styled.h2`
@@ -98,7 +141,7 @@ const ClickToLearnMore = styled.p`
   font-size: 1.5rem;
   text-align: center;
   font-weight: 800;
-  margin-top: 0;
+  margin-top: 2rem;
   margin-bottom: -3.5rem;
 `;
 
@@ -115,16 +158,72 @@ const HoverDescription = styled.p`
 const TimelineContainer = styled.div`
   position: relative;
   padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    overflow-x: auto;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+`;
+
+const TimelineSections = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 4rem auto 0 auto;
+  
+  @media (max-width: 768px) {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    justify-content: flex-start;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 90%;
+    gap: 0;
+    justify-content: center;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    gap: 0.5rem;
+    max-width: 1100px;
+  }
+  
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    gap: 1rem;
+    max-width: 1300px;
+  }
+  
+  @media (min-width: 1921px) {
+    gap: 1.5rem;
+    max-width: 1600px;
+  }
 `;
 
 const TimelineArrow = styled.div`
-  position: absolute;
-  top: 320px;
-  left: 0;
-  right: 0;
+  position: relative;
   height: 2px;
   background: #25abe0;
   z-index: 1;
+  margin: 1rem auto;
+  width: 100%;
 
   &::after {
     content: '';
@@ -161,7 +260,34 @@ const TimelineSection = styled.div`
   padding: 0 1rem;
   z-index: 2;
   min-width: 200px;
-  margin-top: 4.5rem;
+  
+  @media (max-width: 768px) {
+    min-width: 150px;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    min-width: 110px;
+    width: auto;
+    padding: 0;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    min-width: 180px;
+    width: 18%;
+    padding: 0 0.5rem;
+  }
+  
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    min-width: 220px;
+    width: 20%;
+    padding: 0 0.5rem;
+  }
+  
+  @media (min-width: 1921px) {
+    min-width: 250px;
+    width: 20%;
+    padding: 0 0.5rem;
+  }
 `;
 
 const TimelineImage = styled.div`
@@ -182,11 +308,52 @@ const TimelineImage = styled.div`
     box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
     transform: translateY(-5px);
   }
+  
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 110px;
+    height: 110px;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    width: 180px;
+    height: 180px;
+  }
+  
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    width: 220px;
+    height: 220px;
+  }
+  
+  @media (min-width: 1921px) {
+    width: 250px;
+    height: 250px;
+  }
 
   span {
     color: #25abe0;
     font-size: 2rem;
     font-weight: 600;
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 1.4rem;
+    }
+    
+    @media (min-width: 1025px) and (max-width: 1440px) {
+      font-size: 2rem;
+    }
+    
+    @media (min-width: 1441px) and (max-width: 1920px) {
+      font-size: 2.2rem;
+    }
+    
+    @media (min-width: 1921px) {
+      font-size: 2.5rem;
+    }
   }
 `;
 
@@ -253,6 +420,11 @@ const TimelineTitle = styled.h3`
   margin: 2rem 0 0.2rem 0;
   text-align: center;
   font-weight: 600;
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 1rem;
+    margin: 1.5rem 0 0.2rem 0;
+  }
 `;
 
 const TimelineYear = styled.p`
@@ -260,20 +432,36 @@ const TimelineYear = styled.p`
   font-size: 1rem;
   margin: 0.2rem 0 0 0;
   text-align: center;
-`;
-
-const TimelineSections = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  z-index: 2;
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const CompetitiveSection = styled.section`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto 1rem auto;
   padding: 2rem;
   background: #000;
+  
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    max-width: 90%;
+    padding: 1rem;
+    width: 90vw;
+    overflow: hidden;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    max-width: 95%;
+  }
+  
+  @media (min-width: 2560px) {
+    max-width: 1800px;
+  }
 `;
 
 const CompetitiveTitle = styled.h2`
@@ -295,12 +483,16 @@ const CompetitiveDescription = styled.p`
 `;
 
 const CompetitiveHoverText = styled.p`
-  color: #25abe0;
-  font-size: 1.2rem;
+  color: #ffffff;
+  font-size: 1.5rem;
   text-align: center;
-  font-weight: 800;
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: -3.5rem;
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin-bottom: -2rem;
+  }
 `;
 
 const QuadrantContainer = styled.div`
@@ -311,6 +503,22 @@ const QuadrantContainer = styled.div`
   border-radius: 16px;
   margin-top: 10rem;
   overflow: visible;
+  
+  @media (max-width: 768px) {
+    height: 500px;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    height: 550px;
+    transform: scale(0.85);
+    transform-origin: center center;
+    margin-top: 7rem;
+    width: 100%;
+  }
+  
+  @media (min-width: 2560px) {
+    height: 800px;
+  }
 `;
 
 const Axis = styled.div`
@@ -352,6 +560,24 @@ const AxisLabel = styled.div`
         return '';
     }
   }}
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 0.9rem;
+    ${({ position }) => {
+      switch (position) {
+        case 'left-center':
+          return 'transform: translate(-80%, -50%);';
+        case 'right-center':
+          return 'transform: translate(80%, -50%);';
+        case 'bottom-center':
+          return 'transform: translate(-50%, 80%);';
+        case 'top-center':
+          return 'transform: translate(-50%, -80%);';
+        default:
+          return '';
+      }
+    }}
+  }
 `;
 
 const Box = styled.div`
@@ -369,6 +595,28 @@ const Box = styled.div`
   cursor: pointer;
   transition: none;
   box-shadow: none;
+  
+  @media (max-width: 768px) {
+    min-width: 100px;
+    max-width: 150px;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    min-width: 100px;
+    max-width: 150px;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+  }
+  
+  @media (min-width: 2560px) {
+    min-width: 150px;
+    max-width: 220px;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+  }
+  
   &:hover {
     box-shadow: none;
   }
@@ -386,6 +634,27 @@ const AlchemityBox = styled(Box)`
   font-size: 1rem;
   color: #fff;
   box-shadow: 0 0 24px 2px rgba(37,171,224,0.25);
+  
+  @media (max-width: 768px) {
+    min-width: 180px;
+    max-width: 260px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    min-width: 180px;
+    max-width: 260px;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  @media (min-width: 2560px) {
+    min-width: 300px;
+    max-width: 400px;
+    padding: 1.5rem 1.8rem;
+    font-size: 1.3rem;
+  }
 `;
 
 const CompetitivePopup = styled.div`
@@ -534,6 +803,15 @@ const AIDescription = styled.p`
   margin-bottom: 1.5rem;
   margin-left: auto;
   margin-right: auto;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 2560px) {
+    font-size: 2rem;
+  }
 `;
 
 const AIImage = styled.img`
@@ -543,6 +821,11 @@ const AIImage = styled.img`
   display: block;
   margin: 2rem auto;
   border-radius: 8px;
+  
+  @media (max-width: 768px) {
+    max-width: 90%;
+    margin: 1rem auto;
+  }
 `;
 
 const ContactButton = styled.button`
@@ -607,6 +890,15 @@ const DescriptionText = styled.p`
   text-align: center;
   margin: -2rem auto 3rem auto;
   line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin: -1rem auto 2rem auto;
+  }
+  
+  @media (min-width: 2560px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -621,7 +913,49 @@ const SectionSpacing = styled.div`
   margin: 4rem auto;
   max-width: 1200px;
   padding: 0 2rem;
+  
+  @media (max-width: 768px) {
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+  
+  @media (min-width: 2560px) {
+    max-width: 2000px;
+    margin: 6rem auto;
+  }
 `;
+
+// Animation variants
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+};
+
+const timelineItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+};
 
 function Products() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -637,6 +971,13 @@ function Products() {
   const heroVideoRef = useRef(null);
   const gtchem11VideoRef = useRef(null);
   const gtchem12VideoRef = useRef(null);
+  // Animation refs for sections
+  const [valueRef, valueInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [gtchemRef, gtchemInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [facilityRef, facilityInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [aiRef, aiInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [roadmapRef, roadmapInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [competitiveRef, competitiveInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -733,498 +1074,517 @@ function Products() {
     setSelectedHotspot(selectedHotspot === index ? null : index);
   };
 
+  const GTChem1Popup = () => (
+    <Modal 
+      show={gtchem1Popup} 
+      onClose={() => setGtchem1Popup(false)}
+      title="GTChem Products"
+      showCloseButton={true}
+      size="xxlarge"
+    >
+      <div style={{ 
+        padding: '0.5rem 1.5rem 0.5rem 1.5rem', 
+        color: '#ffffff',
+        maxHeight: '70vh',
+        overflowY: 'auto'
+      }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '2rem',
+          alignItems: 'start'
+        }}>
+          <div>
+            <h3 style={{ color: '#25abe0', fontSize: '1.4rem', marginBottom: '1rem', marginTop: '0' }}>GTChem-1</h3>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
+              GTChem-1 is Alchemity's first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
+            </p>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
+              The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs. Alchemity is now accepting orders for GTChem-1.
+            </p>
+          </div>
+          <div>
+            <h3 style={{ color: '#25abe0', fontSize: '1.4rem', marginBottom: '1rem', marginTop: '0' }}>GTChem-2</h3>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
+              GTChem-2: Scaled Platform for Large-Volume, Zero CO₂ Emissions Chemical Production. GTChem-2 is designed for high-throughput operation of 5+ TPD per skid. As a building block for 100+ TPD production facilities, GTChem-2 enables deployment for all target markets.
+            </p>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
+              Engineered for industrial-scale deployment, the GTChem-2 platform maintains 95% system availability and incorporates multiple layers of safety and operational redundancy. It is optimized for seamless installation at both brownfield and greenfield sites, supporting flexible and efficient plant development. Alchemity is now accepting capacity reservation orders for GTChem-2.
+            </p>
+          </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+          <button 
+            onClick={() => window.location.href = '/contact'}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.8rem',
+              padding: '1rem 2rem',
+              backgroundColor: '#25abe0',
+              color: 'white',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              borderRadius: '50px',
+              boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              border: '2px solid transparent',
+              cursor: 'pointer',
+              width: 'fit-content',
+              minWidth: '200px'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#0077b5';
+              e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+              e.target.style.backgroundPosition = '200% center';
+              e.target.style.backgroundSize = '200% 100%';
+              e.target.style.animation = 'gradientMove 1.5s ease infinite';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#25abe0';
+              e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.backgroundImage = 'none';
+              e.target.style.animation = 'none';
+            }}
+          >
+            Pre-Order Now
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+
+  // Responsive UI for GTChem videos
+  const videoContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
   return (
-    <>
+    <div className={styles.responsiveContainer}>
       <PageHero 
         backgroundVideoUrl={productVideo}
         title="Products"
         videoRef={heroVideoRef}
       />
       <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
-        <SectionSpacing style={{ marginTop: '1rem' }}>
-          <h2 style={{
-            fontSize: '40px',
-            color: '#25abe0',
-            marginBottom: '0.5rem',
-            textAlign: 'center',
-            fontWeight: '500'
-          }}>Value Proposition</h2>
-          <CardContainer>
-            <Card>
-              <FaShieldAlt className="icon" />
-              <h3>Reduced Capital Risk</h3>
-              <p>Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower.</p>
-            </Card>
-            <Card>
-              <FaDollarSign className="icon" />
-              <h3>Efficient & Cost-Effective</h3>
-              <p>Modular skid systems, 400% lower CO<sub>2</sub> emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals.</p>
-            </Card>
-            <Card>
-              <FaChartLine className="icon" />
-              <h3>Domestic Impact</h3>
-              <p>Enables growth of domestic workforce and provides energy security leveraging existing downstream processes.</p>
-            </Card>
-          </CardContainer>
-        </SectionSpacing>
-
-        <SectionSpacing>
-          <h2 style={{
-            fontSize: '40px',
-            color: '#25abe0',
-            marginBottom: '2.5rem',
-            textAlign: 'center',
-            fontWeight: '500'
-          }}>Gas to Chemicals (GTChem) Modular System Offerings</h2>
-          
-          <DescriptionText style={{ marginBottom: '0rem' }}>
-            Placeholder Text
-          </DescriptionText>
-
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            gap: '2rem'
-          }}>
-            {/* Left Side */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ 
-                marginBottom: '1rem',
-                marginTop: '50px',
-                height: '400px',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                backgroundColor: '#000000'
-              }}>
-                <video 
-                  ref={gtchem11VideoRef}
-                  src={gtchem11Video}
-                  style={{ 
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                    borderRadius: '20px'
-                  }}
-                  muted
-                  playsInline
-                />
-              </div>
-              <Subtitle>GTChem-1</Subtitle>
-              <p style={{ 
-                color: '#ffffff', 
-                fontSize: '1.35rem',
-                marginBottom: '1rem',
-                lineHeight: '1.6',
-                flex: 1
-              }}>
-                GTChem-1 is Alchemity's first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
-                <button 
-                  onClick={() => setGtchem1Popup(true)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.8rem',
-                    padding: '1rem 2rem',
-                    backgroundColor: '#25abe0',
-                    color: 'white',
-                    fontSize: '1.1rem',
-                    fontWeight: '600',
-                    textDecoration: 'none',
-                    borderRadius: '50px',
-                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    border: '2px solid transparent',
-                    cursor: 'pointer',
-                    width: 'fit-content',
-                    minWidth: '200px'
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.backgroundColor = '#0077b5';
-                    e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
-                    e.target.style.transform = 'translateY(-2px)';
-                    e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
-                    e.target.style.backgroundPosition = '200% center';
-                    e.target.style.backgroundSize = '200% 100%';
-                    e.target.style.animation = 'gradientMove 1.5s ease infinite';
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.backgroundColor = '#25abe0';
-                    e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.backgroundImage = 'none';
-                    e.target.style.animation = 'none';
-                  }}
+        <motion.div ref={valueRef} variants={sectionVariants} initial="hidden" animate={valueInView ? "visible" : "hidden"}>
+          <SectionSpacing style={{ marginTop: '1rem' }}>
+            <h2 style={{
+              fontSize: '40px',
+              color: '#25abe0',
+              marginBottom: '0.5rem',
+              textAlign: 'center',
+              fontWeight: '500'
+            }}>Value Proposition</h2>
+            <div className={styles.valuePropositionContainer}>
+              {[
+                { icon: <FaShieldAlt className="icon" />, title:  "Reduced Capital Investment", description: "Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower." },
+                { icon: <FaDollarSign className="icon" />, title: "Highly Efficient & Cost-Effective", description: "Modular skid systems, 400% lower CO₂ emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals." },
+                { icon: <FaChartLine className="icon" />, title:  "Increased Domestic Growth", description: "Enables growth of domestic workforce and provides energy security leveraging existing downstream processes." }
+              ].map((card, index) => (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate={valueInView ? "visible" : "hidden"}
                 >
-                  Learn More
-                </button>
+                  <Card>
+                    {card.icon}
+                    <h3>{card.title}</h3>
+                    <p>{card.description}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </SectionSpacing>
+        </motion.div>
+        <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView ? "visible" : "hidden"}>
+          <SectionSpacing>
+            <h2 style={{
+              fontSize: '40px',
+              color: '#25abe0',
+              marginBottom: '2.5rem',
+              textAlign: 'center',
+              fontWeight: '500'
+            }} className={styles.sectionTitle}>Gas to Chemicals (GTChem) Modular System Offerings</h2>
+            
+            <DescriptionText style={{ marginBottom: '0rem' }}>
+              Placeholder Text
+            </DescriptionText>
+
+            <div className={styles.gtchemContainer}>
+              {/* Left Side */}
+              <div className={styles.gtchemLeftSide} style={videoContainerStyle}>
+                <div className={styles.videoContainer} style={{ 
+                  marginBottom: '1rem',
+                  marginTop: '50px',
+                  height: '400px',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  backgroundColor: '#000000'
+                }}>
+                  <video 
+                    ref={gtchem11VideoRef}
+                    src={gtchem11Video}
+                    style={{ 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      borderRadius: '20px'
+                    }}
+                    muted
+                    playsInline
+                    className={styles.gtchemVideo}
+                  />
+                </div>
+              </div>
+
+              {/* Right Side */}
+              <div className={styles.gtchemRightSide} style={videoContainerStyle}>
+                <div className={styles.videoContainer} style={{ 
+                  marginBottom: '1rem',
+                  marginTop: '11px',
+                  height: '450px',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  backgroundColor: '#000000'
+                }}>
+                  <video 
+                    ref={gtchem12VideoRef}
+                    src={gtchem12Video}
+                    style={{ 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      borderRadius: '20px'
+                    }}
+                    muted
+                    playsInline
+                    className={styles.gtchemVideo}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Right Side */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ 
-                marginBottom: '-2.1rem',
-                height: '500px',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                backgroundColor: '#000000',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <img 
-                  src={gtchem21Image}
-                  style={{ 
-                    width: '90%',
-                    height: '90%',
-                    objectFit: 'contain',
-                    borderRadius: '20px',
-                    backgroundColor: 'transparent'
-                  }}
-                  alt="GTChem-2"
-                />
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+              <button 
+                onClick={() => setGtchem1Popup(true)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.8rem',
+                  padding: '1rem 2rem',
+                  backgroundColor: '#25abe0',
+                  color: 'white',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  borderRadius: '50px',
+                  boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  border: '2px solid transparent',
+                  cursor: 'pointer',
+                  width: 'fit-content',
+                  minWidth: '200px'
+                }}
+                className={styles.preOrderButton}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#0077b5';
+                  e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+                  e.target.style.backgroundPosition = '200% center';
+                  e.target.style.backgroundSize = '200% 100%';
+                  e.target.style.animation = 'gradientMove 1.5s ease infinite';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#25abe0';
+                  e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.backgroundImage = 'none';
+                  e.target.style.animation = 'none';
+                }}
+              >
+                Pre-Order Now
+              </button>
+            </div>
+          </SectionSpacing>
+        </motion.div>
+
+        <motion.div ref={facilityRef} variants={sectionVariants} initial="hidden" animate={facilityInView ? "visible" : "hidden"}>
+          <SectionSpacing style={{ marginTop: '6rem' }}>
+            <PlantInfoTitle>GTChem Facility at Scale</PlantInfoTitle>
+            <PlantInfoDescription>
+              Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+            </PlantInfoDescription>
+            <PlantInfoDescription>
+              Placeholder Text
+            </PlantInfoDescription>
+            <motion.div
+              ref={imageRef}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <ImageContainer className={styles.plantImageContainer}>
+                <PlantImage src={plantImage} alt="3D Design of our Chemical Plant" className={styles.plantImage} />
+                <ImageOverlay>
+                  <Hotspot
+                    style={{ bottom: '45%', left: '32%' }}
+                    whileHover={{ scale: 1.2 }}
+                    onClick={() => handleHotspotClick(0)}
+                    className={styles.hotspot}
+                  >
+                    <HotspotDot />
+                    <HotspotTooltip>
+                      <h4>{hotspotDetails[0].title}</h4>
+                    </HotspotTooltip>
+                  </Hotspot>
+                  <Hotspot
+                    style={{ bottom: '38%', left: '18%' }}
+                    whileHover={{ scale: 1.2 }}
+                    onClick={() => handleHotspotClick(3)}
+                    className={styles.hotspot}
+                  >
+                    <HotspotDot />
+                    <HotspotTooltip>
+                      <h4>{hotspotDetails[3].title}</h4>
+                    </HotspotTooltip>
+                  </Hotspot>
+                  <Hotspot
+                    style={{ bottom: '52%', left: '20%' }}
+                    whileHover={{ scale: 1.2 }}
+                    onClick={() => handleHotspotClick(4)}
+                    className={styles.hotspot}
+                  >
+                    <HotspotDot />
+                    <HotspotTooltip>
+                      <h4>{hotspotDetails[4].title}</h4>
+                    </HotspotTooltip>
+                  </Hotspot>
+                  <Hotspot
+                    style={{ top: '40%', left: '75%' }}
+                    whileHover={{ scale: 1.2 }}
+                    onClick={() => handleHotspotClick(1)}
+                    className={styles.hotspot}
+                  >
+                    <HotspotDot />
+                    <HotspotTooltip>
+                      <h4>{hotspotDetails[1].title}</h4>
+                    </HotspotTooltip>
+                  </Hotspot>
+                  <Hotspot
+                    style={{ top: '70%', left: '40%' }}
+                    whileHover={{ scale: 1.2 }}
+                    onClick={() => handleHotspotClick(2)}
+                    className={styles.hotspot}
+                  >
+                    <HotspotDot />
+                    <HotspotTooltip>
+                      <h4>{hotspotDetails[2].title}</h4>
+                    </HotspotTooltip>
+                  </Hotspot>
+                </ImageOverlay>
+              </ImageContainer>
+            </motion.div>
+          </SectionSpacing>
+        </motion.div>
+
+        <motion.div ref={aiRef} variants={sectionVariants} initial="hidden" animate={aiInView ? "visible" : "hidden"}>
+          <SectionSpacing style={{ marginTop: '6rem' }}>
+            <div className={styles.aiSection}>
+              <div className={styles.aiTextContainer}>
+                <h2 style={{
+                  fontSize: '40px',
+                  color: '#25abe0',
+                  marginBottom: '1.2rem',
+                  textAlign: 'center',
+                  fontWeight: '500'
+                }} className={styles.sectionTitle}>Alchemity's Generative AI</h2>
+                <AIDescription className={styles.aiDescription}>
+                  Tens of Thousands Variables Screened in Minutes to Project the Lowest Cost of Produced chemicals (LCOChem) while Simulating the Lowest Lifetime Cost of Plants (Capex and Opex).
+                </AIDescription>
+                <AIDescription className={styles.aiDescription}>
+                  Ability to predict optimal system operation (and downtime/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
+                </AIDescription>
               </div>
-              <Subtitle>GTChem-2</Subtitle>
-              <p style={{ 
-                color: '#ffffff', 
-                fontSize: '1.35rem',
-                marginBottom: '1rem',
-                lineHeight: '1.6',
-                flex: 1
-              }}>
-                GTChem-2: Scaled Platform for Large-Volume, Zero CO₂ Emissions Chemical Production.
-                GTChem-2 is designed for high-throughput operation of 5+ TPD per skid. As a building block for 100+ TPD production facilities, GTChem-2 enables deployment for all target markets. 
-              </p>
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto' }}>
-                <button 
-                  onClick={() => setGtchem2Popup(true)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.8rem',
-                    padding: '1rem 2rem',
-                    backgroundColor: '#25abe0',
-                    color: 'white',
-                    fontSize: '1.1rem',
-                    fontWeight: '600',
-                    textDecoration: 'none',
-                    borderRadius: '50px',
-                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    border: '2px solid transparent',
-                    cursor: 'pointer',
-                    width: 'fit-content',
-                    minWidth: '200px'
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.backgroundColor = '#0077b5';
-                    e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
-                    e.target.style.transform = 'translateY(-2px)';
-                    e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
-                    e.target.style.backgroundPosition = '200% center';
-                    e.target.style.backgroundSize = '200% 100%';
-                    e.target.style.animation = 'gradientMove 1.5s ease infinite';
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.backgroundColor = '#25abe0';
-                    e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.backgroundImage = 'none';
-                    e.target.style.animation = 'none';
-                  }}
-                >
-                  Learn More
-                </button>
+              <div className={styles.aiImageContainer}>
+                <AIImage 
+                  src={placeholder} 
+                  alt="AI Technology" 
+                  style={{ marginTop: '0.5rem' }}
+                  className={styles.aiImage}
+                />
               </div>
             </div>
-          </div>
-        </SectionSpacing>
+          </SectionSpacing>
+        </motion.div>
 
-        <SectionSpacing>
-          <AITitle>Alchemity's Generative AI</AITitle>
-          <AIImage 
-            src={placeholder} 
-            alt="AI Technology" 
-          />
-          <AIDescription>
-            Tens of Thousands Variables Screened in Minutes to Project the Lowest Cost of Produced chemicals (LCOChem) while Simulating the Lowest Lifetime Cost of Plants (Capex and Opex).
-          </AIDescription>
-          <AIDescription>
-            Ability to predict optimal system operation (and downtime/maintenance) to meet customer offtake requirements whilst minimizing the LCOChem.
-          </AIDescription>
-        </SectionSpacing>
+        <motion.div ref={roadmapRef} variants={sectionVariants} initial="hidden" animate={roadmapInView ? "visible" : "hidden"}>
+          <RoadmapContainer>
+            <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
+            <RoadmapDescription>
+              Deploying modular turnkey systems followed by large integrated facilities.
+            </RoadmapDescription>
+            <ClickToLearnMore>Click on each TRL card to learn more.</ClickToLearnMore>
+            
+            <TimelineContainer>
+              <TimelineSections>
+                {[
+                  { trl: "TRL 3", title: "Single Tube", year: "2024", image: single2, description: "Batches of 20 cm long reactor membranes." },
+                  { trl: "TRL 4", title: "Tube Bundle", year: "2025", image: extEval, description: "First working 4-tube bundle prototype to optimize reactor core conditions." },
+                  { trl: "TRL 5", title: "Benchtop System", year: "2025-2026", image: benchtop1, description: "Second working prototype to optimize reactor bundle integration with steel vessel and BOP." },
+                  { trl: "TRL 6/7", title: "Modular Skids", year: "2027+", images: [skid1, skid2], description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities." },
+                  { trl: "TRL 8/9", title: "Plant", year: "2030+", images: [plant1, plant22], description: "Large-scale plant building block to enable 100+ ton per day facilities." }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    custom={index}
+                    variants={timelineItemVariants}
+                    initial="hidden"
+                    animate={roadmapInView ? "visible" : "hidden"}
+                  >
+                    <TimelineSection>
+                      <TimelineImage 
+                        onClick={() => handleImageClick({
+                          image: item.image,
+                          images: item.images,
+                          title: item.title,
+                          year: item.year,
+                          description: item.description
+                        })}
+                      >
+                        <span>{item.trl}</span>
+                      </TimelineImage>
+                      <TimelineTitle>{item.title}</TimelineTitle>
+                      <TimelineYear>{item.year}</TimelineYear>
+                    </TimelineSection>
+                  </motion.div>
+                ))}
+              </TimelineSections>
+              <TimelineArrow />
+            </TimelineContainer>
+          </RoadmapContainer>
+        </motion.div>
 
-        <SectionSpacing>
-          <PlantInfoTitle>GTChem Facility at Scale</PlantInfoTitle>
-          <PlantInfoDescription>
-            Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
-          </PlantInfoDescription>
-          <PlantInfoDescription>
-            Placeholder Text
-          </PlantInfoDescription>
-          <motion.div
-            ref={imageRef}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <ImageContainer>
-              <PlantImage src={plantImage} alt="3D Design of our Chemical Plant" />
-              <ImageOverlay>
-                <Hotspot
-                  style={{ bottom: '45%', left: '32%' }}
-                  whileHover={{ scale: 1.2 }}
-                  onClick={() => handleHotspotClick(0)}
-                >
-                  <HotspotDot />
-                  <HotspotTooltip>
-                    <h4>{hotspotDetails[0].title}</h4>
-                  </HotspotTooltip>
-                </Hotspot>
-                <Hotspot
-                  style={{ bottom: '38%', left: '18%' }}
-                  whileHover={{ scale: 1.2 }}
-                  onClick={() => handleHotspotClick(3)}
-                >
-                  <HotspotDot />
-                  <HotspotTooltip>
-                    <h4>{hotspotDetails[3].title}</h4>
-                  </HotspotTooltip>
-                </Hotspot>
-                <Hotspot
-                  style={{ bottom: '52%', left: '20%' }}
-                  whileHover={{ scale: 1.2 }}
-                  onClick={() => handleHotspotClick(4)}
-                >
-                  <HotspotDot />
-                  <HotspotTooltip>
-                    <h4>{hotspotDetails[4].title}</h4>
-                  </HotspotTooltip>
-                </Hotspot>
-                <Hotspot
-                  style={{ top: '40%', left: '75%' }}
-                  whileHover={{ scale: 1.2 }}
-                  onClick={() => handleHotspotClick(1)}
-                >
-                  <HotspotDot />
-                  <HotspotTooltip>
-                    <h4>{hotspotDetails[1].title}</h4>
-                  </HotspotTooltip>
-                </Hotspot>
-                <Hotspot
-                  style={{ top: '70%', left: '40%' }}
-                  whileHover={{ scale: 1.2 }}
-                  onClick={() => handleHotspotClick(2)}
-                >
-                  <HotspotDot />
-                  <HotspotTooltip>
-                    <h4>{hotspotDetails[2].title}</h4>
-                  </HotspotTooltip>
-                </Hotspot>
-              </ImageOverlay>
-            </ImageContainer>
-          </motion.div>
-        </SectionSpacing>
+        <motion.div ref={competitiveRef} variants={sectionVariants} initial="hidden" animate={competitiveInView ? "visible" : "hidden"}>
+          <div className={styles.competitiveSection}>
+            <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
+            <CompetitiveHoverText>
+              Click to learn more
+            </CompetitiveHoverText>
+            <QuadrantContainer className={styles.quadrantContainer}>
+              {/* Axes */}
+              <Axis orientation="horizontal" color="#e53935" />
+              <Axis orientation="vertical" color="#25abe0" />
+              <Axis orientation="vertical-negative" color="#e53935" />
+              <Axis orientation="horizontal-positive" color="#25abe0" />
 
-        <SectionSpacing>
-          <RoadmapTitle>Product Development Roadmap</RoadmapTitle>
-          <RoadmapDescription>
-            Deploying modular turnkey systems followed by large integrated facilities.
-          </RoadmapDescription>
-          <ClickToLearnMore>Click on each TRL card to learn more.</ClickToLearnMore>
-          
-          <TimelineContainer>
-            <TimelineSections>
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: single2,
-                    title: 'Produced Reactor Tubes',
-                    year: '2024',
-                    description: 'Batches of 20 cm long reactor membranes.'
-                  })}
-                >
-                  <span>TRL 3</span>
-                </TimelineImage>
-                <TimelineTitle>Single Tube</TimelineTitle>
-                <TimelineYear>2024</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: extEval,
-                    title: 'Tube Bundle',
-                    year: '2025',
-                    description: 'First working 4-tube bundle prototype to optimize reactor core conditions.'
-                  })}
-                >
-                  <span>TRL 4</span>
-                </TimelineImage>
-                <TimelineTitle>Tube Bundle</TimelineTitle>
-                <TimelineYear>2025</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    image: benchtop1,
-                    title: 'Benchtop System',
-                    year: '2025-2026',
-                    description: 'Second working prototype to optimize reactor bundle integration with steel vessel and BOP.'
-                  })}
-                >
-                  <span>TRL 5</span>
-                </TimelineImage>
-                <TimelineTitle>Benchtop System</TimelineTitle>
-                <TimelineYear>2025-2026</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    images: [skid1, skid2],
-                    title: 'Modular Skid System',
-                    year: '2027+',
-                    description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities."
-                  })}
-                >
-                  <span>TRL 6/7</span>
-                </TimelineImage>
-                <TimelineTitle>Modular Skids</TimelineTitle>
-                <TimelineYear>2027+</TimelineYear>
-              </TimelineSection>
-              
-              <TimelineSection>
-                <TimelineImage 
-                  onClick={() => handleImageClick({
-                    images: [plant1, plant22],
-                    title: 'Plant',
-                    year: '2030+',
-                    description: 'Large-scale plant building block to enable 100+ ton per day facilities.'
-                  })}
-                >
-                  <span>TRL 8/9</span>
-                </TimelineImage>
-                <TimelineTitle>Plant</TimelineTitle>
-                <TimelineYear>2030+</TimelineYear>
-              </TimelineSection>
-            </TimelineSections>
-            <TimelineArrow />
-          </TimelineContainer>
-        </SectionSpacing>
+              {/* Axis Labels */}
+              <AxisLabel position="left-center" color="#e53935" offsetX={-2}>HIGH CO₂<br/>EMISSIONS</AxisLabel>
+              <AxisLabel position="bottom-center" color="#e53935" offsetY={2}>HIGHER LIFETIME COST<br/>AND MASSIVE</AxisLabel>
+              <AxisLabel position="right-center" color="#25abe0" offsetX={2}>LOW CO₂<br/>EMISSIONS</AxisLabel>
+              <AxisLabel position="top-center" color="#25abe0" offsetY={-2}>LOWER LIFETIME COST<br/>AND MODULAR</AxisLabel>
 
-        <SectionSpacing>
-          <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
-          <CompetitiveDescription>
-            Autothermal operation (reactor generates its own heat), low energy consumption, chemical production flexibility, and modular design provide unique value proposition.
-          </CompetitiveDescription>
-          <CompetitiveHoverText>
-            Hover to learn more
-          </CompetitiveHoverText>
-          <QuadrantContainer>
-            {/* Axes */}
-            <Axis orientation="horizontal" color="#e53935" />
-            <Axis orientation="vertical" color="#25abe0" />
-            <Axis orientation="vertical-negative" color="#e53935" />
-            <Axis orientation="horizontal-positive" color="#25abe0" />
-
-            {/* Axis Labels */}
-            <AxisLabel position="left-center" color="#e53935" offsetX={-2}>HIGH CO₂<br/>EMISSIONS</AxisLabel>
-            <AxisLabel position="bottom-center" color="#e53935" offsetY={2}>HIGHER LIFETIME COST<br/>AND MASSIVE</AxisLabel>
-            <AxisLabel position="right-center" color="#25abe0" offsetX={2}>LOW CO₂<br/>EMISSIONS</AxisLabel>
-            <AxisLabel position="top-center" color="#25abe0" offsetY={-2}>LOWER LIFETIME COST<br/>AND MODULAR</AxisLabel>
-
-            {/* Alchemity Box (no logo) */}
-            <AlchemityBox style={{ left: '58%', top: '20%' }}>
-              <span>
-                Absence of direct competitors due to chemical flexibility and low-cost modular nature of <b>Alchemity's Platform System.</b>
-              </span>
-            </AlchemityBox>
-
-            {/* Competitor Boxes */}
-            {boxes.map((box, idx) => (
-              box.type === 'logo' ? (
-                <img
-                  key={box.label}
-                  src={alchemityLogo}
-                  alt="Alchemity Logo"
-                  style={{
-                    position: 'absolute',
-                    left: `${box.x}%`,
-                    top: `${box.y}%`,
-                    width: 200,
-                    height: 100,
-                    objectFit: 'contain',
-                    background: 'none',
-                    border: 'none',
-                    boxShadow: 'none',
-                    pointerEvents: 'auto',
-                  }}
-                />
-              ) : (
-                <Box
-                  key={box.label}
-                  style={{
-                    left: `${box.x}%`,
-                    top: `${box.y}%`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    minHeight: box.type === 'logo' ? 60 : undefined,
-                    borderColor: [
-                      'Electrolyzers on grid',
-                      'Ethylene Steam Crackers',
-                      'Steam Methane Reforming (SMRs)'
-                    ].includes(box.label)
-                      ? '#e53935'
-                      : box.label === 'Smaller GTL Facilities'
-                        ? '#a16ffb'
-                        : undefined,
-                  }}
-                  onMouseEnter={() => {
-                    setHoveredBox(idx);
-                    setPopupPos({ x: box.x, y: box.y, label: box.label });
-                  }}
-                  onMouseLeave={() => {
-                    setHoveredBox(null);
-                    setPopupPos({ x: null, y: null, label: null });
-                  }}
-                >
-                  {box.label}
-                </Box>
-              )
-            ))}
-            {/* Render popup absolutely at the end, above all boxes */}
-            {hoveredBox !== null && popupPos.x !== null && popupPos.y !== null && (
-              <CompetitivePopup style={{
-                left: [
-                  'Photo-catalytic Reactors',
-                  'Pyrolysis'
-                ].includes(popupPos.label)
-                  ? `calc(${popupPos.x}% + 70px)`
-                  : `calc(${popupPos.x}% + 100px)`,
-                top: `calc(${popupPos.y}% - 20px)`,
-                transform: 'translate(-50%, -100%)',
-                position: 'absolute',
-                zIndex: 1000,
-                pointerEvents: 'none',
-              }}>
+              {/* Alchemity Box (no logo) */}
+              <AlchemityBox style={{ left: '58%', top: '20%' }} className={styles.alchemityBox}>
                 <span>
-                  {hoverTextData[popupPos.label] || 'Placeholder Text'}
+                  Absence of direct competitors due to chemical flexibility and low-cost modular nature of <b>Alchemity's Platform System.</b>
                 </span>
-              </CompetitivePopup>
-            )}
-          </QuadrantContainer>
-        </SectionSpacing>
+              </AlchemityBox>
+
+              {/* Competitor Boxes */}
+              {boxes.map((box, idx) => (
+                box.type === 'logo' ? (
+                  <img
+                    key={box.label}
+                    src={alchemityLogo}
+                    alt="Alchemity Logo"
+                    style={{
+                      position: 'absolute',
+                      left: `${box.x}%`,
+                      top: `${box.y}%`,
+                      width: 200,
+                      height: 100,
+                      objectFit: 'contain',
+                      background: 'none',
+                      border: 'none',
+                      boxShadow: 'none',
+                      pointerEvents: 'auto',
+                    }}
+                    className={styles.alchemityLogo}
+                  />
+                ) : (
+                  <Box
+                    key={box.label}
+                    style={{
+                      left: `${box.x}%`,
+                      top: `${box.y}%`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      minHeight: box.type === 'logo' ? 60 : undefined,
+                      borderColor: [
+                        'Electrolyzers on grid',
+                        'Ethylene Steam Crackers',
+                        'Steam Methane Reforming (SMRs)'
+                      ].includes(box.label)
+                        ? '#e53935'
+                        : box.label === 'Smaller GTL Facilities'
+                          ? '#a16ffb'
+                          : undefined,
+                    }}
+                    className={styles.quadrantBox}
+                    onMouseEnter={() => {
+                      setHoveredBox(idx);
+                      setPopupPos({ x: box.x, y: box.y, label: box.label });
+                    }}
+                    onMouseLeave={() => {
+                      setHoveredBox(null);
+                      setPopupPos({ x: null, y: null, label: null });
+                    }}
+                  >
+                    {box.label}
+                  </Box>
+                )
+              ))}
+              {/* Render popup absolutely at the end, above all boxes */}
+              {hoveredBox !== null && popupPos.x !== null && popupPos.y !== null && (
+                <CompetitivePopup style={{
+                  left: [
+                    'Photo-catalytic Reactors',
+                    'Pyrolysis'
+                  ].includes(popupPos.label)
+                    ? `calc(${popupPos.x}% + 70px)`
+                    : `calc(${popupPos.x}% + 100px)`,
+                  top: `calc(${popupPos.y}% - 20px)`,
+                  transform: 'translate(-50%, -100%)',
+                  position: 'absolute',
+                  zIndex: 1000,
+                  pointerEvents: 'none',
+                }} className={styles.competitivePopup}>
+                  <span>
+                    {hoverTextData[popupPos.label] || 'Placeholder Text'}
+                  </span>
+                </CompetitivePopup>
+              )}
+            </QuadrantContainer>
+          </div>
+        </motion.div>
 
         <Overlay show={selectedItem !== null} onClick={handleClosePopup} />
         <Modal
@@ -1240,7 +1600,7 @@ function Products() {
             flexDirection: 'column',
             alignItems: 'center',
             width: '100%'
-          }}>
+          }} className={styles.itemModal}>
             <div style={{ 
               display: 'flex',
               flexDirection: selectedItem?.title === 'Plant' ? 'column' : (selectedItem?.images ? 'row' : 'column'),
@@ -1249,7 +1609,7 @@ function Products() {
               marginBottom: '0rem',
               alignItems: 'center',
               width: '100%'
-            }}>
+            }} className={styles.modalImageContainer}>
               {selectedItem?.images ? (
                 selectedItem.images.map((image, index) => (
                   <img 
@@ -1263,6 +1623,7 @@ function Products() {
                       borderRadius: '8px',
                       margin: '0 auto'
                     }}
+                    className={styles.modalImage}
                   />
                 ))
               ) : (
@@ -1276,6 +1637,7 @@ function Products() {
                     borderRadius: '8px',
                     margin: '0 auto'
                   }}
+                  className={styles.modalImage}
                 />
               )}
             </div>
@@ -1283,7 +1645,7 @@ function Products() {
               width: '100%',
               display: 'flex',
               justifyContent: 'center'
-            }}>
+            }} className={styles.modalTextContainer}>
               <p style={{ 
                 color: '#ffffff', 
                 fontSize: '1.4rem',
@@ -1292,7 +1654,7 @@ function Products() {
                 textAlign: 'center',
                 maxWidth: '800px',
                 width: '100%'
-              }}>
+              }} className={styles.modalDescription}>
                 {selectedItem?.description}
               </p>
             </div>
@@ -1314,102 +1676,15 @@ function Products() {
               marginBottom: '0',
               paddingLeft: '0',
               listStyle: 'none',
-            }}>
+            }} className={styles.hotspotModalContent}>
               {hotspotDetails[selectedHotspot].description}
             </div>
           </Modal>
         )}
 
-        {/* GTChem-1 Popup */}
-        <Modal
-          show={gtchem1Popup}
-          onClose={() => {
-            setGtchem1Popup(false);
-            if (gtchem12VideoRef.current) {
-              gtchem12VideoRef.current.pause();
-              gtchem12VideoRef.current.currentTime = 0;
-            }
-          }}
-          title="GTChem-1 Details"
-          size="xlarge"
-          showCloseButton={true}
-        >
-          <div style={{ marginBottom: '0' }}>
-            <video 
-              ref={gtchem12VideoRef}
-              src={gtchem12Video}
-              style={{ 
-                width: '100%',
-                maxHeight: '350px',
-                objectFit: 'contain',
-                borderRadius: '8px',
-                marginBottom: '-1rem'
-              }}
-              muted
-              playsInline
-              autoPlay
-              onEnded={(e) => {
-                e.target.pause();
-                e.target.currentTime = e.target.duration - 0.1;
-              }}
-            />
-            <p style={{ 
-              color: '#ffffff', 
-              fontSize: '1.2rem',
-              lineHeight: '1.6',
-              marginBottom: '1.5rem'
-            }}>
-              The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs.
-              Alchemity is now accepting orders for GTChem-1.
-            </p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <ContactButton onClick={() => window.location.href = '/contact'}>
-                Place Order
-                <FaArrowRight style={{ fontSize: '0.9rem', transition: 'transform 0.3s ease' }} />
-              </ContactButton>
-            </div>
-          </div>
-        </Modal>
-
-        {/* GTChem-2 Popup */}
-        <Modal
-          show={gtchem2Popup}
-          onClose={() => setGtchem2Popup(false)}
-          title="GTChem-2 Details"
-          size="xlarge"
-          showCloseButton={true}
-        >
-          <div style={{ marginBottom: '0' }}>
-            <img 
-              src={gtchem22Image}
-              style={{ 
-                width: '100%',
-                maxHeight: '350px',
-                objectFit: 'contain',
-                borderRadius: '8px',
-                marginBottom: '-1rem'
-              }}
-              alt="GTChem-2 Details"
-            />
-            <p style={{ 
-              color: '#ffffff', 
-              fontSize: '1.2rem',
-              lineHeight: '1.6',
-              marginBottom: '1.5rem'
-            }}>
-              Engineered for industrial-scale deployment, the GTChem-2 platform maintains 95% system availability and incorporates multiple layers of safety and operational redundancy. It is optimized for seamless installation at both brownfield and greenfield sites, supporting flexible and efficient plant development.
-              Alchemity is now accepting capacity reservation orders for GTChem-2.
-            </p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <ContactButton onClick={() => window.location.href = '/contact'}>
-                Capacity Reservation Orders
-                <FaArrowRight style={{ fontSize: '0.9rem', transition: 'transform 0.3s ease' }} />
-              </ContactButton>
-            </div>
-          </div>
-        </Modal>
+        <GTChem1Popup />
       </div>
-    </>
+    </div>
   );
 }
 

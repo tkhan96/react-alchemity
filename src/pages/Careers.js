@@ -1,9 +1,12 @@
 import React from 'react';
 import ContactForm from '../components/ContactForm';
 import styles from './Contact.module.css';
+import careersStyles from './Careers.module.css';
 import PageHero from '../components/PageHero';
 import careersVideo from '../components/images/careers.mov';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const ContactButton = styled.button`
   display: inline-flex;
@@ -87,12 +90,7 @@ function Careers() {
       </div>
 
       {/* Job Postings Section */}
-      <div style={{ 
-        maxWidth: '1200px', 
-        margin: '-2rem auto 4rem auto', 
-        padding: '0 2rem',
-        backgroundColor: '#000000'
-      }}>
+      <div className={careersStyles.jobPostingsSection}>
         <h2 style={{ 
           fontSize: '40px',
           color: '#25abe0',
@@ -104,22 +102,9 @@ function Careers() {
           Job Postings
         </h2>
         
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '1fr 1fr', 
-          gap: '2rem',
-          marginTop: '2rem'
-        }}>
+        <div className={careersStyles.jobGrid}>
           {/* Engineer Position Card */}
-          <div style={{ 
-            backgroundColor: '#1a1a1a', 
-            padding: '2rem',
-            borderRadius: '8px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            textAlign: 'center'
-          }}>
+          <div className={careersStyles.jobCard}>
             <h3 style={{ color: '#ffffff', fontSize: '1.5rem' }}>
               Engineer Position Description
               <br />
@@ -135,15 +120,7 @@ function Careers() {
           </div>
 
           {/* Technician Position Card */}
-          <div style={{ 
-            backgroundColor: '#1a1a1a', 
-            padding: '2rem',
-            borderRadius: '8px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            textAlign: 'center'
-          }}>
+          <div className={careersStyles.jobCard}>
             <h3 style={{ color: '#ffffff', fontSize: '1.5rem' }}>
               Technician (multiple levels) - Intern - Co-Op
               <br />

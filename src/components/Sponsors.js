@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './Sponsors.module.css';
@@ -15,20 +15,48 @@ function Sponsors() {
     threshold: 0.1,
   });
 
+  const scrollerRef = useRef(null);
+  const [scrollerWidth, setScrollerWidth] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Define sponsors only once
   const sponsors = [
-    { name: "University of Maryland", logo: umd },
-    { name: "Shell", logo: shell },
-    { name: "ARPA-E", logo: arpa },
-    { name: "MIL", logo: mil },
-    { name: "TEDCO", logo: tedco },
-    // Duplicate the first set to create seamless loop
-    { name: "University of Maryland", logo: umd },
-    { name: "Shell", logo: shell },
-    { name: "ARPA-E", logo: arpa },
-    { name: "MIL", logo: mil },
-    { name: "TEDCO", logo: tedco }
+    { name: "University of Maryland", logo: umd, id: 1 },
+    { name: "Shell", logo: shell, id: 2 },
+    { name: "ARPA-E", logo: arpa, id: 3 },
+    { name: "MIL", logo: mil, id: 4 },
+    { name: "TEDCO", logo: tedco, id: 5 },
   ];
-
+  
+  // Create doubled array for seamless scrolling
+  const allSponsors = [...sponsors, ...sponsors, ...sponsors];
+  
+  // Manage scroller initialization after images load
+  useEffect(() => {
+    let loadedImages = 0;
+    const totalImages = sponsors.length;
+    
+    const handleImageLoad = () => {
+      loadedImages += 1;
+      if (loadedImages === totalImages && scrollerRef.current) {
+        setIsLoaded(true);
+        const width = scrollerRef.current.scrollWidth / 3;
+        setScrollerWidth(width);
+      }
+    };
+    
+    // Preload images to get accurate dimensions
+    sponsors.forEach(sponsor => {
+      const img = new Image();
+      img.src = sponsor.logo;
+      img.onload = handleImageLoad;
+    });
+    
+    return () => {
+      // Clean up any event listeners if needed
+    };
+  }, [sponsors]);
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -77,15 +105,29 @@ function Sponsors() {
           className={styles.sponsorsCarousel}
           variants={itemVariants}
         >
-          <div className={styles.carouselTrack}>
-            {sponsors.map((sponsor, index) => (
-              <div 
-                key={index}
-                className={styles.sponsorCard}
-              >
-                <img src={sponsor.logo} alt={sponsor.name} className={styles.sponsorLogo} />
-              </div>
-            ))}
+          <div className={styles.carouselContainer}>
+            <div 
+              ref={scrollerRef}
+              className={styles.carouselScroller}
+              style={{
+                '--sponsor-width': `${scrollerWidth}px`,
+                '--animation-status': isLoaded ? 'running' : 'paused'
+              }}
+            >
+              {allSponsors.map((sponsor, index) => (
+                <div 
+                  key={`${sponsor.id}-${index}`}
+                  className={styles.sponsorCard}
+                >
+                  <img 
+                    src={sponsor.logo} 
+                    alt={sponsor.name} 
+                    className={styles.sponsorLogo} 
+                    loading={index < 5 ? "eager" : "lazy"}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </motion.div>

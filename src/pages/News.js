@@ -51,6 +51,19 @@ const lastArticleStyle = {
   margin: '0 auto',
 };
 
+const articleVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+};
+
 const newsArticles = [
   {
     title: "Reactor Turns Methane to Hydrocarbons Without CO₂",
@@ -114,12 +127,19 @@ function News() {
         </motion.h2>
         <div style={articlesGridStyle}>
           {newsArticles.map((article, index) => (
-            <div key={index} style={index === newsArticles.length - 1 ? lastArticleStyle : {}}>
+            <motion.div
+              key={index}
+              style={index === newsArticles.length - 1 ? lastArticleStyle : {}}
+              custom={index}
+              variants={articleVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <NewsArticle
                 index={index}
                 {...article}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -11,12 +11,14 @@ import founder3 from '../components/images/founder3.jpg';
 import advisor1 from '../components/images/advisor1.png';
 import advisor2 from '../components/images/advisor2.jpg';
 import advisor3 from '../components/images/advisor3.jpg';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const founders = [
   {
     id: 2,
     name: 'Rodger McKain, Ph.D.',
-    title: 'Chief Executive Officer',
+    title: 'CEO',
     blurb: '30 years as Fortune 500 Executive',
     bio: [
       'Rodger brings expertise in building large businesses and succesful exit strategies.',
@@ -33,7 +35,7 @@ const founders = [
   {
     id: 3,
     name: 'Emir Dogdibegovic, Ph.D.',
-    title: 'Chief Technology and Commercialization Officer',
+    title: 'CTO and CCO',
     blurb: '15 years Development, Scaleup, and Deployment of Clean Energy Technologies',
     bio: [
       'Emir brings the associated executive management know-how and strategic expertise in customer acquisition, project development, product scaleup, deployment, and revenue generation.',
@@ -156,6 +158,20 @@ const linkedinButtonStyle = {
   transition: 'background-color 0.3s ease',
 };
 
+// Add animation variants after imports
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+};
+
 function About() {
   const [showModal, setShowModal] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
@@ -273,33 +289,45 @@ function About() {
       <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000'}}>
         <h2 style={{...titleStyle, marginTop: '0'}}>Founders</h2>
         <div style={founderGridStyle}>
-          {founders.map((founder) => (
-            <ProfileCard
-              key={founder.id}
-              name={founder.name}
-              title={founder.title}
-              imageUrl={founder.imageUrl}
-              linkedInUrl={founder.linkedInUrl}
-              blurb={founder.blurb}
-              onClick={() => handleOpenModal(founder)}
-              isEric={founder.id === 1}
-            />
+          {founders.map((founder, index) => (
+            <motion.div
+              key={founder.name}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <ProfileCard
+                key={founder.name}
+                {...founder}
+                id={`founder-${index + 1}`}
+                onClick={() => handleOpenModal(founder)}
+              />
+            </motion.div>
           ))}
         </div>
 
-        <h2 style={{...titleStyle, marginTop: '8rem'}}>Advisors</h2>
+        <h2 style={{...titleStyle, marginTop: '4rem'}}>Advisors</h2>
         <div style={advisorGridStyle}>
-          {advisors.map((advisor) => (
-            <ProfileCard
+          {advisors.map((advisor, index) => (
+            <motion.div
               key={advisor.id}
-              name={advisor.name}
-              title={advisor.title}
-              imageUrl={advisor.imageUrl}
-              blurb={advisor.blurb}
-              onClick={() => handleOpenModal(advisor)}
-              isAdvisor={true}
-              linkedInUrl={advisor.linkedInUrl}
-            />
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <ProfileCard
+                name={advisor.name}
+                title={advisor.title}
+                imageUrl={advisor.imageUrl}
+                blurb={advisor.blurb}
+                onClick={() => handleOpenModal(advisor)}
+                isAdvisor={true}
+                linkedInUrl={advisor.linkedInUrl}
+                id={`advisor-${index + 1}`}
+              />
+            </motion.div>
           ))}
         </div>
 

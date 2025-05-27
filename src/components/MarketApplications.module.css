@@ -36,14 +36,15 @@
   text-align: center;
   margin: 0 auto;
   width: 100%;
-  padding: 0 1.5rem;
+  padding: 0;
+  max-width: 1200px;
 }
 
 .textContainer h2 {
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0.8rem;
   color: #25abe0;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .textContainer p {
@@ -51,8 +52,8 @@
   color: #ffffff;
   line-height: 1.6;
   text-align: center;
-  margin: -2rem auto 3rem auto;
-  max-width: none;
+  margin: 0 auto 3rem auto;
+  max-width: 1000px;
 }
 
 /* Carousel Styles */
