@@ -175,7 +175,6 @@ function VideoSection() {
             <h2 className={styles.cardTitle}>Our Vision</h2>
             <p className={styles.cardText}>
               {emphasizeText("To accelerate the global transition to clean chemical production with less capital-intensive process.")}
-              {emphasizeText("To accelerate the global transition to clean chemical production with less capital-intensive process.")}
             </p>
           </div>
         </div>

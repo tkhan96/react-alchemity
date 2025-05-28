@@ -114,11 +114,6 @@
   user-select: none;
 }
 
-.sponsorCard:hover .sponsorLogo {
-  opacity: 1;
-  filter: grayscale(0%) brightness(1) contrast(1);
-}
-
 /* Specific styling for UMD logo */
 .sponsorCard:nth-child(5n+1) .sponsorLogo {
   height: 140px;
@@ -130,10 +125,6 @@
 /* Specific styling for ARPA-E logo */
 .sponsorCard:nth-child(5n+3) .sponsorLogo {
   filter: grayscale(100%) brightness(1.5) contrast(0.8);
-}
-
-.sponsorCard:nth-child(5n+3):hover .sponsorLogo {
-  filter: grayscale(0%) brightness(1) contrast(1);
 }
 
 /* Specific styling for MIL logo */
@@ -189,11 +180,4 @@
     gap: 1rem;
     animation-duration: 15s;
   }
-}
-
-.sponsorCard:nth-child(4):hover .sponsorLogo,
-.sponsorCard:nth-child(8):hover .sponsorLogo,
-.sponsorCard:nth-child(12):hover .sponsorLogo,
-.sponsorCard:nth-child(16):hover .sponsorLogo {
-  filter: invert(0%);
 }

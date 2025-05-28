@@ -209,6 +209,7 @@ const firstMarketsContainerStyle = {
   borderRadius: '16px',
   padding: '0',
   margin: '0',
+  marginTop: '-0.4rem',
   backgroundColor: 'transparent',
   zIndex: 1,
 };
@@ -475,14 +476,6 @@ function Markets() {
 
   const images = [
     { 
-      src: waste, 
-      title: 'Waste Gas', 
-      isFirstMarket: true,
-      marketSize: '$7.5B (untapped)',
-      futureMarketSize: '$9.5B by 2030',
-      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity\'s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
-    },
-    { 
       src: saf, 
       title: 'SAF', 
       isFirstMarket: true,
@@ -497,6 +490,14 @@ function Markets() {
       marketSize: '$243B',
       futureMarketSize: '$411B by 2030',
       description: 'Current dominant hydrogen production method, steam methane reforming (SMR), emits ~9.4 kg CO₂/kg H₂, while grid-powered electrolysis can reach up to 22 kg CO₂/kg H₂. With energy use driving over 70% of lifetime costs, scaling hydrogen without raising emissions is difficult until the grid is decarbonized. Our Platform Reactor System offers a cleaner alternative—producing hydrogen from methane via a non-oxidative process while converting carbon into valuable chemicals, strengthening U.S. energy and economic security.'
+    },
+    { 
+      src: syngas, 
+      title: 'Syngas', 
+      isFirstMarket: true,
+      marketSize: '$59B',
+      futureMarketSize: '$105B by 2030',
+      description: 'Placeholder.....'
     },
     { 
       src: biogas, 
@@ -523,20 +524,20 @@ function Markets() {
       description: 'Placeholder......'
     },
     { 
-      src: syngas, 
-      title: 'Syngas', 
-      isFirstMarket: true,
-      marketSize: '$59B',
-      futureMarketSize: '$105B by 2030',
-      description: 'Placeholder.....'
-    },
-    { 
       src: benzene, 
       title: 'Benzene', 
       isFirstMarket: false,
       marketSize: '$40B',
       futureMarketSize: '$71B by 2030',
       description: 'Placeholder.....'
+    },
+    { 
+      src: waste, 
+      title: 'Waste Gas', 
+      isFirstMarket: true,
+      marketSize: '$7.5B (untapped)',
+      futureMarketSize: '$9.5B by 2030',
+      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity\'s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
     }
   ];
 

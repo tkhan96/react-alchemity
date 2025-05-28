@@ -72,6 +72,7 @@ const Card = styled.div`
     color: #25abe0;
     font-weight: 600;
     font-size: 1.7rem;
+    text-align: center;
   }
 
   p {
@@ -83,6 +84,7 @@ const Card = styled.div`
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-align: left;
   }
 `;
 
@@ -483,10 +485,10 @@ const CompetitiveDescription = styled.p`
 `;
 
 const CompetitiveHoverText = styled.p`
-  color: #ffffff;
+  color: #25abe0;
   font-size: 1.5rem;
   text-align: center;
-  font-weight: 400;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: -3.5rem;
   
@@ -587,7 +589,7 @@ const Box = styled.div`
   padding: 0.6rem 0.7rem;
   background: #000;
   color: #fff;
-  border: 2px solid #a16ffb;
+  border: 2px solid #FFFF00;
   border-radius: 10px;
   font-size: 0.95rem;
   text-align: center;
@@ -622,38 +624,39 @@ const Box = styled.div`
   }
 `;
 
-const AlchemityBox = styled(Box)`
-  min-width: 220px;
-  max-width: 320px;
+const AlchemityText = styled.div`
+  position: absolute;
+  left: 54%;
+  top: 18%;
+  min-width: 300px;
+  max-width: 400px;
   padding: 1rem 1.2rem;
-  border: 2px solid #25abe0;
-  background: rgba(20,20,20,0.95);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1rem;
-  color: #fff;
-  box-shadow: 0 0 24px 2px rgba(37,171,224,0.25);
+  background: transparent;
+  color: #25abe0;
+  font-size: 1.4rem;
+  font-family: 'Aptos', sans-serif;
+  text-align: center;
+  z-index: 3;
   
   @media (max-width: 768px) {
-    min-width: 180px;
-    max-width: 260px;
+    min-width: 250px;
+    max-width: 320px;
     padding: 0.8rem 1rem;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
   
   @media (min-width: 769px) and (max-width: 1024px) {
-    min-width: 180px;
-    max-width: 260px;
+    min-width: 280px;
+    max-width: 360px;
     padding: 0.7rem 1rem;
-    font-size: 0.85rem;
+    font-size: 1.3rem;
   }
   
   @media (min-width: 2560px) {
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 400px;
+    max-width: 500px;
     padding: 1.5rem 1.8rem;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 `;
 
@@ -1041,17 +1044,17 @@ function Products() {
   const boxes = [
     // Top left (lower cost, high CO2)
     { label: 'Alchemity', x: 86, y: 2, type: 'logo' },
-    { label: 'Smaller GTL Facilities', x: 25, y: 32 },
+    { label: 'Smaller GTL Facilities', x: 30, y: 32 },
     // Top right (lower cost, low CO2)
     { label: 'Biomass Gasification', x: 52, y: 54 },
     { label: 'Photo-catalytic Reactors', x: 85, y: 54 },
-    { label: 'Pyrolysis', x: 95, y: 68 },
-    { label: 'Electrolyzers with renewables', x: 73, y: 80 },
-    { label: 'Plasma assisted reactions', x: 60, y: 67 },
+    { label: 'Pyrolysis', x: 90, y: 68 },
+    { label: 'Electrolyzers with renewables', x: 78, y: 78 },
+    { label: 'Plasma assisted reactions', x: 55, y: 65 },
     // Bottom left (higher cost, high CO2)
-    { label: 'Electrolyzers on grid', x: -5, y: 61 },
+    { label: 'Electrolyzers on grid', x: -5, y: 90 },
     { label: 'Ethylene Steam Crackers', x: 10, y: 74 },
-    { label: 'Steam Methane Reforming (SMRs)', x: 25, y: 86 },
+    { label: 'Steam Methane Reforming (SMRs)', x: 25, y: 84 },
   ];
 
   // Add your hover text here
@@ -1485,27 +1488,25 @@ function Products() {
           <div className={styles.competitiveSection}>
             <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
             <CompetitiveHoverText>
-              Click to learn more
+              Click/Hover to learn more
             </CompetitiveHoverText>
             <QuadrantContainer className={styles.quadrantContainer}>
               {/* Axes */}
               <Axis orientation="horizontal" color="#e53935" />
-              <Axis orientation="vertical" color="#25abe0" />
+              <Axis orientation="vertical" color="#00B050" />
               <Axis orientation="vertical-negative" color="#e53935" />
-              <Axis orientation="horizontal-positive" color="#25abe0" />
+              <Axis orientation="horizontal-positive" color="#00B050" />
 
               {/* Axis Labels */}
               <AxisLabel position="left-center" color="#e53935" offsetX={-2}>HIGH CO₂<br/>EMISSIONS</AxisLabel>
-              <AxisLabel position="bottom-center" color="#e53935" offsetY={2}>HIGHER LIFETIME COST<br/>AND MASSIVE</AxisLabel>
-              <AxisLabel position="right-center" color="#25abe0" offsetX={2}>LOW CO₂<br/>EMISSIONS</AxisLabel>
-              <AxisLabel position="top-center" color="#25abe0" offsetY={-2}>LOWER LIFETIME COST<br/>AND MODULAR</AxisLabel>
+              <AxisLabel position="bottom-center" color="#e53935" offsetY={2}>HIGHER LIFETIME COST<br/>AND MASSIVE INFRASTRUCTURE</AxisLabel>
+              <AxisLabel position="right-center" color="#00B050" offsetX={2}>LOW CO₂<br/>EMISSIONS</AxisLabel>
+              <AxisLabel position="top-center" color="#00B050" offsetY={-2}>LOWER LIFETIME COST<br/>AND MODULAR SCALABILITY</AxisLabel>
 
-              {/* Alchemity Box (no logo) */}
-              <AlchemityBox style={{ left: '58%', top: '20%' }} className={styles.alchemityBox}>
-                <span>
-                  Absence of direct competitors due to chemical flexibility and low-cost modular nature of <b>Alchemity's Platform System.</b>
-                </span>
-              </AlchemityBox>
+              {/* Replace AlchemityBox with AlchemityText */}
+              <AlchemityText>
+                Platform Product: unique combination of chemical flexibility, low emissions and low-cost.
+              </AlchemityText>
 
               {/* Competitor Boxes */}
               {boxes.map((box, idx) => (
@@ -1519,11 +1520,10 @@ function Products() {
                       left: `${box.x}%`,
                       top: `${box.y}%`,
                       width: 200,
-                      height: 100,
+                      height: 60,
                       objectFit: 'contain',
                       background: 'none',
-                      border: 'none',
-                      boxShadow: 'none',
+                      border: '2px solid #25abe0',
                       pointerEvents: 'auto',
                     }}
                     className={styles.alchemityLogo}
@@ -1545,7 +1545,7 @@ function Products() {
                       ].includes(box.label)
                         ? '#e53935'
                         : box.label === 'Smaller GTL Facilities'
-                          ? '#a16ffb'
+                          ? '#FFFF00'
                           : undefined,
                     }}
                     className={styles.quadrantBox}
@@ -1591,7 +1591,7 @@ function Products() {
           show={selectedItem !== null}
           onClose={handleClosePopup}
           title={selectedItem ? `${selectedItem.title} (${selectedItem.year})` : ''}
-          size="xlarge"
+          size={selectedItem?.title === 'Plant' ? "xlarge" : "xlarge"}
           showCloseButton={true}
         >
           <div style={{ 
@@ -1603,7 +1603,7 @@ function Products() {
           }} className={styles.itemModal}>
             <div style={{ 
               display: 'flex',
-              flexDirection: selectedItem?.title === 'Plant' ? 'column' : (selectedItem?.images ? 'row' : 'column'),
+              flexDirection: 'row',
               gap: '1rem',
               justifyContent: 'center',
               marginBottom: '0rem',
@@ -1617,7 +1617,7 @@ function Products() {
                     src={image} 
                     alt={`${selectedItem.title} ${index + 1}`}
                     style={{
-                      width: selectedItem?.title === 'Plant' ? '60%' : '45%',
+                      width: selectedItem?.title === 'Plant' ? '50%' : '45%',
                       maxHeight: '350px',
                       objectFit: 'contain',
                       borderRadius: '8px',

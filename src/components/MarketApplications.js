@@ -19,7 +19,7 @@ const MarketTitle = styled.h2`
   color: #25abe0;
   margin-bottom: 1.2rem;
   text-align: center;
-  font-weight: 500;
+  font-weight: 900;
 `;
 
 const MarketDescription = styled.p`
@@ -39,14 +39,14 @@ function MarketApplications() {
   });
 
   const images = [
-    { src: waste, title: 'Waste Gas' },
     { src: saf, title: 'SAF' },
     { src: hydrogen, title: 'Hydrogen' },
+    { src: syngas, title: 'Syngas' },
     { src: biogas, title: 'RNG, Biogas' },
     { src: ethylene, title: 'Ethylene' },
     { src: ethane, title: 'Ethane' },
-    { src: syngas, title: 'Syngas' },
-    { src: benzene, title: 'Benzene' }
+    { src: benzene, title: 'Benzene' },
+    { src: waste, title: 'Waste Gas' }
   ];
 
   const containerVariants = {

@@ -11,6 +11,7 @@ import animationTech from '../components/images/techanim.mov';
 import herotech from '../components/images/headeranim.mov';
 import membrane1 from '../components/images/membrane.png';
 import membrane2 from '../components/images/membrane2.png';
+import platform from '../components/images/platform.png';
 import styles from '../components/ProfileCard.module.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -129,7 +130,7 @@ const videoStyle = {
 
 const bulletPointsStyle = {
   color: '#ffffff',
-  fontSize: '18px',
+  fontSize: '14px',
   lineHeight: '1.8',
   marginBottom: '0',
   paddingLeft: '0',
@@ -185,6 +186,58 @@ const graphStyle = {
   marginBottom: '1rem',
   minHeight: '150px',
   maxHeight: '250px',
+  
+  '@media (max-width: 768px)': {
+    minHeight: '120px',
+    maxHeight: '200px',
+  },
+  
+  '@media (min-width: 769px) and (max-width: 1024px)': {
+    minHeight: '130px',
+    maxHeight: '220px',
+  },
+  
+  '@media (min-width: 1025px) and (max-width: 1440px)': {
+    minHeight: '140px',
+    maxHeight: '240px',
+  },
+  
+  '@media (min-width: 2560px)': {
+    minHeight: '200px',
+    maxHeight: '350px',
+  }
+};
+
+const responsiveGraphStyle = {
+  width: '100%',
+  height: 'auto',
+  objectFit: 'contain',
+  marginBottom: '1rem',
+  marginTop: '0.625rem',
+  minHeight: '150px',
+  maxHeight: '250px',
+};
+
+const responsiveGraphContainerStyle = {
+  width: '100%',
+  height: '250px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: '1rem',
+  marginTop: '0.625rem',
+  '@media (max-width: 768px)': {
+    height: '200px',
+  },
+  '@media (min-width: 769px) and (max-width: 1024px)': {
+    height: '220px',
+  },
+  '@media (min-width: 1025px) and (max-width: 1440px)': {
+    height: '240px',
+  },
+  '@media (min-width: 2560px)': {
+    height: '350px',
+  }
 };
 
 const modalContentStyle = {
@@ -422,7 +475,7 @@ function Technology() {
           ))}
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '2rem'}}>From Natural Gas To Chemicals</h1>
+        <h1 style={{...titleStyle, marginTop: '2rem'}}>From Biomass to SAF without CO₂ emissions</h1>
         <video 
           ref={animationVideoRef}
           src={animationTech} 
@@ -430,7 +483,7 @@ function Technology() {
           muted 
           playsInline
         />
-        <h1 style={{...titleStyle, marginTop: '4rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
+        <h1 style={{...titleStyle, marginTop: '5rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
         <p style={{
           fontSize: '1.6rem',
           color: '#ffffff',
@@ -527,7 +580,19 @@ function Technology() {
               </div>
             </div>
             <div style={modalColumnStyle}>
-              <img src={graph2} alt="Graph 2" style={{...graphStyle, marginTop: '0.625rem'}} />
+              <img 
+                src={graph2} 
+                alt="Graph 2" 
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  marginBottom: '1rem',
+                  marginTop: '0.625rem',
+                  maxWidth: '100%',
+                  maxHeight: '250px'
+                }} 
+              />
               <h3 style={{...modalSubtitleStyle, marginBottom: '0.5rem', marginTop: '0.375rem'}}>Wide Product Selectivity</h3>
               <div style={{...modalTextStyle, marginTop: '0.125rem'}}>
                 <div style={bulletPointStyle}>Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.</div>
@@ -544,12 +609,27 @@ function Technology() {
           size="xxlarge"
           showCloseButton={true}
         >
-          <div style={{...modalContentStyle, flexDirection: 'column'}}>
-            <div style={bulletPointsStyle}>
-              <div style={bulletPointStyle}>The process is non-oxidative single step conversion of methane from various feedstock (conventional natural gas, renewable natural gas, biogas) to clean chemicals and fuels with zero CO2 emissions. The patented ceramic membrane reactor (made from strontimum cerate) is filled with a non-oxidative catalyst (low-cost iron-silica) and the patented assembly is housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
-              <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier's Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
-              <div style={bulletPointStyle}>The membrane's ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
-              <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
+          <div style={{...modalContentStyle, flexDirection: 'row', gap: '2rem'}}>
+            <div style={{...modalColumnStyle, width: '40%'}}>
+              <img 
+                src={platform} 
+                alt="Platform" 
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  marginBottom: '1rem',
+                  marginTop: '1rem'
+                }} 
+              />
+            </div>
+            <div style={{...modalColumnStyle, width: '60%'}}>
+              <div style={bulletPointsStyle}>
+                <div style={bulletPointStyle}>The process is non-oxidative single step conversion of methane from various feedstock (conventional natural gas, renewable natural gas, biogas) to clean chemicals and fuels with zero CO2 emissions. The patented ceramic membrane reactor (made from strontimum cerate) is filled with a non-oxidative catalyst (low-cost iron-silica) and the patented assembly is housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
+                <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier's Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
+                <div style={bulletPointStyle}>The membrane's ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
+                <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
+              </div>
             </div>
           </div>
         </Modal>

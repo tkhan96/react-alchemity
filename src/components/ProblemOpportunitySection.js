@@ -42,23 +42,19 @@ const ProblemOpportunitySection = () => {
         >
           <motion.div className={styles.textContent}>
             <motion.h2 className={styles.title} variants={itemVariants}>
-              <span style={{ color: '#fff' }}>Problem and</span> Opportunity
+              TODAY: 1 kg CO<sub>2</sub> emitted PER $1 in chemicals
             </motion.h2>
-            <motion.p className={styles.text} variants={itemVariants}>
-              Chemical production is capital intensive,
-              requires large facilities and massive
-              production volumes.
+            <motion.p className={styles.highlightText} variants={itemVariants}>
+              Currently massive facilities & production volumes to achieve economies of scale.
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
-              Global chemical and oil & gas industry
-              account for six giga tons
-              of CO<sub>2</sub> emissions annually.
+              Chemical and oil & gas industry
             </motion.p>
-            <motion.p className={styles.highlightText} variants={itemVariants}>
-              Lower Cost and CO<sub>2</sub> Emissions Gamechanger is Needed…
+            <motion.p className={styles.text} variants={itemVariants}>
+              $6 trillion market
             </motion.p>
-            <motion.p className={styles.highlightText} variants={itemVariants}>
-              Our Platform Technology provides Clean Chemicals with Lower Capital Risk and Higher Efficiency!
+            <motion.p className={styles.text} variants={itemVariants}>
+              6 giga-tons of CO<sub>2</sub> emissions annually
             </motion.p>
           </motion.div>
 
