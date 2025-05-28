@@ -142,10 +142,10 @@ function VideoSection() {
       <div className={styles.videoOverlay}></div>
       
       <div className={styles.contentOverlay}>
-        <h2 className={styles.sectionHeading}>Transforming Clean Clemical Production</h2>
+        <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
         
         <p className={styles.videoDescription}>
-        Scaling Production at Lower Cost with <br /> Modular Turn-Key Reactor Systems.
+        Scaling Production at Lower Cost with <br /> Modular Turn-Key Reactor System.
         </p>
 
         <div className={styles.keyPhrasesContainer}>
@@ -174,8 +174,8 @@ function VideoSection() {
           <div className={styles.vision}>
             <h2 className={styles.cardTitle}>Our Vision</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To accelerate the global transition to clean chemical production with less capital-intensive process.")}
-              {emphasizeText("To accelerate the global transition to clean chemical production with less capital-intensive process.")}
+              {emphasizeText("To accelerate the global transition to clean chemical production without clean premium.")}
+            
             </p>
           </div>
         </div>
