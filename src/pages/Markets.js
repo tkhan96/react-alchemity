@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
+import styles from './Markets.module.css';
 
 import marketsBg from '../components/images/market.avif';
 
@@ -207,6 +209,7 @@ const firstMarketsContainerStyle = {
   borderRadius: '16px',
   padding: '0',
   margin: '0',
+  marginTop: '-0.4rem',
   backgroundColor: 'transparent',
   zIndex: 1,
 };
@@ -223,6 +226,15 @@ const firstMarketsContentStyle = {
   display: 'flex',
   gap: '1.5rem',
   marginTop: '0.25rem',
+};
+
+const firstMarketsTitleCenteredStyle = {
+  color: '#25abe0',
+  fontSize: '36px',
+  fontWeight: '600',
+  textAlign: 'center',
+  margin: '0 0 1rem 0',
+  width: '100%'
 };
 
 const firstMarketBoxStyle = (index) => ({
@@ -418,22 +430,51 @@ const heroKeyframes = `
   }
 `;
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+};
+
+// Update the Second Markets title style to match First Markets style
+const secondMarketsTitleStyle = {
+  color: '#000000',
+  fontSize: '36px',
+  fontWeight: '600',
+  textAlign: 'center',
+  margin: '0 0 1rem 0',
+  width: '100%'
+};
+
+// Add a style to adjust the gap between market sections
+const marketSectionsStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '1rem' // Reduced gap between the sections (was 3rem by default)
+};
+
 function Markets() {
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [currentPosition, setCurrentPosition] = useState(0);
-  const carouselRef = useRef(null);
   const [selectedMarket, setSelectedMarket] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const images = [
-    { 
-      src: waste, 
-      title: 'Waste Gas', 
-      isFirstMarket: true,
-      marketSize: '$7.5B (untapped)',
-      futureMarketSize: '$9.5B by 2030',
-      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity\'s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
-    },
     { 
       src: saf, 
       title: 'SAF', 
@@ -449,6 +490,14 @@ function Markets() {
       marketSize: '$243B',
       futureMarketSize: '$411B by 2030',
       description: 'Current dominant hydrogen production method, steam methane reforming (SMR), emits ~9.4 kg CO₂/kg H₂, while grid-powered electrolysis can reach up to 22 kg CO₂/kg H₂. With energy use driving over 70% of lifetime costs, scaling hydrogen without raising emissions is difficult until the grid is decarbonized. Our Platform Reactor System offers a cleaner alternative—producing hydrogen from methane via a non-oxidative process while converting carbon into valuable chemicals, strengthening U.S. energy and economic security.'
+    },
+    { 
+      src: syngas, 
+      title: 'Syngas', 
+      isFirstMarket: true,
+      marketSize: '$59B',
+      futureMarketSize: '$105B by 2030',
+      description: 'Placeholder.....'
     },
     { 
       src: biogas, 
@@ -475,45 +524,22 @@ function Markets() {
       description: 'Placeholder......'
     },
     { 
-      src: syngas, 
-      title: 'Syngas', 
-      isFirstMarket: true,
-      marketSize: '$59B',
-      futureMarketSize: '$105B by 2030',
-      description: 'Placeholder.....'
-    },
-    { 
       src: benzene, 
       title: 'Benzene', 
       isFirstMarket: false,
       marketSize: '$40B',
       futureMarketSize: '$71B by 2030',
       description: 'Placeholder.....'
+    },
+    { 
+      src: waste, 
+      title: 'Waste Gas', 
+      isFirstMarket: true,
+      marketSize: '$7.5B (untapped)',
+      futureMarketSize: '$9.5B by 2030',
+      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity\'s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
     }
   ];
-
-  const handleMouseDown = (e) => {
-    e.preventDefault();
-    setIsDragging(true);
-    setStartX(e.clientX);
-    if (carouselRef.current) {
-      const style = window.getComputedStyle(carouselRef.current);
-      const matrix = new DOMMatrix(style.transform);
-      setCurrentPosition(matrix.m41);
-    }
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    const deltaX = e.clientX - startX;
-    if (carouselRef.current) {
-      carouselRef.current.style.transform = `translateX(${currentPosition + deltaX}px)`;
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
 
   const handleWheel = (e) => {
     if (carouselRef.current) {
@@ -523,7 +549,7 @@ function Markets() {
   };
 
   return (
-    <>
+    <div className={styles.responsiveContainer}>
       <style>{heroKeyframes}</style>
       <style>{keyframes}</style>
       <style>{scrollbarStyles}</style>
@@ -533,7 +559,7 @@ function Markets() {
           title="Markets"
           style={{ marginTop: '-300px' }}
         />
-        <div style={heroCarouselStyle}>
+        <div style={heroCarouselStyle} className={styles.heroCarouselContainer}>
           <div style={heroCarouselTrackStyle}>
             {images.map((item, index) => (
               <div key={index} style={heroImageContainerStyle}>
@@ -541,8 +567,9 @@ function Markets() {
                   src={item.src}
                   alt={item.title}
                   style={heroCarouselImageStyle}
+                  className={styles.heroImage}
                 />
-                <p style={heroImageTitleStyle}>{item.title}</p>
+                <p style={heroImageTitleStyle} className={styles.heroImageTitle}>{item.title}</p>
               </div>
             ))}
             {images.map((item, index) => (
@@ -551,26 +578,27 @@ function Markets() {
                   src={item.src}
                   alt={item.title}
                   style={heroCarouselImageStyle}
+                  className={styles.heroImage}
                 />
-                <p style={heroImageTitleStyle}>{item.title}</p>
+                <p style={heroImageTitleStyle} className={styles.heroImageTitle}>{item.title}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div style={sectionStyle}>
-        <p style={highlightTextStyle}>
+      <div style={sectionStyle} className={styles.sectionContainer}>
+        <p style={highlightTextStyle} className={styles.highlightText}>
           Alchemity Serving Chemical Markets With A Single Platform Design
         </p>
         
-        <h2 style={marketBreakdownTitleStyle}>Market Breakdown</h2>
+        <h2 style={marketBreakdownTitleStyle} className={styles.marketBreakdownTitle}>Market Breakdown</h2>
         <p style={{
           fontSize: '1.6rem',
           color: '#ffffff',
           textAlign: 'center',
           marginBottom: '1rem',
           marginTop: '-2rem'
-        }}>
+        }} className={styles.marketDescription}>
           Alchemity strategically targets first markets suitable for a turnkey Modular Platform System prior to large-scale chemical production facilities.
         </p>
         <p style={{
@@ -579,69 +607,79 @@ function Markets() {
           textAlign: 'center',
           marginBottom: '2rem',
           fontWeight: 'bold'
-        }}>
+        }} className={styles.marketInstructions}>
           Click over each market card to learn how Alchemity contributes.
         </p>
         <div 
           ref={carouselRef}
-          className="carousel-container"
-          style={carouselContainerStyle}
+          className={`carousel-container ${styles.carouselContainer}`}
+          style={carouselContainerStyle} 
           onWheel={handleWheel}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
         >
-          <h3 style={{
-            color: '#25abe0',
-            fontSize: '36px',
-            fontWeight: '600',
-            margin: '0 0 1rem -24rem',
-            textAlign: 'center'
-          }}>First Markets</h3>
           <div style={carouselTrackStyle}>
-            <div style={firstMarketsContainerStyle}>
-              <div style={firstMarketsContentStyle}>
-                {images.slice(0, 3).map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="market-image-container"
-                    style={{
-                      ...imageContainerStyle,
-                      userSelect: 'none',
-                    }}
-                    onClick={() => setSelectedMarket(item)}
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="market-image"
-                      style={carouselImageStyle}
-                    />
-                    <p style={imageTitleStyle}>{item.title}</p>
+            <div style={marketSectionsStyle} className={styles.marketSectionsContainer}>
+              <div className={styles.marketSection}>
+                <h3 style={firstMarketsTitleCenteredStyle} className={styles.marketTitle}>First Markets</h3>
+                <div style={firstMarketsContainerStyle} className={styles.firstMarketsContainer}>
+                  <div style={firstMarketsContentStyle} className={styles.firstMarketsContentStyle}>
+                    {images.slice(0, 3).map((item, index) => (
+                      <motion.div 
+                        key={index} 
+                        className={`market-image-container ${styles.firstMarketBoxStyle}`}
+                        style={{
+                          ...imageContainerStyle,
+                          userSelect: 'none',
+                        }}
+                        onClick={() => setSelectedMarket(item)}
+                        custom={index}
+                        variants={cardVariants}
+                        initial="hidden"
+                        animate="visible"
+                      >
+                        <img
+                          src={item.src}
+                          alt={item.title}
+                          className={`market-image ${styles.carouselImage}`}
+                          style={carouselImageStyle}
+                        />
+                        <p style={imageTitleStyle} className={styles.imageTitle}>{item.title}</p>
+                      </motion.div>
+                    ))}
                   </div>
-                ))}
+                </div>
+              </div>
+              
+              <div className={styles.marketSection}>
+                <h3 style={secondMarketsTitleStyle} className={styles.marketTitle}>Second Markets</h3>
+                <div className={styles.secondMarketsContainer}>
+                  <div className={styles.secondMarketsGrid}>
+                    {images.slice(3).map((item, index) => (
+                      <motion.div 
+                        key={index + 3} 
+                        className="market-image-container"
+                        style={{
+                          ...imageContainerStyle,
+                          userSelect: 'none',
+                        }}
+                        onClick={() => setSelectedMarket(item)}
+                        custom={index + 3}
+                        variants={cardVariants}
+                        initial="hidden"
+                        animate="visible"
+                      >
+                        <img
+                          src={item.src}
+                          alt={item.title}
+                          className={`market-image ${styles.carouselImage}`}
+                          style={carouselImageStyle}
+                        />
+                        <p style={imageTitleStyle} className={styles.imageTitle}>{item.title}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-            {images.slice(3).map((item, index) => (
-              <div 
-                key={index + 3} 
-                className="market-image-container"
-                style={{
-                  ...imageContainerStyle,
-                  userSelect: 'none',
-                }}
-                onClick={() => setSelectedMarket(item)}
-              >
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="market-image"
-                  style={carouselImageStyle}
-                />
-                <p style={imageTitleStyle}>{item.title}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -672,7 +710,7 @@ function Markets() {
           </div>
         </div>
       </Modal>
-    </>
+    </div>
   );
 }
 

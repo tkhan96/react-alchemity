@@ -50,21 +50,43 @@
   line-height: 1.6;
 }
 
-/* Carousel Styles */
+/* New carousel styles with improved reliability */
 .sponsorsCarousel {
+  width: 100%;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
-  padding: 0.5rem 0 1.5rem;
-  margin-bottom: 0.5rem;
-  pointer-events: none;
+  padding: 1rem 0 1.5rem;
 }
-  
-.carouselTrack {
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
   display: flex;
-  width: max-content;
-  animation: slide 20s linear infinite;
   align-items: center;
-  gap: 48px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.carouselScroller {
+  display: flex;
+  align-items: center;
+  animation: scrollSponsors 30s linear infinite;
+  animation-play-state: var(--animation-status, paused);
+  width: max-content;
+  position: relative;
+  gap: 4rem;
+}
+
+@keyframes scrollSponsors {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--sponsor-width, 1000px)));
+  }
 }
 
 .sponsorCard {
@@ -74,8 +96,9 @@
   justify-content: center;
   height: 150px;
   width: auto;
-  margin: 0;
   padding: 0 20px;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .sponsorLogo {
@@ -87,49 +110,31 @@
   padding: 20px;
   border-radius: 4px;
   filter: grayscale(100%) brightness(1.5) contrast(0.8);
-}
-
-.sponsorCard:hover .sponsorLogo {
-  opacity: 1;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 /* Specific styling for UMD logo */
-.sponsorCard:nth-child(1) .sponsorLogo,
-.sponsorCard:nth-child(6) .sponsorLogo {
+.sponsorCard:nth-child(5n+1) .sponsorLogo {
   height: 140px;
   border-radius: 4px;
   padding: 15px;
   filter: none;
 }
 
+/* Specific styling for ARPA-E logo */
+.sponsorCard:nth-child(5n+3) .sponsorLogo {
+  filter: grayscale(100%) brightness(1.5) contrast(0.8);
+}
+
 /* Specific styling for MIL logo */
-.sponsorCard:nth-child(4) .sponsorLogo,
-.sponsorCard:nth-child(9) .sponsorLogo {
+.sponsorCard:nth-child(5n+4) .sponsorLogo {
   filter: grayscale(100%) brightness(2.5) contrast(0.7);
 }
 
 /* Specific styling for TEDCO logo */
-.sponsorCard:nth-child(5) .sponsorLogo,
-.sponsorCard:nth-child(10) .sponsorLogo {
+.sponsorCard:nth-child(5n+5) .sponsorLogo {
   filter: grayscale(100%) brightness(3.5) contrast(0.6);
-}
-
-/* Remove redundant background styles since we've added it to all logos */
-.sponsorCard:nth-child(2) .sponsorLogo,
-.sponsorCard:nth-child(3) .sponsorLogo,
-.sponsorCard:nth-child(7) .sponsorLogo,
-.sponsorCard:nth-child(8) .sponsorLogo {
-  padding: 20px;
-}
-
-/* Keyframes for sliding animation */
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 /* Responsive Adjustments */
@@ -137,9 +142,11 @@
   .sponsorLogo {
     height: 80px;
   }
-  .sponsorCard:nth-child(1) .sponsorLogo,
-  .sponsorCard:nth-child(6) .sponsorLogo {
+  .sponsorCard:nth-child(5n+1) .sponsorLogo {
     height: 110px;
+  }
+  .carouselScroller {
+    animation-duration: 25s;
   }
 }
 
@@ -147,9 +154,15 @@
   .sponsorLogo {
     height: 60px;
   }
-  .sponsorCard:nth-child(1) .sponsorLogo,
-  .sponsorCard:nth-child(6) .sponsorLogo {
+  .sponsorCard:nth-child(5n+1) .sponsorLogo {
     height: 90px;
+  }
+  .sponsorCard {
+    padding: 0 10px;
+  }
+  .carouselScroller {
+    gap: 2rem;
+    animation-duration: 20s;
   }
 }
 
@@ -157,15 +170,14 @@
   .sponsorLogo {
     height: 45px;
   }
-  .sponsorCard:nth-child(1) .sponsorLogo,
-  .sponsorCard:nth-child(6) .sponsorLogo {
+  .sponsorCard:nth-child(5n+1) .sponsorLogo {
     height: 70px;
   }
-}
-
-.sponsorCard:nth-child(4):hover .sponsorLogo,
-.sponsorCard:nth-child(8):hover .sponsorLogo,
-.sponsorCard:nth-child(12):hover .sponsorLogo,
-.sponsorCard:nth-child(16):hover .sponsorLogo {
-  filter: invert(0%);
+  .sponsorCard {
+    padding: 0 5px;
+  }
+  .carouselScroller {
+    gap: 1rem;
+    animation-duration: 15s;
+  }
 }

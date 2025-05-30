@@ -229,7 +229,7 @@ input:focus, select:focus, textarea:focus {
 } 
 
 input[type="file"] {
-    color: #000000 !important;
+    color: #ffffff !important;
     background-color: transparent;
     border: none;
     padding: 0.5rem 0;

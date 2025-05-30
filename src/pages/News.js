@@ -46,9 +46,17 @@ const articlesGridStyle = {
   margin: '-1rem auto 4rem',
 };
 
-const lastArticleStyle = {
-  gridColumn: '2',
-  margin: '0 auto',
+const articleVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
 };
 
 const newsArticles = [
@@ -87,12 +95,6 @@ const newsArticles = [
     image: newsImage6,
     link: "https://www.mdcleanenergy.org/news/usm-climbs-in-list-of-nations-top-10-patent-producing-universities/",
     source: "Maryland Clean Energy Center"
-  },
-  {
-    title: "Alchemity Wins $1000 Prize from Maryland Department of Commerce",
-    image: newsImage5,
-    link: "https://mdeia.org/blog/f/alchemity-wins-1000-prize-from-maryland-department-of-commerce?blogcategory=News",
-    source: "Maryland Energy Innovation Accelerator"
   }
 ];
 
@@ -114,12 +116,18 @@ function News() {
         </motion.h2>
         <div style={articlesGridStyle}>
           {newsArticles.map((article, index) => (
-            <div key={index} style={index === newsArticles.length - 1 ? lastArticleStyle : {}}>
+            <motion.div
+              key={index}
+              custom={index}
+              variants={articleVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <NewsArticle
                 index={index}
                 {...article}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -37,23 +37,23 @@
 }
 
 .title {
-  color: var(--primary-color);
-  font-size: 2.5rem;
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  margin-top: -1rem;
 }
 
 .text {
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin: 0;
 }
 
 .highlightText {
-  color: var(--primary-color);
-  font-size: 1.4rem;
+  color: #25abe0;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: 1.6;
   margin: 0;

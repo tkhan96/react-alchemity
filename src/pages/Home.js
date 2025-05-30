@@ -5,6 +5,7 @@ import MarketApplications from '../components/MarketApplications';
 import Sponsors from '../components/Sponsors';
 import PlantInfoSection from '../components/PlantInfoSection';
 import styled from 'styled-components';
+import OurSection from '../components/OurSolutionSection';
 
 const SectionSpacing = styled.div`
   margin: 0 auto;
@@ -18,6 +19,9 @@ function Home() {
       <VideoSection />
       <SectionSpacing>
         <ProblemOpportunity />
+      </SectionSpacing>
+      <SectionSpacing>
+        <OurSection />
       </SectionSpacing>
       <SectionSpacing>
         <PlantInfoSection />

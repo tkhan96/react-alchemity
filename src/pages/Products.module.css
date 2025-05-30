@@ -1,0 +1,574 @@
+/* Responsive styles for Products page */
+
+/* General responsive container */
+.responsiveContainer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Section titles */
+.sectionTitle {
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Value proposition section */
+.valuePropositionContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* GTChem section */
+.gtchemContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.gtchemLeftSide {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+}
+
+.gtchemRightSide {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+}
+
+.videoContainer {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.preOrderButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background-color: #25abe0;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 200px;
+}
+
+/* AI section */
+.aiSection {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.aiTextContainer {
+  flex: 1;
+}
+
+.aiImageContainer {
+  flex: 1;
+}
+
+/* Plant section */
+.plantImageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+}
+
+.plantImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.hotspot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Roadmap section */
+.roadmapContainer {
+  max-width: 1200px;
+  margin: -4rem auto 3rem auto;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.timelineContainer {
+  position: relative;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.timelineSections {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.timelineSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  padding: 0 1rem;
+  z-index: 2;
+  min-width: 200px;
+  margin-top: 4.5rem;
+}
+
+.timelineImage {
+  width: 200px;
+  height: 200px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(37, 171, 224, 0);
+  margin: 0 auto;
+}
+
+/* Competitive Analysis section */
+.competitiveSection {
+  max-width: 1000px;
+  margin: 0 auto 1rem auto;
+  padding: 2rem;
+  background: #000;
+}
+
+.quadrantContainer {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background: #000;
+  border-radius: 16px;
+  margin-top: 10rem;
+  overflow: visible;
+}
+
+.quadrantBox {
+  position: absolute;
+  min-width: 120px;
+  max-width: 180px;
+  padding: 0.6rem 0.7rem;
+  background: #000;
+  color: #fff;
+  border: 2px solid #a16ffb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  z-index: 3;
+  cursor: pointer;
+  transition: none;
+  box-shadow: none;
+}
+
+.alchemityBox {
+  min-width: 220px;
+  max-width: 320px;
+  padding: 1rem 1.2rem;
+  border: 2px solid #25abe0;
+  background: rgba(20,20,20,0.95);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  box-shadow: 0 0 24px 2px rgba(37,171,224,0.25);
+}
+
+/* Modal styles */
+.modalImageContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.modalImage {
+  width: 60%;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.modalDescription {
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Media Query for Tablet (768px) */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 32px;
+    margin-bottom: 1rem;
+  }
+
+  .valuePropositionContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Center the third card on tablet */
+  .valuePropositionContainer > div:nth-child(3) {
+    grid-column: 1 / 3;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .gtchemContainer {
+    flex-direction: column;
+  }
+  
+  .gtchemLeftSide, .gtchemRightSide {
+    flex: 1;
+  }
+  
+  .videoContainer {
+    height: 300px !important;
+  }
+  
+  .preOrderButton {
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+  }
+  
+  .timelineContainer {
+    overflow-x: auto;
+  }
+  
+  .timelineSections {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .timelineSection {
+    min-width: 150px;
+  }
+  
+  .timelineImage {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .aiSection {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .aiDescription {
+    font-size: 1.3rem !important;
+  }
+  
+  .aiImage {
+    max-width: 90% !important;
+  }
+  
+  .plantImageContainer {
+    max-width: 90%;
+  }
+  
+  .competitiveSection {
+    max-width: 90%;
+  }
+  
+  .quadrantContainer {
+    height: 500px !important;
+  }
+  
+  .quadrantBox {
+    min-width: 100px !important;
+    max-width: 150px !important;
+    padding: 0.4rem 0.5rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .alchemityBox {
+    min-width: 180px !important;
+    max-width: 260px !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .alchemityLogo {
+    width: 150px !important;
+    height: 75px !important;
+  }
+  
+  .modalImageContainer {
+    flex-direction: column !important;
+  }
+  
+  .modalImage {
+    width: 90% !important;
+    max-height: 300px !important;
+  }
+  
+  .modalDescription {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Media Query for iPad/Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 36px;
+  }
+
+  .valuePropositionContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .gtchemContainer {
+    gap: 1.5rem;
+  }
+  
+  .roadmapContainer {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+  
+  .timelineContainer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .timelineContainer::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .timelineSections {
+    justify-content: center;
+    gap: 0.2rem;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .timelineSection {
+    min-width: 110px;
+    width: 19%;
+    padding: 0 0.1rem;
+    margin-top: 3.5rem;
+  }
+  
+  .timelineImage {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .timelineImage span {
+    font-size: 1.4rem;
+  }
+  
+  .aiSection {
+    gap: 2rem;
+  }
+  
+  .competitiveSection {
+    max-width: 92%;
+  }
+  
+  .quadrantContainer {
+    height: 600px !important;
+  }
+  
+  .quadrantBox {
+    min-width: 110px !important;
+    max-width: 170px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Media Query for Laptop (1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 36px;
+  }
+
+  .valuePropositionContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .gtchemContainer {
+    gap: 1.5rem;
+  }
+  
+  .timelineSections {
+    gap: 1rem;
+  }
+  
+  .timelineSection {
+    min-width: 180px !important;
+  }
+  
+  .timelineImage {
+    width: 180px !important;
+    height: 180px !important;
+  }
+  
+  .aiSection {
+    gap: 2rem;
+  }
+  
+  .competitiveSection {
+    max-width: 92%;
+  }
+  
+  .quadrantContainer {
+    height: 600px !important;
+  }
+  
+  .quadrantBox {
+    min-width: 110px !important;
+    max-width: 170px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Media Query for Laptop L (1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .competitiveSection {
+    max-width: 95%;
+  }
+  
+  .timelineImage {
+    width: 190px !important;
+    height: 190px !important;
+  }
+}
+
+/* Media Query for 4K (2560px) */
+@media (min-width: 2560px) {
+  .responsiveContainer {
+    max-width: 2200px;
+    margin: 0 auto;
+  }
+  
+  .sectionTitle {
+    font-size: 54px;
+    margin-bottom: 2rem;
+  }
+  
+  .valuePropositionContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 2000px;
+  }
+  
+  .gtchemContainer {
+    max-width: 2000px;
+    margin: 0 auto;
+    gap: 3rem;
+  }
+  
+  .videoContainer {
+    height: 600px !important;
+  }
+  
+  .preOrderButton {
+    font-size: 1.3rem;
+    padding: 1.2rem 2.5rem;
+    min-width: 250px;
+  }
+  
+  .roadmapContainer {
+    max-width: 2000px;
+  }
+  
+  .timelineImage {
+    width: 250px !important;
+    height: 250px !important;
+  }
+  
+  .aiSection {
+    gap: 4rem;
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+  
+  .aiDescription {
+    font-size: 2rem !important;
+  }
+  
+  .plantImageContainer {
+    max-width: 1500px;
+  }
+  
+  .competitiveSection {
+    max-width: 1800px;
+  }
+  
+  .quadrantContainer {
+    height: 800px !important;
+  }
+  
+  .quadrantBox {
+    min-width: 150px !important;
+    max-width: 220px !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .alchemityBox {
+    min-width: 300px !important;
+    max-width: 400px !important;
+    padding: 1.5rem 1.8rem !important;
+    font-size: 1.3rem !important;
+  }
+  
+  .modalImage {
+    max-height: 500px !important;
+  }
+  
+  .modalDescription {
+    font-size: 1.8rem !important;
+    max-width: 1500px;
+  }
+} 
