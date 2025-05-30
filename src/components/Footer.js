@@ -29,9 +29,6 @@ function Footer() {
       <div className={styles.copyright}>
       Alchemity and the Alchemity logo are trademarks of Alchemity LLC. 
       </div>
-      <div className={styles.trademarks}>
-      Some images and videos on this website are AI-generated for illustrative purposes.
-      </div>
       <div className={styles.links}>
         <a href="#terms" onClick={(e) => handleLinkClick(e, 'terms')}>Terms & Conditions</a>
         <a href="#privacy" onClick={(e) => handleLinkClick(e, 'privacy')}>Privacy Policy</a>

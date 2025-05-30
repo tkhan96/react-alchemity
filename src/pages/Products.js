@@ -18,6 +18,7 @@ import productVideo from '../components/images/producthero.mov';
 import placeholder from '../components/images/AI.png';
 import plantImage from '../components/images/30tpd.jpg';
 import styles from './Products.module.css';
+import competitiveStyles from './CompetitiveAnalysis.module.css';
 
 import gtchem11Video from '../components/images/gtchem11.mov';
 import gtchem12Video from '../components/images/gtchem12.mov';
@@ -28,6 +29,7 @@ import { useInView } from 'react-intersection-observer';
 import companim from '../components/images/companim.mov';
 import { FaArrowRight, FaShieldAlt, FaChartLine, FaIndustry, FaDollarSign } from 'react-icons/fa';
 import Modal from '../components/Modal';
+import skiddo from '../components/images/skiddo.png';
 
 const CardContainer = styled.div`
   display: grid;
@@ -89,36 +91,9 @@ const Card = styled.div`
 `;
 
 const RoadmapContainer = styled.div`
-  max-width: 1200px;
-  margin: -1rem auto 0 auto;
-  padding: 2rem;
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    width: 100%;
-    max-width: 100%;
-    padding: 2rem 0;
-    overflow: hidden;
-  }
-  
-  @media (min-width: 1025px) and (max-width: 1440px) {
-    max-width: 1200px;
-    padding: 2rem 3rem;
-  }
-  
-  @media (min-width: 1441px) and (max-width: 1920px) {
-    max-width: 1400px;
-    padding: 2rem 2rem;
-  }
-  
-  @media (min-width: 1921px) and (max-width: 2560px) {
-    max-width: 1600px;
-    padding: 2rem 1rem;
-  }
-  
-  @media (min-width: 2561px) {
-    max-width: 1800px;
-    padding: 2rem 0;
-  }
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 `;
 
 const RoadmapTitle = styled.h2`
@@ -143,8 +118,8 @@ const ClickToLearnMore = styled.p`
   font-size: 1.5rem;
   text-align: center;
   font-weight: 800;
-  margin-top: 2rem;
-  margin-bottom: -3.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: -1.5rem;
 `;
 
 const HoverDescription = styled.p`
@@ -164,6 +139,7 @@ const TimelineContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   
   @media (max-width: 768px) {
     overflow-x: auto;
@@ -184,73 +160,8 @@ const TimelineContainer = styled.div`
 const TimelineSections = styled.div`
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 4rem auto 0 auto;
-  
-  @media (max-width: 768px) {
-    flex-wrap: nowrap;
-    gap: 0.5rem;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    justify-content: flex-start;
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    width: 90%;
-    gap: 0;
-    justify-content: center;
-  }
-  
-  @media (min-width: 1025px) and (max-width: 1440px) {
-    gap: 0.5rem;
-    max-width: 1100px;
-  }
-  
-  @media (min-width: 1441px) and (max-width: 1920px) {
-    gap: 1rem;
-    max-width: 1300px;
-  }
-  
-  @media (min-width: 1921px) {
-    gap: 1.5rem;
-    max-width: 1600px;
-  }
-`;
-
-const TimelineArrow = styled.div`
-  position: relative;
-  height: 2px;
-  background: #25abe0;
-  z-index: 1;
-  margin: 1rem auto;
   width: 100%;
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: -12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 12px solid #25abe0;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 12px;
-    height: 12px;
-    background: #25abe0;
-    border-radius: 50%;
-  }
+  margin: 2rem auto 0 auto;
 `;
 
 const TimelineSection = styled.div`
@@ -262,33 +173,39 @@ const TimelineSection = styled.div`
   padding: 0 1rem;
   z-index: 2;
   min-width: 200px;
+  margin-top: 2rem;
   
   @media (max-width: 768px) {
     min-width: 150px;
+    margin-top: 1.5rem;
   }
   
   @media (min-width: 769px) and (max-width: 1024px) {
     min-width: 110px;
     width: auto;
     padding: 0;
+    margin-top: 1.5rem;
   }
   
   @media (min-width: 1025px) and (max-width: 1440px) {
     min-width: 180px;
     width: 18%;
     padding: 0 0.5rem;
+    margin-top: 2rem;
   }
   
   @media (min-width: 1441px) and (max-width: 1920px) {
     min-width: 220px;
     width: 20%;
     padding: 0 0.5rem;
+    margin-top: 2.5rem;
   }
   
   @media (min-width: 1921px) {
     min-width: 250px;
     width: 20%;
     padding: 0 0.5rem;
+    margin-top: 3rem;
   }
 `;
 
@@ -317,8 +234,8 @@ const TimelineImage = styled.div`
   }
   
   @media (min-width: 769px) and (max-width: 1024px) {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
   }
   
   @media (min-width: 1025px) and (max-width: 1440px) {
@@ -327,13 +244,13 @@ const TimelineImage = styled.div`
   }
   
   @media (min-width: 1441px) and (max-width: 1920px) {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
   }
   
   @media (min-width: 1921px) {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
 
   span {
@@ -346,15 +263,15 @@ const TimelineImage = styled.div`
     }
     
     @media (min-width: 1025px) and (max-width: 1440px) {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
     
     @media (min-width: 1441px) and (max-width: 1920px) {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
     
     @media (min-width: 1921px) {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
   }
 `;
@@ -446,15 +363,8 @@ const CompetitiveSection = styled.section`
   padding: 2rem;
   background: #000;
   
-  @media (max-width: 768px) {
-    max-width: 90%;
-  }
-  
   @media (min-width: 769px) and (max-width: 1024px) {
-    max-width: 90%;
-    padding: 1rem;
-    width: 90vw;
-    overflow: hidden;
+    max-width: 95%;
   }
   
   @media (min-width: 1025px) and (max-width: 1440px) {
@@ -505,80 +415,15 @@ const QuadrantContainer = styled.div`
   border-radius: 16px;
   margin-top: 10rem;
   overflow: visible;
-  
-  @media (max-width: 768px) {
-    height: 500px;
-  }
-  
+
+
   @media (min-width: 769px) and (max-width: 1024px) {
-    height: 550px;
-    transform: scale(0.85);
-    transform-origin: center center;
-    margin-top: 7rem;
-    width: 100%;
+    height: 800px;
   }
+  
   
   @media (min-width: 2560px) {
     height: 800px;
-  }
-`;
-
-const Axis = styled.div`
-  position: absolute;
-  background: ${({ color }) => color};
-  z-index: 1;
-  ${({ orientation }) => {
-    if (orientation === 'horizontal') {
-      return 'top: 50%; left: 0; right: 0; height: 2px;';
-    } else if (orientation === 'vertical') {
-      return 'left: 50%; top: 0; bottom: 0; width: 2px;';
-    } else if (orientation === 'vertical-negative') {
-      return 'left: 50%; top: 50%; bottom: 0; width: 2px;';
-    } else if (orientation === 'horizontal-positive') {
-      return 'top: 50%; left: 50%; right: 0; height: 2px;';
-    }
-    return '';
-  }}
-`;
-
-const AxisLabel = styled.div`
-  position: absolute;
-  color: ${({ color }) => color};
-  font-size: 1.1rem;
-  font-weight: 600;
-  z-index: 2;
-  text-align: center;
-  ${({ position, offsetX = 0, offsetY = 0 }) => {
-    switch (position) {
-      case 'left-center':
-        return `top: 50%; left: 0; transform: translate(-110%, -50%) translate(${offsetX}px, ${offsetY}px);`;
-      case 'bottom-center':
-        return `left: 50%; bottom: 0; transform: translate(-50%, 120%) translate(${offsetX}px, ${offsetY}px);`;
-      case 'right-center':
-        return `top: 50%; right: 0; transform: translate(110%, -50%) translate(${offsetX}px, ${offsetY}px);`;
-      case 'top-center':
-        return `left: 50%; top: 0; transform: translate(-50%, -120%) translate(${offsetX}px, ${offsetY}px);`;
-      default:
-        return '';
-    }
-  }}
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    font-size: 0.9rem;
-    ${({ position }) => {
-      switch (position) {
-        case 'left-center':
-          return 'transform: translate(-80%, -50%);';
-        case 'right-center':
-          return 'transform: translate(80%, -50%);';
-        case 'bottom-center':
-          return 'transform: translate(-50%, 80%);';
-        case 'top-center':
-          return 'transform: translate(-50%, -80%);';
-        default:
-          return '';
-      }
-    }}
   }
 `;
 
@@ -598,18 +443,11 @@ const Box = styled.div`
   transition: none;
   box-shadow: none;
   
-  @media (max-width: 768px) {
-    min-width: 100px;
-    max-width: 150px;
-    padding: 0.4rem 0.5rem;
-    font-size: 0.85rem;
-  }
-  
   @media (min-width: 769px) and (max-width: 1024px) {
-    min-width: 100px;
-    max-width: 150px;
-    font-size: 0.85rem;
-    padding: 0.4rem 0.5rem;
+    min-width: 150px;
+    max-width: 220px;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
   }
   
   @media (min-width: 2560px) {
@@ -618,10 +456,6 @@ const Box = styled.div`
     padding: 0.8rem 1rem;
     font-size: 1.2rem;
   }
-  
-  &:hover {
-    box-shadow: none;
-  }
 `;
 
 const AlchemityText = styled.div`
@@ -629,7 +463,7 @@ const AlchemityText = styled.div`
   left: 54%;
   top: 18%;
   min-width: 300px;
-  max-width: 400px;
+  max-width: 1400px;
   padding: 1rem 1.2rem;
   background: transparent;
   color: #25abe0;
@@ -637,28 +471,83 @@ const AlchemityText = styled.div`
   font-family: 'Aptos', sans-serif;
   text-align: center;
   z-index: 3;
-  
-  @media (max-width: 768px) {
-    min-width: 250px;
-    max-width: 320px;
-    padding: 0.8rem 1rem;
-    font-size: 1.2rem;
-  }
+  white-space: nowrap;
   
   @media (min-width: 769px) and (max-width: 1024px) {
-    min-width: 280px;
-    max-width: 360px;
-    padding: 0.7rem 1rem;
-    font-size: 1.3rem;
+    min-width: 400px;
+    max-width: 1600px;
+    padding: 1.5rem 1.8rem;
+    font-size: 1.8rem;
   }
   
   @media (min-width: 2560px) {
     min-width: 400px;
-    max-width: 500px;
+    max-width: 1600px;
     padding: 1.5rem 1.8rem;
     font-size: 1.8rem;
   }
 `;
+
+const Axis = styled.div`
+  position: absolute;
+  background: ${({ color }) => color};
+  z-index: 1;
+  ${({ orientation }) => {
+    if (orientation === 'horizontal') {
+      return 'top: 50%; left: 10%; right: 10%; height: 2px;';
+    } else if (orientation === 'vertical') {
+      return 'left: 50%; top: 0; bottom: 0; width: 2px;';
+    } else if (orientation === 'vertical-negative') {
+      return 'left: 50%; top: 50%; bottom: 0; width: 2px;';
+    } else if (orientation === 'horizontal-positive') {
+      return 'top: 50%; left: 50%; right: 10%; height: 2px;';
+    }
+    return '';
+  }}
+`;
+
+const AxisLabel = styled.div`
+  position: absolute;
+  color: ${props => props.color || '#ffffff'};
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  z-index: 2;
+  ${props => {
+    switch(props.position) {
+      case 'left-center':
+        return `
+          left: ${props.offsetX || 0}rem;
+          top: 50%;
+          transform: translateY(-50%);
+        `;
+      case 'right-center':
+        return `
+          right: ${props.offsetX || 0}rem;
+          top: 50%;
+          transform: translateY(-50%);
+        `;
+      case 'top-center':
+        return `
+          top: ${props.offsetY || 0}rem;
+          left: 50%;
+          transform: translateX(-50%);
+        `;
+      case 'bottom-center':
+        return `
+          bottom: ${props.offsetY || 0}rem;
+          left: 50%;
+          transform: translateX(-50%);
+        `;
+      default:
+        return '';
+    }
+  }}
+`;
+
+
 
 const CompetitivePopup = styled.div`
   position: absolute;
@@ -667,11 +556,11 @@ const CompetitivePopup = styled.div`
   transform: translateX(-50%);
   background: #181818;
   color: #fff;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 1.8rem;
   border-radius: 12px;
-  font-size: 1.08rem;
-  min-width: 260px;
-  max-width: 380px;
+  font-size: 1rem;
+  min-width: 230px;
+  max-width: 340px;
   box-shadow: 0 12px 48px rgba(37,171,224,0.25);
   border: none;
   z-index: 100;
@@ -1043,18 +932,18 @@ function Products() {
   // Quadrant box data
   const boxes = [
     // Top left (lower cost, high CO2)
-    { label: 'Alchemity', x: 86, y: 2, type: 'logo' },
+    { label: 'Alchemity', x: 82, y: 2, type: 'logo' },
     { label: 'Smaller GTL Facilities', x: 30, y: 32 },
     // Top right (lower cost, low CO2)
     { label: 'Biomass Gasification', x: 52, y: 54 },
-    { label: 'Photo-catalytic Reactors', x: 85, y: 54 },
-    { label: 'Pyrolysis', x: 90, y: 68 },
-    { label: 'Electrolyzers with renewables', x: 78, y: 78 },
+    { label: 'Photo-catalytic Reactors', x: 80, y: 57, tabletX: 75 },
+    { label: 'Pyrolysis', x: 84, y: 70, tabletX: 80 },
+    { label: 'Electrolyzers with renewables', x: 72, y: 81, tabletX: 70 },
     { label: 'Plasma assisted reactions', x: 55, y: 65 },
     // Bottom left (higher cost, high CO2)
-    { label: 'Electrolyzers on grid', x: -5, y: 90 },
-    { label: 'Ethylene Steam Crackers', x: 10, y: 74 },
-    { label: 'Steam Methane Reforming (SMRs)', x: 25, y: 84 },
+    { label: 'Electrolyzers on grid', x: 2, y: 90, tabletX: 5 },
+    { label: 'Ethylene Steam Crackers', x: 15, y: 74 },
+    { label: 'Steam Methane Reforming (SMRs)', x: 28, y: 84 },
   ];
 
   // Add your hover text here
@@ -1107,13 +996,17 @@ function Products() {
             </p>
           </div>
           <div>
-            <h3 style={{ color: '#25abe0', fontSize: '1.4rem', marginBottom: '1rem', marginTop: '0' }}>GTChem-2</h3>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
-              GTChem-2: Scaled Platform for Large-Volume, Zero CO₂ Emissions Chemical Production. GTChem-2 is designed for high-throughput operation of 5+ TPD per skid. As a building block for 100+ TPD production facilities, GTChem-2 enables deployment for all target markets.
-            </p>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
-              Engineered for industrial-scale deployment, the GTChem-2 platform maintains 95% system availability and incorporates multiple layers of safety and operational redundancy. It is optimized for seamless installation at both brownfield and greenfield sites, supporting flexible and efficient plant development. Alchemity is now accepting capacity reservation orders for GTChem-2.
-            </p>
+            <img 
+              src={skiddo} 
+              alt="GTChem Skid" 
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain',
+                marginBottom: '1rem',
+                marginTop: '2.5rem'
+              }} 
+            />
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
@@ -1173,15 +1066,22 @@ function Products() {
   };
 
   return (
-    <div className={styles.responsiveContainer}>
+    <div className={styles.responsiveContainer} style={{ overflow: 'hidden', width: '100%', position: 'relative' }}>
       <PageHero 
         backgroundVideoUrl={productVideo}
         title="Products"
         videoRef={heroVideoRef}
       />
-      <div style={{ padding: 'var(--section-padding)', minHeight: '60vh', backgroundColor: '#000000' }}>
+      <div style={{ 
+        padding: 'var(--section-padding)', 
+        minHeight: '60vh', 
+        backgroundColor: '#000000', 
+        overflow: 'hidden',
+        width: '100%',
+        position: 'relative'
+      }}>
         <motion.div ref={valueRef} variants={sectionVariants} initial="hidden" animate={valueInView ? "visible" : "hidden"}>
-          <SectionSpacing style={{ marginTop: '1rem' }}>
+          <div className={styles.sectionContainer}>
             <h2 style={{
               fontSize: '40px',
               color: '#25abe0',
@@ -1210,10 +1110,10 @@ function Products() {
                 </motion.div>
               ))}
             </div>
-          </SectionSpacing>
+          </div>
         </motion.div>
         <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView ? "visible" : "hidden"}>
-          <SectionSpacing>
+          <div className={styles.sectionContainer}>
             <h2 style={{
               fontSize: '40px',
               color: '#25abe0',
@@ -1280,7 +1180,7 @@ function Products() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+            <div className={styles.gtchemButtonContainer}>
               <button 
                 onClick={() => setGtchem1Popup(true)}
                 style={{
@@ -1325,18 +1225,18 @@ function Products() {
                 Pre-Order Now
               </button>
             </div>
-          </SectionSpacing>
+          </div>
         </motion.div>
 
         <motion.div ref={facilityRef} variants={sectionVariants} initial="hidden" animate={facilityInView ? "visible" : "hidden"}>
-          <SectionSpacing style={{ marginTop: '6rem' }}>
-            <PlantInfoTitle>GTChem Facility at Scale</PlantInfoTitle>
-            <PlantInfoDescription>
+          <div className={styles.sectionContainer}>
+            <h2 className={styles.PlantInfoTitle}>GTChem Facility at Scale</h2>
+            <p className={styles.PlantInfoDescription}>
               Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
-            </PlantInfoDescription>
-            <PlantInfoDescription>
+            </p>
+            <p className={styles.PlantInfoDescription}>
               Placeholder Text
-            </PlantInfoDescription>
+            </p>
             <motion.div
               ref={imageRef}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -1404,11 +1304,11 @@ function Products() {
                 </ImageOverlay>
               </ImageContainer>
             </motion.div>
-          </SectionSpacing>
+          </div>
         </motion.div>
 
         <motion.div ref={aiRef} variants={sectionVariants} initial="hidden" animate={aiInView ? "visible" : "hidden"}>
-          <SectionSpacing style={{ marginTop: '6rem' }}>
+          <div className={styles.sectionContainer}>
             <div className={styles.aiSection}>
               <div className={styles.aiTextContainer}>
                 <h2 style={{
@@ -1434,7 +1334,7 @@ function Products() {
                 />
               </div>
             </div>
-          </SectionSpacing>
+          </div>
         </motion.div>
 
         <motion.div ref={roadmapRef} variants={sectionVariants} initial="hidden" animate={roadmapInView ? "visible" : "hidden"}>
@@ -1479,18 +1379,17 @@ function Products() {
                   </motion.div>
                 ))}
               </TimelineSections>
-              <TimelineArrow />
             </TimelineContainer>
           </RoadmapContainer>
         </motion.div>
 
         <motion.div ref={competitiveRef} variants={sectionVariants} initial="hidden" animate={competitiveInView ? "visible" : "hidden"}>
-          <div className={styles.competitiveSection}>
+          <div className={competitiveStyles.competitiveSection} style={{ marginTop: '2rem' }}>
             <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
             <CompetitiveHoverText>
               Click/Hover to learn more
             </CompetitiveHoverText>
-            <QuadrantContainer className={styles.quadrantContainer}>
+            <QuadrantContainer className={competitiveStyles.quadrantContainer}>
               {/* Axes */}
               <Axis orientation="horizontal" color="#e53935" />
               <Axis orientation="vertical" color="#00B050" />
@@ -1498,14 +1397,48 @@ function Products() {
               <Axis orientation="horizontal-positive" color="#00B050" />
 
               {/* Axis Labels */}
-              <AxisLabel position="left-center" color="#e53935" offsetX={-2}>HIGH CO₂<br/>EMISSIONS</AxisLabel>
-              <AxisLabel position="bottom-center" color="#e53935" offsetY={2}>HIGHER LIFETIME COST<br/>AND MASSIVE INFRASTRUCTURE</AxisLabel>
-              <AxisLabel position="right-center" color="#00B050" offsetX={2}>LOW CO₂<br/>EMISSIONS</AxisLabel>
-              <AxisLabel position="top-center" color="#00B050" offsetY={-2}>LOWER LIFETIME COST<br/>AND MODULAR SCALABILITY</AxisLabel>
+              <AxisLabel 
+                position="left-center" 
+                color="#e53935" 
+                offsetX={-3}
+                style={{
+                  '@media (min-width: 769px) and (max-width: 1024px)': {
+                    left: '-5rem'
+                  }
+                }}
+              >
+                HIGH CO₂<br/>EMISSIONS
+              </AxisLabel>
+              <AxisLabel 
+                position="bottom-center" 
+                color="#e53935" 
+                offsetY={-5}
+              >
+                HIGHER LIFETIME COST<br/>AND MASSIVE INFRASTRUCTURE
+              </AxisLabel>
+              <AxisLabel 
+                position="right-center" 
+                color="#00B050" 
+                offsetX={-3}
+                style={{
+                  '@media (min-width: 769px) and (max-width: 1024px)': {
+                    right: '-5rem'
+                  }
+                }}
+              >
+                LOW CO₂<br/>EMISSIONS
+              </AxisLabel>
+              <AxisLabel 
+                position="top-center" 
+                color="#00B050" 
+                offsetY={-5}
+              >
+                LOWER LIFETIME COST<br/>AND MODULAR SCALABILITY
+              </AxisLabel>
 
               {/* Replace AlchemityBox with AlchemityText */}
               <AlchemityText>
-                Platform Product: unique combination of chemical flexibility, low emissions and low-cost.
+                Platform Product: unique combination of <br/> chemical flexibility, low emissions <br/> and low-cost.
               </AlchemityText>
 
               {/* Competitor Boxes */}
@@ -1525,6 +1458,9 @@ function Products() {
                       background: 'none',
                       border: '2px solid #25abe0',
                       pointerEvents: 'auto',
+                      '@media (min-width: 769px) and (max-width: 1024px)': {
+                        left: box.tabletX ? `${box.tabletX}%` : `${box.x}%`,
+                      }
                     }}
                     className={styles.alchemityLogo}
                   />
@@ -1547,8 +1483,11 @@ function Products() {
                         : box.label === 'Smaller GTL Facilities'
                           ? '#FFFF00'
                           : undefined,
+                      '@media (min-width: 769px) and (max-width: 1024px)': {
+                        left: box.tabletX ? `${box.tabletX}%` : `${box.x}%`,
+                      }
                     }}
-                    className={styles.quadrantBox}
+                    className={competitiveStyles.quadrantBox}
                     onMouseEnter={() => {
                       setHoveredBox(idx);
                       setPopupPos({ x: box.x, y: box.y, label: box.label });
@@ -1576,7 +1515,7 @@ function Products() {
                   position: 'absolute',
                   zIndex: 1000,
                   pointerEvents: 'none',
-                }} className={styles.competitivePopup}>
+                }} className={competitiveStyles.competitivePopup}>
                   <span>
                     {hoverTextData[popupPos.label] || 'Placeholder Text'}
                   </span>
@@ -1620,7 +1559,7 @@ function Products() {
                       width: selectedItem?.title === 'Plant' ? '50%' : '45%',
                       maxHeight: '350px',
                       objectFit: 'contain',
-                      borderRadius: '8px',
+                      borderRadius: selectedItem?.title === 'Plant' || selectedItem?.title === 'Modular Skids' ? '0' : '8px',
                       margin: '0 auto'
                     }}
                     className={styles.modalImage}
@@ -1634,7 +1573,7 @@ function Products() {
                     width: '60%',
                     maxHeight: '350px',
                     objectFit: 'contain',
-                    borderRadius: '8px',
+                    borderRadius: selectedItem?.title === 'Plant' || selectedItem?.title === 'Modular Skids' ? '0' : '8px',
                     margin: '0 auto'
                   }}
                   className={styles.modalImage}

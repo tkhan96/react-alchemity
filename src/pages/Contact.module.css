@@ -1,23 +1,25 @@
 .contactPage {
   background-color: #000000; /* Black background */
-  padding: var(--section-padding); /* Add padding */
-  min-height: 100vh; /* Ensure it covers the full viewport height */
+  padding: 2rem 0;
+  min-height: auto;
   display: flex; /* Use flexbox for layout */
   justify-content: center; /* Center content horizontally */
   align-items: flex-start; /* Align content to the top */
-  gap: 2rem; /* Add space between child elements */
+  gap: 1rem; /* Add space between child elements */
+  margin-bottom: 0;
 }
 
 .pageTitle {
   text-align: center;
   margin-bottom: 3rem;
   color: #ffffff;
+  font-size: 1.6rem;
 }
 
 .contentWrapper {
   display: flex;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  gap: 3rem;
+  gap: 2rem;
   max-width: 1200px;
   width: 90%; /* Reduce width to create side margins */
   margin: 0 auto; /* Center the content */
@@ -75,13 +77,22 @@
 
 /* Responsive styles for different screen sizes */
 @media (max-width: 768px) {
+  .contactPage {
+    padding: 1.5rem 0;
+  }
+  
   .contentWrapper {
     width: 90%;
     padding: 0 3%;
+    gap: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
+  .contactPage {
+    padding: 2rem 0;
+  }
+  
   .contentWrapper {
     width: 85%;
     padding: 0 7.5%;
@@ -89,6 +100,10 @@
 }
 
 @media (min-width: 1440px) {
+  .contactPage {
+    padding: 2.5rem 0;
+  }
+  
   .contentWrapper {
     width: 80%;
     padding: 0 10%;
@@ -96,6 +111,10 @@
 }
 
 @media (min-width: 2560px) {
+  .contactPage {
+    padding: 3rem 0;
+  }
+  
   .contentWrapper {
     width: 70%;
     padding: 0 15%;

@@ -125,6 +125,16 @@
   right: 0;
 }
 
+/* Specific style for Technology page video */
+.aboutHeroSection[data-page="technology"] .backgroundVideo {
+  width: 55%;
+  clip-path: none;
+  top: 0;
+  height: 100%;
+  object-fit: contain;
+  right: 5%;
+}
+
 .aboutHeroSection .backgroundVideo {
   width: 65%;
   clip-path: none;
