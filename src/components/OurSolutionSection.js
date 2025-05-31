@@ -79,13 +79,13 @@ const OurSolutionSection = () => {
 
           <motion.div className={styles.textContent}>
             <motion.h2 className={styles.title} variants={itemVariants}>
-              OURS: 7x output, 6x LESS CO<sub>2</sub>, 3x efficiency
+              Our Technology: Engineered for Carbon Reversal.
             </motion.h2>
             <motion.p className={styles.highlightText} variants={itemVariants}>
-              Platform technology with simplified design, modularity, higher efficiency and reduced capital risk.
+              Platform technology with simplified design, on-site modularity, higher efficiency and reduced capital risk.
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
-              Paradigm shift – no clean premium! Modular chemical production, only requiring electric power for balance of plant.
+              Paradigm shift – no premium for clean chemical & fuel production from biomass, biogass, landfill gas and waste gas. 
             </motion.p>
           </motion.div>
         </motion.div>

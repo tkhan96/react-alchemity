@@ -90,7 +90,7 @@ const PlantInfoSection = () => {
         >
           <h2 className={styles.statsTitle} style={{ color: '#25abe0' }}>Serving the Community</h2>
           <p className={styles.statsSubtitle}>
-            Transforming industrial operations with a single-step non-oxidative modular reactor platform to reduce cost, lower CO2 emissions, and strengthen domestic energy security.
+            Transforming waste into value to strengthen domestic energy security.
           </p>
         </motion.div>
 

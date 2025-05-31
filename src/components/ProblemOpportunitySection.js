@@ -42,19 +42,19 @@ const ProblemOpportunitySection = () => {
         >
           <motion.div className={styles.textContent}>
             <motion.h2 className={styles.title} variants={itemVariants}>
-              TODAY: 1 kg CO<sub>2</sub> emitted PER $1 in chemicals
+              TODAY: 1 kg of CO<sub>2</sub> is emitted for every $1 transactioned in chemicals.
             </motion.h2>
             <motion.p className={styles.highlightText} variants={itemVariants}>
-              Currently massive facilities & production volumes to achieve economies of scale.
+              Massive production facilities & volumes are required to achieve economies of scale.
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
-              Chemical and oil & gas industry
+              Chemical industry is a $6 trillion market emitting 6 giga-tons of CO<sub>2</sub> annually.
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
-              $6 trillion market
+            
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
-              6 giga-tons of CO<sub>2</sub> emissions annually
+              
             </motion.p>
           </motion.div>
 

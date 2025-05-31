@@ -94,9 +94,9 @@ function MarketApplications() {
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div className={styles.textContainer} variants={itemVariants}>
-          <MarketTitle>Markets We Serve</MarketTitle>
+          <MarketTitle>Enabled Markets</MarketTitle>
           <MarketDescription>
-            The Platform System serves multiple markets through clean gaseous and liquid products.
+            The Platform System enables multiple markets due to patented production flexibility.
           </MarketDescription>
         </motion.div>
 

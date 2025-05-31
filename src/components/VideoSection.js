@@ -10,7 +10,7 @@ function VideoSection() {
   
   const keyPhrases = [
     "One Platform", 
-    "Zero CO₂",
+    "Beyond Zero CO₂",
     "Clean Chemicals", 
     "Lower Capital Risk", 
     "Higher Efficiency"
@@ -145,7 +145,7 @@ function VideoSection() {
         <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
         
         <p className={styles.videoDescription}>
-        Scaling Production at Lower Cost with <br /> Modular Turn-Key Reactor System.
+      Transforming Greenhouse Gasses From Wasted <br /> Resources into Valuable Chemicals and Fuels with <br /> Modular Turn-Key Reactor System.
         </p>
 
         <div className={styles.keyPhrasesContainer}>
@@ -167,7 +167,7 @@ function VideoSection() {
           <div className={styles.mission}>
             <h2 className={styles.cardTitle}>Our Mission</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To supply customers with clean chemicals produced at a lower cost with zero CO₂ emissions.")}
+              {emphasizeText("To supply customers with carbon-negative chemicals and fuels produced at a lower cost.")}
             </p>
           </div>
           

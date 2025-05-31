@@ -21,6 +21,7 @@ function Sponsors() {
   const [isLoaded, setIsLoaded] = useState(false);
   
   // Define sponsors only once
+  //maryland energy innovation accelerator, Shell Game Changer, Tedco, ARPAE, MII, MEII
   const sponsors = [
     { name: "University of Maryland", logo: umd, id: 1 },
     { name: "Shell", logo: shell, id: 2 },
@@ -100,7 +101,7 @@ function Sponsors() {
           className={styles.description}
           variants={itemVariants}
         >
-          Revolutionizing clean chemical production requires a strong ecosystem—many thanks to our sponsors for making it possible.
+          Revolutionizing beyond net zero chemical & fuels production requires a strong ecosystem.
         </motion.p>
         
         <motion.div 
