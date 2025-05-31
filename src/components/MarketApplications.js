@@ -45,8 +45,7 @@ function MarketApplications() {
     { src: biogas, title: 'RNG, Biogas' },
     { src: ethylene, title: 'Ethylene' },
     { src: ethane, title: 'Ethane' },
-    { src: benzene, title: 'Benzene' },
-    { src: waste, title: 'Waste Gas' }
+    { src: benzene, title: 'Benzene' }
   ];
 
   const containerVariants = {

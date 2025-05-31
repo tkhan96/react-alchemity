@@ -8,6 +8,7 @@ import mil from './images/mil.png';
 import tedco from './images/tedco.png';
 import umd from './images/umd.png';
 import arpa from './images/arpa.png';
+import meia from './images/meia.png';
 
 function Sponsors() {
   const [ref, inView] = useInView({
@@ -26,6 +27,7 @@ function Sponsors() {
     { name: "ARPA-E", logo: arpa, id: 3 },
     { name: "MIL", logo: mil, id: 4 },
     { name: "TEDCO", logo: tedco, id: 5 },
+    { name: "MEIA", logo: meia, id: 6 },
   ];
   
   // Create doubled array for seamless scrolling

@@ -110,19 +110,25 @@ const advisors = [
 
 const gridStyle = {
   display: 'grid',
-  gap: '0.5rem',
+  gap: '2rem',
   maxWidth: '1400px',
   margin: '1rem auto',
+  width: '90%',
+  justifyContent: 'center'
 };
 
 const founderGridStyle = {
   ...gridStyle,
   gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  maxWidth: '1200px',
+  gap: '3rem'
 };
 
 const advisorGridStyle = {
   ...gridStyle,
   gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  maxWidth: '1200px',
+  gap: '3rem'
 };
 
 const buttonStyle = {

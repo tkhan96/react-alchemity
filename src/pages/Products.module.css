@@ -4,6 +4,9 @@
 .responsiveContainer {
   max-width: 100%;
   overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  width: 100%;
 }
 
 /* Section titles */
@@ -15,14 +18,32 @@
   font-weight: 500;
 }
 
+/* Common section container */
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 6rem;
+}
+
+.sectionContainer:last-child {
+  margin-bottom: 0;
+}
+
 /* Value proposition section */
 .valuePropositionContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  padding: 2rem 0.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 6rem;
 }
 
 /* GTChem section */
@@ -30,6 +51,15 @@
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  width: 100%;
+}
+
+.gtchemButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 5rem;
 }
 
 .gtchemLeftSide {
@@ -49,28 +79,14 @@
   overflow: hidden;
 }
 
-.preOrderButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  padding: 1rem 2rem;
-  background-color: #25abe0;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  width: fit-content;
-  min-width: 200px;
-}
-
 /* AI section */
 .aiSection {
   display: flex;
   align-items: center;
   gap: 3rem;
-  margin-top: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
 }
 
 .aiTextContainer {
@@ -83,16 +99,23 @@
 
 /* Plant section */
 .plantImageContainer {
-  position: relative;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 12rem auto;
 }
 
 .plantImage {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.PlantInfoTitle {
+  font-size: 40px;
+  color: #25abe0;
+  margin-bottom: -0.5rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 .hotspot {
@@ -106,7 +129,7 @@
 /* Roadmap section */
 .roadmapContainer {
   max-width: 1200px;
-  margin: -4rem auto 3rem auto;
+  margin: 6rem auto 3rem auto;
   padding: 2rem;
   overflow: hidden;
 }
@@ -157,55 +180,6 @@
   margin: 0 auto;
 }
 
-/* Competitive Analysis section */
-.competitiveSection {
-  max-width: 1000px;
-  margin: 0 auto 1rem auto;
-  padding: 2rem;
-  background: #000;
-}
-
-.quadrantContainer {
-  position: relative;
-  width: 100%;
-  height: 650px;
-  background: #000;
-  border-radius: 16px;
-  margin-top: 10rem;
-  overflow: visible;
-}
-
-.quadrantBox {
-  position: absolute;
-  min-width: 120px;
-  max-width: 180px;
-  padding: 0.6rem 0.7rem;
-  background: #000;
-  color: #fff;
-  border: 2px solid #a16ffb;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  text-align: center;
-  z-index: 3;
-  cursor: pointer;
-  transition: none;
-  box-shadow: none;
-}
-
-.alchemityBox {
-  min-width: 220px;
-  max-width: 320px;
-  padding: 1rem 1.2rem;
-  border: 2px solid #25abe0;
-  background: rgba(20,20,20,0.95);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1rem;
-  color: #fff;
-  box-shadow: 0 0 24px 2px rgba(37,171,224,0.25);
-}
-
 /* Modal styles */
 .modalImageContainer {
   display: flex;
@@ -233,6 +207,19 @@
   text-align: center;
   max-width: 800px;
   width: 100%;
+}
+
+.preOrderButton {
+  margin: 0;
+}
+
+.PlantInfoDescription {
+  color: #ffffff;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Media Query for Tablet (768px) */
@@ -306,33 +293,6 @@
   
   .plantImageContainer {
     max-width: 90%;
-  }
-  
-  .competitiveSection {
-    max-width: 90%;
-  }
-  
-  .quadrantContainer {
-    height: 500px !important;
-  }
-  
-  .quadrantBox {
-    min-width: 100px !important;
-    max-width: 150px !important;
-    padding: 0.4rem 0.5rem !important;
-    font-size: 0.85rem !important;
-  }
-  
-  .alchemityBox {
-    min-width: 180px !important;
-    max-width: 260px !important;
-    padding: 0.8rem 1rem !important;
-    font-size: 0.9rem !important;
-  }
-  
-  .alchemityLogo {
-    width: 150px !important;
-    height: 75px !important;
   }
   
   .modalImageContainer {
@@ -409,20 +369,6 @@
   .aiSection {
     gap: 2rem;
   }
-  
-  .competitiveSection {
-    max-width: 92%;
-  }
-  
-  .quadrantContainer {
-    height: 600px !important;
-  }
-  
-  .quadrantBox {
-    min-width: 110px !important;
-    max-width: 170px !important;
-    font-size: 0.9rem !important;
-  }
 }
 
 /* Media Query for Laptop (1024px) */
@@ -456,28 +402,10 @@
   .aiSection {
     gap: 2rem;
   }
-  
-  .competitiveSection {
-    max-width: 92%;
-  }
-  
-  .quadrantContainer {
-    height: 600px !important;
-  }
-  
-  .quadrantBox {
-    min-width: 110px !important;
-    max-width: 170px !important;
-    font-size: 0.9rem !important;
-  }
 }
 
 /* Media Query for Laptop L (1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .competitiveSection {
-    max-width: 95%;
-  }
-  
   .timelineImage {
     width: 190px !important;
     height: 190px !important;
@@ -539,28 +467,6 @@
   
   .plantImageContainer {
     max-width: 1500px;
-  }
-  
-  .competitiveSection {
-    max-width: 1800px;
-  }
-  
-  .quadrantContainer {
-    height: 800px !important;
-  }
-  
-  .quadrantBox {
-    min-width: 150px !important;
-    max-width: 220px !important;
-    padding: 0.8rem 1rem !important;
-    font-size: 1.2rem !important;
-  }
-  
-  .alchemityBox {
-    min-width: 300px !important;
-    max-width: 400px !important;
-    padding: 1.5rem 1.8rem !important;
-    font-size: 1.3rem !important;
   }
   
   .modalImage {

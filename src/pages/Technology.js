@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PageHero from '../components/PageHero';
 import Modal from '../components/Modal';
-import reactorAnim from '../components/images/reactoranim.mov';
 import rd from '../components/images/rd.png';
 import validated from '../components/images/ExtEval.png';
 import scalable from '../components/images/scalable.png';
@@ -9,12 +8,11 @@ import graph1 from '../components/images/graph1.png';
 import graph2 from '../components/images/graph2.png';
 import animationTech from '../components/images/techanim.mov';
 import herotech from '../components/images/headeranim.mov';
-import membrane1 from '../components/images/membrane.png';
-import membrane2 from '../components/images/membrane2.png';
 import platform from '../components/images/platform.png';
 import styles from '../components/ProfileCard.module.css';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import reactionanima from '../components/images/reactionanima.mov';
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -376,7 +374,6 @@ function Technology() {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const heroVideoRef = useRef(null);
   const animationVideoRef = useRef(null);
-  const reactorVideoRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -390,18 +387,19 @@ function Technology() {
               video.pause();
             }
           });
+        } else {
+          video.pause();
+          video.currentTime = 0;
         }
       });
     }, { threshold: 0.5 });
 
     if (heroVideoRef.current) observer.observe(heroVideoRef.current);
     if (animationVideoRef.current) observer.observe(animationVideoRef.current);
-    if (reactorVideoRef.current) observer.observe(reactorVideoRef.current);
 
     return () => {
       if (heroVideoRef.current) observer.unobserve(heroVideoRef.current);
       if (animationVideoRef.current) observer.unobserve(animationVideoRef.current);
-      if (reactorVideoRef.current) observer.unobserve(reactorVideoRef.current);
     };
   }, []);
 
@@ -476,13 +474,35 @@ function Technology() {
         </div>
 
         <h1 style={{...titleStyle, marginTop: '2rem'}}>From Biomass to SAF without CO₂ emissions</h1>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          margin: '2rem 0'
+        }}>
+          <video 
+            ref={animationVideoRef}
+            src={animationTech} 
+            style={{
+              ...videoStyle,
+              maxWidth: '80%',
+              height: 'auto'
+            }} 
+            muted 
+            playsInline
+            autoPlay
+          />
+        </div>
+
+        <h1 style={{...titleStyle, marginTop: '5rem'}}>From RNG to Hydrogen and Ethylene without CO₂ emissions</h1>
         <video 
-          ref={animationVideoRef}
           src={animationTech} 
           style={videoStyle} 
           muted 
           playsInline
         />
+
         <h1 style={{...titleStyle, marginTop: '5rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
         <p style={{
           fontSize: '1.6rem',
@@ -493,114 +513,42 @@ function Technology() {
         }}>
           Placeholder Text
         </p>
-        
         <div style={{
           display: 'flex',
-          justifyContent: 'flex-start',
-          gap: '2rem',
-          alignItems: 'flex-start',
-          marginBottom: '2rem',
-          marginTop: '-1rem',
-          marginLeft: '4rem',
-          maxWidth: '1400px'
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          margin: '2rem 0'
         }}>
           <video 
-            ref={reactorVideoRef}
-            src={reactorAnim} 
+            ref={animationVideoRef}
+            src={reactionanima} 
             style={{
-              width: '60%',
-              height: 'auto',
-              margin: '0',
-              display: 'block',
-              marginTop: '0'
+              ...videoStyle,
+              maxWidth: '80%',
+              height: 'auto'
             }} 
             muted 
             playsInline
-          />
-
-          <img 
-            src={membrane1} 
-            alt="Membrane" 
-            style={{
-              width: '25%',
-              height: 'auto',
-              margin: '0',
-              display: 'block',
-              marginTop: '1rem',
-              objectFit: 'contain'
-            }} 
           />
         </div>
 
         <div style={{
           position: 'relative',
           height: '100px',
-          marginTop: '-2rem',
-          marginLeft: '4rem'
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          maxWidth: '80%',
+          margin: '-2.5rem auto 0'
         }}>
           <button 
             className={styles.detailsButton}
             onClick={handleOpenDetailsModal}
-            style={{ 
-              position: 'absolute',
-              left: '23.25%',
-              transform: 'translateX(-50%)'
-            }}
-          >
-            View Details
-          </button>
-          <button 
-            className={styles.detailsButton}
-            onClick={handleOpenModal}
-            style={{ 
-              position: 'absolute',
-              left: '76%',
-              transform: 'translateX(-50%)'
-            }}
           >
             Learn More
           </button>
         </div>
-
-        <Modal
-          show={showModal}
-          onClose={handleCloseModal}
-          title="GTChem Platform Details"
-          size="xxlarge"
-          showCloseButton={true}
-        >
-          <div style={modalContentStyle}>
-            <div style={modalColumnStyle}>
-              <img src={graph1} alt="Graph 1" style={{...graphStyle, marginTop: '1rem'}} />
-              <h3 style={{...modalSubtitleStyle, marginBottom: '0.25rem', marginTop: '1.95rem'}}>Example of a Stable Reactor Operation</h3>
-              <div style={{...modalTextStyle, marginTop: '0.25rem'}}>
-                <div style={bulletPointStyle}>Platform reactor was tasked to demonstrate stable conversion of Shell's natural gas (97% CH4, 3% C3H8) with air sweep (space velocity 3200 mL/g∙h).
-                </div>
-                <div style={bulletPointStyle}>Single pass operation demonstrated stable natural gas conversion of 21% over 375 hours without any coking (carbon deposition on the catalyst). Stable selectivity for ethylene and benzene was demonstrated.</div>
-              </div>
-            </div>
-            <div style={modalColumnStyle}>
-              <img 
-                src={graph2} 
-                alt="Graph 2" 
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  objectFit: 'contain',
-                  marginBottom: '1rem',
-                  marginTop: '0.625rem',
-                  maxWidth: '100%',
-                  maxHeight: '250px'
-                }} 
-              />
-              <h3 style={{...modalSubtitleStyle, marginBottom: '0.5rem', marginTop: '0.375rem'}}>Wide Product Selectivity</h3>
-              <div style={{...modalTextStyle, marginTop: '0.125rem'}}>
-                <div style={bulletPointStyle}>Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.</div>
-                <div style={bulletPointStyle}>Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.</div>
-              </div>
-            </div>
-          </div>
-        </Modal>
 
         <Modal
           show={showDetailsModal}
@@ -629,6 +577,136 @@ function Technology() {
                 <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier's Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
                 <div style={bulletPointStyle}>The membrane's ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
                 <div style={bulletPointStyle}>The primary products on the feed side include C2+ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
+              </div>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginTop: '2rem'
+              }}>
+                <button 
+                  className={styles.detailsButton}
+                  onClick={() => {
+                    handleCloseDetailsModal();
+                    handleOpenModal();
+                  }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}
+                >
+                  Next <span>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </Modal>
+
+        <Modal
+          show={showModal}
+          onClose={handleCloseModal}
+          title="GTChem Platform Details"
+          size="xxlarge"
+          showCloseButton={true}
+        >
+          <div style={{
+            ...modalContentStyle,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '2rem',
+            padding: '0 2rem',
+            '@media (max-width: 768px)': {
+              gridTemplateColumns: '1fr',
+              gap: '3rem'
+            }
+          }}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '1.5rem'
+            }}>
+              <img 
+                src={graph1} 
+                alt="Graph 1" 
+                style={{
+                  width: '100%',
+                  height: '300px',
+                  objectFit: 'contain',
+                  objectPosition: 'center'
+                }} 
+              />
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '1rem',
+                width: '100%'
+              }}>
+                <h3 style={{
+                  ...modalSubtitleStyle,
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  Example of a Stable Reactor Operation
+                </h3>
+                <div style={{
+                  ...modalTextStyle,
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  <div style={bulletPointStyle}>
+                    Platform reactor was tasked to demonstrate stable conversion of Shell's natural gas (97% CH4, 3% C3H8) with air sweep (space velocity 3200 mL/g∙h).
+                  </div>
+                  <div style={bulletPointStyle}>
+                    Single pass operation demonstrated stable natural gas conversion of 21% over 375 hours without any coking (carbon deposition on the catalyst). Stable selectivity for ethylene and benzene was demonstrated.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '1.5rem'
+            }}>
+              <img 
+                src={graph2} 
+                alt="Graph 2" 
+                style={{
+                  width: '100%',
+                  height: '300px',
+                  objectFit: 'contain',
+                  objectPosition: 'center'
+                }} 
+              />
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '1rem',
+                width: '100%'
+              }}>
+                <h3 style={{
+                  ...modalSubtitleStyle,
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  Wide Product Selectivity
+                </h3>
+                <div style={{
+                  ...modalTextStyle,
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  <div style={bulletPointStyle}>
+                    Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.
+                  </div>
+                  <div style={bulletPointStyle}>
+                    Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -10,6 +10,8 @@ import newsImage4 from '../components/images/4.png';
 import newsImage5 from '../components/images/5.webp';
 import newsImage6 from '../components/images/6.webp';
 import newsImage7 from '../components/images/7.jpg';
+import tedco from '../components/images/tedco.png';
+import mbia from '../components/images/mbia.png';
 
 const sectionStyle = {
   padding: '0 0 calc(var(--section-padding) + 4rem) 0',
@@ -43,7 +45,7 @@ const articlesGridStyle = {
   gap: '2rem',
   padding: '0 2rem',
   maxWidth: '1800px',
-  margin: '-1rem auto 4rem',
+  margin: '-1rem auto 4rem'
 };
 
 const articleVariants = {
@@ -70,7 +72,7 @@ const newsArticles = [
     title: "Alchemity Receives Shell GameChanger Funding",
     image: newsImage2,
     link: "https://mage.umd.edu/news/story/alchemity-receives-shell-gamechanger-funding",
-    source: "Maryland Applied Graduate Engineering"
+    source: "UMD MAGE"
   },
   {
     title: "MTech Ventures Company Spotlight: Alchemity",
@@ -95,6 +97,12 @@ const newsArticles = [
     image: newsImage6,
     link: "https://www.mdcleanenergy.org/news/usm-climbs-in-list-of-nations-top-10-patent-producing-universities/",
     source: "Maryland Clean Energy Center"
+  },
+  {
+    title: "Alchemity Selected as MCIG'25 Awardee",
+    image: mbia,
+    link: "https://mdinnovate.org/mcig/mcig25-awardees/",
+    source: "Maryland Business Innovation Association"
   }
 ];
 

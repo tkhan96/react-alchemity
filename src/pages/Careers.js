@@ -89,53 +89,7 @@ function Careers() {
         </div>
       </div>
 
-      {/* Job Postings Section */}
-      <div className={careersStyles.jobPostingsSection}>
-        <h2 style={{ 
-          fontSize: '40px',
-          color: '#25abe0',
-          marginBottom: '3rem',
-          marginTop: '0',
-          textAlign: 'center',
-          fontWeight: '500'
-        }}>
-          Job Postings
-        </h2>
-        
-        <div className={careersStyles.jobGrid}>
-          {/* Engineer Position Card */}
-          <div className={careersStyles.jobCard}>
-            <h3 style={{ color: '#ffffff', fontSize: '1.5rem' }}>
-              Engineer Position Description
-              <br />
-              (multiple levels)
-              <br />
-              (pdf)
-            </h3>
-            <ContactButton 
-              onClick={() => window.open('/path-to-engineer-pdf', '_blank')}
-            >
-              Download
-            </ContactButton>
-          </div>
-
-          {/* Technician Position Card */}
-          <div className={careersStyles.jobCard}>
-            <h3 style={{ color: '#ffffff', fontSize: '1.5rem' }}>
-              Technician (multiple levels) - Intern - Co-Op
-              <br />
-              Position Description
-              <br />
-              (pdf)
-            </h3>
-            <ContactButton 
-              onClick={() => window.open('/path-to-technician-pdf', '_blank')}
-            >
-              Download
-            </ContactButton>
-          </div>
-        </div>
-      </div>
+    
     </>
   );
 }

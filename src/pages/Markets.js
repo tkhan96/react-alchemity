@@ -133,7 +133,7 @@ const carouselTrackStyle = {
   gap: '1.5rem',
   alignItems: 'center',
   margin: '0',
-  padding: '0 1rem',
+  padding: '0 1rem 0 5rem',
   width: 'max-content',
 };
 
@@ -530,14 +530,37 @@ function Markets() {
       marketSize: '$40B',
       futureMarketSize: '$71B by 2030',
       description: 'Placeholder.....'
+    }
+  ];
+
+  const heroImages = [
+    { 
+      src: benzene, 
+      title: 'Benzene'
     },
     { 
-      src: waste, 
-      title: 'Waste Gas', 
-      isFirstMarket: true,
-      marketSize: '$7.5B (untapped)',
-      futureMarketSize: '$9.5B by 2030',
-      description: 'Methane, the primary component of natural gas, has 85x the global warming potential of CO₂ over 20 years. Flaring and venting waste resources and now face EPA penalties. Traditional plants are too costly to scale down. Alchemity\'s Modular Platform Reactor System offers a cleaner, autothermal solution—converting methane into valuable liquids for blending with crude and transport by truck, ideal for remote sites without pipeline access. Its modular, zero CO₂ emission design integrates easily with existing infrastructure, delivering cost-effective, sustainable solutions for brownfield applications.'
+      src: saf, 
+      title: 'SAF'
+    },
+    { 
+      src: hydrogen, 
+      title: 'Hydrogen'
+    },
+    { 
+      src: syngas, 
+      title: 'Syngas'
+    },
+    { 
+      src: biogas, 
+      title: 'RNG, Biogas'
+    },
+    { 
+      src: ethylene, 
+      title: 'Ethylene'
+    },
+    { 
+      src: ethane, 
+      title: 'Ethane'
     }
   ];
 
@@ -561,7 +584,7 @@ function Markets() {
         />
         <div style={heroCarouselStyle} className={styles.heroCarouselContainer}>
           <div style={heroCarouselTrackStyle}>
-            {images.map((item, index) => (
+            {heroImages.map((item, index) => (
               <div key={index} style={heroImageContainerStyle}>
                 <img
                   src={item.src}
@@ -572,7 +595,7 @@ function Markets() {
                 <p style={heroImageTitleStyle} className={styles.heroImageTitle}>{item.title}</p>
               </div>
             ))}
-            {images.map((item, index) => (
+            {heroImages.map((item, index) => (
               <div key={`duplicate-${index}`} style={heroImageContainerStyle}>
                 <img
                   src={item.src}
@@ -597,7 +620,10 @@ function Markets() {
           color: '#ffffff',
           textAlign: 'center',
           marginBottom: '1rem',
-          marginTop: '-2rem'
+          marginTop: '-2rem',
+          maxWidth: '1000px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
         }} className={styles.marketDescription}>
           Alchemity strategically targets first markets suitable for a turnkey Modular Platform System prior to large-scale chemical production facilities.
         </p>
