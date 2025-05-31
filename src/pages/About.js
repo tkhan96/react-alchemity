@@ -21,7 +21,7 @@ const founders = [
     title: 'CEO',
     blurb: '30 years as Fortune 500 Executive',
     bio: [
-      'Rodger brings expertise in building large businesses and succesful exit strategies.',
+      'Rodger brings expertise in building large businesses and succesful exit strategies. He successfully lead the growth of multi-billion dollar S&P 500 companies.',
       'Previous Roles:',
       'VP and Head at British Petroleum (Global Exploration, Gas to Chemicals/Liquids).',
       'Interim CEO, LG Fuel Cell Systems, Inc.',
@@ -36,9 +36,9 @@ const founders = [
     id: 3,
     name: 'Emir Dogdibegovic, Ph.D.',
     title: 'CTO and CCO',
-    blurb: '15 years Development, Scaleup, and Deployment of Clean Energy Technologies',
+    blurb: '15 years of Scaleup and Deployment of Clean Energy Technologies',
     bio: [
-      'Emir brings the associated executive management know-how and strategic expertise in customer acquisition, project development, product scaleup, deployment, and revenue generation.',
+      'Emir brings the technical and product scaleup know-how and strategic business expertise in customer acquisition, project development and deployment, and revenue generation.',
       'Previous Roles:',
       'Director Strategy and Execution, Origis Energy.',
       'Senior Engineer & Senior Program Manager, Nexceris.',
@@ -55,9 +55,10 @@ const founders = [
     title: 'Executive Chair',
     blurb: '30 years of Energy Research and Product Development/Innovation',
     bio: [
-      'Eric, Director of Maryland Energy Innovation Institute, brings the innovation (developed IP licensed to Alchemity) and startup scaleup expertise through multiple ventures.',
-      'Previous Roles:',
+      'Eric brings the innovation (developed IP licensed to Alchemity) and startup scaleup expertise through multiple ventures.',
+      'Current Roles:',
       'Founder of VC-backed Battery Company (Ion Storage Systems).',
+      'Director of Maryland Energy Innovation Institute.',
       'Published >300 papers, >40 patents.',
       'Education: UC Berkeley, Stanford University.',
     ],
