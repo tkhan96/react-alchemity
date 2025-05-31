@@ -21,6 +21,7 @@ function Sponsors() {
   const [isLoaded, setIsLoaded] = useState(false);
   
   // Define sponsors only once
+  //maryland energy innovation accelerator, Shell Game Changer, Tedco, ARPAE, MII, MEII
   const sponsors = [
     { name: "University of Maryland", logo: umd, id: 1 },
     { name: "Shell", logo: shell, id: 2 },
