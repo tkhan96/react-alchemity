@@ -481,7 +481,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$1.1B',
       futureMarketSize: '$62B by 2030',
-      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as SAF at scale but require high capital and produce significant CO₂ without expensive capture systems. Our Platform Reactor System offers a zero-emission, cost-effective alternative that integrates with existing infrastructure at smaller scale - ideal for brownfield applications.'
+      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as SAF at scale but require high capital and produce significant CO₂ without expensive capture systems. Our Platform Reactor System offers beyond zero-emission & cost-effective alternative suitable for co-located greenfield sites (SAF at the point of use), or integration with existing infrastructure - ideal for brownfield applications.'
     },
     { 
       src: hydrogen, 
@@ -497,7 +497,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$59B',
       futureMarketSize: '$105B by 2030',
-      description: 'Placeholder.....'
+      description: 'Synthetic gas (syngas)—a mixture of hydrogen and carbon monoxide—is a critical feedstock for producing methanol (used in formaldehyde, acetic acid, and plastics), ammonia (for fertilizers), Fischer-Tropsch liquids (waxes, lubricants, fuels), and higher alcohols and acids in solvents and polymers. Traditional syngas methods like steam methane reforming and coal gasification are highly carbon-intensive, emitting 9–12 kg of CO₂ per kg of hydrogen. Alchemity’s Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution.'
     },
     { 
       src: biogas, 
@@ -611,10 +611,10 @@ function Markets() {
       </div>
       <div style={sectionStyle} className={styles.sectionContainer}>
         <p style={highlightTextStyle} className={styles.highlightText}>
-          Alchemity Serving Chemical Markets With A Single Platform Design
+          Alchemity Enables Chemical & Fuel Markets With A Single Platform Design
         </p>
         
-        <h2 style={marketBreakdownTitleStyle} className={styles.marketBreakdownTitle}>Market Breakdown</h2>
+        <h2 style={marketBreakdownTitleStyle} className={styles.marketBreakdownTitle}></h2>
         <p style={{
           fontSize: '1.6rem',
           color: '#ffffff',
@@ -625,7 +625,7 @@ function Markets() {
           marginLeft: 'auto',
           marginRight: 'auto'
         }} className={styles.marketDescription}>
-          Alchemity strategically targets first markets suitable for a turnkey Modular Platform System prior to large-scale chemical production facilities.
+          We strategically target first markets suitable for a turnkey Modular Platform System integration prior to scaled chemical production facilities.
         </p>
         <p style={{
           fontSize: '1.5rem',
