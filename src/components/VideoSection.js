@@ -167,14 +167,14 @@ function VideoSection() {
           <div className={styles.mission}>
             <h2 className={styles.cardTitle}>Our Mission</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To supply customers with carbon-negative chemicals and fuels produced at a lower cost.")}
+              {emphasizeText("To supply customers with carbon-negative chemicals & fuels produced at a lower cost.")}
             </p>
           </div>
           
           <div className={styles.vision}>
             <h2 className={styles.cardTitle}>Our Vision</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To accelerate the global transition to clean chemical production without clean premium.")}
+              {emphasizeText("To accelerate global transition to clean chemical & fuels production without clean premium.")}
             
             </p>
           </div>
