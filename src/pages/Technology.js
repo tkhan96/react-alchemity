@@ -473,7 +473,7 @@ function Technology() {
           ))}
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '2rem'}}>From Biomass to SAF without CO₂ emissions</h1>
+        <h1 style={{...titleStyle, marginTop: '2rem'}}>Example: From Biomass to SAF without CO₂ emissions</h1>
         <div style={{
           display: 'flex',
           justifyContent: 'center',
