@@ -497,7 +497,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$59B',
       futureMarketSize: '$105B by 2030',
-      description: 'Synthetic gas (syngas)—a mixture of hydrogen and carbon monoxide—is a critical feedstock for producing methanol (used in formaldehyde, acetic acid, and plastics), ammonia (for fertilizers), Fischer-Tropsch liquids (waxes, lubricants, fuels), and higher alcohols and acids in solvents and polymers. Traditional syngas methods like steam methane reforming and coal gasification are highly carbon-intensive, emitting 9–12 kg of CO₂ per kg of hydrogen. Alchemity’s Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution.'
+      description: 'Synthetic gas (syngas)—a mixture of hydrogen and carbon monoxide—is a critical feedstock for producing methanol (used in formaldehyde, acetic acid, and plastics), ammonia (for fertilizers), Fischer-Tropsch liquids (waxes, lubricants, fuels), and higher alcohols and acids in solvents and polymers. Traditional syngas methods like steam methane reforming and coal gasification are highly carbon-intensive, emitting 9-12 kg of CO₂ per kg of hydrogen. Alchemity\'s Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution.'
     },
     { 
       src: biogas, 
@@ -725,6 +725,9 @@ function Markets() {
           listStyle: 'none',
         }}>
           <div style={{ marginBottom: '1rem' }}>{selectedMarket?.description}</div>
+          <div style={{ color: '#25abe0', marginTop: '1rem', fontWeight: '600', fontSize: '1.2rem' }}>
+            Placeholder text for additional market information
+          </div>
           <div style={{ color: '#25abe0', marginTop: '1rem', fontWeight: '600' }}>
             Current Market Size: {selectedMarket?.marketSize}
           </div>

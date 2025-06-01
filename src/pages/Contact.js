@@ -102,7 +102,7 @@ function Contact() {
 
           </div>
           <div className={styles.formWrapper}>
-             <ContactForm />
+             <ContactForm isCareers={false} />
           </div>
         </div>
       </div>

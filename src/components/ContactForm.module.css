@@ -273,3 +273,36 @@ input[type="file"]::-webkit-file-upload-button:hover {
   border-color: #25abe0;
   box-shadow: 0 0 0 2px rgba(37, 171, 224, 0.2);
 } 
+
+.statusMessage {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success {
+  background-color: rgba(37, 171, 224, 0.1);
+  border: 1px solid #25abe0;
+  color: #25abe0;
+}
+
+.error {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff0000;
+  color: #ff0000;
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitButton:disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+  box-shadow: none;
+} 

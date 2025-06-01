@@ -5,6 +5,7 @@ import styles from './NewsArticle.module.css';
 
 const NewsArticle = ({ title, image, link, source, index }) => {
   const isReactorArticle = title === "Reactor Turns Methane to Hydrocarbons Without CO₂";
+  const isMCIGArticle = title === "Alchemity Selected as MCIG'25 Awardee";
   
   return (
     <motion.div
@@ -22,6 +23,10 @@ const NewsArticle = ({ title, image, link, source, index }) => {
             objectFit: 'contain',
             backgroundColor: '#000000',
             padding: '1rem'
+          } : isMCIGArticle ? {
+            objectFit: 'contain',
+            transform: 'scale(0.7)',
+            backgroundColor: '#000000'
           } : {}}
         />
       </div>

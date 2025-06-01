@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import styles from './ContactForm.module.css'; 
+import styles from './ContactForm.module.css';
+import emailjs from '@emailjs/browser';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    capacity: '',
-    companyName: '',
+    reason: '',
+    affiliation: '',
     message: '',
   });
 
   const [wordCount, setWordCount] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,23 +38,59 @@ function ContactForm() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (wordCount > 250) {
-      alert('Message cannot exceed 250 words');
+      setSubmitStatus({
+        type: 'error',
+        message: 'Message cannot exceed 250 words'
+      });
       return;
     }
-    console.log('Form Data Submitted:', formData);
-    alert('Thank you for your message! We will be in touch shortly.');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      capacity: '',
-      companyName: '',
-      message: '',
-    });
-    setWordCount(0);
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const templateParams = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        reason: formData.reason,
+        affiliation: formData.affiliation,
+        message: formData.message,
+      };
+
+      await emailjs.send(
+        'service_yrbvrz8',
+        'template_qv74f1k',
+        templateParams,
+        'Mx1r5JKxAiat8cMWs'
+      );
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Thank you for your message! We will be in touch shortly.'
+      });
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        reason: '',
+        affiliation: '',
+        message: '',
+      });
+      setWordCount(0);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -70,6 +109,7 @@ function ContactForm() {
               onChange={handleChange} 
               required 
               style={{ color: '#000000' }}
+              disabled={isSubmitting}
             />
             <input 
               type="text" 
@@ -79,6 +119,7 @@ function ContactForm() {
               onChange={handleChange} 
               required 
               style={{ color: '#000000' }}
+              disabled={isSubmitting}
             />
           </div>
         </div>
@@ -95,13 +136,21 @@ function ContactForm() {
             onChange={handleChange} 
             required 
             style={{ color: '#000000' }}
+            disabled={isSubmitting}
           />
         </div>
 
-        {/* Capacity/Interest Field Group - Keeping name 'capacity' for consistency for now */}
+        {/* Reason Field Group */}
         <div className={styles.fieldGroup}>
-          <label className={styles.label} htmlFor="capacity">Reason for Inquiry*</label>
-          <select id="capacity" name="capacity" value={formData.capacity} onChange={handleChange} required>
+          <label className={styles.label} htmlFor="reason">Reason for Inquiry*</label>
+          <select 
+            id="reason" 
+            name="reason" 
+            value={formData.reason} 
+            onChange={handleChange} 
+            required
+            disabled={isSubmitting}
+          >
             <option value="" disabled>Select a reason for inquiry...</option>
             <option value="sales">Sales</option>
             <option value="partnership">Partnership Opportunities</option>
@@ -112,17 +161,18 @@ function ContactForm() {
           </select>
         </div>
 
-        {/* Company Name Field Group */}
+        {/* Affiliation Field Group */}
         <div className={styles.fieldGroup}>
-           <label className={styles.label} htmlFor="companyName">Affiliation</label>
+           <label className={styles.label} htmlFor="affiliation">Affiliation</label>
            <input 
              type="text" 
-             id="companyName" 
-             name="companyName" 
+             id="affiliation" 
+             name="affiliation" 
              placeholder="Enter your affiliation" 
-             value={formData.companyName} 
+             value={formData.affiliation} 
              onChange={handleChange} 
              style={{ color: '#000000' }}
+             disabled={isSubmitting}
            />
         </div>
 
@@ -142,13 +192,26 @@ function ContactForm() {
               fontFamily: 'inherit',
               fontSize: 'inherit'
             }}
+            disabled={isSubmitting}
           />
           <div className={styles.wordCount}>
             {wordCount}/250 words
           </div>
         </div>
 
-        <button type="submit" className={styles.submitButton}>Submit</button>
+        {submitStatus.message && (
+          <div className={`${styles.statusMessage} ${styles[submitStatus.type]}`}>
+            {submitStatus.message}
+          </div>
+        )}
+
+        <button 
+          type="submit" 
+          className={styles.submitButton}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Sending...' : 'Submit'}
+        </button>
       </form>
     </section>
   );

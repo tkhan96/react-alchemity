@@ -115,7 +115,7 @@
 }
 
 /* Specific styling for UMD logo */
-.sponsorCard:nth-child(6n+1) .sponsorLogo {
+.sponsorCard[data-id="1"] .sponsorLogo {
   height: 140px;
   border-radius: 4px;
   padding: 15px;
@@ -123,27 +123,27 @@
 }
 
 /* Specific styling for Shell logo */
-.sponsorCard:nth-child(6n+2) .sponsorLogo {
+.sponsorCard[data-id="2"] .sponsorLogo {
   filter: grayscale(100%) brightness(1.5) contrast(0.8);
 }
 
 /* Specific styling for ARPA-E logo */
-.sponsorCard:nth-child(6n+3) .sponsorLogo {
+.sponsorCard[data-id="3"] .sponsorLogo {
   filter: grayscale(100%) brightness(1.5) contrast(0.8);
 }
 
 /* Specific styling for MIL logo */
-.sponsorCard:nth-child(6n+4) .sponsorLogo {
+.sponsorCard[data-id="4"] .sponsorLogo {
   filter: grayscale(100%) brightness(2.5) contrast(0.7);
 }
 
 /* Specific styling for TEDCO logo */
-.sponsorCard:nth-child(6n+5) .sponsorLogo {
-  filter: grayscale(100%) brightness(3.5) contrast(0.6);
+.sponsorCard[data-id="5"] .sponsorLogo {
+  filter: grayscale(100%) brightness(5.5) contrast(0.6);
 }
 
 /* Specific styling for MEIA logo */
-.sponsorCard:nth-child(6n+6) .sponsorLogo {
+.sponsorCard[data-id="6"] .sponsorLogo {
   height: 140px;
   filter: grayscale(100%) brightness(1.5) contrast(0.8);
 }

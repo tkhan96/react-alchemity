@@ -145,7 +145,7 @@ function VideoSection() {
         <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
         
         <p className={styles.videoDescription}>
-      Transforming Greenhouse Gasses From Wasted <br /> Resources into Valuable Chemicals and Fuels with <br /> Modular Turn-Key Reactor System.
+      Transforming Greenhouse Gasses From Wasted Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System.
         </p>
 
         <div className={styles.keyPhrasesContainer}>

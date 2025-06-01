@@ -36,7 +36,15 @@ function PageHero({ title, backgroundImageUrl, backgroundVideoUrl, videoRef, vid
         </div>
       ) : null}
       <div className={styles.overlay}></div>
-      <h1 className={styles.title} style={titleStyle}>{title}</h1>
+      <h1 className={styles.title} style={titleStyle}>
+        {title === 'Products' ? (
+          <>
+            Product<span style={{ color: '#000000' }}>s</span>
+          </>
+        ) : (
+          title
+        )}
+      </h1>
     </section>
   );
 }

@@ -27,10 +27,10 @@ function ProductFocus() {
     {
       icon: <FaLeaf />,
       title: "Eco-Friendly Solutions",
-      description: "Modular skid systems deliver 400% lower CO2 emissions and 300% lower lifetime cost through optimized design and efficient operation.",
+      description: "Modular skid systems deliver 400% lower CO₂ emissions and 300% lower lifetime cost through optimized design and efficient operation.",
       benefits: [
         "Modular construction",
-        "Significant CO2 reduction",
+        "Significant CO₂ reduction",
         "Lower total cost of ownership"
       ]
     },

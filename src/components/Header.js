@@ -85,7 +85,7 @@ function Header() {
             <div className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''}`}>
               <ul className={styles.mobileNavList}>
                 <li className={styles.navItem}><Link to="/markets" className={styles.navLink} onClick={toggleMenu}>Markets</Link></li>
-                <li className={styles.navItem}><Link to="/products" className={styles.navLink} onClick={toggleMenu}>Products</Link></li>
+                <li className={styles.navItem}><Link to="/products" className={styles.navLink} onClick={toggleMenu}>Product</Link></li>
                 <li className={styles.navItem}><Link to="/technology" className={styles.navLink} onClick={toggleMenu}>Technology</Link></li>
                 <li className={styles.navItem}><Link to="/about" className={styles.navLink} onClick={toggleMenu}>About</Link></li>
                 <li className={styles.navItem}><Link to="/careers" className={styles.navLink} onClick={toggleMenu}>Careers</Link></li>
@@ -102,7 +102,7 @@ function Header() {
         ) : (
           <ul className={styles.navList}>
             <li className={styles.navItem}><Link to="/markets" className={styles.navLink}>Markets</Link></li>
-            <li className={styles.navItem}><Link to="/products" className={styles.navLink}>Products</Link></li>
+            <li className={styles.navItem}><Link to="/products" className={styles.navLink}>Product</Link></li>
             <li className={styles.navItem}><Link to="/technology" className={styles.navLink}>Technology</Link></li>
             <li className={styles.navItem}><Link to="/about" className={styles.navLink}>About</Link></li>
             <li className={styles.navItem}><Link to="/careers" className={styles.navLink}>Careers</Link></li>

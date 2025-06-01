@@ -93,16 +93,16 @@ const newsArticles = [
     source: "Wiley Advanced"
   },
   {
-    title: "USM Climbs in List of Nation's Top 10 Patent-Producing Universities",
-    image: newsImage6,
-    link: "https://www.mdcleanenergy.org/news/usm-climbs-in-list-of-nations-top-10-patent-producing-universities/",
-    source: "Maryland Clean Energy Center"
-  },
-  {
     title: "Alchemity Selected as MCIG'25 Awardee",
     image: mbia,
     link: "https://mdinnovate.org/mcig/mcig25-awardees/",
     source: "Maryland Business Innovation Association"
+  },
+  {
+    title: "Alchemity Contributes to USM's Rise in Nation's Top 10 Patent-Producing Universities",
+    image: newsImage6,
+    link: "https://www.mdcleanenergy.org/news/usm-climbs-in-list-of-nations-top-10-patent-producing-universities/",
+    source: "Maryland Clean Energy Center"
   }
 ];
 

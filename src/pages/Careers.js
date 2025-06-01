@@ -84,7 +84,7 @@ function Careers() {
             </p>
           </div>
           <div className={styles.formWrapper}>
-            <ContactForm />
+            <ContactForm isCareers={true} />
           </div>
         </div>
       </div>

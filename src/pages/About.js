@@ -56,7 +56,6 @@ const founders = [
     blurb: '30 years of Energy Research and Product Development/Innovation',
     bio: [
       'Eric brings the innovation (developed IP licensed to Alchemity) and startup scaleup expertise through multiple ventures.',
-      'Current Roles:',
       'Founder of VC-backed Battery Company (Ion Storage Systems).',
       'Director of Maryland Energy Innovation Institute.',
       'Published >300 papers, >40 patents.',
@@ -183,7 +182,7 @@ function About() {
   const [showModal, setShowModal] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState(null);
 
-  const images = [about1, about2, about3];
+  const images = [about3, about1, about2];
 
   const handleOpenModal = (person) => {
     setSelectedPerson(person);
@@ -201,10 +200,10 @@ function About() {
         {`
           @keyframes slide {
             0% {
-              transform: translateX(0);
+              transform: translateX(-11.33%);
             }
             100% {
-              transform: translateX(-50%);
+              transform: translateX(-83.33%);
             }
           }
         `}
@@ -230,7 +229,7 @@ function About() {
           <div style={{
             display: 'flex',
             gap: '0',
-            animation: 'slide 30s linear infinite',
+            animation: 'slide 20s linear infinite',
             alignItems: 'center',
             margin: 0,
             padding: '0 2rem',
@@ -364,19 +363,24 @@ function About() {
               {selectedPerson.bio && selectedPerson.bio.map((point, index) => {
                 if (index === 0) {
                   return <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>;
-                } else if (index === 1 && selectedPerson.title === 'Advisor') {
+                } else if (index === 1 && (selectedPerson.title === 'Advisor' || selectedPerson.name.includes('Eric'))) {
                   return (
                     <>
-                      <h4 key="current-role" style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem' }}>Current Role</h4>
+                      <h4 key="current-role" style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem', color: '#25abe0' }}>Current Role</h4>
                       <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>
                     </>
                   );
                 } else if (point === 'Previous Roles:') {
-                  return <h4 key={index} style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem' }}>Previous Roles</h4>;
-                } else if (point.startsWith('Education:')) {
+                  return <h4 key={index} style={{ 
+                    textAlign: 'left', 
+                    marginBottom: selectedPerson.name.includes('Eric') || selectedPerson.name.includes('Rodger') || selectedPerson.name.includes('Emir') ? '1rem' : '0.5rem', 
+                    fontSize: '1.4rem', 
+                    color: '#25abe0' 
+                  }}>Previous Roles</h4>;
+                } else if (point.includes('Education:')) {
                   return (
                     <>
-                      <h4 key={`edu-${index}`} style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem' }}>Education</h4>
+                      <h4 key={`edu-${index}`} style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem', color: '#25abe0' }}>Education</h4>
                       <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point.replace('Education:', '').trim()}</li>
                     </>
                   );

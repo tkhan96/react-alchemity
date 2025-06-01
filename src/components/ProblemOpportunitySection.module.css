@@ -65,7 +65,7 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -84,9 +84,135 @@
   transition: transform 1s ease;
   object-fit: cover;
   object-position: center top;
-  max-height: 550px;
+  max-height: 650px;
 }
 
 .imageContainer:hover .image {
   transform: scale(1.03);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.statCard {
+  background: rgba(37, 171, 224, 0.1);
+  border: 1px solid rgba(37, 171, 224, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  background: rgba(37, 171, 224, 0.15);
+  border-color: rgba(37, 171, 224, 0.3);
+}
+
+.statIcon {
+  font-size: 2rem;
+  color: #25abe0;
+  margin-bottom: 1rem;
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.statUnit {
+  font-size: 1rem;
+  color: #25abe0;
+  font-weight: 500;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.mediaContainer {
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.mediaOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.overlayContent {
+  text-align: center;
+}
+
+.overlayContent h3 {
+  font-size: 1.8rem;
+  color: #25abe0;
+  margin-bottom: 0.5rem;
+}
+
+.overlayContent p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .statCard {
+    padding: 1rem;
+  }
+
+  .statValue {
+    font-size: 2rem;
+  }
+
+  .highlightText {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .mediaContainer {
+    max-width: 100%;
+  }
 } 

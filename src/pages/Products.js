@@ -1306,7 +1306,7 @@ function Products() {
             </motion.div>
           </div>
         </motion.div>
-
+{/* 
         <motion.div ref={aiRef} variants={sectionVariants} initial="hidden" animate={aiInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <div className={styles.aiSection}>
@@ -1335,7 +1335,7 @@ function Products() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div ref={roadmapRef} variants={sectionVariants} initial="hidden" animate={roadmapInView ? "visible" : "hidden"}>
           <RoadmapContainer>
