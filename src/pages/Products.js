@@ -908,24 +908,24 @@ function Products() {
 
   const hotspotDetails = {
     0: {
-      title: "Feedstock",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      title: "Liquid Storage Tanks",
+      description: ""
     },
     1: {
-      title: "GTChem Skid",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      title: "Modular skiSkid",
+      description: ""
     },
     2: {
       title: "Liquid Fuel Tank",
-      description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+      description: ""
     },
     3: {
-      title: "Station",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      title: "Control Center",
+      description: ""
     },
     4: {
-      title: "Pipe",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      title: "Fedstock delivery",
+      description: ""
     }
   };
 
@@ -989,10 +989,10 @@ function Products() {
           <div>
             <h3 style={{ color: '#25abe0', fontSize: '1.4rem', marginBottom: '1rem', marginTop: '0' }}>GTChem-1</h3>
             <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
-              GTChem-1 is Alchemity's first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 30 tons per day (TPD).
+              GTChem-1 is Alchemity's first flagship product—a modular, turnkey skid-mounted platform designed to produce clean, drop-in chemicals and fuels with zero CO₂ emissions. GTChem-1 enables flexible deployment through a series of integrated modular skids, making it ideal for both greenfield and brownfield installations producing chemicals at quantities between 1 to 40 tons per day (TPD).
             </p>
             <p style={{ fontSize: '1.1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
-              The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs. Alchemity is now accepting orders for GTChem-1.
+              The platform delivers high operational efficiency with up to 95% system availability and is engineered with multiple layers of safety and redundancy. GTChem-1 offers product flexibility, low maintenance requirements, and streamlined module augmentation to meet evolving production needs. Alchemity is now accepting pre-orders.
             </p>
           </div>
           <div>
@@ -1088,12 +1088,12 @@ function Products() {
               marginBottom: '0.5rem',
               textAlign: 'center',
               fontWeight: '500'
-            }}>Value Proposition</h2>
+            }}>Larger Product Output, Lower Emissions, Higher Efficiency </h2>
             <div className={styles.valuePropositionContainer}>
               {[
-                { icon: <FaShieldAlt className="icon" />, title:  "Reduced Capital Investment", description: "Simplified design reduces capital risk and extends life expectancy of plants due for decommissioning or repower." },
-                { icon: <FaDollarSign className="icon" />, title: "Highly Efficient & Cost-Effective", description: "Modular skid systems, 400% lower CO₂ emissions, 300% lower lifetime cost. Producing gaseous and liquid chemicals." },
-                { icon: <FaChartLine className="icon" />, title:  "Increased Domestic Growth", description: "Enables growth of domestic workforce and provides energy security leveraging existing downstream processes." }
+                { icon: <FaShieldAlt className="icon" />, title:  "Energy Security", description: "Platform technology only requiring electric power for balance of plant." },
+                { icon: <FaDollarSign className="icon" />, title: "No Clean Premium", description: "Simplified design, modularity, higher efficiency and reduced capital risk." },
+                { icon: <FaChartLine className="icon" />, title:  "Domestic Growth", description: "Transforming GHGs from wasted resources to valuable products." }
               ].map((card, index) => (
                 <motion.div
                   key={index}
@@ -1120,10 +1120,10 @@ function Products() {
               marginBottom: '2.5rem',
               textAlign: 'center',
               fontWeight: '500'
-            }} className={styles.sectionTitle}>Gas to Chemicals (GTChem) Modular System Offerings</h2>
+            }} className={styles.sectionTitle}> Modular System Offering</h2>
             
             <DescriptionText style={{ marginBottom: '0rem' }}>
-              Placeholder Text
+            Turn-key skid-mounted platform designed for co-located production.
             </DescriptionText>
 
             <div className={styles.gtchemContainer}>
@@ -1230,12 +1230,12 @@ function Products() {
 
         <motion.div ref={facilityRef} variants={sectionVariants} initial="hidden" animate={facilityInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
-            <h2 className={styles.PlantInfoTitle}>GTChem Facility at Scale</h2>
+            <h2 className={styles.PlantInfoTitle}>Facility at Scale</h2>
             <p className={styles.PlantInfoDescription}>
-              Transforming complex chemical operations with modular solutions that reduce costs, lower emissions, and strengthen domestic energy security.
+              Modular interconnection for simple augmentation and easy maintenance.
             </p>
             <p className={styles.PlantInfoDescription}>
-              Placeholder Text
+    
             </p>
             <motion.div
               ref={imageRef}
@@ -1348,10 +1348,10 @@ function Products() {
             <TimelineContainer>
               <TimelineSections>
                 {[
-                  { trl: "TRL 3", title: "Single Tube", year: "2024", image: single2, description: "Batches of 20 cm long reactor membranes." },
-                  { trl: "TRL 4", title: "Tube Bundle", year: "2025", image: extEval, description: "First working 4-tube bundle prototype to optimize reactor core conditions." },
-                  { trl: "TRL 5", title: "Benchtop System", year: "2025-2026", image: benchtop1, description: "Second working prototype to optimize reactor bundle integration with steel vessel and BOP." },
-                  { trl: "TRL 6/7", title: "Modular Skids", year: "2027+", images: [skid1, skid2], description: "20' modular turnkey skid system producing clean drop-in chemicals and fuels, enabling 1-30 tons per day facilities." },
+                  { trl: "TRL 3", title: "Single Tube", year: "2024", image: single2, description: "Batches of reactor membranes." },
+                  { trl: "TRL 4", title: "Tube Bundle", year: "2025", image: extEval, description: "First working bundle prototype to optimize reactor core conditions." },
+                  { trl: "TRL 5", title: "Benchtop System", year: "2025-2026", image: benchtop1, description: "Second working prototype to optimize reactor bundle integration with BOP." },
+                  { trl: "TRL 6/7", title: "Modular Skids", year: "2027+", images: [skid1, skid2], description: "Modular turn-key skid system enabling 1-40 tons per day facilities." },
                   { trl: "TRL 8/9", title: "Plant", year: "2030+", images: [plant1, plant22], description: "Large-scale plant building block to enable 100+ ton per day facilities." }
                 ].map((item, index) => (
                   <motion.div
@@ -1385,7 +1385,7 @@ function Products() {
 
         <motion.div ref={competitiveRef} variants={sectionVariants} initial="hidden" animate={competitiveInView ? "visible" : "hidden"}>
           <div className={competitiveStyles.competitiveSection} style={{ marginTop: '2rem' }}>
-            <CompetitiveTitle>Competitive Analysis</CompetitiveTitle>
+            <CompetitiveTitle>Unmatched Modularity & flexibility</CompetitiveTitle>
             <CompetitiveHoverText>
               Click/Hover to learn more
             </CompetitiveHoverText>
