@@ -11,10 +11,11 @@ function ContactForm({ isCareers = false }) {
     reason: '',
     affiliation: '',
     message: '',
+    linkedinLink: '',
+    resumeLink: ''
   });
 
   const [wordCount, setWordCount] = useState(0);
-  const [attachments, setAttachments] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const MAX_WORDS = 250;
@@ -25,11 +26,9 @@ function ContactForm({ isCareers = false }) {
   }, []);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
     
-    if (name === 'resume') {
-      setAttachments(files.length);
-    } else if (name === 'message') {
+    if (name === 'message') {
       const words = value.trim().split(/\s+/).filter(word => word.length > 0);
       const currentWordCount = words.length;
       
@@ -85,16 +84,17 @@ function ContactForm({ isCareers = false }) {
           message: 'Thank you for your message! We will be in touch shortly.'
         });
         
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
           reason: '',
           affiliation: '',
-      message: '',
-    });
-    setWordCount(0);
-    setAttachments(0);
+          message: '',
+          linkedinLink: '',
+          resumeLink: ''
+        });
+        setWordCount(0);
         e.target.reset();
       } else {
         throw new Error('Failed to send email');
@@ -112,7 +112,7 @@ function ContactForm({ isCareers = false }) {
 
   return (
     <section className={styles.section}>
-      <form onSubmit={handleSubmit} className={styles.form} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} className={styles.form}>
         {/* Name Field Group */}
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor="firstName">Name*</label>
@@ -153,6 +153,38 @@ function ContactForm({ isCareers = false }) {
             style={{ color: '#000000' }}
           />
         </div>
+
+        {/* LinkedIn and Resume Links - Only show for Careers form */}
+        {isCareers && (
+          <>
+            <div className={styles.fieldGroup}>
+              <label className={styles.label} htmlFor="linkedinLink">LinkedIn Profile Link*</label>
+              <input 
+                type="url" 
+                id="linkedinLink" 
+                name="linkedinLink" 
+                placeholder="https://www.linkedin.com/in/your-profile" 
+                value={formData.linkedinLink} 
+                onChange={handleChange} 
+                required 
+                style={{ color: '#000000' }}
+              />
+            </div>
+            <div className={styles.fieldGroup}>
+              <label className={styles.label} htmlFor="resumeLink">Google Drive Resume Link*</label>
+              <input 
+                type="url" 
+                id="resumeLink" 
+                name="resumeLink" 
+                placeholder="https://drive.google.com/your-resume-link" 
+                value={formData.resumeLink} 
+                onChange={handleChange} 
+                required 
+                style={{ color: '#000000' }}
+              />
+            </div>
+          </>
+        )}
 
         {/* Reason for Inquiry Field Group - Only show for Contact form */}
         {!isCareers && (
@@ -219,24 +251,6 @@ function ContactForm({ isCareers = false }) {
             {wordCount}/{MAX_WORDS} words
           </div>
         </div>
-
-        {/* Resume Upload Field Group - Only show for Careers form */}
-        {isCareers && (
-        <div className={`${styles.fieldGroup} ${styles.resumeGroup}`}>
-          <label className={styles.label} htmlFor="resume">Attach Resume</label>
-          <input 
-            type="file" 
-            id="resume" 
-            name="resume" 
-            accept=".pdf,.doc,.docx" 
-            onChange={handleChange}
-            style={{ color: '#000000' }}
-          />
-          <div className={styles.attachmentCount}>
-            Attachments ({attachments})
-          </div>
-        </div>
-        )}
 
         {submitStatus.message && (
           <div className={`${styles.statusMessage} ${styles[submitStatus.type]}`}>

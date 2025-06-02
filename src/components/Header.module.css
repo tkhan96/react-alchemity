@@ -20,6 +20,12 @@
   width: auto; /* Maintain aspect ratio */
   margin-left: 0; /* Remove any default margin */
   object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logoImage {
+  filter: drop-shadow(0 0 12px rgba(37, 171, 224, 0.6));
+  transform: scale(1.02);
 }
 
 .nav {

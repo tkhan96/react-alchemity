@@ -93,7 +93,7 @@ const carouselContainerStyle = {
   overflowX: 'auto',
   marginTop: '4rem',
   position: 'relative',
-  paddingBottom: '1rem',
+  paddingBottom: '0.75rem',
 };
 
 const scrollbarStyles = `
@@ -135,6 +135,7 @@ const carouselTrackStyle = {
   margin: '0',
   padding: '0 1rem',
   width: 'max-content',
+  paddingBottom: '0.75rem'
 };
 
 const carouselImageStyle = {
@@ -231,7 +232,7 @@ const firstMarketsContentStyle = {
   display: 'flex',
   gap: '1.5rem',
   marginTop: '0',
-  padding: '0 1rem',
+  padding: '0',
   alignItems: 'flex-start'
 };
 
@@ -356,8 +357,6 @@ const additionalStyles = `
   }
   
   .market-image-container:hover {
-    background: rgba(37, 171, 224, 0.05);
-    border-radius: 12px;
     transform: scale(1.015);
   }
 
@@ -488,7 +487,7 @@ const secondMarketsTitleStyle = {
 const marketSectionsStyle = {
   display: 'flex',
   flexDirection: 'row',
-  gap: '1rem',
+  gap: '1.5rem',
   alignItems: 'flex-start'
 };
 
@@ -518,6 +517,18 @@ function Markets() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Add responsive styles based on windowWidth
+  const responsiveStyles = {
+    carouselContainer: {
+      ...carouselContainerStyle,
+      paddingBottom: windowWidth >= 2560 ? '-1rem' : windowWidth <= 1024 ? '-2rem' : '-0.75rem',
+    },
+    carouselTrack: {
+      ...carouselTrackStyle,
+      paddingBottom: windowWidth >= 2560 ? '-1rem' : windowWidth <= 1024 ? '-2rem' : '-0.75rem',
+    }
+  };
 
   const images = [
     { 
@@ -684,66 +695,68 @@ function Markets() {
         <div 
           ref={carouselRef}
           className={`carousel-container ${styles.carouselContainer}`}
-          style={carouselContainerStyle} 
+          style={responsiveStyles.carouselContainer} 
           onWheel={handleWheel}
         >
-          <div style={carouselTrackStyle}>
-            <div style={marketSectionsStyle} className={styles.marketSectionsContainer}>
-              <div className={styles.marketSection}>
-                <div style={firstMarketsContainerStyle} className={styles.firstMarketsContainer}>
-                  <div style={firstMarketsContentStyle} className={styles.firstMarketsContentStyle}>
-                    {images.slice(0, 3).map((item, index) => (
-                      <motion.div 
-                        key={index} 
-                        className={`market-image-container ${styles.firstMarketBoxStyle}`}
-                        style={{
-                          ...imageContainerStyle,
-                          userSelect: 'none',
-                        }}
-                        onClick={() => setSelectedMarket(item)}
-                        custom={index}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate="visible"
-                      >
-                        <img
-                          src={item.src}
-                          alt={item.title}
-                          className={`market-image ${styles.carouselImage}`}
-                          style={carouselImageStyle}
-                        />
-                        <p style={imageTitleStyle} className={styles.imageTitle}>{item.title}</p>
-                      </motion.div>
-                    ))}
+          <div style={responsiveStyles.carouselTrack}>
+            <div style={carouselTrackStyle}>
+              <div style={marketSectionsStyle} className={styles.marketSectionsContainer}>
+                <div className={styles.marketSection}>
+                  <div style={firstMarketsContainerStyle} className={styles.firstMarketsContainer}>
+                    <div style={firstMarketsContentStyle} className={styles.firstMarketsContentStyle}>
+                      {images.slice(0, 3).map((item, index) => (
+                        <motion.div 
+                          key={index} 
+                          className={`market-image-container ${styles.firstMarketBoxStyle}`}
+                          style={{
+                            ...imageContainerStyle,
+                            userSelect: 'none',
+                          }}
+                          onClick={() => setSelectedMarket(item)}
+                          custom={index}
+                          variants={cardVariants}
+                          initial="hidden"
+                          animate="visible"
+                        >
+                          <img
+                            src={item.src}
+                            alt={item.title}
+                            className={`market-image ${styles.carouselImage}`}
+                            style={carouselImageStyle}
+                          />
+                          <p style={imageTitleStyle} className={styles.imageTitle}>{item.title}</p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className={styles.marketSection}>
-                <div style={secondMarketsContainer} className={styles.secondMarketsContainer}>
-                  <div style={secondMarketsGrid} className={styles.secondMarketsGrid}>
-                    {images.slice(3).map((item, index) => (
-                      <motion.div 
-                        key={index + 3} 
-                        className="market-image-container"
-                        style={{
-                          ...imageContainerStyle,
-                          userSelect: 'none',
-                        }}
-                        custom={index + 3}
-                        variants={cardVariants}
-                        initial="hidden"
-                        animate="visible"
-                      >
-                        <img
-                          src={item.src}
-                          alt={item.title}
-                          className={`market-image ${styles.carouselImage}`}
-                          style={carouselImageStyle}
-                        />
-                        <p style={imageTitleStyle} className={styles.imageTitle}>{item.title}</p>
-                      </motion.div>
-                    ))}
+                
+                <div className={styles.marketSection}>
+                  <div style={secondMarketsContainer} className={styles.secondMarketsContainer}>
+                    <div style={secondMarketsGrid} className={styles.secondMarketsGrid}>
+                      {images.slice(3).map((item, index) => (
+                        <motion.div 
+                          key={index + 3} 
+                          className="market-image-container"
+                          style={{
+                            ...imageContainerStyle,
+                            userSelect: 'none',
+                          }}
+                          custom={index + 3}
+                          variants={cardVariants}
+                          initial="hidden"
+                          animate="visible"
+                        >
+                          <img
+                            src={item.src}
+                            alt={item.title}
+                            className={`market-image ${styles.carouselImage}`}
+                            style={carouselImageStyle}
+                          />
+                          <p style={imageTitleStyle} className={styles.imageTitle}>{item.title}</p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -767,16 +780,16 @@ function Markets() {
           listStyle: 'none',
         }}>
           <div style={{ marginBottom: '1rem' }}>{selectedMarket?.description}</div>
-          <div style={{ color: '#25abe0', marginTop: '1rem', fontSize: '1.2rem' }}>
+          <div style={{ color: '#25abe0', marginTop: '0rem', fontSize: '1.2rem', fontWeight: '600' }}>
             {selectedMarket?.title === 'SAF' ? "Our Platform Reactor System offers beyond zero-emission & cost-effective alternative suitable for co-located greenfield sites (SAF at the point of use), or integration with existing infrastructure - ideal for brownfield applications." : 
              selectedMarket?.title === 'Hydrogen' ? "Our Platform Reactor System offers a cleaner alternative—producing hydrogen from methane via a non-oxidative process while converting carbon into valuable chemicals, strengthening U.S. energy and economic security." :
              selectedMarket?.title === 'Syngas' ? "Alchemity's Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution." :
              "Placeholder text for additional market information"}
           </div>
-          <div style={{ color: '#25abe0', marginTop: '0.5rem', fontWeight: '600' }}>
+          <div style={{ color: '#ffffff', marginTop: '0.5rem', fontWeight: '600' }}>
             Current Market Size: {selectedMarket?.marketSize}
           </div>
-          <div style={{ color: '#25abe0', marginTop: '0.5rem', fontWeight: '600' }}>
+          <div style={{ color: '#ffffff', marginTop: '0.5rem', fontWeight: '600' }}>
             Projected: {selectedMarket?.futureMarketSize}
           </div>
         </div>

@@ -152,6 +152,12 @@
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  transition: all 0.3s ease;
+}
+
+.imageWrapper:hover {
+  box-shadow: 0 0 20px rgba(37, 171, 224, 0.6);
+  transform: scale(1.02);
 }
 
 .founderImage {

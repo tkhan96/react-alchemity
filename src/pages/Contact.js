@@ -53,7 +53,7 @@ function Contact() {
               marginBottom: '1.5rem',
               maxWidth: '800px'
             }}>
-              Have questions about our technology, products or interested in learning more? We would love to hear from you.
+              Have questions about our technology, products <br/> or interested in learning more? <br/> We would love to hear from you.
             </p>
 
             <div className={styles.infoBlock}>

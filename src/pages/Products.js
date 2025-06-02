@@ -30,6 +30,7 @@ import companim from '../components/images/companim.mov';
 import { FaArrowRight, FaShieldAlt, FaChartLine, FaIndustry, FaDollarSign } from 'react-icons/fa';
 import Modal from '../components/Modal';
 import skiddo from '../components/images/skiddo.png';
+import companal from '../components/images/companal.png';
 
 const CardContainer = styled.div`
   display: grid;
@@ -81,7 +82,7 @@ const Card = styled.div`
     line-height: 1.6;
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
   }
 `;
 
@@ -541,8 +542,6 @@ const AxisLabel = styled.div`
     }
   }}
 `;
-
-
 
 const CompetitivePopup = styled.div`
   position: absolute;
@@ -1005,48 +1004,56 @@ function Products() {
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-          <button 
-            onClick={() => window.location.href = '/contact'}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.8rem',
-              padding: '1rem 2rem',
-              backgroundColor: '#25abe0',
-              color: 'white',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              borderRadius: '50px',
-              boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              overflow: 'hidden',
-              border: '2px solid transparent',
-              cursor: 'pointer',
-              width: 'fit-content',
-              minWidth: '200px'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.backgroundColor = '#0077b5';
-              e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
-              e.target.style.backgroundPosition = '200% center';
-              e.target.style.backgroundSize = '200% 100%';
-              e.target.style.animation = 'gradientMove 1.5s ease infinite';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.backgroundColor = '#25abe0';
-              e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.backgroundImage = 'none';
-              e.target.style.animation = 'none';
-            }}
-          >
-            Pre-Order Now
-          </button>
+          <div style={{
+            display: 'flex',
+            gap: '2rem',
+            justifyContent: 'center',
+            width: '100%'
+          }}>
+            <button 
+              onClick={() => window.location.href = '/contact'}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.8rem',
+                padding: '1rem 2rem',
+                backgroundColor: '#25abe0',
+                color: 'white',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                textDecoration: 'none',
+                borderRadius: '50px',
+                boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                transition: 'all 0.3s ease',
+                position: 'relative',
+                overflow: 'hidden',
+                border: '2px solid transparent',
+                cursor: 'pointer',
+                width: 'fit-content',
+                minWidth: '200px'
+              }}
+              className={styles.preOrderButton}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#0077b5';
+                e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+                e.target.style.backgroundPosition = '200% center';
+                e.target.style.backgroundSize = '200% 100%';
+                e.target.style.animation = 'gradientMove 1.5s ease infinite';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#25abe0';
+                e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.backgroundImage = 'none';
+                e.target.style.animation = 'none';
+              }}
+            >
+              Pre-Order Now
+            </button>
+          </div>
         </div>
       </div>
     </Modal>
@@ -1176,49 +1183,56 @@ function Products() {
             </div>
 
             <div className={styles.gtchemButtonContainer}>
-              <button 
-                onClick={() => setGtchem1Popup(true)}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.8rem',
-                  padding: '1rem 2rem',
-                  backgroundColor: '#25abe0',
-                  color: 'white',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  textDecoration: 'none',
-                  borderRadius: '50px',
-                  boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  border: '2px solid transparent',
-                  cursor: 'pointer',
-                  width: 'fit-content',
-                  minWidth: '200px'
-                }}
-                className={styles.preOrderButton}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#0077b5';
-                  e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
-                  e.target.style.transform = 'translateY(-2px)';
-                  e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
-                  e.target.style.backgroundPosition = '200% center';
-                  e.target.style.backgroundSize = '200% 100%';
-                  e.target.style.animation = 'gradientMove 1.5s ease infinite';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = '#25abe0';
-                  e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
-                  e.target.style.transform = 'translateY(0)';
-                  e.target.style.backgroundImage = 'none';
-                  e.target.style.animation = 'none';
-                }}
-              >
-                Pre-Order Now
-              </button>
+              <div style={{
+                display: 'flex',
+                gap: '2rem',
+                justifyContent: 'center',
+                width: '100%'
+              }}>
+                <button 
+                  onClick={() => setGtchem1Popup(true)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.8rem',
+                    padding: '1rem 2rem',
+                    backgroundColor: '#25abe0',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                    transition: 'all 0.3s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    border: '2px solid transparent',
+                    cursor: 'pointer',
+                    width: 'fit-content',
+                    minWidth: '200px'
+                  }}
+                  className={styles.preOrderButton}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#0077b5';
+                    e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+                    e.target.style.backgroundPosition = '200% center';
+                    e.target.style.backgroundSize = '200% 100%';
+                    e.target.style.animation = 'gradientMove 1.5s ease infinite';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = '#25abe0';
+                    e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.backgroundImage = 'none';
+                    e.target.style.animation = 'none';
+                  }}
+                >
+                  Pre-Order Now
+                </button>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -1376,17 +1390,33 @@ function Products() {
         <motion.div ref={competitiveRef} variants={sectionVariants} initial="hidden" animate={competitiveInView ? "visible" : "hidden"}>
           <div className={competitiveStyles.competitiveSection} style={{ marginTop: '2rem' }}>
             <CompetitiveTitle>Unmatched Modularity & flexibility</CompetitiveTitle>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              marginTop: '2rem',
+              width: '100%'
+            }}>
+              <img 
+                src={companal} 
+                alt="Competitive Analysis" 
+                style={{
+                  width: '100%',
+                  maxWidth: '1200px',
+                  height: 'auto',
+                  borderRadius: '8px'
+                }}
+              />
+            </div>
+            {/* Commented out the original content
             <CompetitiveHoverText>
               Click/Hover to learn more
             </CompetitiveHoverText>
             <QuadrantContainer className={competitiveStyles.quadrantContainer}>
-              {/* Axes */}
               <Axis orientation="horizontal" color="#e53935" />
               <Axis orientation="vertical" color="#00B050" />
               <Axis orientation="vertical-negative" color="#e53935" />
               <Axis orientation="horizontal-positive" color="#00B050" />
 
-              {/* Axis Labels */}
               <AxisLabel 
                 position="left-center" 
                 color="#e53935" 
@@ -1426,13 +1456,11 @@ function Products() {
                 LOWER LIFETIME COST<br/>AND MODULAR SCALABILITY
               </AxisLabel>
 
-              {/* Replace AlchemityBox with AlchemityText */}
               <AlchemityText>
                 Platform Product: unique combination of<br/>
                 chemical flexibility, low emissions and low-cost.
               </AlchemityText>
 
-              {/* Competitor Boxes */}
               {boxes.map((box, idx) => (
                 box.type === 'logo' ? (
                   <img
@@ -1479,40 +1507,13 @@ function Products() {
                       }
                     }}
                     className={competitiveStyles.quadrantBox}
-                    // onMouseEnter={() => {
-                    //   setHoveredBox(idx);
-                    //   setPopupPos({ x: box.x, y: box.y, label: box.label });
-                    // }}
-                    // onMouseLeave={() => {
-                    //   setHoveredBox(null);
-                    //   setPopupPos({ x: null, y: null, label: null });
-                    // }}
                   >
                     {box.label}
                   </Box>
                 )
               ))}
-              {/* Comment out the popup rendering */}
-              {/* {hoveredBox !== null && popupPos.x !== null && popupPos.y !== null && (
-                <CompetitivePopup style={{
-                  left: [
-                    'Photo-catalytic Reactors',
-                    'Pyrolysis'
-                  ].includes(popupPos.label)
-                    ? `calc(${popupPos.x}% + 70px)`
-                    : `calc(${popupPos.x}% + 100px)`,
-                  top: `calc(${popupPos.y}% - 20px)`,
-                  transform: 'translate(-50%, -100%)',
-                  position: 'absolute',
-                  zIndex: 1000,
-                  pointerEvents: 'none',
-                }} className={competitiveStyles.competitivePopup}>
-                  <span>
-                    {hoverTextData[popupPos.label] || 'Placeholder Text'}
-                  </span>
-                </CompetitivePopup>
-              )} */}
             </QuadrantContainer>
+            */}
           </div>
         </motion.div>
 

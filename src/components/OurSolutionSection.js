@@ -2,36 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './ProblemOpportunitySection.module.css';
-import gtchem11 from './images/gtchem11.mov';
+import staticskid from './images/staticskid.png';
 
 const OurSolutionSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Reset video to start when it's not in view
-      if (!inView) {
-        video.currentTime = 0;
-        video.pause();
-      } else {
-        // Play video when it comes into view
-        video.play();
-      }
-    }
-  }, [inView]);
-
-  const handleVideoEnded = () => {
-    const video = videoRef.current;
-    if (video) {
-      // Pause on the last frame
-      video.pause();
-    }
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -67,13 +44,10 @@ const OurSolutionSection = () => {
             className={styles.imageContainer}
             variants={itemVariants}
           >
-            <video 
-              ref={videoRef}
-              src={gtchem11} 
-              muted
-              playsInline
+            <img 
+              src={staticskid} 
+              alt="Static Skid"
               className={styles.video}
-              onEnded={handleVideoEnded}
             />
           </motion.div>
 

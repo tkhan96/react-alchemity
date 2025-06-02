@@ -4,21 +4,59 @@
 .responsiveContainer {
   max-width: 100%;
   overflow-x: hidden;
+  min-height: 100vh;
+  background-color: #000000;
 }
 
-/* Touch device support for carousel - modified to remove drag cursor but keep other styles */
-@media (hover: none) and (pointer: coarse) {
-  .carouselContainer {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
+/* Hero section styles */
+.heroCarouselContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 120%;
+  overflow: hidden;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%);
+  z-index: 0;
+  margin-top: -29px;
+  display: flex;
+  align-items: center;
+}
+
+.heroImage {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-bottom: 0.5rem;
+  opacity: 1;
+}
+
+.heroImageTitle {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+/* Section container */
+.sectionContainer {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding);
+  margin: 0 auto;
+  background-color: #000000;
+  text-align: left;
 }
 
 /* Market sections container */
 .marketSectionsContainer {
   display: flex;
   flex-direction: row;
-  gap: 1rem; /* Reduced gap between sections */
+  gap: 6rem;
+  align-items: flex-start;
 }
 
 /* Market section styles */
@@ -43,11 +81,20 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  margin-top: -0.4rem;
+  background-color: transparent;
+  z-index: 1;
 }
 
 .firstMarketsContentStyle {
   display: flex;
-  gap: 1.5rem;
+  gap: 6rem;
+  margin-top: 0;
+  padding: 0;
+  align-items: flex-start;
 }
 
 /* Market titles - different colors */
@@ -64,13 +111,75 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-left: 0; /* Removed the default left margin */
+  margin-top: -0.5rem;
 }
 
 .secondMarketsGrid {
   display: flex;
-  flex-wrap: nowrap;
+  gap: 6rem;
+  align-items: flex-start;
+}
+
+/* Carousel styles */
+.carouselContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding: 0;
+}
+
+.carouselTrack {
+  display: flex;
   gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: max-content;
+  margin-bottom: 2rem;
+}
+
+/* Add specific scrollbar styling */
+.carouselContainer::-webkit-scrollbar {
+  height: 8px;
+  margin-top: 2rem;
+}
+
+.carouselContainer::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+
+.carouselContainer::-webkit-scrollbar-thumb {
+  background: #25abe0;
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+
+.carouselImage {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.imageTitle {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Media Query for Tablet (768px) */
@@ -224,6 +333,24 @@
 
   .carouselContainer {
     margin-top: 6rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+
+  .carouselTrack {
+    padding-bottom: 0 !important;
+  }
+
+  .marketSectionsContainer {
+    gap: 8rem !important;
+  }
+
+  .firstMarketsContentStyle {
+    gap: 8rem !important;
+  }
+
+  .secondMarketsGrid {
+    gap: 8rem !important;
   }
 
   .heroImage {
@@ -237,5 +364,17 @@
   
   .marketTitle {
     font-size: 48px !important;
+  }
+}
+
+/* Media Query for Laptop (1024px) and above */
+@media (min-width: 1024px) {
+  .carouselContainer {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+  
+  .carouselTrack {
+    padding-bottom: 0 !important;
   }
 } 

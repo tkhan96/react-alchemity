@@ -134,12 +134,12 @@
 
 /* Specific styling for MIL logo */
 .sponsorCard[data-id="4"] .sponsorLogo {
-  filter: grayscale(100%) brightness(2.5) contrast(0.7);
+  filter: grayscale(100%) brightness(1.5) contrast(0.9);
 }
 
 /* Specific styling for TEDCO logo */
 .sponsorCard[data-id="5"] .sponsorLogo {
-  filter: grayscale(100%) brightness(5.5) contrast(0.6);
+  filter: none;
 }
 
 /* Specific styling for MEIA logo */

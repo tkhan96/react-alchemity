@@ -46,6 +46,12 @@
   margin-bottom: 6rem;
 }
 
+.valuePropositionContainer p {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
 /* GTChem section */
 .gtchemContainer {
   display: flex;

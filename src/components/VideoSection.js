@@ -148,6 +148,99 @@ function VideoSection() {
       Transforming Greenhouse Gasses From Wasted Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System.
         </p>
 
+        <div style={{
+          display: 'flex',
+          gap: '2rem',
+          justifyContent: 'center',
+          width: '100%',
+          marginBottom: '2rem'
+        }}>
+          <button 
+            onClick={() => window.location.href = '/contact'}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.8rem',
+              padding: '1rem 2rem',
+              backgroundColor: '#25abe0',
+              color: 'white',
+              fontSize: '1.4rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              borderRadius: '50px',
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              border: '2px solid transparent',
+              cursor: 'pointer',
+              width: '250px',
+              height: '60px'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#0077b5';
+              e.target.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(37, 171, 224, 0.6)';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+              e.target.style.backgroundPosition = '200% center';
+              e.target.style.backgroundSize = '200% 100%';
+              e.target.style.animation = 'gradientMove 1.5s ease infinite';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#25abe0';
+              e.target.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.backgroundImage = 'none';
+              e.target.style.animation = 'none';
+            }}
+          >
+            Pre-Order Now
+          </button>
+          <button 
+            onClick={() => window.location.href = '/contact'}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.8rem',
+              padding: '1rem 2rem',
+              backgroundColor: '#25abe0',
+              color: 'white',
+              fontSize: '1.4rem',
+              fontWeight: '600',
+              textDecoration: 'none',
+              borderRadius: '50px',
+              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              border: '2px solid transparent',
+              cursor: 'pointer',
+              width: '250px',
+              height: '60px'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#0077b5';
+              e.target.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(37, 171, 224, 0.6)';
+              e.target.style.transform = 'translateY(-2px)';
+              e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+              e.target.style.backgroundPosition = '200% center';
+              e.target.style.backgroundSize = '200% 100%';
+              e.target.style.animation = 'gradientMove 1.5s ease infinite';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#25abe0';
+              e.target.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.backgroundImage = 'none';
+              e.target.style.animation = 'none';
+            }}
+          >
+            Invest Now
+          </button>
+        </div>
+
         <div className={styles.keyPhrasesContainer}>
           <div className={styles.keyPhrasesLine}>
             {keyPhrases.map((phrase, index) => (
