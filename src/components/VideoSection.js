@@ -12,7 +12,7 @@ function VideoSection() {
     "One Platform", 
     "Beyond Zero CO₂",
     "Clean Chemicals", 
-    "Lower Capital Risk", 
+    "Lower Cost", 
     "Higher Efficiency"
   ];
 

@@ -23,12 +23,12 @@ function Sponsors() {
   // Define sponsors only once
   //maryland energy innovation accelerator, Shell Game Changer, Tedco, ARPAE, MII, MEII
   const sponsors = [
+    { name: "ARPA-E", logo: arpa, id: 3 },
     { name: "MIL", logo: mil, id: 4 },
     { name: "University of Maryland", logo: umd, id: 1 },
     { name: "MEIA", logo: meia, id: 6 },
     { name: "Shell", logo: shell, id: 2 },
     { name: "TEDCO", logo: tedco, id: 5 },
-    { name: "ARPA-E", logo: arpa, id: 3 },
   ];
   
   // Create doubled array for seamless scrolling

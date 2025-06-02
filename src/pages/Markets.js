@@ -481,7 +481,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$1.1B',
       futureMarketSize: '$62B by 2030',
-      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as SAF at scale but require high capital and produce significant CO₂ without expensive capture systems. Our Platform Reactor System offers beyond zero-emission & cost-effective alternative suitable for co-located greenfield sites (SAF at the point of use), or integration with existing infrastructure - ideal for brownfield applications.'
+      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as SAF at scale but require high capital and produce significant CO₂ without expensive capture systems. '
     },
     { 
       src: hydrogen, 
@@ -489,7 +489,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$243B',
       futureMarketSize: '$411B by 2030',
-      description: 'Current dominant hydrogen production method, steam methane reforming (SMR), emits ~9.4 kg CO₂/kg H₂, while grid-powered electrolysis can reach up to 22 kg CO₂/kg H₂. With energy use driving over 70% of lifetime costs, scaling hydrogen without raising emissions is difficult until the grid is decarbonized. Our Platform Reactor System offers a cleaner alternative—producing hydrogen from methane via a non-oxidative process while converting carbon into valuable chemicals, strengthening U.S. energy and economic security.'
+      description: 'Current dominant hydrogen production method, steam methane reforming (SMR), emits ~9.4 kg CO₂/kg H₂, while grid-powered electrolysis can reach up to 22 kg CO₂/kg H₂. With energy use driving over 70% of lifetime costs, scaling hydrogen without raising emissions is difficult until the grid is decarbonized.'
     },
     { 
       src: syngas, 
@@ -497,7 +497,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$59B',
       futureMarketSize: '$105B by 2030',
-      description: 'Synthetic gas (syngas)—a mixture of hydrogen and carbon monoxide—is a critical feedstock for producing methanol (used in formaldehyde, acetic acid, and plastics), ammonia (for fertilizers), Fischer-Tropsch liquids (waxes, lubricants, fuels), and higher alcohols and acids in solvents and polymers. Traditional syngas methods like steam methane reforming and coal gasification are highly carbon-intensive, emitting 9-12 kg of CO₂ per kg of hydrogen. Alchemity\'s Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution.'
+      description: 'Synthetic gas (syngas)—a mixture of hydrogen and carbon monoxide—is a critical feedstock for producing methanol (used in formaldehyde, acetic acid, and plastics), ammonia (for fertilizers), Fischer-Tropsch liquids (waxes, lubricants, fuels), and higher alcohols and acids in solvents and polymers. Traditional syngas methods like steam methane reforming and coal gasification are highly carbon-intensive, emitting 9-12 kg of CO₂ per kg of hydrogen.'
     },
     { 
       src: biogas, 
@@ -725,8 +725,11 @@ function Markets() {
           listStyle: 'none',
         }}>
           <div style={{ marginBottom: '1rem' }}>{selectedMarket?.description}</div>
-          <div style={{ color: '#25abe0', marginTop: '1rem', fontWeight: '600', fontSize: '1.2rem' }}>
-            Placeholder text for additional market information
+          <div style={{ color: '#25abe0', marginTop: '1rem', fontSize: '1.2rem' }}>
+            {selectedMarket?.title === 'SAF' ? "Our Platform Reactor System offers beyond zero-emission & cost-effective alternative suitable for co-located greenfield sites (SAF at the point of use), or integration with existing infrastructure - ideal for brownfield applications." : 
+             selectedMarket?.title === 'Hydrogen' ? "Our Platform Reactor System offers a cleaner alternative—producing hydrogen from methane via a non-oxidative process while converting carbon into valuable chemicals, strengthening U.S. energy and economic security." :
+             selectedMarket?.title === 'Syngas' ? "Alchemity's Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution." :
+             "Placeholder text for additional market information"}
           </div>
           <div style={{ color: '#25abe0', marginTop: '1rem', fontWeight: '600' }}>
             Current Market Size: {selectedMarket?.marketSize}

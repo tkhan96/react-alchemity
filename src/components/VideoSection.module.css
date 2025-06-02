@@ -155,7 +155,7 @@
 
 .phraseDot {
   display: inline-block;
-  margin: 0 0.1rem;
+  margin: 0 0.7rem;
   color: var(--primary-color, #25abe0);
   font-size: 1.8rem;
   font-weight: 700;
