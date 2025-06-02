@@ -133,7 +133,7 @@ const carouselTrackStyle = {
   gap: '1.5rem',
   alignItems: 'center',
   margin: '0',
-  padding: '0 1rem 0 5rem',
+  padding: '0 1rem',
   width: 'max-content',
 };
 
@@ -153,6 +153,11 @@ const imageTitleStyle = {
   fontWeight: 'bold',
   textAlign: 'center',
   marginTop: '0.5rem',
+  marginBottom: '0',
+  height: '40px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
 };
 
 const marketSizeStyle = {
@@ -178,11 +183,13 @@ const imageContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
-  height: '100%',
-  padding: '10px',
+  justifyContent: 'flex-start',
+  height: '380px',
+  padding: '1rem',
   cursor: 'pointer',
-  position: 'relative'
+  position: 'relative',
+  margin: '0.5rem',
+  width: '300px'
 };
 
 const keySectionStyle = {
@@ -205,8 +212,6 @@ const firstMarketsContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   gap: '1.5rem',
-  border: '2px solid #25abe0',
-  borderRadius: '16px',
   padding: '0',
   margin: '0',
   marginTop: '-0.4rem',
@@ -225,7 +230,9 @@ const firstMarketsTitleStyle = {
 const firstMarketsContentStyle = {
   display: 'flex',
   gap: '1.5rem',
-  marginTop: '0.25rem',
+  marginTop: '0',
+  padding: '0 1rem',
+  alignItems: 'flex-start'
 };
 
 const firstMarketsTitleCenteredStyle = {
@@ -238,19 +245,10 @@ const firstMarketsTitleCenteredStyle = {
 };
 
 const firstMarketBoxStyle = (index) => ({
-  border: '2px solid #25abe0',
-  borderLeft: index === 0 ? '2px solid #25abe0' : 'none',
-  borderRight: index === 2 ? '2px solid #25abe0' : 'none',
-  borderTop: '2px solid #25abe0',
-  borderBottom: '2px solid #25abe0',
-  borderTopLeftRadius: index === 0 ? '16px' : '0',
-  borderBottomLeftRadius: index === 0 ? '16px' : '0',
-  borderTopRightRadius: index === 2 ? '16px' : '0',
-  borderBottomRightRadius: index === 2 ? '16px' : '0',
   padding: '0',
   margin: '0',
-  marginLeft: index === 0 ? '0' : '-2px',
-  marginRight: index === 2 ? '0' : '-2px',
+  marginLeft: index === 0 ? '0' : '0',
+  marginRight: index === 2 ? '0' : '0',
   backgroundColor: '#000000',
   position: 'relative',
   zIndex: 1,
@@ -347,12 +345,20 @@ const additionalStyles = `
   .market-image-container {
     transition: all 0.3s ease;
     position: relative;
-    padding: 10px;
+    padding: 1rem;
+    margin: 0.5rem;
+    height: 380px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
   
   .market-image-container:hover {
     background: rgba(37, 171, 224, 0.05);
-    border-radius: 8px;
+    border-radius: 12px;
+    transform: scale(1.015);
   }
 
   .market-image-container:hover .market-hover-info {
@@ -362,6 +368,31 @@ const additionalStyles = `
 
   .market-hover-info {
     transition: opacity 0.3s ease;
+  }
+
+  .market-image {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+  }
+  .market-image:hover {
+    filter: drop-shadow(0 0 10px rgba(37, 171, 224, 0.6)) drop-shadow(0 0 16px rgba(37, 171, 224, 0.3));
+  }
+
+  .imageTitle {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -457,7 +488,21 @@ const secondMarketsTitleStyle = {
 const marketSectionsStyle = {
   display: 'flex',
   flexDirection: 'row',
-  gap: '1rem' // Reduced gap between the sections (was 3rem by default)
+  gap: '1rem',
+  alignItems: 'flex-start'
+};
+
+const secondMarketsContainer = {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: '-0.5rem'
+};
+
+const secondMarketsGrid = {
+  display: 'flex',
+  gap: '1.5rem',
+  alignItems: 'flex-start'
 };
 
 function Markets() {
@@ -645,7 +690,6 @@ function Markets() {
           <div style={carouselTrackStyle}>
             <div style={marketSectionsStyle} className={styles.marketSectionsContainer}>
               <div className={styles.marketSection}>
-                <h3 style={firstMarketsTitleCenteredStyle} className={styles.marketTitle}>First Markets</h3>
                 <div style={firstMarketsContainerStyle} className={styles.firstMarketsContainer}>
                   <div style={firstMarketsContentStyle} className={styles.firstMarketsContentStyle}>
                     {images.slice(0, 3).map((item, index) => (
@@ -676,9 +720,8 @@ function Markets() {
               </div>
               
               <div className={styles.marketSection}>
-                <h3 style={secondMarketsTitleStyle} className={styles.marketTitle}>Second Markets</h3>
-                <div className={styles.secondMarketsContainer}>
-                  <div className={styles.secondMarketsGrid}>
+                <div style={secondMarketsContainer} className={styles.secondMarketsContainer}>
+                  <div style={secondMarketsGrid} className={styles.secondMarketsGrid}>
                     {images.slice(3).map((item, index) => (
                       <motion.div 
                         key={index + 3} 
@@ -730,14 +773,11 @@ function Markets() {
              selectedMarket?.title === 'Syngas' ? "Alchemity's Platform Reactor System offers a carbon-negative alternative, producing syngas in a single, non-oxidative step using waste biogas from biomass—delivering a cleaner, more sustainable solution." :
              "Placeholder text for additional market information"}
           </div>
-          <div style={{ color: '#25abe0', marginTop: '1rem', fontWeight: '600' }}>
+          <div style={{ color: '#25abe0', marginTop: '0.5rem', fontWeight: '600' }}>
             Current Market Size: {selectedMarket?.marketSize}
           </div>
           <div style={{ color: '#25abe0', marginTop: '0.5rem', fontWeight: '600' }}>
             Projected: {selectedMarket?.futureMarketSize}
-          </div>
-          <div style={{ color: '#cccccc', marginTop: '1rem', fontStyle: 'italic', fontSize: '1.2rem' }}>
-            Source: Market research and industry analysis
           </div>
         </div>
       </Modal>

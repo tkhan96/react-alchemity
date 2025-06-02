@@ -64,7 +64,7 @@ const ScreenSizeWarning = () => {
     <WarningContainer>
       <Logo src={alchemityLogo} alt="Alchemity Logo" />
       <Message>
-        This website does not support viewing for smaller screens at this time. Please view the website on a larger device and at 100% - 200% zoom.
+        This website does not support viewing for smaller screens at this time. Please view the website on a larger device.
       </Message>
     </WarningContainer>
   );
