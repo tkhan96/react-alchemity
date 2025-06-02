@@ -687,7 +687,6 @@ function Markets() {
                           ...imageContainerStyle,
                           userSelect: 'none',
                         }}
-                        onClick={() => setSelectedMarket(item)}
                         custom={index + 3}
                         variants={cardVariants}
                         initial="hidden"
@@ -710,7 +709,7 @@ function Markets() {
         </div>
       </div>
       <Modal
-        show={selectedMarket !== null}
+        show={selectedMarket !== null && selectedMarket.isFirstMarket}
         onClose={() => setSelectedMarket(null)}
         title={selectedMarket?.title}
         size="xlarge"

@@ -128,7 +128,7 @@ const videoStyle = {
 
 const bulletPointsStyle = {
   color: '#ffffff',
-  fontSize: '14px',
+  fontSize: '18px',
   lineHeight: '1.8',
   marginBottom: '0',
   paddingLeft: '0',
@@ -136,7 +136,7 @@ const bulletPointsStyle = {
 };
 
 const bulletPointStyle = {
-  marginBottom: '1rem',
+  marginBottom: '1.5rem',
 };
 
 const learnMoreButtonStyle = {
@@ -430,9 +430,9 @@ function Technology() {
         <div style={cardsContainerStyle}>
           {[
             {
-              title: "35 Years of R&D\n$20M in Funding",
+              title: "35 Years of R&D + $20M",
               image: rd,
-              text: "Technology successfully transfered to Alchemity. Reactor membrane (core) production validated. Alchemity holds exclusive license to 32 patents (additional 7 pending) on ion conducting ceramics and non-oxidative catalyst.",
+              text: "Alchemity holds exlusive license to 32 patents.",
               imageStyle: {
                 ...imageStyle,
                 objectFit: 'cover',
@@ -442,13 +442,13 @@ function Technology() {
             {
               title: "Extensively Validated",
               image: validated,
-              text: "Technology validated at Alchemity and TRL 4 system demonstrated. Core reactor further validated in research labs, through publications, via industrial, federal, state and investment committes.",
+              text: "In labs & via industrial investment committees.",
               imageStyle: imageStyle
             },
             {
               title: "Scalable",
               image: scalable,
-              text: "TRL 5 system design completed and redy for fabrication. Preliminary TRL 6/7 design conceptualized to build a modular turnkey skid solutions for brownfield and greenfield sites.",
+              text: "Demo system design completed & ready for fabrication.",
               imageStyle: imageStyle
             }
           ].map((card, index) => (
@@ -473,7 +473,7 @@ function Technology() {
           ))}
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '2rem'}}>From Biomass to SAF without CO₂ emissions</h1>
+        <h1 style={{...titleStyle, marginTop: '2rem'}}>Example: From Biomass to SAF without CO₂ emissions</h1>
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -495,14 +495,6 @@ function Technology() {
           />
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '5rem'}}>From RNG to Hydrogen and Ethylene without CO₂ emissions</h1>
-        <video 
-          src={animationTech} 
-          style={videoStyle} 
-          muted 
-          playsInline
-        />
-
         <h1 style={{...titleStyle, marginTop: '5rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
         <p style={{
           fontSize: '1.6rem',
@@ -511,7 +503,7 @@ function Technology() {
           marginBottom: '1rem',
           marginTop: '-2.5rem'
         }}>
-          Placeholder Text
+          Leverages mixed-conducting ceramic membrane and low-cost catalyst. 
         </p>
         <div style={{
           display: 'flex',
@@ -553,7 +545,7 @@ function Technology() {
         <Modal
           show={showDetailsModal}
           onClose={handleCloseDetailsModal}
-          title="Platform Details"
+          title="Reactor Platform Basic Science"
           size="xxlarge"
           showCloseButton={true}
         >
@@ -573,140 +565,12 @@ function Technology() {
             </div>
             <div style={{...modalColumnStyle, width: '60%'}}>
               <div style={bulletPointsStyle}>
-                <div style={bulletPointStyle}>The process is non-oxidative single step conversion of methane from various feedstock (conventional natural gas, renewable natural gas, biogas) to clean chemicals and fuels with zero CO₂ emissions. The patented ceramic membrane reactor (made from strontimum cerate) is filled with a non-oxidative catalyst (low-cost iron-silica) and the patented assembly is housed within a reactor vessel. Methane (feed gas) is introduced through a central delivery tube, while the exterior of the reactor is exposed to a circulating sweep gas, air in this case.</div>
-                <div style={bulletPointStyle}>Within the catalyst bed, direct non-oxidative methane conversion occurs as hydrogen is extracted from methane. The mixed-conducting ceramic membrane selectively transports hydrogen ions to the sweep side, driven by Le Chatelier's Principle. There, hydrogen reacts with oxygen in the air, producing water and heat, enabling autothermal operation and high overall energy efficiency.</div>
-                <div style={bulletPointStyle}>The membrane's ability to conduct both hydrogen and oxygen ions also enables small amounts of oxygen to diffuse inward. These oxygen ions react with carbon from methane, forming trace amounts of CO. This mechanism suppresses carbon deposition (coking) and extends catalyst life and reactor durability.</div>
-                <div style={bulletPointStyle}>The primary products on the feed side include C²⁺ hydrocarbons and unconverted methane (within a single pass), while the sweep side yields water and hydrogen. By adjusting parameters such as temperature, pressure, number of recycles, and sweep gas composition, the system can be tailored to produce specific chemical products, offering flexibility to meet diverse customer needs.</div>
-              </div>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                marginTop: '2rem'
-              }}>
-                <button 
-                  className={styles.detailsButton}
-                  onClick={() => {
-                    handleCloseDetailsModal();
-                    handleOpenModal();
-                  }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem'
-                  }}
-                >
-                  Next <span>→</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </Modal>
-
-        <Modal
-          show={showModal}
-          onClose={handleCloseModal}
-          title="GTChem Platform Details"
-          size="xxlarge"
-          showCloseButton={true}
-        >
-          <div style={{
-            ...modalContentStyle,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '2rem',
-            padding: '0 2rem',
-            '@media (max-width: 768px)': {
-              gridTemplateColumns: '1fr',
-              gap: '3rem'
-            }
-          }}>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '1.5rem'
-            }}>
-              <img 
-                src={graph1} 
-                alt="Graph 1" 
-                style={{
-                  width: '100%',
-                  height: '300px',
-                  objectFit: 'contain',
-                  objectPosition: 'center'
-                }} 
-              />
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '1rem',
-                width: '100%'
-              }}>
-                <h3 style={{
-                  ...modalSubtitleStyle,
-                  margin: 0,
-                  textAlign: 'center'
-                }}>
-                  Example of a Stable Reactor Operation
-                </h3>
-                <div style={{
-                  ...modalTextStyle,
-                  margin: 0,
-                  textAlign: 'center'
-                }}>
-                  <div style={bulletPointStyle}>
-                    Platform reactor was tasked to demonstrate stable conversion of Shell's natural gas (97% CH₄, 3% C₃H₈) with air sweep (space velocity 3200 mL/g∙h).
-                  </div>
-                  <div style={bulletPointStyle}>
-                    Single pass operation demonstrated stable natural gas conversion of 21% over 375 hours without any coking (carbon deposition on the catalyst). Stable selectivity for ethylene and benzene was demonstrated.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '1.5rem'
-            }}>
-              <img 
-                src={graph2} 
-                alt="Graph 2" 
-                style={{
-                  width: '100%',
-                  height: '300px',
-                  objectFit: 'contain',
-                  objectPosition: 'center'
-                }} 
-              />
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '1rem',
-                width: '100%'
-              }}>
-                <h3 style={{
-                  ...modalSubtitleStyle,
-                  margin: 0,
-                  textAlign: 'center'
-                }}>
-                  Wide Product Selectivity
-                </h3>
-                <div style={{
-                  ...modalTextStyle,
-                  margin: 0,
-                  textAlign: 'center'
-                }}>
-                  <div style={bulletPointStyle}>
-                    Example of a wide product selectivity that can be achieved with the platform technology. Selectivity can be adjusted by change in reactor operating temperature.
-                  </div>
-                  <div style={bulletPointStyle}>
-                    Any CO from membrane oxide-ion transport can be minimized to prevent coking via adjustment in air sweep gas flow rate.
-                  </div>
-                </div>
+                <div style={bulletPointStyle}>Non-oxidative single-step conversion of methane, CO₂, and water from waste feedstocks to clean chemicals/fuels without CO₂ emissions. Schematics shows a ceramic membrane reactor (strontium cerate) filled with low-cost iron-silica catalyst inside a reactor vessel.</div>
+                <div style={bulletPointStyle}>In this example methane flows through the core and sweep gas (air) circulates outside. Hydrogen is extracted in the catalyst bed and transported through the membrane to the sweep side via Le Chatelier's Principle, where it reacts with oxygen to form water and heat—enabling autothermal, energy-efficient operation.</div>
+                <div style={bulletPointStyle}>Oxygen ions from air sweep diffuse inward to react with carbon, forming trace CO, which prevents coking and extends catalyst life and reactor durability.</div>
+              </div> 
+              <div style={{...bulletPointsStyle, fontSize: '18px', marginTop: '0.5rem'}}>
+                Products include C2+ hydrocarbons and unconverted methane on the feed side, with water and hydrogen on the sweep side. System is tunable via temperature, pressure, recycles, and sweep gas to meet specific product demands.
               </div>
             </div>
           </div>
