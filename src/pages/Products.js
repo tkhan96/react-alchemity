@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import productsBg from '../components/images/plant3.png';
 import styled from 'styled-components';
@@ -1010,8 +1011,8 @@ function Products() {
             justifyContent: 'center',
             width: '100%'
           }}>
-            <button 
-              onClick={() => window.location.href = '/contact'}
+            <Link 
+              to="/contact"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -1031,7 +1032,7 @@ function Products() {
                 border: '2px solid transparent',
                 cursor: 'pointer',
                 width: 'fit-content',
-                minWidth: '200px'
+                minWidth: '130px'
               }}
               className={styles.preOrderButton}
               onMouseOver={(e) => {
@@ -1052,7 +1053,7 @@ function Products() {
               }}
             >
               Pre-Order Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -1210,7 +1211,7 @@ function Products() {
                     border: '2px solid transparent',
                     cursor: 'pointer',
                     width: 'fit-content',
-                    minWidth: '200px'
+                    minWidth: '130px'
                   }}
                   className={styles.preOrderButton}
                   onMouseOver={(e) => {
@@ -1232,6 +1233,49 @@ function Products() {
                 >
                   Pre-Order Now
                 </button>
+                <Link 
+                  to="/contact"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.8rem',
+                    padding: '1rem 2rem',
+                    backgroundColor: '#25abe0',
+                    color: 'white',
+                    fontSize: '1.1rem',
+                    fontWeight: '600',
+                    textDecoration: 'none',
+                    borderRadius: '50px',
+                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                    transition: 'all 0.3s ease',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    border: '2px solid transparent',
+                    cursor: 'pointer',
+                    width: 'fit-content',
+                    minWidth: '130px'
+                  }}
+                  className={styles.preOrderButton}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#0077b5';
+                    e.target.style.boxShadow = '0 15px 25px rgba(0, 0, 0, 0.4)';
+                    e.target.style.transform = 'translateY(-2px)';
+                    e.target.style.backgroundImage = 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)';
+                    e.target.style.backgroundPosition = '200% center';
+                    e.target.style.backgroundSize = '200% 100%';
+                    e.target.style.animation = 'gradientMove 1.5s ease infinite';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = '#25abe0';
+                    e.target.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.backgroundImage = 'none';
+                    e.target.style.animation = 'none';
+                  }}
+                >
+                  Invest Now
+                </Link>
               </div>
             </div>
           </div>
@@ -1389,7 +1433,7 @@ function Products() {
 
         <motion.div ref={competitiveRef} variants={sectionVariants} initial="hidden" animate={competitiveInView ? "visible" : "hidden"}>
           <div className={competitiveStyles.competitiveSection} style={{ marginTop: '2rem' }}>
-            <CompetitiveTitle>Unmatched Modularity & flexibility</CompetitiveTitle>
+            <CompetitiveTitle>Unmatched Modularity & Flexibility</CompetitiveTitle>
             <div style={{ 
               display: 'flex', 
               justifyContent: 'center', 

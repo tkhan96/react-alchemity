@@ -53,7 +53,7 @@ function Contact() {
               marginBottom: '1.5rem',
               maxWidth: '800px'
             }}>
-              Interested to invest? Have questions about pre-ordering our system or a general inquiry about our technology, products <br/> or interested in learning more? <br/> We would love to hear from you.
+              Interested to invest? <br/> Have questions about pre-ordering our system or a general inquiry about our technology, products or interested in learning more? <br/> We would love to hear from you.
             </p>
 
             <div className={styles.infoBlock}>

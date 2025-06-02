@@ -160,9 +160,28 @@ For questions about this Privacy Policy or your personal data, please contact us
             <h3 style={{ color: '#25abe0', fontSize: '28px', marginBottom: '1.5rem', fontWeight: '600' }}>
               {popupContent[selectedPopup].title}
             </h3>
-            <p style={{ color: '#ffffff', fontSize: '16px', lineHeight: '1.6' }}>
-              {popupContent[selectedPopup].content}
-            </p>
+            <div style={{ 
+              maxHeight: '70vh', 
+              overflowY: 'auto',
+              paddingRight: '1rem',
+              color: '#ffffff',
+              fontSize: '16px',
+              lineHeight: '1.8',
+              textAlign: 'left'
+            }}>
+              {popupContent[selectedPopup].content.split('\n\n').map((paragraph, index) => {
+                const isNumberedSection = /^\d+\./.test(paragraph);
+                return (
+                  <p key={index} style={{ 
+                    marginBottom: '1.5rem',
+                    fontWeight: isNumberedSection ? '800' : 'normal',
+                    color: isNumberedSection ? '#25abe0' : '#ffffff'
+                  }}>
+                    {paragraph}
+                  </p>
+                );
+              })}
+            </div>
           </motion.div>
         </motion.div>
       )}

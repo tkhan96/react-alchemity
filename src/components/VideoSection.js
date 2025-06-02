@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './VideoSection.module.css';
 import videoFile from './images/homepage-hero.mp4';
 import { FaCloud, FaDollarSign, FaShieldAlt, FaSeedling } from 'react-icons/fa';
@@ -155,14 +156,14 @@ function VideoSection() {
           width: '100%',
           marginBottom: '2rem'
         }}>
-          <button 
-            onClick={() => window.location.href = '/contact'}
+          <Link 
+            to="/contact"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.8rem',
-              padding: '1rem 2rem',
+              padding: '0.8rem 1rem',
               backgroundColor: '#25abe0',
               color: 'white',
               fontSize: '1.4rem',
@@ -176,7 +177,7 @@ function VideoSection() {
               border: '2px solid transparent',
               cursor: 'pointer',
               width: '250px',
-              height: '60px'
+              height: '50px'
             }}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = '#0077b5';
@@ -196,15 +197,15 @@ function VideoSection() {
             }}
           >
             Pre-Order Now
-          </button>
-          <button 
-            onClick={() => window.location.href = '/contact'}
+          </Link>
+          <Link 
+            to="/contact"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.8rem',
-              padding: '1rem 2rem',
+              padding: '0.8rem 1rem',
               backgroundColor: '#25abe0',
               color: 'white',
               fontSize: '1.4rem',
@@ -218,7 +219,7 @@ function VideoSection() {
               border: '2px solid transparent',
               cursor: 'pointer',
               width: '250px',
-              height: '60px'
+              height: '50px'
             }}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = '#0077b5';
@@ -238,7 +239,7 @@ function VideoSection() {
             }}
           >
             Invest Now
-          </button>
+          </Link>
         </div>
 
         <div className={styles.keyPhrasesContainer}>
