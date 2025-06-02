@@ -128,7 +128,7 @@ const videoStyle = {
 
 const bulletPointsStyle = {
   color: '#ffffff',
-  fontSize: '14px',
+  fontSize: '18px',
   lineHeight: '1.8',
   marginBottom: '0',
   paddingLeft: '0',
@@ -136,7 +136,7 @@ const bulletPointsStyle = {
 };
 
 const bulletPointStyle = {
-  marginBottom: '1rem',
+  marginBottom: '1.5rem',
 };
 
 const learnMoreButtonStyle = {
@@ -495,14 +495,6 @@ function Technology() {
           />
         </div>
 
-        <h1 style={{...titleStyle, marginTop: '5rem'}}>From RNG to Hydrogen and Ethylene without CO₂ emissions</h1>
-        <video 
-          src={animationTech} 
-          style={videoStyle} 
-          muted 
-          playsInline
-        />
-
         <h1 style={{...titleStyle, marginTop: '5rem'}}>Multifunctional <span style={{ fontStyle: 'italic' }}>Gas to Chemicals</span> Platform</h1>
         <p style={{
           fontSize: '1.6rem',
@@ -574,7 +566,7 @@ function Technology() {
             <div style={{...modalColumnStyle, width: '60%'}}>
               <div style={bulletPointsStyle}>
                 <div style={bulletPointStyle}>Non-oxidative single-step conversion of methane, CO₂, and water from waste feedstocks to clean chemicals/fuels without CO₂ emissions. Schematics shows a ceramic membrane reactor (strontium cerate) filled with low-cost iron-silica catalyst inside a reactor vessel.</div>
-                <div style={bulletPointStyle}>In this example methane flows through the core and sweep gas (air) circulates outside. Hydrogen is extracted in the catalyst bed and transported through the membrane to the sweep side via Le Chatelier’s Principle, where it reacts with oxygen to form water and heat—enabling autothermal, energy-efficient operation.</div>
+                <div style={bulletPointStyle}>In this example methane flows through the core and sweep gas (air) circulates outside. Hydrogen is extracted in the catalyst bed and transported through the membrane to the sweep side via Le Chatelier's Principle, where it reacts with oxygen to form water and heat—enabling autothermal, energy-efficient operation.</div>
                 <div style={bulletPointStyle}>Oxygen ions from air sweep diffuse inward to react with carbon, forming trace CO, which prevents coking and extends catalyst life and reactor durability.</div>
               </div> Products include olefins and aromatics. System is tunable via temperature, pressure, recycles, and sweep gas to meet specific product demands.
               <div style={{

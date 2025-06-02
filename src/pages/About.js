@@ -56,6 +56,7 @@ const founders = [
     blurb: '30 years of Energy Research and Product Development/Innovation',
     bio: [
       'Eric brings the innovation (developed IP licensed to Alchemity) and startup scaleup expertise through multiple ventures.',
+      'Current Roles',
       'Founder of VC-backed Battery Company (Ion Storage Systems).',
       'Director of Maryland Energy Innovation Institute.',
       'Published >300 papers, >40 patents.',
@@ -74,7 +75,7 @@ const advisors = [
     blurb: 'Proven entrepreneur, fundraiser, corporate venture investor',
     bio: [
       'Director Stanford High Impact Fund',
-      'Board member of multiple ventures, creating joint ventures and leading the acquisition of companies.',
+      "Board member of multiple ventures, creating JV's and leading the acquisition of companies.",
       'Education: UCLA - MBA; Stanford University - Engineering ',
     ],
     imageUrl: advisor1,
@@ -87,7 +88,7 @@ const advisors = [
     blurb: '30 years of Proven Leadership in Energy and System Operations',
     bio: [
       '23 years at Chevron, leading refinery operations.',
-      'Various roles at Hawaiian Electric, Par Holdings, and Island Energy Services.',
+      'At Hawaiian Electric, Par Holdings, and Island Energy Services.',
       'Education: University of Hawaii',
     ],
     imageUrl: advisor2,
@@ -229,7 +230,7 @@ function About() {
           <div style={{
             display: 'flex',
             gap: '0',
-            animation: 'slide 20s linear infinite',
+            animation: 'slide 55s linear infinite',
             alignItems: 'center',
             margin: 0,
             padding: '0 2rem',
@@ -363,20 +364,22 @@ function About() {
               {selectedPerson.bio && selectedPerson.bio.map((point, index) => {
                 if (index === 0) {
                   return <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>;
-                } else if (index === 1 && (selectedPerson.title === 'Advisor' || selectedPerson.name.includes('Eric'))) {
+                } else if (index === 1 && selectedPerson.title === 'Advisor') {
                   return (
                     <>
-                      <h4 key="current-role" style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem', color: '#25abe0' }}>Current Role</h4>
+                      <h4 key="current-role" style={{ textAlign: 'left', marginBottom: '0.5rem', fontSize: '1.4rem', color: '#25abe0' }}>
+                        {selectedPerson.name.includes('Matt') ? 'Previous Roles' : 'Current Role'}
+                      </h4>
                       <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point}</li>
                     </>
                   );
-                } else if (point === 'Previous Roles:') {
+                } else if (point === 'Previous Roles:' || point === 'Current Roles') {
                   return <h4 key={index} style={{ 
                     textAlign: 'left', 
                     marginBottom: selectedPerson.name.includes('Eric') || selectedPerson.name.includes('Rodger') || selectedPerson.name.includes('Emir') ? '1rem' : '0.5rem', 
                     fontSize: '1.4rem', 
                     color: '#25abe0' 
-                  }}>Previous Roles</h4>;
+                  }}>{point}</h4>;
                 } else if (point.includes('Education:')) {
                   return (
                     <>
@@ -384,8 +387,8 @@ function About() {
                       <li key={index} style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>{point.replace('Education:', '').trim()}</li>
                     </>
                   );
-                } else if (point === 'Previous Roles:' || point === 'Education:') {
-                  return null;
+                } else if (selectedPerson.name.includes('Eric')) {
+                  return <li key={index} style={{ marginBottom: '0.5rem', lineHeight: '1', fontSize: '1.2rem' }}>{point}</li>;
                 } else if ((selectedPerson.bio[index - 1] === 'Previous Roles:' || 
                           selectedPerson.bio[index - 2] === 'Previous Roles:' ||
                           selectedPerson.bio[index - 3] === 'Previous Roles:' ||

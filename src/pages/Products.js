@@ -80,12 +80,7 @@ const Card = styled.div`
   p {
     line-height: 1.6;
     font-size: 1.4rem;
-    margin-bottom: 0;
-    height: calc(1.6em * 5);
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    margin-bottom: 1.5rem;
     text-align: left;
   }
 `;
@@ -463,7 +458,7 @@ const AlchemityText = styled.div`
   left: 54%;
   top: 18%;
   min-width: 300px;
-  max-width: 1400px;
+  max-width: 1800px;
   padding: 1rem 1.2rem;
   background: transparent;
   color: #25abe0;
@@ -475,14 +470,14 @@ const AlchemityText = styled.div`
   
   @media (min-width: 769px) and (max-width: 1024px) {
     min-width: 400px;
-    max-width: 1600px;
+    max-width: 2000px;
     padding: 1.5rem 1.8rem;
     font-size: 1.8rem;
   }
   
   @media (min-width: 2560px) {
     min-width: 400px;
-    max-width: 1600px;
+    max-width: 2000px;
     padding: 1.5rem 1.8rem;
     font-size: 1.8rem;
   }
@@ -1085,7 +1080,7 @@ function Products() {
             <h2 style={{
               fontSize: '40px',
               color: '#25abe0',
-              marginBottom: '0.5rem',
+              marginBottom: '2.5rem',
               textAlign: 'center',
               fontWeight: '500'
             }}>Larger Product Output, Lower Emissions, Higher Efficiency </h2>
@@ -1249,7 +1244,6 @@ function Products() {
                   <Hotspot
                     style={{ bottom: '45%', left: '32%' }}
                     whileHover={{ scale: 1.2 }}
-                    onClick={() => handleHotspotClick(0)}
                     className={styles.hotspot}
                   >
                     <HotspotDot />
@@ -1260,7 +1254,6 @@ function Products() {
                   <Hotspot
                     style={{ bottom: '38%', left: '18%' }}
                     whileHover={{ scale: 1.2 }}
-                    onClick={() => handleHotspotClick(3)}
                     className={styles.hotspot}
                   >
                     <HotspotDot />
@@ -1271,7 +1264,6 @@ function Products() {
                   <Hotspot
                     style={{ bottom: '52%', left: '20%' }}
                     whileHover={{ scale: 1.2 }}
-                    onClick={() => handleHotspotClick(4)}
                     className={styles.hotspot}
                   >
                     <HotspotDot />
@@ -1282,7 +1274,6 @@ function Products() {
                   <Hotspot
                     style={{ top: '40%', left: '75%' }}
                     whileHover={{ scale: 1.2 }}
-                    onClick={() => handleHotspotClick(1)}
                     className={styles.hotspot}
                   >
                     <HotspotDot />
@@ -1293,7 +1284,6 @@ function Products() {
                   <Hotspot
                     style={{ top: '70%', left: '40%' }}
                     whileHover={{ scale: 1.2 }}
-                    onClick={() => handleHotspotClick(2)}
                     className={styles.hotspot}
                   >
                     <HotspotDot />
@@ -1438,7 +1428,8 @@ function Products() {
 
               {/* Replace AlchemityBox with AlchemityText */}
               <AlchemityText>
-                Platform Product: unique combination of <br/> chemical flexibility, low emissions <br/> and low-cost.
+                Platform Product: unique combination of<br/>
+                chemical flexibility, low emissions and low-cost.
               </AlchemityText>
 
               {/* Competitor Boxes */}
@@ -1488,21 +1479,21 @@ function Products() {
                       }
                     }}
                     className={competitiveStyles.quadrantBox}
-                    onMouseEnter={() => {
-                      setHoveredBox(idx);
-                      setPopupPos({ x: box.x, y: box.y, label: box.label });
-                    }}
-                    onMouseLeave={() => {
-                      setHoveredBox(null);
-                      setPopupPos({ x: null, y: null, label: null });
-                    }}
+                    // onMouseEnter={() => {
+                    //   setHoveredBox(idx);
+                    //   setPopupPos({ x: box.x, y: box.y, label: box.label });
+                    // }}
+                    // onMouseLeave={() => {
+                    //   setHoveredBox(null);
+                    //   setPopupPos({ x: null, y: null, label: null });
+                    // }}
                   >
                     {box.label}
                   </Box>
                 )
               ))}
-              {/* Render popup absolutely at the end, above all boxes */}
-              {hoveredBox !== null && popupPos.x !== null && popupPos.y !== null && (
+              {/* Comment out the popup rendering */}
+              {/* {hoveredBox !== null && popupPos.x !== null && popupPos.y !== null && (
                 <CompetitivePopup style={{
                   left: [
                     'Photo-catalytic Reactors',
@@ -1520,7 +1511,7 @@ function Products() {
                     {hoverTextData[popupPos.label] || 'Placeholder Text'}
                   </span>
                 </CompetitivePopup>
-              )}
+              )} */}
             </QuadrantContainer>
           </div>
         </motion.div>
