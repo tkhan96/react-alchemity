@@ -145,7 +145,7 @@ function VideoSection() {
         <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
         
         <p className={styles.videoDescription}>
-      Transforming Greenhouse Gasses From Wasted Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System.
+      Transforming Greenhouse Gasses and Waste Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System
         </p>
 
         <div style={{
@@ -260,14 +260,14 @@ function VideoSection() {
           <div className={styles.mission}>
             <h2 className={styles.cardTitle}>Our Mission</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To supply customers with carbon-negative chemicals & fuels produced at a lower cost.")}
+              {emphasizeText("Supply customers with carbon-neutral chemicals & fuels.")}
             </p>
           </div>
           
           <div className={styles.vision}>
             <h2 className={styles.cardTitle}>Our Vision</h2>
             <p className={styles.cardText}>
-              {emphasizeText("To accelerate global transition to clean chemical & fuels production without clean premium.")}
+              {emphasizeText("Accelerate global transition to low-cost clean chemicals & fuels.")}
             
             </p>
           </div>

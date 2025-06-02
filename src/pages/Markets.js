@@ -537,7 +537,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$1.1B',
       futureMarketSize: '$62B by 2030',
-      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as SAF at scale but require high capital and produce significant CO₂ without expensive capture systems. '
+      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as Sustainable Aviation Fuel (SAF) at scale but require high capital and produce significant CO₂ without expensive capture systems. '
     },
     { 
       src: hydrogen, 
