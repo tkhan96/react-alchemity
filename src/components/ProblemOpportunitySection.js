@@ -42,7 +42,7 @@ const ProblemOpportunitySection = () => {
         >
           <motion.div className={styles.textContent}>
             <motion.h2 className={styles.title} variants={itemVariants}>
-              TODAY: 1 kg of CO<sub>2</sub> is emitted for every $1 transactioned in chemicals.
+              TODAY: 1 kg of CO<sub>2</sub> is emitted for every $1 in chemical transactions
             </motion.h2>
             <motion.p className={styles.highlightText} variants={itemVariants}>
               Massive production facilities & volumes are required to achieve economies of scale.

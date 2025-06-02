@@ -79,7 +79,7 @@ const OurSolutionSection = () => {
 
           <motion.div className={styles.textContent}>
             <motion.h2 className={styles.title} variants={itemVariants}>
-              Our Technology: Engineered for Carbon Reversal.
+              Our Technology: Engineered for Carbon Neutrality
             </motion.h2>
             <motion.p className={styles.highlightText} variants={itemVariants}>
               Platform technology with simplified design, on-site modularity, higher efficiency and reduced capital risk.
