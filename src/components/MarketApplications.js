@@ -16,14 +16,14 @@ import styled from 'styled-components';
 
 const MarketTitle = styled.h2`
   font-size: 40px;
-  color: #25abe0;
+  color: #d9f4fc !important;
   margin-bottom: 1.2rem;
   text-align: center;
   font-weight: 900;
 `;
 
 const MarketDescription = styled.p`
-  color: #ffffff;
+  color: #b9c0c4 !important;
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.5rem;

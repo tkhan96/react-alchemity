@@ -9,8 +9,8 @@ import OurSection from '../components/OurSolutionSection';
 
 const SectionSpacing = styled.div`
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 0.5rem;
+  // max-width: 1200px;
+  // padding: 0 0.5rem;
 `;
 
 function Home() {

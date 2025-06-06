@@ -31,7 +31,7 @@ const ProblemOpportunitySection = () => {
   };
 
   return (
-    <section className={styles.section}>
+    <section className={styles.videoSection}>
       <div className={styles.container}>
         <motion.div 
           className={styles.contentWrapper}
@@ -68,7 +68,7 @@ const ProblemOpportunitySection = () => {
               loop
               muted
               playsInline
-              className={styles.video}
+              className={styles.styledVideo}
             />
           </motion.div>
         </motion.div>
@@ -77,4 +77,4 @@ const ProblemOpportunitySection = () => {
   );
 };
 
-export default ProblemOpportunitySection; 
+export default ProblemOpportunitySection;

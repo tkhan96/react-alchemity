@@ -255,13 +255,14 @@ function About() {
                 /* Alt Blue (darker): 'rgba(27, 135, 178, 0.8)' 
                 
                 Even index- another option: rgba(62, 92, 102, 0.85)*/
-                // UI CHANGE: backgroundColor: index % 2 === 0 ? 'rgba(74, 144, 164, 0.85)	' : 'rgba(34, 61, 79, 0.85)',
+                // backgroundColor: index % 2 === 0 ? 'rgba(74, 144, 164, 0.85)	' : 'rgba(34, 61, 79, 0.85)',
+                backgroundColor: index % 2 === 0 ? 'rgba(173, 216, 230, 0.9)' : 'rgba(135, 206, 235, 0.9)', 
                 borderRadius: '1rem',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2)',
                 height: '100%',
                 border: '2px solid rgba(255, 255, 255, 0.08)',
                 transform: 'scale(1.02)', 
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease', 
               }}
             >
               <ProfileCard
@@ -285,7 +286,8 @@ function About() {
               animate="visible"
 
               style={{
-                // UI CHANGE: backgroundColor: index % 2 === 1 ? 'rgba(74, 144, 164, 0.85)	' : 'rgba(34, 61, 79, 0.85)',
+                // backgroundColor: index % 2 === 1 ? 'rgba(74, 144, 164, 0.85)	' : 'rgba(34, 61, 79, 0.85)',
+                backgroundColor: index % 2 === 0 ? 'rgba(173, 216, 230, 0.9)' : 'rgba(135, 206, 235, 0.9)',
                 borderRadius: '1rem',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2)',
                 height: '100%',
