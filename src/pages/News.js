@@ -17,7 +17,7 @@ import styles from './News.module.css';
 const sectionStyle = {
   padding: '0 0 calc(var(--section-padding) + 4rem) 0',
   margin: '0 auto',
-  backgroundColor: '#000000',
+  // backgroundColor: '#000000',
   textAlign: 'left',
   maxWidth: '100%',
 };

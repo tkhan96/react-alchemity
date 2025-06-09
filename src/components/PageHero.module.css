@@ -206,6 +206,7 @@
 .aboutHeroSection[data-page="news"] {
   position: relative !important;
   overflow: hidden !important;
+  margin-bottom: 0 !important;
 }
 
 /* Specific style for News page video */
@@ -505,10 +506,12 @@
   font-size: 3rem;
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align: center;
   font-weight: 200;
-  max-width: 35%;
+  /* max-width: 35%; */
   margin-left: 2rem;
+  position: absolute;
+  left: 50%;
   top: 50%; 
   transform: translate(-50%, -50%);
 }
@@ -519,8 +522,8 @@
   padding-right: 2rem;
   margin-left: 2rem;
   position: absolute;
-  left: 15%;
-  transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%, -50%);
   text-align: center;
 }
 
@@ -544,6 +547,40 @@
     /* font-size: 3rem !important; Increase from default */
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin: 0 auto !important; 
+    padding: 0 !important;
+  }
+
+  .aboutHeroSection[data-page="markets"] .title {
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin: 0 auto !important; 
+    padding: 0 !important;
+    font-size: 3rem !important;
+  }
+
+  .aboutHeroSection[data-page="careers"] .title {
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin: 0 auto !important; 
+    padding: 0 !important;
+    font-size: 3rem !important;
+  }
+
+  .aboutHeroSection[data-page="news"] .title {
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin: 0 auto !important; 
+    padding: 0 !important;
+    font-size: 3rem !important;
   }
 
   .imagesLoopWrapper {
