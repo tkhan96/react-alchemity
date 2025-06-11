@@ -206,7 +206,6 @@
 .aboutHeroSection[data-page="news"] {
   position: relative !important;
   overflow: hidden !important;
-  margin-bottom: 0 !important;
 }
 
 /* Specific style for News page video */
@@ -514,10 +513,10 @@
   padding: 0;
   text-align: center;
   font-weight: 200;
-  max-width: 35%;
-  margin-left: 2rem;
+  /* max-width: 35%; */
   position: absolute;
   left: 50%;
+  margin-left: 2rem;
   top: 50%; 
   transform: translate(-50%, -50%);
 }
@@ -528,8 +527,8 @@
   padding-right: 2rem;
   margin-left: 2rem;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%, -50%);
+  left: 15%;
+  transform: translateX(-50%);
   text-align: center;
 }
 
@@ -582,6 +581,11 @@
   .aboutHeroSection[data-page="news"] .title {
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin: 0 auto !important; 
+    padding: 0 !important;
+    font-size: 3rem !important;
   }
 
   .imagesLoopWrapper {
