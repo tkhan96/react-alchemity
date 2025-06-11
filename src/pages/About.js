@@ -23,6 +23,7 @@ import { PiAndroidLogoDuotone } from 'react-icons/pi';
 import SEO from '../components/SEO/SEO';
 import { seoData } from '../config/seoConfig';
 
+const isInitialLoad = window.performance && performance.now() < 2000;
 
 const founders = [
   {
@@ -241,7 +242,7 @@ function About() {
       <PageHero 
           title="About Us"
           videoStyle={videoStyle}
-          backgroundVideoUrl={aboutVideo}
+          backgroundVideoUrl={!isInitialLoad ? aboutVideo : null}
           titleStyle={{ textShadow: '0 0 20px rgba(37, 171, 224, 0.8)' }}
         />
 
@@ -264,7 +265,7 @@ function About() {
               custom={index}
               variants={cardVariants}
               initial="hidden"
-              animate="visible"
+              animate={!isInitialLoad ? "visible" : "hidden"}
               style={{
                 /* Alt Blue (darker): 'rgba(27, 135, 178, 0.8)' 
                 
@@ -296,7 +297,7 @@ function About() {
               custom={index}
               variants={cardVariants}
               initial="hidden"
-              animate="visible"
+              animate={!isInitialLoad ? "visible" : "hidden"}
 
               style={{
                 // UI CHANGE: backgroundColor: index % 2 === 1 ? 'rgba(74, 144, 164, 0.85)	' : 'rgba(34, 61, 79, 0.85)',
