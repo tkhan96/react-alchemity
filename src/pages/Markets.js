@@ -537,7 +537,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$1.1B',
       futureMarketSize: '$62B by 2030',
-      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies, can produce fuels such as Sustainable Aviation Fuel (SAF) at scale but require high capital and produce significant CO₂ without expensive capture systems. '
+      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies can produce fuels such as Sustainable Aviation Fuel (SAF) at scale but requires high capital and produces significant CO₂ without expensive capture systems.'
     },
     { 
       src: hydrogen, 
@@ -667,7 +667,7 @@ function Markets() {
       </div>
       <div style={sectionStyle} className={styles.sectionContainer}>
         <p style={highlightTextStyle} className={styles.highlightText}>
-          Alchemity Enables Chemical & Fuel Markets With A Single Platform Design
+          Enabling Chemical & Fuel Markets With A Single Platform Design
         </p>
         
         <h2 style={marketBreakdownTitleStyle} className={styles.marketBreakdownTitle}></h2>

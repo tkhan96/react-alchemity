@@ -907,11 +907,11 @@ function Products() {
       description: ""
     },
     1: {
-      title: "Modular skiSkid",
+      title: "Modular Skid",
       description: ""
     },
     2: {
-      title: "Liquid Fuel Tank",
+      title: "Offtake",
       description: ""
     },
     3: {

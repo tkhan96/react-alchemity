@@ -143,7 +143,7 @@ function VideoSection() {
       <div className={styles.videoOverlay}></div>
       
       <div className={styles.contentOverlay}>
-        <h2 className={styles.sectionHeading}>Revolutionizing Clean Clemical Production</h2>
+        <h2 className={styles.sectionHeading}>Revolutionizing Clean Chemical Production</h2>
         
         <p className={styles.videoDescription}>
       Transforming Greenhouse Gasses and Waste Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System
