@@ -37,6 +37,8 @@ import companal from '../components/images/companal.png';
 import SEO from '../components/SEO/SEO';
 import { seoData } from '../config/seoConfig';
 
+const isInitialLoad = window.performance && performance.now() < 1000;
+
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -124,6 +126,15 @@ const Card = styled.div`
       margin-bottom: 2rem;
     }
   }
+`;
+
+const ValuePropositionSection = styled.section`
+  background-color: #cae3eb;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 4rem 0;
+  position: relative;
 `;
 
 const RoadmapContainer = styled.div`
@@ -1272,6 +1283,7 @@ function Products() {
           </>
         )}
 
+      {/* <ValuePropositionSection> */}
         <motion.div ref={valueRef} variants={sectionVariants} initial="hidden" animate={valueInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <h2 style={{
@@ -1306,7 +1318,8 @@ function Products() {
             </div>
           </div>
         </motion.div>
-        <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView ? "visible" : "hidden"}>
+      {/* </ValuePropositionSection> */}
+        <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView && !isInitialLoad ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <h2 style={{
               fontSize: '40px',
