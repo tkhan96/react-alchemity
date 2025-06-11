@@ -15,6 +15,9 @@ import { useInView } from 'react-intersection-observer';
 import reactionanima from '../components/images/reactionanima.mov';
 import styles1 from './Technology.module.css';
 
+import SEO from '../components/SEO/SEO';
+import { seoData } from '../config/seoConfig';
+
 const responsiveModalContentStyle = {
   display: 'flex',
   gap: '2rem',
@@ -58,6 +61,10 @@ const sectionStyle = {
   margin: '0 auto',
   backgroundColor: '#000000',
   textAlign: 'left',
+  '@media (max-width: 1024px)': {
+    paddingTop: '0',
+    marginTop: '-2rem'
+  }
 };
 
 const titleStyle = {
@@ -389,16 +396,33 @@ const cardVariants = {
   })
 };
 
+const responsiveTitleStyle = {
+  ...titleStyle,
+  color: '#ffffff', 
+  fontWeight: '350', 
+  fontSize: '2.8rem', 
+  letterSpacing: '-0.02em', 
+  lineHeight: '1.2',
+  '@media (max-width: 768px)': {
+    fontSize: '2.5rem',
+  },
+  '@media (max-width: 480px)': {
+    fontSize: '2.2rem',
+  }
+};
+
 function Technology() {
   const [showModal, setShowModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isTablet, setIsTablet] = useState(window.innerWidth <= 1024);
   const heroVideoRef = useRef(null);
   const animationVideoRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth <= 1024);
     };
 
     window.addEventListener('resize', handleResize);
@@ -451,12 +475,54 @@ function Technology() {
 
   return (
     <>
-      <PageHero 
-        backgroundVideoUrl={herotech}
-        title="Technology"
-        videoRef={heroVideoRef}
-      />
+    <SEO
+        title={seoData.products.title}
+        description={seoData.products.description}
+        keywords={seoData.products.keywords}
+        image={seoData.products.image}
+        url="/products"
+    />
+
+      <div className={styles1.heroSection}>
+        <PageHero 
+          backgroundVideoUrl={herotech}
+          title="Technology"
+          videoRef={heroVideoRef}
+        />
+      </div>
       <div style={sectionStyle}>
+        {isTablet && (
+          <>
+            <h1 style={{
+              fontSize: '60px',
+              color: '#ffffff',
+              marginTop: '-1rem',
+              textAlign: 'center',
+              fontWeight: '200',
+              textShadow: '0 0 20px rgba(37, 171, 224, 0.8)'
+            }}>Technology</h1>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              margin: '2rem 0 5rem 0'
+            }}>
+              <video 
+                ref={heroVideoRef}
+                src={herotech} 
+                style={{
+                  ...videoStyle,
+                  maxWidth: '95%',
+                  height: 'auto'
+                }} 
+                muted 
+                playsInline
+                autoPlay
+              />
+            </div>
+          </>
+        )}
         <div style={{
           display: 'flex',
           flexDirection: 'row',
@@ -648,7 +714,7 @@ function Technology() {
           }}>
             <div style={{
               display: 'flex',
-              flexDirection: 'column',
+              flexDirection: isMobile ? 'column' : 'row',
               alignItems: 'center',
               gap: '1rem',
               maxWidth: '1400px',
@@ -656,33 +722,35 @@ function Technology() {
               width: '100%'
             }}>
               <div style={{
-                width: '100%',
+                width: isMobile ? '100%' : '40%',
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                flexShrink: 0,
               }}>
                 <img 
                   src={platform} 
                   alt="Platform" 
                   style={{
                     width: '100%',
-                    maxWidth: '500px',
+                    maxWidth: isMobile ? '400px' : '500px',
                     height: 'auto',
                     objectFit: 'contain',
                     borderRadius: '8px'
                   }} 
-                />
+                /> 
               </div>
               <div style={{
-                textAlign: 'center',
-                maxWidth: '1400px',
-                width: '100%'
+                width: isMobile ? '100%' : '60%',
+                textAlign: 'left',
+                // maxWidth: '1400px',
+                // width: '100%'
               }}>
                 <div style={{
                   color: '#ffffff',
                   fontSize: '1.2rem',
                   lineHeight: '1.5',
-                  marginBottom: '0.25rem',
-                  textAlign: 'center'
+                  marginBottom: '1rem',
+                  // textAlign: 'left'
                 }}>
                   Non-oxidative single-step conversion of biomethane, CO₂, and water from waste feedstocks to clean chemicals/fuels without CO₂ emissions. Schematics shows a ceramic membrane reactor (strontium cerate) filled with low-cost iron-silica catalyst inside a reactor vessel.
                 </div>
@@ -690,8 +758,8 @@ function Technology() {
                   color: '#ffffff',
                   fontSize: '1.2rem',
                   lineHeight: '1.5',
-                  marginBottom: '0.25rem',
-                  textAlign: 'center'
+                  marginBottom: '1rem',
+                  textAlign: 'left'
                 }}>
                   In this example biomethane flows through the core and sweep gas (air) circulates outside. Hydrogen is extracted in the catalyst bed and transported through the membrane to the sweep side via Le Chatelier's Principle, where it reacts with oxygen to form water and heat—enabling autothermal, energy-efficient operation.
                 </div>
@@ -699,8 +767,8 @@ function Technology() {
                   color: '#ffffff',
                   fontSize: '1.2rem',
                   lineHeight: '1.5',
-                  marginBottom: '0.25rem',
-                  textAlign: 'center'
+                  marginBottom: '1rem',
+                  textAlign: 'left'
                 }}>
                   Oxygen ions from air sweep diffuse inward to react with carbon, forming trace CO, which prevents coking and extends catalyst life and reactor durability.
                 </div>
@@ -709,7 +777,7 @@ function Technology() {
                   fontSize: '1.2rem',
                   lineHeight: '1.5',
                   marginBottom: '0.25rem',
-                  textAlign: 'center'
+                  textAlign: 'left'
                 }}>
                   Products include olefins and aromatics. System is tunable via temperature, pressure, recycles, and sweep gas to meet specific product demands.
                 </div>

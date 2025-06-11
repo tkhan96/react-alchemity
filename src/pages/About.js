@@ -20,6 +20,10 @@ import styles from '../components/PageHero.module.css';
 import styles1 from '../components/ProfileCard.module.css';
 import { PiAndroidLogoDuotone } from 'react-icons/pi';
 
+import SEO from '../components/SEO/SEO';
+import { seoData } from '../config/seoConfig';
+
+
 const founders = [
   {
     id: 2,
@@ -27,7 +31,7 @@ const founders = [
     title: 'CEO',
     blurb: '30 years as Fortune 500 Executive',
     bio: [
-      'Rodger brings expertise in building large businesses and succesful exit strategies. He successfully lead the growth of multi-billion dollar S&P 500 companies.',
+      'Rodger brings expertise in building large businesses and succesful exit strategies. He successfully led the growth of multi-billion dollar S&P 500 companies.',
       'Previous Roles:',
       'VP and Head at British Petroleum (Global Exploration, Gas to Chemicals/Liquids).',
       'Interim CEO, LG Fuel Cell Systems, Inc.',
@@ -213,6 +217,15 @@ function About() {
 
   return (
     <>
+
+      <SEO
+        title={seoData.about.title}
+        description={seoData.about.description}
+        keywords={seoData.about.keywords}
+        image={seoData.about.image}
+        url="/about"
+      />
+
       {/* <style>
         {
           @keyframes slide {
@@ -229,6 +242,7 @@ function About() {
           title="About Us"
           videoStyle={videoStyle}
           backgroundVideoUrl={aboutVideo}
+          titleStyle={{ textShadow: '0 0 20px rgba(37, 171, 224, 0.8)' }}
         />
 
         {/* <div className={styles.imagesLoopWrapper}>
