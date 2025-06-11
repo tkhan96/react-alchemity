@@ -1,6 +1,8 @@
 .heroSection {
   position: relative;
-  height: 45vh;
+  /* height: 45vh; */
+  min-height: 50vh;
+  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -108,7 +110,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -169,7 +171,7 @@
     bottom: 0 !important;
     width: 100% !important;
     height: 110% !important;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
     opacity: 1 !important;
     z-index: 5 !important;
     object-fit: cover !important;
@@ -187,9 +189,9 @@
   right: 0;
   width: 80%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 0;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%);
+  /* clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%); */
 }
 
 /* Specific style for Products page video */
@@ -225,7 +227,7 @@
 
 /* Add overlay for better text visibility on News page */
 .aboutHeroSection[data-page="news"] .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -268,7 +270,7 @@
 
 /* Add overlay for better text visibility on Careers page */
 .aboutHeroSection[data-page="careers"] .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -305,7 +307,7 @@
 
 /* Add overlay for better text visibility on Contact page */
 .aboutHeroSection[data-page="contact"] .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -363,7 +365,7 @@
   clip-path: none;
   top: 0;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 0;
 }
 
@@ -416,7 +418,7 @@
   width: 100% !important;
   max-width: none !important;
   height: 100% !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
   z-index: 5 !important;
   /* object-fit: cover !important; */
   clip-path: none !important;
