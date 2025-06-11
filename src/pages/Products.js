@@ -37,6 +37,7 @@ import companal from '../components/images/companal.png';
 import SEO from '../components/SEO/SEO';
 import { seoData } from '../config/seoConfig';
 
+// Add this single line after imports
 const isInitialLoad = window.performance && performance.now() < 1000;
 
 const CardContainer = styled.div`
@@ -1283,7 +1284,7 @@ function Products() {
           </>
         )}
 
-      {/* <ValuePropositionSection> */}
+      <ValuePropositionSection>
         <motion.div ref={valueRef} variants={sectionVariants} initial="hidden" animate={valueInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <h2 style={{
@@ -1318,8 +1319,8 @@ function Products() {
             </div>
           </div>
         </motion.div>
-      {/* </ValuePropositionSection> */}
-        <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView && !isInitialLoad ? "visible" : "hidden"}>
+      </ValuePropositionSection>
+        <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <h2 style={{
               fontSize: '40px',
