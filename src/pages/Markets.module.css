@@ -128,8 +128,7 @@
   margin-top: 4rem;
   margin-bottom: 2rem;
   position: relative;
-  padding: 0 3rem; 
-  box-sizing: border-box; 
+  padding: 0;
 }
 
 .carouselTrack {
@@ -140,7 +139,6 @@
   padding: 0;
   width: max-content;
   margin-bottom: 2rem;
-  box-sizing: border-box;
 }
 
 /* Add specific scrollbar styling */
@@ -349,21 +347,5 @@
   /* Ensure the section is properly sized for mobile */
   .aboutHeroSection[data-page="markets"] {
     height: 35vh !important; /* Smaller height on mobile */
-  }
-}
-
-@media (max-width: 768px) {
-  .carouselContainer {
-    padding: 0 1.5rem;
-  }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .carouselContainer {
-    padding: 0 2.5rem;
-  }
-}
-@media (min-width: 1200px) {
-  .carouselContainer {
-    padding: 0 5rem;
   }
 }

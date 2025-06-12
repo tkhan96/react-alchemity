@@ -1284,7 +1284,7 @@ function Products() {
           </>
         )}
 
-      <ValuePropositionSection>
+      {/* <ValuePropositionSection> */}
         <motion.div ref={valueRef} variants={sectionVariants} initial="hidden" animate={valueInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <h2 style={{
@@ -1319,7 +1319,7 @@ function Products() {
             </div>
           </div>
         </motion.div>
-      </ValuePropositionSection>
+      {/* </ValuePropositionSection> */}
         <motion.div ref={gtchemRef} variants={sectionVariants} initial="hidden" animate={gtchemInView ? "visible" : "hidden"}>
           <div className={styles.sectionContainer}>
             <h2 style={{

@@ -1,8 +1,6 @@
 .heroSection {
   position: relative;
-  /* height: 45vh; */
-  min-height: 50vh;
-  aspect-ratio: 16/9;
+  height: 45vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -35,7 +33,7 @@
   background-color: #000000;
   padding-left: 5rem;
   overflow: hidden;
-  object-fit: cover !important;
+  /* object-fit: cover !important; */
 }
 
 .aboutHeroSection .imageContainer {
@@ -60,6 +58,17 @@
 @keyframes slide {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%);
 }
 
 .imagesLoopWrapper {
@@ -183,17 +192,6 @@
   width: 65%;
 }
 
-.backgroundVideo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 0;
-  /* clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%); */
-}
-
 /* Specific style for Products page video */
 .aboutHeroSection[data-page="products"] .backgroundVideo {
   width: 55%;
@@ -212,17 +210,12 @@
 
 /* Specific style for News page video */
 .aboutHeroSection[data-page="news"] .backgroundVideo {
-  width: 100% !important; /* Force 100% width with !important */
+  width: 65%;
   clip-path: none;
-  top: 0;
-  /* left: 0;
-  right: 0; */
-  height: 100%;
-  object-fit: cover !important; /* Change from cover to fill to stretch the video */
-  position: absolute;
-  transform: scale(1.01); /* Slightly scale up to avoid any small gaps */
-  min-width: 100%; /* Ensure minimum width is full container */
-  max-width: none; /* Remove any max-width restrictions */
+  top: -20%;
+  height: 140%;
+  object-fit: cover;
+  right: 0;
 }
 
 /* Add overlay for better text visibility on News page */
@@ -233,27 +226,26 @@
 
 /* Center the title text for News page */
 .aboutHeroSection[data-page="news"] .title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  z-index: 2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-weight: 350;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 1rem !important;
+  text-align: left !important;
+  text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
+  font-weight: 350 !important;
+  color: white !important;
+  font-size: 3rem;
+  margin-left: 5% !important;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .aboutHeroSection[data-page="news"] .title {
     font-size: 3rem !important; 
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
   }
-}
+} */
 
 /* CAREERS PAGE */
 /* Specific style for Careers page video */
@@ -286,8 +278,10 @@
   margin: 0 auto;
   text-align: center;
   z-index: 2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-weight: 350;
+  text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
+  font-weight: 350 !important;
+  color: white !important;
+  font-size: 3rem;
 }
 
 
@@ -323,8 +317,10 @@
   margin: 0 auto;
   text-align: center;
   z-index: 2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-weight: 350;
+  text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
+  font-weight: 350 !important;
+  color: white !important;
+  font-size: 3rem;
 }
 
 @media (max-width: 768px) {
@@ -356,18 +352,6 @@
 }
 
 /* MARKETS PAGE - Match to Careers page styling */
-/* Specific style for Markets page video/image */
-.aboutHeroSection[data-page="markets"] .backgroundVideo {
-  width: 100vw !important;
-  max-width: none !important;
-  left: 0 !important;
-  right: 0 !important;
-  clip-path: none;
-  top: 0;
-  height: 100%;
-  object-fit: contain;
-  z-index: 0;
-}
 
 /* Add overlay for better text visibility on Markets page */
 /* .aboutHeroSection[data-page="markets"] .overlay {
@@ -391,8 +375,10 @@
   margin: 0 auto;
   text-align: center;
   z-index: 6;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-weight: 350;
+  text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
+  font-weight: 350 !important;
+  color: white !important;
+  font-size: 3rem;
 }
 
 
@@ -469,6 +455,22 @@
   max-width: 100% !important;
   margin: 0 auto !important;
   z-index: 10 !important; 
+  text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
+  font-weight: 350 !important;
+  color: white !important;
+  font-size: 3rem;
+}
+
+/* Title text for About page */
+.aboutHeroSection[data-page="products"] .title {
+  text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
+  font-weight: 350 !important;
+  color: white !important;
+  font-size: 3rem;
+}
+
+/* Title text for About page */
+.aboutHeroSection[data-page="technology"] .title {
   text-shadow: 0 0 20px rgba(37, 171, 224, 0.8);
   font-weight: 350 !important;
   color: white !important;
@@ -580,7 +582,7 @@
     font-size: 3rem !important;
   }
 
-  .aboutHeroSection[data-page="news"] .title {
+  /* .aboutHeroSection[data-page="news"] .title {
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
     text-align: center !important;
@@ -588,7 +590,7 @@
     margin: 0 auto !important; 
     padding: 0 !important;
     font-size: 3rem !important;
-  }
+  } */
 
   .imagesLoopWrapper {
     margin-top: -20%;
@@ -620,11 +622,11 @@
     font-size: 3rem; /* Match about page */
   }
 
-  .aboutHeroSection[data-page="news"] .title {
+  /* .aboutHeroSection[data-page="news"] .title {
     font-size: 3rem !important; 
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
-  }
+  } */
 
   .aboutHeroSection[data-page="careers"] .title {
     font-size: 3rem; /* Increase from default */
@@ -665,7 +667,7 @@
     padding: 0 !important;
     font-size: 3rem !important;
   }
-
+/* 
   .aboutHeroSection[data-page="news"] .title {
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
@@ -674,7 +676,7 @@
     margin: 0 auto !important; 
     padding: 0 !important;
     font-size: 3rem !important;
-  }
+  } */
 
   .aboutHeroSection[data-page="contact"] .title {
     top: 50% !important;
@@ -870,7 +872,7 @@
     font-size: 3rem !important;
   }
 
-  .aboutHeroSection[data-page="news"] .title {
+  /* .aboutHeroSection[data-page="news"] .title {
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
     text-align: center !important;
@@ -878,7 +880,7 @@
     margin: 0 auto !important; 
     padding: 0 !important;
     font-size: 3rem !important;
-  }
+  } */
 
   .aboutHeroSection[data-page="contact"] .title {
     top: 50% !important;
