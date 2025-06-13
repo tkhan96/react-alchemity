@@ -327,12 +327,51 @@
 
 @media (max-width: 768px) {
   .aboutHeroSection[data-page="contact"] .title {
-    font-size: 3rem; /* Increase from default */
+    font-size: 3rem;
   }
 }
 
+/* Responsive styles for Contact page below 1024px */
+@media (max-width: 1023px) {
+  .aboutHeroSection[data-page="contact"] {
+    display: flex;
+    height: 45vh;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+  }
 
+  .aboutHeroSection[data-page="contact"] .backgroundVideo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    object-fit: cover;
+    clip-path: none;
+  }
 
+  .aboutHeroSection[data-page="contact"] .overlay {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .aboutHeroSection[data-page="contact"] .title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+    font-size: 3rem;
+    font-weight: 350;
+  }
+}
 
 /* Specific style for Technology page video */
 .aboutHeroSection[data-page="technology"] .backgroundVideo {
