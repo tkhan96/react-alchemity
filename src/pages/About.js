@@ -267,9 +267,13 @@ function About() {
         />
       )}
       </div>
-      <div style={{ padding: 'var(--section-padding)', backgroundColor: '#000000', maxWidth: '1200px', width: '100%', margin: '0 auto',
-        }}>
-        <h2 style={{...titleStyle, marginTop: '0', textShadow: '0 0 8px rgba(94, 197, 234, 0.3)'}}>Founders</h2>
+      <div style={{ 
+        backgroundColor: '#000000', 
+        maxWidth: '1200px', 
+        width: '100%', 
+        margin: '0 auto'
+      }}>
+        <h2 style={{...titleStyle, marginTop: '2rem', textShadow: '0 0 8px rgba(94, 197, 234, 0.3)'}}>Founders</h2>
         <div style={founderGridStyle} className={styles1.foundersWrapper}>
           {founders.map((founder, index) => (
             <motion.div

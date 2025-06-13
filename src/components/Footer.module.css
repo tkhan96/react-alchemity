@@ -5,6 +5,7 @@
   text-align: center;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
+  margin-top: 3rem;
 }
 
 .footer:hover {
@@ -135,4 +136,9 @@
     /* padding: 0.5rem 1rem; */
     /* text-decoration: none;
   } */
+}
+
+/* Add margin-top for footer on About Us page */
+[data-page="about"] .Footer_footer__EwVYi {
+  margin-top: 4rem;
 }

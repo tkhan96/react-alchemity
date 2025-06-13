@@ -353,11 +353,17 @@
     justify-items: center !important;
     margin: 0 auto !important;
     width: 100% !important;
+    grid-template-columns: 1fr !important;
   }
   
   .foundersWrapper > div {
     width: 100% !important;
     max-width: 350px !important;
     margin: 0 auto !important;
+  }
+
+  /* Ensure advisor cards stack vertically */
+  .foundersWrapper.advisorWrapper {
+    grid-template-columns: 1fr !important;
   }
 }
