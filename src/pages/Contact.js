@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactForm from '../components/ContactForm1';
 import styles from './Contact.module.css';
 import PageHero from '../components/PageHero';
+import ContactHero from '../components/ContactHero';
 import contactBg from '../components/images/contact-us-bg-2.jpg';
 import contactVideo from '../components/images/contact.mov';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+import SEO from '../components/SEO/SEO';
+import { seoData } from '../config/seoConfig';
+
 function Contact() {
   const linkedInUrl = 'https://www.linkedin.com/company/alchemity/';
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+
+  // Handle window resize for responsive hero section
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const linkedinButtonStyle = {
     backgroundColor: '#25abe0',
@@ -32,10 +47,22 @@ function Contact() {
 
   return (
     <>
-      <PageHero 
-        backgroundVideoUrl={contactVideo}
-        title="Contact Us"
+      <SEO
+        title={seoData.careers.title}
+        description={seoData.careers.description}
+        keywords={seoData.careers.keywords}
+        image={seoData.careers.image}
+        url="/contact"
       />
+
+      {isLargeScreen ? (
+        <ContactHero />
+      ) : (
+        <PageHero 
+          backgroundVideoUrl={contactVideo}
+          title="Contact Us"
+        />
+      )}
       <div className={styles.contactPage}>
         <div className={styles.contentWrapper}>
           <div className={styles.contactInfo}>
@@ -44,7 +71,7 @@ function Contact() {
               color: '#25abe0',
               fontWeight: '500'
             }}>
-              Contact Us
+              We would love to hear from you! 
             </h2>
             <p style={{ 
               color: '#ffffff',
@@ -53,7 +80,9 @@ function Contact() {
               marginBottom: '1.5rem',
               maxWidth: '800px'
             }}>
-              Interested to invest? <br/> Have questions about pre-ordering our system or a general inquiry about our technology, products or interested in learning more? <br/> We would love to hear from you.
+              Interested to invest? <br/> 
+              Have questions about pre-ordering our system or a general inquiry about our technology, products or interested in learning more? <br/> 
+              Fill out the form below. 
             </p>
 
             <div className={styles.infoBlock}>
@@ -104,8 +133,9 @@ function Contact() {
           <div className={styles.formWrapper}>
              <ContactForm isCareers={false} />
           </div>
+          </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './ProblemOpportunitySection.module.css';
-import problemVideo from './images/prob_and_opp.mp4';
+import problemVideo from './images/prob_and_opp.mov';
 
 const ProblemOpportunitySection = () => {
   const [ref, inView] = useInView({
@@ -51,7 +51,7 @@ const ProblemOpportunitySection = () => {
               Chemical industry is a $6 trillion market emitting 6 giga-tons of CO<sub>2</sub> annually.
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
-            2 giga-tons tons of municipal solid waste is generated worldwide annually, projected to double by 2050.
+              2 giga-tons tons of municipal solid waste is generated worldwide annually, projected to double by 2050.
             </motion.p>
             <motion.p className={styles.text} variants={itemVariants}>
             

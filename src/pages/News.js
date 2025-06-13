@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
+import NewsHero from '../components/NewsHero';
 import NewsArticle from '../components/NewsArticle';
 import productVideo from '../components/images/product.mov';
 import newsImage1 from '../components/images/1.jpeg';
@@ -12,6 +13,10 @@ import newsImage6 from '../components/images/6.webp';
 import newsImage7 from '../components/images/7.jpg';
 import tedco from '../components/images/tedco.png';
 import mbia from '../components/images/mbia.png';
+import styles from './News.module.css';
+
+import SEO from '../components/SEO/SEO';
+import { seoData } from '../config/seoConfig';
 
 const sectionStyle = {
   padding: '0 0 calc(var(--section-padding) + 4rem) 0',
@@ -19,6 +24,7 @@ const sectionStyle = {
   backgroundColor: '#000000',
   textAlign: 'left',
   maxWidth: '100%',
+  maxWidth: '1200px',
 };
 
 const titleStyle = {
@@ -45,7 +51,16 @@ const articlesGridStyle = {
   gap: '2rem',
   padding: '0 2rem',
   maxWidth: '1800px',
-  margin: '-1rem auto 4rem'
+  margin: '-1rem auto 4rem',
+  '@media (max-width: 1200px)': {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '1.5rem',
+  },
+  '@media (max-width: 768px)': {
+    gridTemplateColumns: '1fr',
+    gap: '1.5rem',
+    padding: '0 1rem',
+  }
 };
 
 const articleVariants = {
@@ -107,13 +122,39 @@ const newsArticles = [
 ];
 
 function News() {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+
+  // Handle window resize for responsive hero section
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
-      <PageHero 
-        backgroundVideoUrl={productVideo}
-        title="News"
-        videoStyle={videoStyle}
+      <SEO
+        title={seoData.news.title}
+        description={seoData.news.description}
+        keywords={seoData.news.keywords}
+        image={seoData.news.image}
+        url="/news"
       />
+
+      {isLargeScreen ? (
+        <NewsHero />
+      ) : (
+        <PageHero 
+          backgroundVideoUrl={productVideo}
+          title="News"
+          videoStyle={videoStyle}
+          titleStyle={{ textShadow: '0 0 20px rgba(37, 171, 224, 0.8)' }}
+        />
+      )}
+      
       <div style={sectionStyle}>
         <motion.h2 
           style={titleStyle}
@@ -122,7 +163,7 @@ function News() {
           transition={{ duration: 0.6 }}
         >
         </motion.h2>
-        <div style={articlesGridStyle}>
+        <div className={styles.articlesGrid}>
           {newsArticles.map((article, index) => (
             <motion.div
               key={index}

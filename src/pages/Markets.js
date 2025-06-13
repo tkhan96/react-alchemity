@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import PageHero from '../components/PageHero';
+import MarketsHero from '../components/MarketsHero';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
 import styles from './Markets.module.css';
@@ -16,6 +17,22 @@ import ethylene from '../components/images/ethylene.png';
 import ethane from '../components/images/ethane.png';
 import syngas from '../components/images/syngas.png';
 import benzene from '../components/images/benzene.png';
+
+import marketsVideo from '../components/images/markets_video.mov';
+
+import SEO from '../components/SEO/SEO';
+import { seoData } from '../config/seoConfig';
+
+
+const videoStyle = {
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  zIndex: 0
+}
 
 const sectionStyle = {
   padding: 'var(--section-padding)',
@@ -90,6 +107,8 @@ const cardTextStyle = {
 
 const carouselContainerStyle = {
   width: '100%',
+  maxWidth: '1200px',
+  margin: '0 auto',
   overflowX: 'auto',
   marginTop: '4rem',
   position: 'relative',
@@ -508,10 +527,13 @@ function Markets() {
   const [selectedMarket, setSelectedMarket] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const carouselRef = useRef(null);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      setIsLargeScreen(window.innerWidth > 1024);
     };
 
     window.addEventListener('resize', handleResize);
@@ -537,7 +559,7 @@ function Markets() {
       isFirstMarket: true,
       marketSize: '$1.1B',
       futureMarketSize: '$62B by 2030',
-      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies can produce fuels such as Sustainable Aviation Fuel (SAF) at scale but requires high capital and produces significant CO₂ without expensive capture systems.'
+      description: 'Conventional Gas-to-Liquids (GTL) and Fischer-Tropsch technologies can produce fuels such as Sustainable Aviation Fuel (SAF) at scale but requires high capital and produces significant CO₂ without expensive capture systems. '
     },
     { 
       src: hydrogen, 
@@ -627,43 +649,43 @@ function Markets() {
     }
   };
 
+  const handleResize = () => {
+    if (carouselRef.current) {
+      const containerWidth = carouselRef.current.offsetWidth;
+      const imageWidth = 300; // Width of one image
+      const gap = 24; // Gap between images
+      const itemWidth = imageWidth + gap;
+      const visibleItems = Math.floor(containerWidth / itemWidth);
+      setCurrentIndex(prev => Math.min(prev, images.length - visibleItems));
+    }
+  };
+
   return (
+    <>
+    <SEO
+        title={seoData.markets.title}
+        description={seoData.markets.description}
+        keywords={seoData.markets.keywords}
+        image={seoData.markets.image}
+        url="/markets"
+    />
+
     <div className={styles.responsiveContainer}>
       <style>{heroKeyframes}</style>
       <style>{keyframes}</style>
       <style>{scrollbarStyles}</style>
       <style>{additionalStyles}</style>
       <div style={{ position: 'relative' }}>
-        <PageHero 
-          title="Markets"
-          style={{ marginTop: '-300px' }}
-        />
-        <div style={heroCarouselStyle} className={styles.heroCarouselContainer}>
-          <div style={heroCarouselTrackStyle}>
-            {heroImages.map((item, index) => (
-              <div key={index} style={heroImageContainerStyle}>
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  style={heroCarouselImageStyle}
-                  className={styles.heroImage}
-                />
-                <p style={heroImageTitleStyle} className={styles.heroImageTitle}>{item.title}</p>
-              </div>
-            ))}
-            {heroImages.map((item, index) => (
-              <div key={`duplicate-${index}`} style={heroImageContainerStyle}>
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  style={heroCarouselImageStyle}
-                  className={styles.heroImage}
-                />
-                <p style={heroImageTitleStyle} className={styles.heroImageTitle}>{item.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {isLargeScreen ? (
+          <MarketsHero />
+        ) : (
+          <PageHero 
+            title="Markets"
+            style={{ marginTop: '-300px' }}
+            videoStyle={videoStyle}
+            backgroundVideoUrl={marketsVideo}
+          />
+        )}
       </div>
       <div style={sectionStyle} className={styles.sectionContainer}>
         <p style={highlightTextStyle} className={styles.highlightText}>
@@ -795,6 +817,7 @@ function Markets() {
         </div>
       </Modal>
     </div>
+    </>
   );
 }
 

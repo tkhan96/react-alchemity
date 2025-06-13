@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactForm from '../components/ContactForm';
 import styles from './Contact.module.css';
 import careersStyles from './Careers.module.css';
 import PageHero from '../components/PageHero';
+import CareersHero from '../components/CareersHero';
 import careersVideo from '../components/images/careers.mov';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
+import SEO from '../components/SEO/SEO';
+import { seoData } from '../config/seoConfig';
 
 const ContactButton = styled.button`
   display: inline-flex;
@@ -57,12 +61,48 @@ const ContactButton = styled.button`
 `;
 
 function Careers() {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const videoStyle = {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    zIndex: 0
+  };
+
   return (
     <>
-      <PageHero 
-        backgroundVideoUrl={careersVideo}
-        title="Careers"
+      <SEO
+        title={seoData.careers.title}
+        description={seoData.careers.description}
+        keywords={seoData.careers.keywords}
+        image={seoData.careers.image}
+        url="/careers"
       />
+      <div style={{ position: 'relative' }}>
+        {isLargeScreen ? (
+          <CareersHero />
+        ) : (
+          <PageHero 
+            title="Careers"
+            style={{ marginTop: '-300px' }}
+            videoStyle={videoStyle}
+            backgroundVideoUrl={careersVideo}
+          />
+        )}
+      </div>
       <div className={styles.contactPage}>
         <div className={styles.contentWrapper}>
           <div className={styles.contactInfo}>
@@ -88,8 +128,6 @@ function Careers() {
           </div>
         </div>
       </div>
-
-    
     </>
   );
 }

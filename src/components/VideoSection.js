@@ -8,6 +8,7 @@ function VideoSection() {
   const videoRef = useRef(null);
   const [videoPoster, setVideoPoster] = useState('');
   const [activePhrase, setActivePhrase] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
   const keyPhrases = [
     "One Platform", 
@@ -16,6 +17,20 @@ function VideoSection() {
     "Lower Cost", 
     "Higher Efficiency"
   ];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    // Preload video immediately
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -125,6 +140,57 @@ function VideoSection() {
     }
   ];
 
+  const getButtonStyle = () => {
+    const baseStyle = {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '0.8rem',
+      padding: '0.8rem 1rem',
+      backgroundColor: '#25abe0',
+      color: 'white',
+      fontWeight: '600',
+      textDecoration: 'none',
+      borderRadius: '50px',
+      boxShadow: '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)',
+      transition: 'all 0.3s ease',
+      position: 'relative',
+      overflow: 'hidden',
+      border: '2px solid transparent',
+      cursor: 'pointer',
+    };
+
+    if (windowWidth <= 480) {
+      return {
+        ...baseStyle,
+        fontSize: '1rem',
+        width: '180px',
+        height: '40px',
+      };
+    } else if (windowWidth <= 768) {
+      return {
+        ...baseStyle,
+        fontSize: '1.1rem',
+        width: '200px',
+        height: '45px',
+      };
+    } else if (windowWidth <= 1150) {
+      return {
+        ...baseStyle,
+        fontSize: '1.2rem',
+        width: '220px',
+        height: '48px',
+      };
+    }
+
+    return {
+      ...baseStyle,
+      fontSize: '1.4rem',
+      width: '250px',
+      height: '50px',
+    };
+  };
+
   return (
     <section className={styles.videoSection}>
       <video 
@@ -132,9 +198,10 @@ function VideoSection() {
         muted 
         loop 
         playsInline
-        className={styles.styledVideo}
+        className={styles.styledVideo} 
         ref={videoRef}
         poster={videoPoster}
+        preload="metadata"
       >
         <source src={videoFile} type="video/mp4" />
         Your browser does not support the video tag.
@@ -146,39 +213,20 @@ function VideoSection() {
         <h2 className={styles.sectionHeading}>Revolutionizing Clean Chemical Production</h2>
         
         <p className={styles.videoDescription}>
-      Transforming Greenhouse Gasses and Waste Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System
+          Transforming Greenhouse Gasses and Waste Resources into Valuable Chemicals and Fuels with Modular Turn-Key Reactor System
         </p>
 
         <div style={{
           display: 'flex',
-          gap: '2rem',
+          gap: windowWidth <= 480 ? '1rem' : '2rem',
           justifyContent: 'center',
           width: '100%',
-          marginBottom: '2rem'
+          marginBottom: windowWidth <= 480 ? '1.5rem' : '2rem',
+          flexWrap: windowWidth <= 480 ? 'wrap' : 'nowrap'
         }}>
           <Link 
             to="/contact"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.8rem',
-              padding: '0.8rem 1rem',
-              backgroundColor: '#25abe0',
-              color: 'white',
-              fontSize: '1.4rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              borderRadius: '50px',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              overflow: 'hidden',
-              border: '2px solid transparent',
-              cursor: 'pointer',
-              width: '250px',
-              height: '50px'
-            }}
+            style={getButtonStyle()}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = '#0077b5';
               e.target.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(37, 171, 224, 0.6)';
@@ -200,27 +248,7 @@ function VideoSection() {
           </Link>
           <Link 
             to="/contact"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.8rem',
-              padding: '0.8rem 1rem',
-              backgroundColor: '#25abe0',
-              color: 'white',
-              fontSize: '1.4rem',
-              fontWeight: '600',
-              textDecoration: 'none',
-              borderRadius: '50px',
-              boxShadow: '0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(37, 171, 224, 0.5)',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              overflow: 'hidden',
-              border: '2px solid transparent',
-              cursor: 'pointer',
-              width: '250px',
-              height: '50px'
-            }}
+            style={getButtonStyle()}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = '#0077b5';
               e.target.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(37, 171, 224, 0.6)';
@@ -261,15 +289,14 @@ function VideoSection() {
           <div className={styles.mission}>
             <h2 className={styles.cardTitle}>Our Mission</h2>
             <p className={styles.cardText}>
-              {emphasizeText("Supply customers with carbon-neutral chemicals & fuels.")}
+              Supply customers with carbon-neutral chemicals & fuels.
             </p>
           </div>
           
           <div className={styles.vision}>
             <h2 className={styles.cardTitle}>Our Vision</h2>
             <p className={styles.cardText}>
-              {emphasizeText("Accelerate global transition to low-cost clean chemicals & fuels.")}
-            
+              Accelerate global transition to low-cost clean chemicals & fuels.
             </p>
           </div>
         </div>
@@ -278,4 +305,4 @@ function VideoSection() {
   );
 }
 
-export default VideoSection; 
+export default VideoSection;
